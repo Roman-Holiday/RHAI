@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Context Name="RhCtx">
+	<!--Container ID="RhContentContainer" Size="96,27" Anchor="R,T" Offset="0,0"--> <!-- Container Currently Doesn't work -->
+	
+	<Instance Name="RHVersionInst">
+    	<GridButton ID="RHVersionBtn" Style="RoundedButton" String="LOC_RH_AI_VERSION" Size="105,27"/> <!-- pvs 120, 27 -->
+	</Instance>
+	
+	<!--/Container-->
+	
+	
+	
+
+	
+	
+		<!--Container ID="RHLaunchBarBtnCont" Size="105,28" Anchor="R,T" Offset="0,0" ConsumeMouse="1">
+			<Button ID="RHLaunchBarBtn" Size="100,27" Anchor="C,C" Texture="TopBarRHButton.dds" ToolTip="LOC_RH_BTN_TT" ConsumeMouse="1">
+				<Label Offset="3,8" Style="TopBarMeta" String="LOC_RH_BTN" />
+			</Button>
+		</Container-->
+	
+	
+	
+
+	
+	<!-- pvs 140, 27 -->
+		
+		
+		<!-- Button on the top panel  -->
+		<!--Container ID="RHLaunchBarBtnCont" Size="48,auto" Anchor="R,T" Offset="0,0" ConsumeMouse="0">
+			<Button ID="RHLaunchBarBtn" Size="29,29" Anchor="C,C" Texture="TopBar_CivilopediaButton" ToolTip="LOC_RH_AI_VERSION" ConsumeMouse="0">
+				<Label Offset="3,8" Style="TopBarMeta" String="LOC_RH_AI_VERSION" />
+			</Button>
+		</Container-->
+
+	
+
+
+
+
+</Context>
+

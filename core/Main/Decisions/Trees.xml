@@ -1,0 +1,1195 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Behavior Tree Improvements -->
+
+<!--
+Big Credit for 2 Behavior Tree Reworks / Important Tweaks: Simple City Defence and Naval Superiority to INFIXO for these excellent Trees and espically for making them considering the lack of tools. Also thanks for helping me understand how they work by providing good documentation
+-->
+
+<GameInfo>
+
+	<!-- Simple Operation Attack Slight Adjustments -->
+	
+<!--TreeData>
+	<!--Row DefnId="2" NodeId="7" TreeName="Simple Operation Attack" DefaultData="14" /--> <!-- Recruitment, no default range at the start pvs 11 --> 
+	
+	<!--Update>
+		<Where DefnId="2" NodeId="7" TreeName="Simple Operation Attack" /> <!-- contract manager, turn limit def 5 -->
+		<!--Set DefaultData="6" />
+	</Update-->
+	
+<!--/TreeData-->
+			
+
+
+<!-- Siege City Assault Tree Improvements -->
+<BehaviorTreeNodes>
+
+
+    <Delete TreeName="Siege City Assault" />
+
+  <Row NodeType="Concurrent" NodeId="0" TreeName="Siege City Assault" JumpTo="87" />
+    <Row NodeType="Decode Trigger" NodeId="1" TreeName="Siege City Assault" />
+	
+    <Row NodeType="Priority" NodeId="2" TreeName="Siege City Assault" JumpTo="5" />
+	
+		<Row NodeType="Operation Launch nuke" NodeId="63" TreeName="Siege City Assault" />
+		<Row NodeType="Can Alpha City" NodeId="3" TreeName="Siege City Assault" />
+		<Row NodeType="Operation Defend Units" NodeId="4" TreeName="Siege City Assault" />
+		
+    <Row NodeType="Operation Change Target" NodeId="5" TreeName="Siege City Assault" />
+	
+    <Row NodeType="Sequence" NodeId="6" TreeName="Siege City Assault" JumpTo="87" />
+	
+    <Row NodeType="Concurrent" NodeId="7" TreeName="Siege City Assault" JumpTo="16" /> <!-- Jumps to lock units -->
+	
+		<Row NodeType="Priority" NodeId="8" TreeName="Siege City Assault" JumpTo="12" /> <!-- Jp Attack Units -->
+	
+			<Row NodeType="Operation Is Ready" NodeId="9" TreeName="Siege City Assault" />
+	
+			<Row NodeType="Contract Manager Decorator" NodeId="10" TreeName="Siege City Assault" JumpTo="12" />
+				<Row NodeType="Recruit Units" NodeId="11" TreeName="Siege City Assault" />
+	
+		<Row NodeType="Operation Attack Units" NodeId="12" TreeName="Siege City Assault" />	
+		<Row NodeType="Make Formation" NodeId="13" TreeName="Siege City Assault" />
+		<Row NodeType="Make Formation" NodeId="14" TreeName="Siege City Assault" />
+		<Row NodeType="Operation Move" NodeId="15" TreeName="Siege City Assault" />
+		
+    <Row NodeType="Lock Units" NodeId="16" TreeName="Siege City Assault" />
+	<Row NodeType="Operation Diplomacy" NodeId="17" TreeName="Siege City Assault" />
+	
+    <Row NodeType="Turn Limiter" NodeId="18" TreeName="Siege City Assault" JumpTo="30" /> <!-- Jumps to Concurrent -->
+		
+		<Row NodeType="Priority" NodeId="19" TreeName="Siege City Assault" JumpTo="30" /> <!-- Jumps to Next Concurrent -->
+		
+			<Row NodeType="Is At War" NodeId="20" TreeName="Siege City Assault" />
+			<Row NodeType="Concurrent" NodeId="21" TreeName="Siege City Assault" JumpTo="30" /> <!-- Jumps Concurrent -->
+		
+				<Row NodeType="Operation Change Target" NodeId="22" TreeName="Siege City Assault" />
+				<Row NodeType="Recruit Units" NodeId="23" TreeName="Siege City Assault" />
+				<Row NodeType="Build Military Improvement" NodeId="24" TreeName="Siege City Assault" />
+				    
+				<Row NodeType="Priority" NodeId="25" TreeName="Siege City Assault" JumpTo="28" /> <!-- JP pillage -->
+	
+						<Row NodeType="Can Alpha City" NodeId="26" TreeName="Siege City Assault" />
+						<Row NodeType="Operation Defend Units" NodeId="27" TreeName="Siege City Assault" />
+						
+				<Row NodeType="Operation Pillage" NodeId="28" TreeName="Siege City Assault" />
+
+				<Row NodeType="Operation Move" NodeId="29" TreeName="Siege City Assault" />
+	
+    <Row NodeType="Concurrent" NodeId="30" TreeName="Siege City Assault" JumpTo="37" /> <!-- Jumps to 3/3 turn limiter -->
+	
+		<Row NodeType="Turn Limiter" NodeId="31" TreeName="Siege City Assault" JumpTo="34" /> <!-- 1 turn Jumps to attack units -->
+		
+			<Row NodeType="Contract Manager Decorator" NodeId="32" TreeName="Siege City Assault" JumpTo="34" />
+				<Row NodeType="Operation Diplomacy" NodeId="33" TreeName="Siege City Assault" /> <!-- Declares War -->
+			
+		<Row NodeType="Operation Attack Units" NodeId="34" TreeName="Siege City Assault" />
+
+	
+		<Row NodeType="Turn Limiter" NodeId="35" TreeName="Siege City Assault" JumpTo="37" /> <!-- 1 turn Jumps to next Turn Limiter 34 1 turn limit -->
+		
+			<Row NodeType="Operation Move" NodeId="36" TreeName="Siege City Assault" /> <!-- Only 1 turn -->
+	
+    <Row NodeType="Turn Limiter" NodeId="37" TreeName="Siege City Assault" JumpTo="58" /> <!-- 9 turns Jumps to concurrent -->
+
+	<!-- Attack -->
+	
+	
+	<Row NodeType="Concurrent" NodeId="58" TreeName="Siege City Assault" JumpTo="75" />
+			
+			<Row NodeType="Operation Change Target" NodeId="59" TreeName="Siege City Assault" />
+			<Row NodeType="Recruit Units" NodeId="60" TreeName="Siege City Assault" />
+		
+			<Row NodeType="Priority" NodeId="62" TreeName="Siege City Assault" JumpTo="65" />
+	
+				<Row NodeType="Operation Launch nuke" NodeId="63" TreeName="Siege City Assault" />
+				<Row NodeType="Operation Attack City" NodeId="68" TreeName="Siege City Assault" />
+				<Row NodeType="Operation Attack Units" NodeId="68" TreeName="Siege City Assault" />
+				
+			<Row NodeType="Operation Air Assault" NodeId="61" TreeName="Siege City Assault" />
+			
+			<!-- City Attack Decision -->
+			<Row NodeType="Priority" NodeId="65" TreeName="Siege City Assault" JumpTo="69" /> <!-- Jumps to attack units -->
+		
+					<Row NodeType="Not" NodeId="66" TreeName="Siege City Assault" JumpTo="68" /> <!-- Jumps to attack city, Decorator that turns SUCCESS and RUNNING to FAILURE and vice versa. Does not reverse ERROR-->
+				
+							<Row NodeType="Can Alpha City" NodeId="67" TreeName="Siege City Assault" /> <!-- For shortcutting a city attack. Check if you can do 50%+ garrison damage or defense units are worth ignoring.-->
+					<Row NodeType="Operation Attack City" NodeId="68" TreeName="Siege City Assault" />
+				
+			<Row NodeType="Operation Attack Units" NodeId="69" TreeName="Siege City Assault" />
+
+			<Row NodeType="Operation Pillage" NodeId="71" TreeName="Siege City Assault" />
+			<Row NodeType="Operation Move" NodeId="72" TreeName="Siege City Assault" />
+			<Row NodeType="Operation Siege City" NodeId="74" TreeName="Siege City Assault" />
+		
+	<Row NodeType="Concurrent" NodeId="75" TreeName="Siege City Assault" JumpTo="87" />
+		
+			<Row NodeType="Operation Change Target" NodeId="76" TreeName="Siege City Assault" />
+			<Row NodeType="Recruit Units" NodeId="77" TreeName="Siege City Assault" />
+			<Row NodeType="Operation Air Assault" NodeId="61" TreeName="Siege City Assault" />
+
+			<!-- City Attack Decision -->
+			<Row NodeType="Priority" NodeId="79" TreeName="Siege City Assault" JumpTo="83" /> <!-- Jumps to attack units -->
+		
+					<Row NodeType="Not" NodeId="80" TreeName="Siege City Assault" JumpTo="82" /> <!-- Jumps to attack city, Decorator that turns SUCCESS and RUNNING to FAILURE and vice versa. Does not reverse ERROR-->
+				
+							<Row NodeType="Can Alpha City" NodeId="81" TreeName="Siege City Assault" />
+					<Row NodeType="Operation Attack City" NodeId="82" TreeName="Siege City Assault" />
+			
+			<Row NodeType="Operation Attack Units" NodeId="83" TreeName="Siege City Assault" />
+
+			<Row NodeType="Operation Pillage" NodeId="85" TreeName="Siege City Assault" />
+			<Row NodeType="Operation Move" NodeId="86" TreeName="Siege City Assault" />
+
+</BehaviorTreeNodes>
+
+
+<!-- Siege City Assault Data Adjustments -->
+<TreeData>
+
+
+	<!-- 0. Concurrent -->
+
+  <!-- Decode Trigger -->
+    <Row DefnId="0" NodeId="1" TreeName="Siege City Assault LG" Tag="Unused" />
+    <Row DefnId="1" NodeId="1" TreeName="Siege City Assault LG" />
+    <Row DefnId="2" NodeId="1" TreeName="Siege City Assault LG" />
+    <Row DefnId="3" NodeId="1" TreeName="Siege City Assault LG" />
+    <Row DefnId="4" NodeId="1" TreeName="Siege City Assault LG" />
+    <Row DefnId="5" NodeId="1" TreeName="Siege City Assault LG" />
+    <Row DefnId="6" NodeId="1" TreeName="Siege City Assault LG" />
+    <Row DefnId="7" NodeId="1" TreeName="Siege City Assault LG" />
+    <Row DefnId="8" NodeId="1" TreeName="Siege City Assault LG" Tag="Present Value" />
+	
+	<!-- 2. Prio -->
+	<!-- 3. Alpha -->
+	
+	<!-- Operation Defend Units -->
+    <Row DefnId="0" NodeId="4" TreeName="Siege City Assault LG" DefaultData="50" /> <!-- Def 66, pvs 55-->
+	
+	<!-- Operation Change Target -->
+    <Row DefnId="0" NodeId="5" TreeName="Siege City Assault LG" DefaultData="-100" />
+    <Row DefnId="1" NodeId="5" TreeName="Siege City Assault LG" DefaultData="-100" />
+	
+	<!-- 6. Sequence JumpTo="60" -->
+	
+	<!-- 7. Concurrent JumpTo="16" -->
+	
+	<!-- 8. Row NodeType="Priority" NodeId="8" JumpTo="12" /-->
+	
+	<!-- 9. Row NodeType="Operation Is Ready" NodeId="8" /-->
+	
+	<!-- 10. Contract Manager Decorator -->
+	
+    <Row DefnId="0" NodeId="10" TreeName="Siege City Assault LG" Tag="Initial recruits" />
+    <Row DefnId="1" NodeId="10" TreeName="Siege City Assault LG" />
+    <Row DefnId="2" NodeId="10" TreeName="Siege City Assault LG" DefaultData="9" /> <!-- Def 10, pvs 9, 10, 8-->
+    <Row DefnId="3" NodeId="10" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- def false, Block while running-->
+	
+		<!-- Recruit Units -->
+		<Row DefnId="0" NodeId="11" TreeName="Siege City Assault LG" DefaultData="false" /> 
+		<Row DefnId="1" NodeId="11" TreeName="Siege City Assault LG" Tag="Initial recruits" /> <!-- DefaultData="100" -->
+		<Row DefnId="2" NodeId="11" TreeName="Siege City Assault LG" DefaultData="-1"  /> <!-- Range, pvs 16, 18 -->
+		<Row DefnId="3" NodeId="11" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Creation - ? -->
+		<Row DefnId="4" NodeId="11" TreeName="Siege City Assault LG" Tag="Present Value" />
+		
+		<Row DefnId="5" NodeId="11" TreeName="Siege City Assault LG" DefaultData="9" /> <!-- Def 10, testing 9, 8-->
+		<Row DefnId="6" NodeId="11" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- testing on, bool: Allow Stealing EXPERIMENTAL!-->
+		<!--Row DefnId="7" NodeId="11" TreeName="Siege City Assault LG" DefaultData="true" /--> <!-- too early, bool: Allow Levying for City Attack -->
+
+	<!-- Operation Attack Units -->
+    <Row DefnId="0" NodeId="12" TreeName="Siege City Assault LG" DefaultData="false" />
+    <Row DefnId="1" NodeId="12" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- false as too early -->
+    <Row DefnId="2" NodeId="12" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- test -->
+    <!--Row DefnId="3" NodeId="12" TreeName="Siege City Assault LG" DefaultData="false" /--> <!-- Always running --> <!-- test -->
+    <Row DefnId="4" NodeId="12" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- test, pvs true -->
+
+
+	<!-- Make Formation -->
+	
+	<!--Row DefnId="0" NodeId="13" TreeName="Siege City Assault LG" DefaultData="true" /--> <!-- 0, Destroy Formations -->
+    <Row DefnId="1" NodeId="13" TreeName="Siege City Assault LG" DefaultData="UNITTYPE_MELEE" />
+    <Row DefnId="2" NodeId="13" TreeName="Siege City Assault LG" DefaultData="UNITAI_LEADER" /> <!-- testing bringing back DefaultData="UNITAI_LEADER" Testing instead of UNITTYPE_CIVILIAN_LEADER -->
+    <Row DefnId="3" NodeId="13" TreeName="Siege City Assault LG" DefaultData="UNITTYPE_SIEGE_SUPPORT" />
+    <Row DefnId="4" NodeId="13" TreeName="Siege City Assault LG" />
+	
+	<!-- Make Formation 2. New Bombard Support -->
+	
+	<!--Row DefnId="0" NodeId="14" TreeName="Siege City Assault LG" DefaultData="true" /--> <!-- 0, Destroy Formations -->
+    <Row DefnId="1" NodeId="14" TreeName="Siege City Assault LG" DefaultData="UNITTYPE_BOMBARD" /> <!-- testing siege instead of bombarb-->
+    <Row DefnId="2" NodeId="14" TreeName="Siege City Assault LG" DefaultData="UNITAI_LEADER" /> <!-- Civilian -->
+    <Row DefnId="3" NodeId="14" TreeName="Siege City Assault LG" DefaultData="UNITTYPE_BOMBARD_SUPPORT" />
+    <Row DefnId="4" NodeId="14" TreeName="Siege City Assault LG" /> <!-- Naval -->
+	
+	
+	<!-- Move -->
+    <Row DefnId="0" NodeId="15" TreeName="Siege City Assault LG" DefaultData="0" />
+    <Row DefnId="1" NodeId="15" TreeName="Siege City Assault LG" DefaultData="2" />
+    <Row DefnId="2" NodeId="15" TreeName="Siege City Assault LG" DefaultData="true" />
+    <Row DefnId="3" NodeId="15" TreeName="Siege City Assault LG" DefaultData="2" />
+	
+	<!-- Lock -->
+    <Row DefnId="0" NodeId="16" TreeName="Siege City Assault LG" DefaultData="true" />
+    <Row DefnId="1" NodeId="16" TreeName="Siege City Assault LG" DefaultData="true" />
+	
+	<!-- Diplo -->
+    <Row DefnId="0" NodeId="17" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Desires Denouncement -->
+    <Row DefnId="1" NodeId="17" TreeName="Siege City Assault LG" />
+    <Row DefnId="2" NodeId="17" TreeName="Siege City Assault LG" />
+    <Row DefnId="3" NodeId="17" TreeName="Siege City Assault LG" />
+    <Row DefnId="4" NodeId="17" TreeName="Siege City Assault LG" Tag="Present Value" />
+	
+	<!-- Turn Limiter -->
+    <Row DefnId="0" NodeId="18" TreeName="Siege City Assault LG" DefaultData="10" /> <!-- enough turns to allow denouce. Turns to Run -->
+	
+	<!-- 19 Priority -->
+		
+		<!-- 20 Is at War -->
+		<Row DefnId="0" NodeId="20" TreeName="Siege City Assault LG" DefaultData="1" />
+		<Row DefnId="1" NodeId="20" TreeName="Siege City Assault LG" DefaultData="false" />
+		<Row DefnId="2" NodeId="20" TreeName="Siege City Assault LG" DefaultData="true" />
+		
+		<!-- 21 Concurrent -->
+		
+			<!-- Change Target -->
+			<Row DefnId="0" NodeId="22" TreeName="Siege City Assault LG" DefaultData="1" />
+			<Row DefnId="1" NodeId="22" TreeName="Siege City Assault LG" DefaultData="-2" />
+			
+			<!-- Recruit Units -->
+			<Row DefnId="0" NodeId="23" TreeName="Siege City Assault LG" DefaultData="true" />
+			<Row DefnId="1" NodeId="23" TreeName="Siege City Assault LG" Tag="Ongoing Recruits" />
+			<!--Row DefnId="2" NodeId="23" TreeName="Siege City Assault LG" DefaultData="-1"  /--> <!-- New, Range, pvs 16 -->
+			<!--Row DefnId="3" NodeId="23" TreeName="Siege City Assault LG" DefaultData="true" /--> <!-- Testing allow creation true, -->
+			<Row DefnId="4" NodeId="23" TreeName="Siege City Assault LG" Tag="Present Value" />
+			<!--Row DefnId="5" NodeId="23" TreeName="Siege City Assault LG" DefaultData="5" /--> <!-- Def doesn't exist, testing disabled -->
+			<Row DefnId="6" NodeId="23" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Allow stealing -->
+			<Row DefnId="7" NodeId="23" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Allow Levying (def true) -->
+			
+			<!-- Build Military Improvement -->
+			<Row DefnId="0" NodeId="24" TreeName="Siege City Assault LG" DefaultData="true" />
+			
+			<!-- 25. Priority -->
+				
+				<!-- 26. Can Alpha City -->
+				
+				<!-- 27. Operation Defend Units -->
+				<Row DefnId="0" NodeId="27" TreeName="Siege City Assault LG" DefaultData="50" /> <!-- Def 66, pvs 55-->
+				
+			<!-- Pillage -->
+			<Row DefnId="0" NodeId="28" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Districts -->
+			<Row DefnId="1" NodeId="28" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Improvements -->
+
+			<!-- Move -->
+			<Row DefnId="0" NodeId="29" TreeName="Siege City Assault LG" DefaultData="5" /> <!-- def 5 Move To enum --> 
+			<Row DefnId="1" NodeId="29" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- def 2 Range to goal -->
+			<Row DefnId="2" NodeId="29" TreeName="Siege City Assault LG" DefaultData="true" /> <!--Validate new units -->
+			<Row DefnId="3" NodeId="29" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- def 2 Unit distance -->
+	
+	<!-- Concurrent -->
+    <!--Row DefnId="1" NodeId="30" TreeName="Siege City Assault LG" DefaultData="false" /-->
+	
+	<!-- Turn Limiter -->
+    <Row DefnId="0" NodeId="31" TreeName="Siege City Assault LG" DefaultData="1" /> <!-- Turns to Run (1 turn for diplomacy) --> 
+    <Row DefnId="2" NodeId="31" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Limit Is Min -->
+	
+	<!-- Contract Manager Decorator -->
+    <Row DefnId="0" NodeId="32" TreeName="Siege City Assault LG" Tag="Declare War" />
+    <Row DefnId="1" NodeId="32" TreeName="Siege City Assault LG" />
+    <Row DefnId="2" NodeId="32" TreeName="Siege City Assault LG" DefaultData="5" />
+    <Row DefnId="3" NodeId="32" TreeName="Siege City Assault LG" DefaultData="true" />
+	
+		<!-- Operation Diplomacy --> <!-- WAR IS DECLARED -->
+		<Row DefnId="0" NodeId="33" TreeName="Siege City Assault LG" />
+		<Row DefnId="1" NodeId="33" TreeName="Siege City Assault LG" />
+		<Row DefnId="2" NodeId="33" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Desires war -->
+		<Row DefnId="3" NodeId="33" TreeName="Siege City Assault LG" />
+		<Row DefnId="4" NodeId="33" TreeName="Siege City Assault LG" Tag="Present Value" />
+		<Row DefnId="5" NodeId="33" TreeName="Siege City Assault LG" Tag="Declare War" />
+	
+	
+	
+	<!-- Attack Units -->
+    <Row DefnId="0" NodeId="34" TreeName="Siege City Assault LG" DefaultData="false" />
+    <Row DefnId="1" NodeId="34" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- (could test false) Along March -->
+    <Row DefnId="3" NodeId="34" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- def false Always running -->
+	
+	<!-- Turn Limiter--> <!-- Jumps to next limiter -->
+    <Row DefnId="0" NodeId="35" TreeName="Siege City Assault LG" DefaultData="1" />
+    <Row DefnId="1" NodeId="35" TreeName="Siege City Assault LG" DefaultData="false" />
+    <Row DefnId="2" NodeId="35" TreeName="Siege City Assault LG" DefaultData="true" />
+	
+		<!-- Move -->
+		<Row DefnId="0" NodeId="36" TreeName="Siege City Assault LG" DefaultData="5" /> <!-- def 5 Move To .enum --> <!-- 1 turn limit -->
+		<Row DefnId="1" NodeId="36" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- def 2 Range to goal -->
+		<Row DefnId="2" NodeId="36" TreeName="Siege City Assault LG" DefaultData="false" /> <!--Validate new units -->
+		<Row DefnId="3" NodeId="36" TreeName="Siege City Assault LG" DefaultData="3" /> <!-- def 2 Unit distance -->
+		<Row DefnId="6" NodeId="36" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- Can explore -->
+		
+		
+	<!-- Limiter -->
+    <Row DefnId="0" NodeId="37" TreeName="Siege City Assault LG" DefaultData="7" /> <!-- Turns to Run --> <!-- Jumps to second Concurrent -->
+	
+
+	<!-- 38. Concurrent -->
+	<!--Row DefnId="0" NodeId="38" TreeName="Siege City Assault LG" DefaultData="1" /--> <!-- max failures def 1 -->
+	
+	
+		<!-- Is at war -->
+		<Row DefnId="0" NodeId="39" TreeName="Siege City Assault LG" DefaultData="1" />
+		<Row DefnId="1" NodeId="39" TreeName="Siege City Assault LG" DefaultData="false" />
+		<Row DefnId="2" NodeId="39" TreeName="Siege City Assault LG" DefaultData="true" />
+		
+		<!-- CT -->
+		<Row DefnId="0" NodeId="40" TreeName="Siege City Assault LG" DefaultData="-0.5" />
+		<Row DefnId="1" NodeId="40" TreeName="Siege City Assault LG" DefaultData="-50" /> <!-- Pvs -50, -40-->
+		
+		<!-- Recruit Units -->
+		<Row DefnId="0" NodeId="41" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Already in progress -->
+		<Row DefnId="1" NodeId="41" TreeName="Siege City Assault LG" Tag="Ongoing Recruits" />
+		<!--Row DefnId="2" NodeId="41" TreeName="Siege City Assault LG" DefaultData="14"  /-->
+		<!--Row DefnId="3" NodeId="41" TreeName="Siege City Assault LG" DefaultData="true" /--> <!-- Testing allow creation true, def nothing -->
+		<Row DefnId="4" NodeId="41" TreeName="Siege City Assault LG" Tag="Present Value" /> <!-- Recruit Value -->
+		<!--Row DefnId="5" NodeId="41" TreeName="Siege City Assault LG" DefaultData="6" /-->
+		<Row DefnId="6" NodeId="41" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Stealing -->
+		<Row DefnId="7" NodeId="41" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Allow Levying (def true) -->
+		
+		<!-- Deleted -->
+
+		<!-- 44. Priority -->
+		
+			<!-- 45 LN -->
+		
+			<!-- Operation Defend Units -->
+			<Row DefnId="0" NodeId="46" TreeName="Siege City Assault LG" DefaultData="0" /> 
+			
+		<!-- Operation Air Assault -->
+		<Row DefnId="0" NodeId="47" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- Improvement Priority (1-3) def 2-->
+		<Row DefnId="1" NodeId="47" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- Combat District Priority (1-3) -->
+		<Row DefnId="2" NodeId="47" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- Passive District Priority (1-3) def 1, pvs 2 (temp 1 for testing) -->
+		<Row DefnId="3" NodeId="47" TreeName="Siege City Assault LG" DefaultData="UNITTYPE_AIR_SIEGE" /> <!-- Bomber Unit Type -->
+		<!-- <Row DataName="Present Value" DefnId="4" DataType="int" NodeType="Operation Air Assault" Required="False" /> -->
+		
+		<!-- Attack Units -->
+		<Row DefnId="0" NodeId="48" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- Nearby, def true testing false -->
+		<Row DefnId="1" NodeId="48" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Along March -->
+		<Row DefnId="4" NodeId="48" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- def false new testing Near Target, def doesn't exist, testing false -->
+			
+		<!-- 47. Move -->
+		<Row DefnId="0" NodeId="49" TreeName="Siege City Assault LG" DefaultData="1" /> <!-- def 1 Move To enum --> 
+		<Row DefnId="1" NodeId="49" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- def 2 Range to goal -->
+		<Row DefnId="2" NodeId="49" TreeName="Siege City Assault LG" DefaultData="false" /> <!--Validate new units -->
+		<Row DefnId="3" NodeId="49" TreeName="Siege City Assault LG" DefaultData="3" /> <!-- def 2 Unit distance -->
+		<Row DefnId="6" NodeId="49" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- can explore -->
+
+		<!-- 50. Priority -->
+			<!-- 51. NOT -->
+				<!-- 52. Can Alpha City -->
+			<!-- 53. Operation Attack City -->
+
+		<!-- Attack Units -->
+		<Row DefnId="0" NodeId="54" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- Nearby, def true on above testing false -->
+		<Row DefnId="1" NodeId="54" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Along March -->
+		<Row DefnId="4" NodeId="54" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Near Target, def doesn't exist, testing false -->
+			
+		<!-- Pillage -->
+		<Row DefnId="0" NodeId="55" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Districts -->
+		<Row DefnId="1" NodeId="55" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Improvements -->
+
+		<!-- 56. Operation Siege City -->
+		
+		<!-- 57. Operation Air Assault 2 -->
+		<Row DefnId="0" NodeId="57" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- Improvement Priority (1-3) def 2-->
+		<Row DefnId="1" NodeId="57" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- Combat District Priority (1-3) -->
+		<Row DefnId="2" NodeId="57" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- Passive District Priority (1-3) def 1, pvs 2 (temp 1 for testing) -->
+		<Row DefnId="3" NodeId="57" TreeName="Siege City Assault LG" DefaultData="UNITTYPE_AIR_SIEGE" /> <!-- Bomber Unit Type -->
+		<!-- <Row DataName="Present Value" DefnId="4" DataType="int" NodeType="Operation Air Assault" Required="False" /> -->
+	
+
+	<!-- 58. Concurrent -->
+		
+	<Row DefnId="0" NodeId="58" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- Max Failures (def 1) -->
+	
+	
+		<!-- Change Target -->
+		<Row DefnId="0" NodeId="59" TreeName="Siege City Assault LG" DefaultData="-1" />
+		<Row DefnId="1" NodeId="59" TreeName="Siege City Assault LG" DefaultData="-4" /> <!-- pvs -8, testing -5, pvs -11, -5, -3-->
+		
+		<!-- Recruit -->
+		<Row DefnId="0" NodeId="60" TreeName="Siege City Assault LG" DefaultData="true" />
+		<Row DefnId="1" NodeId="60" TreeName="Siege City Assault LG" Tag="Ongoing Recruits" />
+		<!--Row DefnId="3" NodeId="60" TreeName="Siege City Assault LG" DefaultData="true" /--> <!-- Creation -->
+		<Row DefnId="4" NodeId="60" TreeName="Siege City Assault LG" Tag="Present Value" />
+		<!--Row DefnId="5" NodeId="60" TreeName="Siege City Assault LG" DefaultData="5" /--> <!-- Def doesn't exist -->
+		<Row DefnId="6" NodeId="60" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Stealing -->
+		<Row DefnId="7" NodeId="60" TreeName="Siege City Assault LG" DefaultData="true" />
+		
+		<!-- 60. Operation Air Assault 2 -->
+		<Row DefnId="0" NodeId="61" TreeName="Siege City Assault LG" DefaultData="3" /> <!-- Improvement Priority (1-3) def 2-->
+		<Row DefnId="1" NodeId="61" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- Combat District Priority (1-3) -->
+		<Row DefnId="2" NodeId="61" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- Passive District Priority (1-3) def 1, pvs 2 (temp 1 for testing) -->
+		<Row DefnId="3" NodeId="61" TreeName="Siege City Assault LG" DefaultData="UNITTYPE_AIR_SIEGE" /> <!-- Bomber Unit Type -->
+		<!-- <Row DataName="Present Value" DefnId="4" DataType="int" NodeType="Operation Air Assault" Required="False" /> -->
+	
+		<!-- 62. Priority -->
+		
+			<!-- 63. LN -->
+		
+			<!-- 64. Operation Defend Units -->
+			<Row DefnId="0" NodeId="64" TreeName="Siege City Assault LG" DefaultData="0" /> 
+		
+		
+		<!-- 65. Priority -->
+		<!-- 66. NOT -->
+		<!-- 67. CAN AC -->
+			<!-- 68. Operation Attack City -->
+		
+			<!-- Attack Units -->
+			<Row DefnId="0" NodeId="69" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- def true,  Nearby -->
+			<Row DefnId="1" NodeId="69" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- def false, Along March -->
+			<Row DefnId="4" NodeId="69" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- def true, Near Target -->
+		
+		<!-- 70. Attack City -->
+		
+		<!-- Pillage -->
+		<Row DefnId="0" NodeId="71" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- Districts, too distracting -->
+		<Row DefnId="1" NodeId="71" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Improvements, testing true for hp, however distracts units -->
+		
+		<!-- 68. Move -->
+		<Row DefnId="0" NodeId="72" TreeName="Siege City Assault LG" DefaultData="1" /> <!-- def 1 Move To enum --> 
+		<Row DefnId="1" NodeId="72" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- def 2 Range to goal -->
+		<Row DefnId="2" NodeId="72" TreeName="Siege City Assault LG" DefaultData="false" /> <!--Validate new units -->
+		<Row DefnId="3" NodeId="72" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- def 2 Unit distance -->
+		<Row DefnId="6" NodeId="72" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- can explore -->
+		
+		<!-- Air Assault -->
+		<Row DefnId="0" NodeId="73" TreeName="Siege City Assault LG" DefaultData="3" /> <!-- def 3 --> <!-- lwr high -->
+		<Row DefnId="1" NodeId="73" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- def 1, pvs 1 -->
+		<Row DefnId="2" NodeId="73" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- def 2, pvs 2 (for airdrome)-->
+		<Row DefnId="3" NodeId="73" TreeName="Siege City Assault LG" DefaultData="UNITTYPE_AIR_SIEGE" />
+		
+		<!-- 74: Operation Siege City -->
+		
+
+
+		<!-- 75. Concurrent -->
+		
+			<!-- Change Target -->
+			<Row DefnId="0" NodeId="76" TreeName="Siege City Assault LG" DefaultData="-3" />
+			<Row DefnId="1" NodeId="76" TreeName="Siege City Assault LG" DefaultData="-9" /> <!-- pvs -8, testing -5, pvs -11, -5, -3-->
+		
+			<!-- Recruit -->
+			<Row DefnId="0" NodeId="77" TreeName="Siege City Assault LG" DefaultData="true" />
+			<Row DefnId="1" NodeId="77" TreeName="Siege City Assault LG" Tag="Ongoing Recruits" />
+			<!--Row DefnId="3" NodeId="77" TreeName="Siege City Assault LG" DefaultData="true" /--> <!-- Creation -->
+			<Row DefnId="4" NodeId="77" TreeName="Siege City Assault LG" Tag="Present Value" />
+			<!--Row DefnId="5" NodeId="77" TreeName="Siege City Assault LG" DefaultData="5" /--> <!-- Def doesn't exist -->
+			<Row DefnId="6" NodeId="77" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Stealing -->
+			<Row DefnId="7" NodeId="77" TreeName="Siege City Assault LG" DefaultData="true" />
+				
+				<!-- 79. Priority -->
+				<!-- 80. NOT -->
+					<!-- 81. CAN AC -->
+					<!-- 82. Operation Attack City -->
+
+			<!-- Attack Units -->
+			<Row DefnId="0" NodeId="83" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- def true,  Nearby -->
+			<Row DefnId="1" NodeId="83" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- def false, Along March -->
+			<Row DefnId="4" NodeId="83" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- def true, Near Target -->
+
+			<!-- Pillage -->
+			<Row DefnId="0" NodeId="85" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Districts, too distracting -->
+			<Row DefnId="1" NodeId="85" TreeName="Siege City Assault LG" DefaultData="true" /> <!-- Improvements, testing true for hp, however distracts units -->
+			
+			<!-- Move -->
+			<Row DefnId="0" NodeId="86" TreeName="Siege City Assault LG" DefaultData="1" /> <!-- def 1 Move To enum --> 
+			<Row DefnId="1" NodeId="86" TreeName="Siege City Assault LG" DefaultData="0" /> <!-- def 0 Range to goal -->
+			<Row DefnId="2" NodeId="86" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- def false Validate new units -->
+			<Row DefnId="3" NodeId="86" TreeName="Siege City Assault LG" DefaultData="2" /> <!-- def 2 Unit distance -->
+			<Row DefnId="6" NodeId="86" TreeName="Siege City Assault LG" DefaultData="false" /> <!-- can explore -->
+
+</TreeData>
+
+
+<!-- Default for Reference:
+
+
+  <Row DefnId="0" NodeId="1" TreeName="Siege City Assault" Tag="Unused" />
+    <Row DefnId="1" NodeId="1" TreeName="Siege City Assault" />
+    <Row DefnId="2" NodeId="1" TreeName="Siege City Assault" />
+    <Row DefnId="3" NodeId="1" TreeName="Siege City Assault" />
+    <Row DefnId="4" NodeId="1" TreeName="Siege City Assault" />
+    <Row DefnId="5" NodeId="1" TreeName="Siege City Assault" />
+    <Row DefnId="6" NodeId="1" TreeName="Siege City Assault" />
+    <Row DefnId="7" NodeId="1" TreeName="Siege City Assault" />
+    <Row DefnId="8" NodeId="1" TreeName="Siege City Assault" Tag="Present Value" />
+    <Row DefnId="0" NodeId="4" TreeName="Siege City Assault" DefaultData="66" />
+    <Row DefnId="0" NodeId="5" TreeName="Siege City Assault" DefaultData="-100" />
+    <Row DefnId="1" NodeId="5" TreeName="Siege City Assault" DefaultData="-100" />
+    <Row DefnId="0" NodeId="10" TreeName="Siege City Assault" Tag="Initial recruits" />
+    <Row DefnId="1" NodeId="10" TreeName="Siege City Assault" />
+    <Row DefnId="2" NodeId="10" TreeName="Siege City Assault" DefaultData="10" />
+    <Row DefnId="3" NodeId="10" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="1" NodeId="11" TreeName="Siege City Assault" Tag="Initial recruits" />
+    <Row DefnId="4" NodeId="11" TreeName="Siege City Assault" Tag="Present Value" />
+    <Row DefnId="5" NodeId="11" TreeName="Siege City Assault" DefaultData="10" />
+    <Row DefnId="0" NodeId="12" TreeName="Siege City Assault" DefaultData="True" />
+    <Row DefnId="1" NodeId="12" TreeName="Siege City Assault" DefaultData="False" />
+    <Row DefnId="1" NodeId="13" TreeName="Siege City Assault" DefaultData="UNITTYPE_MELEE" />
+    <Row DefnId="2" NodeId="13" TreeName="Siege City Assault" />
+    <Row DefnId="3" NodeId="13" TreeName="Siege City Assault" DefaultData="UNITTYPE_SIEGE_SUPPORT" />
+    <Row DefnId="4" NodeId="13" TreeName="Siege City Assault" />
+    <Row DefnId="0" NodeId="14" TreeName="Siege City Assault" DefaultData="0" />
+    <Row DefnId="1" NodeId="14" TreeName="Siege City Assault" DefaultData="2" />
+    <Row DefnId="2" NodeId="14" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="3" NodeId="14" TreeName="Siege City Assault" DefaultData="2" />
+    <Row DefnId="0" NodeId="15" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="1" NodeId="15" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="16" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="1" NodeId="16" TreeName="Siege City Assault" />
+    <Row DefnId="2" NodeId="16" TreeName="Siege City Assault" />
+    <Row DefnId="3" NodeId="16" TreeName="Siege City Assault" />
+    <Row DefnId="4" NodeId="16" TreeName="Siege City Assault" Tag="Present Value" />
+    <Row DefnId="0" NodeId="17" TreeName="Siege City Assault" DefaultData="15" />
+    <Row DefnId="0" NodeId="19" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="1" NodeId="19" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="2" NodeId="19" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="21" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="1" NodeId="21" TreeName="Siege City Assault" DefaultData="-2" />
+    <Row DefnId="0" NodeId="22" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="1" NodeId="22" TreeName="Siege City Assault" Tag="Ongoing Recruits" />
+    <Row DefnId="4" NodeId="22" TreeName="Siege City Assault" Tag="Present Value" />
+    <Row DefnId="0" NodeId="23" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="1" NodeId="23" TreeName="Siege City Assault" DefaultData="True" />
+    <Row DefnId="3" NodeId="23" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="0" NodeId="24" TreeName="Siege City Assault" DefaultData="5" />
+    <Row DefnId="1" NodeId="24" TreeName="Siege City Assault" DefaultData="2" />
+    <Row DefnId="2" NodeId="24" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="3" NodeId="24" TreeName="Siege City Assault" DefaultData="2" />
+    <Row DefnId="1" NodeId="25" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="0" NodeId="26" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="2" NodeId="26" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="27" TreeName="Siege City Assault" Tag="Declare War" />
+    <Row DefnId="1" NodeId="27" TreeName="Siege City Assault" />
+    <Row DefnId="2" NodeId="27" TreeName="Siege City Assault" DefaultData="5" />
+    <Row DefnId="3" NodeId="27" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="28" TreeName="Siege City Assault" />
+    <Row DefnId="1" NodeId="28" TreeName="Siege City Assault" />
+    <Row DefnId="2" NodeId="28" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="3" NodeId="28" TreeName="Siege City Assault" />
+    <Row DefnId="4" NodeId="28" TreeName="Siege City Assault" Tag="Present Value" />
+    <Row DefnId="5" NodeId="28" TreeName="Siege City Assault" Tag="Declare War" />
+    <Row DefnId="0" NodeId="29" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="1" NodeId="29" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="3" NodeId="29" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="0" NodeId="30" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="1" NodeId="30" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="2" NodeId="30" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="31" TreeName="Siege City Assault" DefaultData="5" />
+    <Row DefnId="1" NodeId="31" TreeName="Siege City Assault" DefaultData="2" />
+    <Row DefnId="2" NodeId="31" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="3" NodeId="31" TreeName="Siege City Assault" DefaultData="2" />
+    <Row DefnId="0" NodeId="32" TreeName="Siege City Assault" DefaultData="15" />
+    <Row DefnId="0" NodeId="34" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="1" NodeId="34" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="2" NodeId="34" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="35" TreeName="Siege City Assault" DefaultData="-0.5" />
+    <Row DefnId="1" NodeId="35" TreeName="Siege City Assault" DefaultData="-50" />
+    <Row DefnId="0" NodeId="36" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="4" NodeId="36" TreeName="Siege City Assault" Tag="Present Value" />
+    <Row DefnId="7" NodeId="36" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="37" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="1" NodeId="37" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="38" TreeName="Siege City Assault" DefaultData="2" />
+    <Row DefnId="1" NodeId="38" TreeName="Siege City Assault" DefaultData="3" />
+    <Row DefnId="2" NodeId="38" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="3" NodeId="38" TreeName="Siege City Assault" DefaultData="UNITTYPE_AIR_SIEGE" />
+    <Row DefnId="0" NodeId="41" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="1" NodeId="41" TreeName="Siege City Assault" DefaultData="2" />
+    <Row DefnId="2" NodeId="41" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="3" NodeId="41" TreeName="Siege City Assault" DefaultData="2" />
+    <Row DefnId="0" NodeId="43" TreeName="Siege City Assault" DefaultData="-2" />
+    <Row DefnId="1" NodeId="43" TreeName="Siege City Assault" DefaultData="-8" />
+    <Row DefnId="0" NodeId="44" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="4" NodeId="44" TreeName="Siege City Assault" Tag="Present Value" />
+    <Row DefnId="7" NodeId="44" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="49" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="1" NodeId="49" TreeName="Siege City Assault" DefaultData="False" />
+    <Row DefnId="4" NodeId="49" TreeName="Siege City Assault" DefaultData="True" />
+    <Row DefnId="0" NodeId="50" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="1" NodeId="50" TreeName="Siege City Assault" DefaultData="false" />
+    <Row DefnId="0" NodeId="52" TreeName="Siege City Assault" DefaultData="true" />
+    <Row DefnId="0" NodeId="53" TreeName="Siege City Assault" DefaultData="3" />
+    <Row DefnId="1" NodeId="53" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="2" NodeId="53" TreeName="Siege City Assault" DefaultData="2" />
+    <Row DefnId="3" NodeId="53" TreeName="Siege City Assault" DefaultData="UNITTYPE_AIR_SIEGE" />
+    <Row DefnId="0" NodeId="56" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="1" NodeId="56" TreeName="Siege City Assault" DefaultData="0" />
+    <Row DefnId="2" NodeId="56" TreeName="Siege City Assault" DefaultData="0" />
+    <Row DefnId="3" NodeId="56" TreeName="Siege City Assault" DefaultData="2" /-->
+
+
+
+
+	<!-- Old -->
+
+	<!--Update>
+		<Row DefnId="0" NodeId="12" TreeName="Siege City Assault" <!-- Change not all all needed: more info: Operation attack units node currently exists and along march Parameter is true -->
+		<!--Set DefaultData="false" />
+	</Update-->
+	
+
+	<!--Update>
+		<Where DefnId="5" NodeId="11" TreeName="Siege City Assault" /> <!-- Recuit Units turn limit def 10 -->
+		<!--Set DefaultData="8" />
+	</Update-->
+	
+	<!--Row DefnId="7" NodeId="11" TreeName="Siege City Assault" DefaultData="true" /> <!-- bool: Allow Levying for City Attack -->
+	<!--Row DefnId="2" NodeId="11" TreeName="Siege City Assault" DefaultData="16"  /> <!-- Range -->
+	<!--Row DefnId="3" NodeId="11" TreeName="Siege City Assault" DefaultData="true" /--> <!-- Creation - Could be breaking game? -->
+	
+
+	<!--Row DefnId="6" NodeId="11" TreeName="Siege City Assault" DefaultData="true" /--> <!-- bool: Allow Stealing EXPERIMENTAL!-->
+	
+	
+	
+	
+	<!-- Defaults: for 11 Recruits Row DefnId="1" NodeId="11" TreeName="Siege City Assault" Tag="Initial recruits" />
+    <Row DefnId="4" NodeId="11" TreeName="Siege City Assault" Tag="Present Value" />
+    <Row DefnId="5" NodeId="11" TreeName="Siege City Assault" DefaultData="10" time limit /-->
+	
+	
+	
+	<!--Update>
+		<Where DefnId="2" NodeId="10" TreeName="Siege City Assault" /> <!-- Contract Manager turn limit def 10 -->
+		<!--Set DefaultData="10" />
+	</Update-->
+	
+	<!--Delete DefnId="1" NodeId="23" TreeName="Siege City Assault" /--> <!-- Operation attack units along march Parameter -->
+
+
+
+<BehaviorTreeNodes>
+	<Delete TreeName="Simple City Defense" />
+
+	<Row NodeType="Concurrent" NodeId="0" TreeName="Simple City Defense" JumpTo="11" />
+	
+		<Row NodeType="Is City Threatened" NodeId="1" TreeName="Simple City Defense" />
+		<Row NodeType="Operation Defend Units" NodeId="2" TreeName="Simple City Defense" />
+		<Row NodeType="Concurrent" NodeId="3" TreeName="Simple City Defense" JumpTo="11" />
+		
+			<Row NodeType="Recruit Units" NodeId="4" TreeName="Simple City Defense" />
+			<Row NodeType="Priority" NodeId="5" TreeName="Simple City Defense" JumpTo="8" />
+			
+				<Row NodeType="Can Alpha City" NodeId="6" TreeName="Simple City Defense" />
+				<Row NodeType="Garrison City" NodeId="7" TreeName="Simple City Defense" /> <!-- Still often fails but might be fine as inside priority selector node -->
+				
+			<Row NodeType="Operation Attack City" NodeId="8" TreeName="Simple City Defense" />
+			<Row NodeType="Operation Attack Units" NodeId="9" TreeName="Simple City Defense" />
+			<Row NodeType="Operation Move" NodeId="10" TreeName="Simple City Defense" />
+			
+</BehaviorTreeNodes>
+
+<TreeData>
+	<Delete TreeName="Simple City Defense" />
+	
+	<!-- Defend Units -->
+    <Row DefnId="1" NodeId="2" TreeName="Simple City Defense" DefaultData="20" /> <!-- def 5, rst 20, autoprotect percentage -->
+	
+	<!-- Recruit Units -->
+    <Row DefnId="0" NodeId="4" TreeName="Simple City Defense" DefaultData="true" /> <!-- bool: Already in progress -->
+	<Row DefnId="2" NodeId="4" TreeName="Simple City Defense" DefaultData="11" /> <!-- Range, def not defined -->
+    <Row DefnId="6" NodeId="4" TreeName="Simple City Defense" DefaultData="true" /> <!-- bool: Allow Stealing -->
+    <Row DefnId="7" NodeId="4" TreeName="Simple City Defense" DefaultData="true" /> <!-- bool: Allow Levying -->
+	
+	<!-- Attack Units -->
+    <Row DefnId="0" NodeId="9" TreeName="Simple City Defense" DefaultData="true" /> <!-- bool: Attack Nearby Units -->
+    <Row DefnId="1" NodeId="9" TreeName="Simple City Defense" DefaultData="false" /> <!-- bool: Attack Along March -->
+    <Row DefnId="2" NodeId="9" TreeName="Simple City Defense" DefaultData="true" /> <!-- bool: Allow Unequal Attacks -->
+	
+	<!-- Move -->
+    <Row DefnId="0" NodeId="10" TreeName="Simple City Defense" DefaultData="1" /> <!-- def 1, int: Move To (enum) -->
+    <Row DefnId="1" NodeId="10" TreeName="Simple City Defense" DefaultData="1" /> <!-- def 0, rst 2 int: Range to goal -->
+	<Row DefnId="2" NodeId="10" TreeName="Simple City Defense" DefaultData="3" /> <!-- def not defined, Unit distance -->
+	
+    <Row DefnId="5" NodeId="10" TreeName="Simple City Defense" DefaultData="true" /> <!-- Always running -->
+	
+</TreeData>
+	
+
+<!-- Todo
+    <Row NodeType="Build Unit" NodeId="4" ShapeId="1">
+      <Description>Given a list of units and/or buildings and a city, builds 'best' unit at the city when queue is availble.</Description>
+	  -->
+
+
+
+<!-- Naval Superiority Tree Very Small Tweaks -->
+
+<BehaviorTreeNodes>
+	<Delete TreeName="Naval Superiority Tree" />
+
+    <Row NodeType="Sequence" NodeId="0" TreeName="Naval Superiority Tree" JumpTo="16" />
+		<Row NodeType="Decode Trigger" NodeId="1" TreeName="Naval Superiority Tree" />
+		<Row NodeType="Concurrent" NodeId="2" TreeName="Naval Superiority Tree" JumpTo="7" />
+			<Row NodeType="Operation Defend Units" NodeId="3" TreeName="Naval Superiority Tree" />
+			<Row NodeType="Contract Manager Decorator" NodeId="4" TreeName="Naval Superiority Tree" JumpTo="6"/>
+				<Row NodeType="Recruit Units" NodeId="5" TreeName="Naval Superiority Tree" />
+			<Row NodeType="Operation Attack Units" NodeId="6" TreeName="Naval Superiority Tree" />
+
+		<Row NodeType="Concurrent" NodeId="7" TreeName="Naval Superiority Tree" JumpTo="16" />
+			<Row NodeType="Recruit Units" NodeId="8" TreeName="Naval Superiority Tree" />
+			<Row NodeType="Operation Defend Units" NodeId="9" TreeName="Naval Superiority Tree" />
+			<Row NodeType="Naval Choose Target" NodeId="10" TreeName="Naval Superiority Tree" JumpTo="14" /> <!-- decorator node Choose a naval superiority target. If none available, don't run child. -->
+				<Row NodeType="Concurrent" NodeId="11" TreeName="Naval Superiority Tree" JumpTo="14" />
+					<Row NodeType="Operation Move" NodeId="12" TreeName="Naval Superiority Tree" />
+					<Row NodeType="Operation Attack Units" NodeId="13" TreeName="Naval Superiority Tree" />
+			<Row NodeType="Naval Pillage" NodeId="14" TreeName="Naval Superiority Tree" />
+			<Row NodeType="Naval Patrol" NodeId="15" TreeName="Naval Superiority Tree" /> <!-- Choose a naval patrol target and move accordingly. -->
+	
+</BehaviorTreeNodes>
+
+<TreeData>
+	<Delete TreeName="Naval Superiority Tree" />
+	
+	<!-- "Decode Trigger" -->
+    <Row DefnId="0" NodeId="1" TreeName="Naval Superiority Tree" Tag="Unused" />
+    <Row DefnId="1" NodeId="1" TreeName="Naval Superiority Tree" />
+    <Row DefnId="2" NodeId="1" TreeName="Naval Superiority Tree" />
+    <Row DefnId="3" NodeId="1" TreeName="Naval Superiority Tree" />
+    <Row DefnId="4" NodeId="1" TreeName="Naval Superiority Tree" />
+    <Row DefnId="5" NodeId="1" TreeName="Naval Superiority Tree" />
+    <Row DefnId="6" NodeId="1" TreeName="Naval Superiority Tree" />
+    <Row DefnId="7" NodeId="1" TreeName="Naval Superiority Tree" />
+    <Row DefnId="8" NodeId="1" TreeName="Naval Superiority Tree" Tag="Present Value" /> <!-- Old Note: this always gives 100, thus units here are not high priority! -->
+	<!-- "Operation Defend Units" -->
+    <Row DefnId="0" NodeId="3" TreeName="Naval Superiority Tree" DefaultData="50" /> <!-- def. 60 -->
+	<!-- Contract Manager Decorator -->
+    <Row DefnId="0" NodeId="4" TreeName="Naval Superiority Tree" Tag="Naval Force Contract" /> <!-- req, contract -->
+    <Row DefnId="1" NodeId="4" TreeName="Naval Superiority Tree" /> <!-- req, multi -->
+    <Row DefnId="2" NodeId="4" TreeName="Naval Superiority Tree" DefaultData="10" /> 
+    <Row DefnId="3" NodeId="4" TreeName="Naval Superiority Tree" DefaultData="false" /> <!-- block while running -->
+	
+	<!-- "Recruit Units" -->
+    <Row DefnId="0" NodeId="5" TreeName="Naval Superiority Tree" DefaultData="false" /> <!-- not in progress -->
+    <Row DefnId="1" NodeId="5" TreeName="Naval Superiority Tree" Tag="Naval Force Contract" /> <!-- missing contract id -->
+    <Row DefnId="3" NodeId="4" TreeName="Naval Superiority Tree" DefaultData="true" /> 
+    <Row DefnId="4" NodeId="5" TreeName="Naval Superiority Tree" Tag="Present Value" />
+	<!-- "Operation Attack Units" -->
+    <Row DefnId="0" NodeId="6" TreeName="Naval Superiority Tree" DefaultData="true" />
+    <Row DefnId="1" NodeId="6" TreeName="Naval Superiority Tree" DefaultData="false" />
+    <Row DefnId="2" NodeId="6" TreeName="Naval Superiority Tree" DefaultData="false" />
+    <Row DefnId="3" NodeId="6" TreeName="Naval Superiority Tree" DefaultData="false" />
+	
+	<!-- "Recruit Units" -->
+    <Row DefnId="0" NodeId="8" TreeName="Naval Superiority Tree" DefaultData="true" /> <!-- in progress -->
+
+    <Row DefnId="4" NodeId="8" TreeName="Naval Superiority Tree" Tag="Present Value" />
+	<!-- "Operation Defend Units" -->
+    <Row DefnId="0" NodeId="9" TreeName="Naval Superiority Tree" DefaultData="40" />
+	
+	<!-- "Naval Choose Target" -->
+    <Row DefnId="0" NodeId="10" TreeName="Naval Superiority Tree" DefaultData="DOMAIN_SEA" />
+    <Row DefnId="1" NodeId="10" TreeName="Naval Superiority Tree" DefaultData="false" /> <!-- def false, do NOT fail for no target -->
+	<!-- "Operation Move" -->
+    <Row DefnId="0" NodeId="12" TreeName="Naval Superiority Tree" DefaultData="1" />
+    <Row DefnId="1" NodeId="12" TreeName="Naval Superiority Tree" DefaultData="3" />
+    <Row DefnId="2" NodeId="12" TreeName="Naval Superiority Tree" DefaultData="false" />
+    <Row DefnId="3" NodeId="12" TreeName="Naval Superiority Tree" DefaultData="3" />
+	
+	<!-- "Operation Attack Units" -->
+    <Row DefnId="0" NodeId="13" TreeName="Naval Superiority Tree" DefaultData="true" /> <!-- def true, nearby -->
+    <Row DefnId="1" NodeId="13" TreeName="Naval Superiority Tree" DefaultData="false" /> <!-- def false, along march -->
+    <Row DefnId="2" NodeId="13" TreeName="Naval Superiority Tree" DefaultData="false" /> <!-- def false, unequal -->
+    <Row DefnId="3" NodeId="13" TreeName="Naval Superiority Tree" DefaultData="false" /> <!-- def false -->
+	<!-- "Naval Pillage" -->
+    <Row DefnId="0" NodeId="14" TreeName="Naval Superiority Tree" DefaultData="No Value" />
+	
+</TreeData>
+
+
+
+<!--Nuclear Assault Tree-->
+
+<BehaviorTreeNodes>
+	<Delete TreeName="Nuclear Assault" />
+
+    <Row NodeType="Sequence" NodeId="0" TreeName="Nuclear Assault" JumpTo="20" />
+      <!--Special logical And node. Stops on FAILURE, but also stops on RUNNING. Resumes next turn on RUNNING node.-->
+		<Row NodeType="Decode Trigger" NodeId="1" TreeName="Nuclear Assault" />
+	
+		<Row NodeType="Operation Defend Units" NodeId="2" TreeName="Nuclear Assault" />
+
+		<Row NodeType="Concurrent" NodeId="3" TreeName="Nuclear Assault" JumpTo="20" />
+		<!-- Logical And node. Runs all children until it reaches a FAILURE (can allow multiple failures if desired.) -->
+	
+			<Row NodeType="Will use nukes" NodeId="4" TreeName="Nuclear Assault" />
+	
+		<Row NodeType="Sequence" NodeId="5" TreeName="Nuclear Assault" JumpTo="20" />
+			<Row NodeType="Concurrent" NodeId="6" TreeName="Nuclear Assault" JumpTo="10" />
+				<Row NodeType="Contract Manager Decorator" NodeId="7" TreeName="Nuclear Assault" JumpTo="9" />
+					<Row NodeType="Recruit Units" NodeId="8" TreeName="Nuclear Assault" />
+				<Row NodeType="Operation Defend Units" NodeId="9" TreeName="Nuclear Assault" />
+			<Row NodeType="Lock Units" NodeId="10" TreeName="Nuclear Assault" />
+
+			<Row NodeType="Concurrent" NodeId="11" TreeName="Nuclear Assault" JumpTo="20" />
+				<Row NodeType="Operation Defend Units" NodeId="12" TreeName="Nuclear Assault" />
+				<Row NodeType="Operation Change Target" NodeId="13" TreeName="Nuclear Assault" />
+				
+				<Row NodeType="Recruit Units" NodeId="14" TreeName="Nuclear Assault" />
+				<Row NodeType="Operation Move" NodeId="15" TreeName="Nuclear Assault" />
+				<Row NodeType="Operation Launch nuke" NodeId="16" TreeName="Nuclear Assault" />
+
+				<!-- Second: -->
+				<Row NodeType="Operation Change Target" NodeId="17" TreeName="Nuclear Assault" />
+				<Row NodeType="Operation Move" NodeId="18" TreeName="Nuclear Assault" />
+				<Row NodeType="Operation Launch nuke" NodeId="19" TreeName="Nuclear Assault" />
+				
+				
+	<!--
+			<Row NodeType="Concurrent" NodeId="17" TreeName="Nuclear Assault" JumpTo="23" />
+				<Row NodeType="Operation Change Target" NodeId="18" TreeName="Nuclear Assault" />
+				<Row NodeType="Recruit Units" NodeId="19" TreeName="Nuclear Assault" />
+				<Row NodeType="Operation Defend Units" NodeId="20" TreeName="Nuclear Assault" /-->
+
+	
+</BehaviorTreeNodes>
+
+
+<TreeData>
+
+	<Delete TreeName="Nuclear Assault" />
+
+	<!--Sequence - 0 -->
+	
+	<!-- "Decode Trigger" 1 -->
+    <Row DefnId="0" NodeId="1" TreeName="Nuclear Assault" Tag="Unused" />
+    <Row DefnId="1" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="2" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="3" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="4" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="5" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="6" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="7" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="8" NodeId="1" TreeName="Nuclear Assault" Tag="Present Value" />
+	
+	<!-- Operation Defend Units" 2 -->
+    <Row DefnId="0" NodeId="2" TreeName="Nuclear Assault" DefaultData="0" /> <!--Def 20 <!--AutoProtect Percentage-->
+	<Row DefnId="1" NodeId="2" TreeName="Nuclear Assault" DefaultData="false" /> <!--Protect Outside Range-->
+	
+	    <!-- Concurrent "3" /-->
+		<Row DefnId="0" NodeId="3" TreeName="Nuclear Assault" DefaultData="4" />  <!-- Failures -->
+		
+			<!--"Will use nukes" "4"  /-->
+	
+			<!-- Sequence" NodeId="5" 
+		<"Concurrent" 6 -->
+		<Row DefnId="0" NodeId="6" TreeName="Nuclear Assault" DefaultData="3" /> <!-- Failures -->
+		
+		<!--Row DataName="Max Failures" DefnId="0" DataType="int" NodeType="Concurrent" Required="False" UserData="True" /-->
+	
+	<!-- "Contract Manager Decorator" 7 -->
+	
+    <Row DefnId="0" NodeId="7" TreeName="Nuclear Assault" Tag="Initial Recruits" /> <!-- Contract <!-- Initial Recruits not defined -->
+    <Row DefnId="1" NodeId="7" TreeName="Nuclear Assault" /> <!-- <Row DataName="Multi-Contracts" DefnId="1" DataType="ID List" NodeType="Contract Manager Decorator" RequiredGroup="True" /-->
+    <Row DefnId="2" NodeId="7" TreeName="Nuclear Assault" DefaultData="8" /> <!-- Def 10 <!-- Turn Limit -->
+    <Row DefnId="3" NodeId="7" TreeName="Nuclear Assault" DefaultData="false" /> <!-- Block while running -->
+	
+		<!-- "Recruit Units 1" 8 -->
+	
+		<Row DefnId="0" NodeId="8" TreeName="Nuclear Assault" DefaultData="false"  /> <!--Already in progress <!-- Recruit Units Parameter missing -->
+		<Row DefnId="1" NodeId="8" TreeName="Nuclear Assault" DefaultData="100" Tag="Initial Recruits" /> <!-- Contract ID -->
+		<Row DefnId="2" NodeId="8" TreeName="Nuclear Assault" DefaultData="-1"  /> <!-- Range -->
+		<Row DefnId="3" NodeId="8" TreeName="Nuclear Assault" DefaultData="true" /> <!-- Creation -->
+		<Row DefnId="4" NodeId="8" TreeName="Nuclear Assault" Tag="Present Value" /> <!--<Row DataName="Recruit Value" DefnId="4" DataType="int" NodeType="Recruit Units" Required="False" /-->
+		<Row DefnId="5" NodeId="8" TreeName="Nuclear Assault" DefaultData="8" /> <!-- Time limit--> <!--VERY EXPERIMENTAL!, pvs 8-->
+		<Row DefnId="6" NodeId="8" TreeName="Nuclear Assault" DefaultData="true" /> <!-- bool: Allow Stealing EXPERIMENTAL!-->
+	
+		<!-- "Operation Defend Units" -->
+		<Row DefnId="0" NodeId="9" TreeName="Nuclear Assault" DefaultData="0" /> <!--Def 20 <!--AutoProtect Percentage-->
+		<Row DefnId="1" NodeId="9" TreeName="Nuclear Assault" DefaultData="false" /> <!--Protect Outside Range-->
+	
+		<!-- "Lock Units" -->
+		<Row DefnId="0" NodeId="10" TreeName="Nuclear Assault" DefaultData="true" /> <!--Lock Units -->
+		<Row DefnId="1" NodeId="10" TreeName="Nuclear Assault" DefaultData="true" /> <!-- "Signal Readiness" -->
+	
+	<!-- First: -->
+	<!--Concurrent (11) --> 
+	<Row DefnId="0" NodeId="11" TreeName="Nuclear Assault" DefaultData="3" />  <!-- Failures -->
+	<Row DefnId="1" NodeId="11" TreeName="Nuclear Assault" DefaultData="false" />  <!--Row DataName="Exit on Success" DefnId="1" DataType="bool" NodeType="Concurrent" Required="False" UserData="True" /-->
+	
+		<!-- "Operation Defend Units" -->
+		<Row DefnId="0" NodeId="12" TreeName="Nuclear Assault" DefaultData="0" /> <!--Def 20 <!--AutoProtect Percentage-->
+		<Row DefnId="1" NodeId="12" TreeName="Nuclear Assault" DefaultData="false" /> <!--Protect Outside Range-->
+	
+		<!-- Operation CT -->
+		<Row DefnId="0" NodeId="13" TreeName="Nuclear Assault" DefaultData="0" /> <!-- def -2.5 Backup Amount Changes to this if the target is too weak? -->
+		<Row DefnId="1" NodeId="13" TreeName="Nuclear Assault" DefaultData="0" /> <!-- def -5 Failure Amount-->
+		<!--Row DefnId="2" NodeId="13" TreeName="Nuclear Assault" DefaultData="true" /--> <!-- Fail on Invalid Team-->
+		<Row DefnId="4" NodeId="13" TreeName="Nuclear Assault" DefaultData="true" />
+	
+		<!-- "Recruit Units 2" -->
+		<Row DefnId="0" NodeId="14" TreeName="Nuclear Assault" DefaultData="true" />
+		
+		<!--Row DefnId="1" NodeId="14" TreeName="Nuclear Assault" Tag="Ongoing Recruits" /--> <!-- Not defined -->
+		<Row DefnId="2" NodeId="14" TreeName="Nuclear Assault" DefaultData="-1" /> <!-- Range -->
+		
+		<Row DefnId="3" NodeId="14" TreeName="Nuclear Assault" DefaultData="true" /> <!-- Creation -->
+		<Row DefnId="4" NodeId="14" TreeName="Nuclear Assault" Tag="Present Value" />
+		<Row DefnId="5" NodeId="14" TreeName="Nuclear Assault" DefaultData="9" /> <!-- Time limit--> <!-- EXPERIMENTAL! pvs 3-->
+		<Row DefnId="6" NodeId="14" TreeName="Nuclear Assault" DefaultData="true" /> <!-- bool: Allow Stealing EXPERIMENTAL!-->
+	
+		<!-- "Operation Move" -->
+		<Row DefnId="0" NodeId="15" TreeName="Nuclear Assault" DefaultData="1" /> <!-- <Row DataName="Move To (enum)" DefnId="0" DataType="int" NodeType="Operation Move" Required="False" UserData="True" /-->  
+		<Row DefnId="1" NodeId="15" TreeName="Nuclear Assault" DefaultData="4" /> <!-- <Row DataName="Range to goal" DefnId="1" DataType="int" NodeType="Operation Move" UserData="True" /--> <!-- Def 4 both times on Royale Tree -->
+		<Row DefnId="2" NodeId="15" TreeName="Nuclear Assault" DefaultData="true" /> <!-- <Row DataName="Validate new units" DefnId="2" DataType="bool" NodeType="Operation Move" Required="False" UserData="True" /-->
+		<Row DefnId="3" NodeId="15" TreeName="Nuclear Assault" DefaultData="2" /> <!-- Def 2 Testing 3, 4, 1 might not have worked (Simple city defence is 3) <Row DataName="Unit distance" DefnId="3" DataType="int" NodeType="Operation Move" Required="False" UserData="True" /--> <!-- Def 6, then 0 later on Royale Tree -->
+		<Row DefnId="5" NodeId="15" TreeName="Nuclear Assault" DefaultData="false" /> <!-- Always Running -->
+        <Row DefnId="6" NodeId="15" TreeName="Nuclear Assault" DefaultData="false" /> <!-- Explore -->
+		
+		
+		<!--    <Row DataName="Move To (enum)" DefnId="0" DataType="int" NodeType="Operation Move" Required="False" UserData="True" />
+		<Row DataName="Range to goal" DefnId="1" DataType="int" NodeType="Operation Move" UserData="True" />
+		<Row DataName="Validate new units" DefnId="2" DataType="bool" NodeType="Operation Move" Required="False" UserData="True" />
+		<Row DataName="Unit distance" DefnId="3" DataType="int" NodeType="Operation Move" Required="False" UserData="True" />
+		<Row DataName="Leader Tag" DefnId="4" DataType="string" NodeType="Operation Move" Required="False" UserData="True" />
+		<Row DataName="AlwaysRunning" DefnId="5" DataType="bool" NodeType="Operation Move" Required="False" UserData="True" />
+		<Row DataName="Can Explore" DefnId="6" DataType="bool" NodeType="Operation Move" Required="False" UserData="True" /-->
+		
+		<!-- Launch Nuke (16)-->	
+		<Row DefnId="0" NodeId="16" TreeName="Nuclear Assault" DefaultData="true" /> <!-- Testing True -->
+	
+	<!-- Second: -->
+	
+		<!-- Operation CT -->
+		<Row DefnId="0" NodeId="17" TreeName="Nuclear Assault" DefaultData="0" /> <!--Def -2.5-- <!-- Backup Amount--> <!-- -100 at end of simple siege tree, -1 at start of modded siege tree -->
+		<Row DefnId="1" NodeId="17" TreeName="Nuclear Assault" DefaultData="0" /> <!-- Def -5 -- Failure Amount-->
+		<Row DefnId="2" NodeId="17" TreeName="Nuclear Assault" DefaultData="true" /> <!-- Fail on Invalid Team-->
+		<Row DefnId="4" NodeId="17" TreeName="Nuclear Assault" DefaultData="true" /> 
+		
+		
+		<!-- "Operation Move" (18) -->
+		<Row DefnId="0" NodeId="18" TreeName="Nuclear Assault" DefaultData="1" /> <!-- <Row DataName="Move To (enum)" DefnId="0" DataType="int" NodeType="Operation Move" Required="False" UserData="True" /-->
+		<Row DefnId="1" NodeId="18" TreeName="Nuclear Assault" DefaultData="4" /> <!-- <Row DataName="Range to goal" DefnId="1" DataType="int" NodeType="Operation Move" UserData="True" /-->
+		<Row DefnId="2" NodeId="18" TreeName="Nuclear Assault" DefaultData="true" /> <!-- <Row DataName="Validate new units" DefnId="2" DataType="bool" NodeType="Operation Move" Required="False" UserData="True" /-->
+		<Row DefnId="3" NodeId="18" TreeName="Nuclear Assault" DefaultData="2" /> <!-- <Row DataName="Unit distance" DefnId="3" DataType="int" NodeType="Operation Move" Required="False" UserData="True" /-->	
+		<Row DefnId="5" NodeId="18" TreeName="Nuclear Assault" DefaultData="false" />
+        <Row DefnId="6" NodeId="18" TreeName="Nuclear Assault" DefaultData="false" />
+
+		<!-- Launch Nuke 2 (19)-->	
+		<Row DefnId="0" NodeId="19" TreeName="Nuclear Assault" DefaultData="false" />
+	
+		<!-- "Recruit Units 3" -->
+		<!--Row DefnId="0" NodeId="19" TreeName="Nuclear Assault" DefaultData="true" />
+		<!--Row DefnId="1" NodeId="19" TreeName="Nuclear Assault" Tag="Ongoing Recruits" /--> <!-- Deleted as Not defined -->
+		<!--Row DefnId="4" NodeId="19" TreeName="Nuclear Assault" Tag="Present Value" />
+		<!--Row DefnId="5" NodeId="19" TreeName="Nuclear Assault" DefaultData="4" /> <!-- Time limit-->
+	
+		<!-- "Operation Defend Units" -->
+		<!--Row DefnId="0" NodeId="20" TreeName="Nuclear Assault" DefaultData="10" /> <!--Def 20 <!--AutoProtect Percentage-->
+	
+	
+</TreeData>
+
+
+<!--
+Might be useful:
+
+    <Row NodeType="Priority" NodeId="1" ShapeId="0">
+      <Description>Logical Or node. Runs all children until it reaches a SUCCESS or RUNNING</Description>
+    </Row>
+
+
+
+<!--
+
+<BehaviorTreeNodes>
+	<Delete TreeName="Nuclear Assault" />
+
+    <Row NodeType="Sequence" NodeId="0" TreeName="Nuclear Assault" JumpTo="17" />
+      <Description>Special logical And node. Stops on FAILURE, but also stops on RUNNING. Resumes next turn on RUNNING node.</Description>
+	  -->
+	
+	<!--
+    <Row NodeType="Decode Trigger" NodeId="1" TreeName="Nuclear Assault" />
+      <Description>For temporary trees only. Take the trigger you want to meet and extract information for use elsewhere.</Description>
+	  -->
+	
+	<!--
+    <Row NodeType="Operation Defend Units" NodeId="2" TreeName="Nuclear Assault" />
+	<!-- As part of an operation, protect your units that might otherwise be destroyed. -->
+	
+	<!--
+    <Row NodeType="Concurrent" NodeId="3" TreeName="Nuclear Assault" JumpTo="17" />
+	<!-- Logical And node. Runs all children until it reaches a FAILURE (can allow multiple failures if desired.) -->
+	
+	<!--
+    <Row NodeType="Will use nukes" NodeId="4" TreeName="Nuclear Assault" />
+	<!-- Might need to be deleted? !-->
+	
+	<!--
+    <Row NodeType="Sequence" NodeId="5" TreeName="Nuclear Assault" JumpTo="17" />
+    <Row NodeType="Concurrent" NodeId="6" TreeName="Nuclear Assault" JumpTo="10" />
+    <Row NodeType="Contract Manager Decorator" NodeId="7" TreeName="Nuclear Assault" JumpTo="9" />
+    <Row NodeType="Recruit Units" NodeId="8" TreeName="Nuclear Assault" />
+    <Row NodeType="Operation Attack Units" NodeId="9" TreeName="Nuclear Assault" />
+	
+    <Row NodeType="Lock Units" NodeId="10" TreeName="Nuclear Assault" />
+	<!-- <Description>Allow / disallow units to be recruited off the team</Description> -->
+	
+	<!--
+    <Row NodeType="Concurrent" NodeId="11" TreeName="Nuclear Assault" JumpTo="17" />
+    <Row NodeType="Operation Change Target" NodeId="12" TreeName="Nuclear Assault" />
+    <Row NodeType="Recruit Units" NodeId="13" TreeName="Nuclear Assault" />
+    <Row NodeType="Operation Attack Units" NodeId="14" TreeName="Nuclear Assault" />
+    <Row NodeType="Operation Move" NodeId="15" TreeName="Nuclear Assault" />
+    <Row NodeType="Operation Launch nuke" NodeId="16" TreeName="Nuclear Assault" />
+	
+</BehaviorTreeNodes>
+
+Default Nuclear Assault Tree:
+    <Row NodeType="Sequence" NodeId="0" TreeName="Nuclear Assault" JumpTo="17" />
+    <Row NodeType="Decode Trigger" NodeId="1" TreeName="Nuclear Assault" />
+    <Row NodeType="Operation Defend Units" NodeId="2" TreeName="Nuclear Assault" />
+    <Row NodeType="Concurrent" NodeId="3" TreeName="Nuclear Assault" JumpTo="17" />
+    <Row NodeType="Will use nukes" NodeId="4" TreeName="Nuclear Assault" />
+    <Row NodeType="Sequence" NodeId="5" TreeName="Nuclear Assault" JumpTo="17" />
+    <Row NodeType="Concurrent" NodeId="6" TreeName="Nuclear Assault" JumpTo="10" />
+    <Row NodeType="Contract Manager Decorator" NodeId="7" TreeName="Nuclear Assault" JumpTo="9" />
+    <Row NodeType="Recruit Units" NodeId="8" TreeName="Nuclear Assault" />
+    <Row NodeType="Operation Attack Units" NodeId="9" TreeName="Nuclear Assault" />
+    <Row NodeType="Lock Units" NodeId="10" TreeName="Nuclear Assault" />
+    <Row NodeType="Concurrent" NodeId="11" TreeName="Nuclear Assault" JumpTo="17" />
+    <Row NodeType="Operation Change Target" NodeId="12" TreeName="Nuclear Assault" />
+    <Row NodeType="Recruit Units" NodeId="13" TreeName="Nuclear Assault" />
+    <Row NodeType="Operation Attack Units" NodeId="14" TreeName="Nuclear Assault" />
+    <Row NodeType="Operation Move" NodeId="15" TreeName="Nuclear Assault" />
+    <Row NodeType="Operation Launch nuke" NodeId="16" TreeName="Nuclear Assault" />
+-->
+
+<!--
+
+Default Nuclear Tree Data
+    <Row DefnId="0" NodeId="1" TreeName="Nuclear Assault" Tag="Unused" />
+    <Row DefnId="1" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="2" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="3" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="4" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="5" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="6" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="7" NodeId="1" TreeName="Nuclear Assault" />
+    <Row DefnId="8" NodeId="1" TreeName="Nuclear Assault" Tag="Present Value" />
+	
+    <Row DefnId="0" NodeId="2" TreeName="Nuclear Assault" DefaultData="20" />
+	
+    <Row DefnId="0" NodeId="7" TreeName="Nuclear Assault" Tag="Present Value" />
+    <Row DefnId="1" NodeId="7" TreeName="Nuclear Assault" />
+    <Row DefnId="2" NodeId="7" TreeName="Nuclear Assault" DefaultData="10" />
+    <Row DefnId="3" NodeId="7" TreeName="Nuclear Assault" DefaultData="false" />
+	
+    <Row DefnId="1" NodeId="8" TreeName="Nuclear Assault" Tag="Initial Recruits" />
+    <Row DefnId="4" NodeId="8" TreeName="Nuclear Assault" Tag="Present Value" />
+	
+    <Row DefnId="0" NodeId="9" TreeName="Nuclear Assault" DefaultData="true" />
+    <Row DefnId="1" NodeId="9" TreeName="Nuclear Assault" DefaultData="false" />
+	
+    <Row DefnId="0" NodeId="10" TreeName="Nuclear Assault" DefaultData="true" />
+    <Row DefnId="1" NodeId="10" TreeName="Nuclear Assault" DefaultData="true" />
+	
+    <Row DefnId="0" NodeId="12" TreeName="Nuclear Assault" DefaultData="-2.5" />
+    <Row DefnId="1" NodeId="12" TreeName="Nuclear Assault" DefaultData="-5" />
+    <Row DefnId="2" NodeId="12" TreeName="Nuclear Assault" DefaultData="true" />
+	
+    <Row DefnId="0" NodeId="13" TreeName="Nuclear Assault" DefaultData="true" />
+    <Row DefnId="1" NodeId="13" TreeName="Nuclear Assault" Tag="Ongoing Recruits" />
+    <Row DefnId="4" NodeId="13" TreeName="Nuclear Assault" Tag="Present Value" />
+	
+    <Row DefnId="0" NodeId="14" TreeName="Nuclear Assault" DefaultData="true" />
+    <Row DefnId="1" NodeId="14" TreeName="Nuclear Assault" DefaultData="true" />
+	
+    <Row DefnId="0" NodeId="15" TreeName="Nuclear Assault" DefaultData="1" />
+    <Row DefnId="1" NodeId="15" TreeName="Nuclear Assault" DefaultData="4" />
+    <Row DefnId="2" NodeId="15" TreeName="Nuclear Assault" DefaultData="1" />
+    <Row DefnId="3" NodeId="15" TreeName="Nuclear Assault" DefaultData="2" />
+-->
+
+<!-- For Reference Nuclear Assault Changes -->
+<!--
+<TreeData>
+	<!-- 7:Contract Manager Decorator  "Initial Recruits" not defined -->
+	<!--Update>
+		<Where DefnId="0" NodeId="7" TreeName="Nuclear Assault" /> <!-- contract manager, contract id -->
+		<!--Set Tag="Initial Recruits" /-->
+	<!--/Update>
+	<!-- 8:Recruit Units Par0 is missing (not in progress) -->
+    <!--Row DefnId="0" NodeId="8" TreeName="Nuclear Assault" DefaultData="false" /> <!-- not in progress -->
+	<!-- 13:Recruit Units “Ongoing Recruits” not defined -->
+	<!--Delete DefnId="1" NodeId="13" TreeName="Nuclear Assault" /> 
+</TreeData-->
+
+<!--
+Default Siege City Assault:
+    <Row NodeType="Concurrent" NodeId="0" TreeName="Siege City Assault" JumpTo="57" />
+    <Row NodeType="Decode Trigger" NodeId="1" TreeName="Siege City Assault" />
+    <Row NodeType="Priority" NodeId="2" TreeName="Siege City Assault" JumpTo="5" />
+    <Row NodeType="Can Alpha City" NodeId="3" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Defend Units" NodeId="4" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Change Target" NodeId="5" TreeName="Siege City Assault" />
+    <Row NodeType="Sequence" NodeId="6" TreeName="Siege City Assault" JumpTo="57" />
+    <Row NodeType="Concurrent" NodeId="7" TreeName="Siege City Assault" JumpTo="15" />
+    <Row NodeType="Priority" NodeId="8" TreeName="Siege City Assault" JumpTo="12" />
+    <Row NodeType="Operation Is Ready" NodeId="9" TreeName="Siege City Assault" />
+    <Row NodeType="Contract Manager Decorator" NodeId="10" TreeName="Siege City Assault" JumpTo="12" />
+    <Row NodeType="Recruit Units" NodeId="11" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Attack Units" NodeId="12" TreeName="Siege City Assault" />
+    <Row NodeType="Make Formation" NodeId="13" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Move" NodeId="14" TreeName="Siege City Assault" />
+    <Row NodeType="Lock Units" NodeId="15" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Diplomacy" NodeId="16" TreeName="Siege City Assault" />
+    <Row NodeType="Turn Limiter" NodeId="17" TreeName="Siege City Assault" JumpTo="25" />
+    <Row NodeType="Priority" NodeId="18" TreeName="Siege City Assault" JumpTo="25" />
+    <Row NodeType="Is At War" NodeId="19" TreeName="Siege City Assault" />
+    <Row NodeType="Concurrent" NodeId="20" TreeName="Siege City Assault" JumpTo="25" />
+    <Row NodeType="Operation Change Target" NodeId="21" TreeName="Siege City Assault" />
+    <Row NodeType="Recruit Units" NodeId="22" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Attack Units" NodeId="23" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Move" NodeId="24" TreeName="Siege City Assault" />
+    <Row NodeType="Concurrent" NodeId="25" TreeName="Siege City Assault" JumpTo="32" />
+    <Row NodeType="Turn Limiter" NodeId="26" TreeName="Siege City Assault" JumpTo="29" />
+    <Row NodeType="Contract Manager Decorator" NodeId="27" TreeName="Siege City Assault" JumpTo="29" />
+    <Row NodeType="Operation Diplomacy" NodeId="28" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Attack Units" NodeId="29" TreeName="Siege City Assault" />
+    <Row NodeType="Turn Limiter" NodeId="30" TreeName="Siege City Assault" JumpTo="32" />
+    <Row NodeType="Operation Move" NodeId="31" TreeName="Siege City Assault" />
+    <Row NodeType="Turn Limiter" NodeId="32" TreeName="Siege City Assault" JumpTo="42" />
+    <Row NodeType="Concurrent" NodeId="33" TreeName="Siege City Assault" JumpTo="42" />
+    <Row NodeType="Is At War" NodeId="34" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Change Target" NodeId="35" TreeName="Siege City Assault" />
+    <Row NodeType="Recruit Units" NodeId="36" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Attack Units" NodeId="37" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Air Assault" NodeId="38" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Pillage" NodeId="39" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Siege City" NodeId="40" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Move" NodeId="41" TreeName="Siege City Assault" />
+    <Row NodeType="Concurrent" NodeId="42" TreeName="Siege City Assault" JumpTo="57" />
+    <Row NodeType="Operation Change Target" NodeId="43" TreeName="Siege City Assault" />
+    <Row NodeType="Recruit Units" NodeId="44" TreeName="Siege City Assault" />
+    <Row NodeType="Priority" NodeId="45" TreeName="Siege City Assault" JumpTo="49" />
+    <Row NodeType="Not" NodeId="46" TreeName="Siege City Assault" JumpTo="48" />
+    <Row NodeType="Can Alpha City" NodeId="47" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Attack City" NodeId="48" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Attack Units" NodeId="49" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Pillage" NodeId="50" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Siege City" NodeId="51" TreeName="Siege City Assault" />
+    <Row NodeType="Build Military Improvement" NodeId="52" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Air Assault" NodeId="53" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Attack City" NodeId="54" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Pillage" NodeId="55" TreeName="Siege City Assault" />
+    <Row NodeType="Operation Move" NodeId="56" TreeName="Siege City Assault" />
+
+-->
+	
+	
+</GameInfo>

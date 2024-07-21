@@ -1,0 +1,153 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<GameData>
+	<LocalizedText>
+
+
+		<!-- Setting Name -->
+
+		<Replace Tag="LOC_STARTING_DIPLO_OFFSET" Language="en_US">
+			<Text>Diplomacy Offset</Text>
+		</Replace>
+
+		<Replace Tag="LOC_STARTING_RH_WALL_ATTACK" Language="en_US">
+			<Text>RH Revival of Mesopotamia</Text>
+		</Replace>
+
+
+		<!--Replace Tag="" Language="en_US">
+			<Text>Roman Holiday's AI Settings</Text>
+		</Replace-->
+	
+		<Replace Tag="RULESET_RH_AI_STANDARD_OFFSET_NAME" Language="en_US">
+			<Text>Higher Offset</Text>
+		</Replace>
+	
+		<Replace Tag="RULESET_RH_AI_STANDARD_OFFSET_DESCRIPTION" Language="en_US">
+			<Text>50% higher starting diplomacy offset (approximately 3x higher than vanilla). This will be an especially difficult game.</Text>
+		</Replace>
+		
+		<Replace Tag="RULESET_RH_AI_LOWER_OFFSET_NAME" Language="en_US">
+			<Text>Standard Offset</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_LOWER_OFFSET_DESCRIPTION" Language="en_US">
+			<Text>Standard starting diplomacy offset (Increases slightly per difficulty level above Prince, decays over time and is random per leader).</Text>
+		</Replace>
+				
+		<Replace Tag="RULESET_RH_AI_LOWEST_OFFSET_NAME" Language="en_US">
+			<Text>Lowest Offset</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_LOWEST_OFFSET_DESCRIPTION" Language="en_US">
+			<Text>50% lower starting offset and the AI is slightly more peaceful in general. Closer to vanilla. Recommended for a more peaceful game (Gandhi will be your best friend).</Text>
+		</Replace>
+
+
+		<!-- ROM ENABLED -->
+
+		<Replace Tag="RULESET_RH_AI_REVIVAL_OF_MESOPOTAMIA_NAME" Language="en_US">
+			<Text>Rh: Revival of Mesopotamia</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_REVIVAL_OF_MESOPOTAMIA_DESCRIPTION" Language="en_US">
+			<Text>AI forces suddenly acquire a technological awakening and break free from the barriers of walls. The call to reclaim what is rightfully theirs echoes through the land; Mesopotamia will rise once again!</Text>
+		</Replace>
+
+
+		<!-- Extra Strategics -->
+
+		<Replace Tag="RULESET_RH_AI_EXTRA_STRATEGICS_NAME" Language="en_US">
+			<Text>Rh: Extra Late Game Strategic Resources</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_EXTRA_STRATEGICS_DESCRIPTION" Language="en_US">
+			<Text>The AI gains 10 Oil and Aluminium Per Turn at Combined Arms, 10 Uranium at Nuclear Fission Regardless of Improved Resources</Text>
+		</Replace>
+
+
+		<!-- Reduced Starting Units -->
+
+		<Replace Tag="RULESET_RH_AI_REDUCED_STARTING_UNITS_NAME" Language="en_US">
+			<Text>Rh: Reduced Starting Warriors</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_REDUCED_STARTING_UNITS_DESCRIPTION" Language="en_US">
+			<Text>Reduces the AI's starting warriors by ~40% and provides up to 3 delayed builders (depending on difficulty) as compensation. Deity++ Starting Unit Options Compatible.</Text>
+		</Replace>
+
+
+		<!-- Reduced Early Agg -->
+
+		<Replace Tag="RULESET_RH_AI_REDUCED_EARLY_AGGRESSIVENESS_NAME" Language="en_US">
+			<Text>Rh: Reduced Early Aggressiveness</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_REDUCED_EARLY_AGGRESSIVENESS_DESCRIPTION" Language="en_US">
+			<Text>Increases the AI's hesistancy to attack cities in the Ancient and Classical eras</Text>
+		</Replace>
+
+
+
+		<!-- Not in use: AI ONLY GREAT PEOPLE -->
+
+		<!-- RELIC MAN -->
+
+		<!--Replace Tag="LOC_GREAT_PERSON_CLASS_RELICMAN" Language="en_US">
+			<Text>RomanHoliday's Relicman</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_GREAT_PERSON_INDIVIDUAL_RH_RELIC_MAN_NAME" Language="en_US">
+			<Text>The Relicman</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_UNIT_UNIT_RH_RELICMAN_DESCRIPTION" Language="en_US">
+			<Text>This is an AI only great person to make the AI value relic strategies in some scenarios</Text>
+		</Replace-->
+
+
+		<Replace Tag="LOC_YIELD_RH_AI" Language="en_US">
+			<Text>RH's Special AI Scoring (Internal AI Only)</Text>
+		</Replace>
+
+		<Replace Tag="LOC_YIELD_PLACEMENT_RH_AI" Language="en_US">
+			<Text>RHAI Placement (No Gameplay Effect)</Text>
+		</Replace>
+
+		<Replace Tag="LOC_BUILDING_RH_FEED_STRAT_NAME" Language="en_US">
+			<Text></Text>
+		</Replace>
+
+		<Replace Tag="LOC_UNIT_RH_SPECIALIST_MERCHANT_NAME" Language="en_US">
+			<Text>Great Corporation Merchant</Text>
+		</Replace>
+
+		<Replace Tag="LOC_UNIT_RH_SPECIALIST_MERCHANT_DESCRIPTION" Language="en_US">
+			<Text>Allows the AI to Build Corporations Effectively (Requires Good Commerical Hubs)</Text>
+		</Replace>
+		
+		<!-- Civics -->
+		
+		
+		<Replace Tag="LOC_TECHNOLOGY_RH_AI_LUDWIG_ADJ_NAME" Language="en_US">
+			<Text>Ludwig RHAI (For RH Internal Strat)</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_TECHNOLOGY_RH_AI_THEODORA_ADJ_NAME" Language="en_US">
+			<Text>Theodora RHAI (For RH Internal Strat)</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_TECHNOLOGY_RH_AI_HUNGARY_ADJ_NAME" Language="en_US">
+			<Text>HUNGARY RHAI (For RH Internal Strat)</Text>
+		</Replace>
+
+
+		<Replace Tag="LOC_TECHNOLOGY_RH_AI_MAIN_NAME" Language="en_US">
+			<Text>RHAI District (RHAI Internal) </Text>
+		</Replace>
+		
+		<Replace Tag="LOC_RH_AI_VERSION" Language="en_US">
+			<Text>RHAI V4 Beta</Text>
+		</Replace>
+		
+		
+	
+		
+		
+
+	</LocalizedText>
+</GameData>

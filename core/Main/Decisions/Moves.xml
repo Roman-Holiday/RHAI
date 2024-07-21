@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- UNIT MOVE PRIORITY / Tactics. Special Thanks INFIXO, Firaxis devs for tactics file -->
+
+<GameInfo>
+  <AllowedMoves>
+  	<Delete/>
+    <Row AllowedMoveType="First Turn Settler" Value="0" IsHomeland="true" />
+    <Row AllowedMoveType="Promotion" Value="1" isTactical="true" isHomeland="true" />
+    <Row AllowedMoveType="Gather Goody Hut" Value="2" IsTactical="true" IsHomeland="true" />
+	<!-- air ops and highest priority attack -->
+    <Row AllowedMoveType="Air Assault" Value="3" isTactical="true" />
+	
+	<Row AllowedMoveType="Make Military Formation" Value="4" isTactical="true" /> <!-- testing homeland and tactical INFIXO: fixed; "Make Military Formation" is set as IsHomeland, but used in Tactics lists for both Majors and Minors, isHomeland="true" -->	
+	<Row AllowedMoveType="Leader Formation" Value="5" isTactical="true" />
+    <Row AllowedMoveType="Support Formation" Value="6" isHomeland="true" isTactical="true" /> <!-- Moved above attack camps, hp and attack low priority to encourage further -- Firaxis: Support units not in use by an operation should try to move close to allied military -->
+
+    <Row AllowedMoveType="Attack High Priority" Value="7" IsTactical="true" />
+    <Row AllowedMoveType="Air Deploy" Value="8" isTactical="true" />
+	<!-- higher Priority -->
+    <Row AllowedMoveType="Charge Heal" Value="9" isHomeland="true"/> <!-- charge heal units - atm just the Guru -->
+    <Row AllowedMoveType="Coastal Raid" Value="10" IsTactical="true" />
+	
+	<Row AllowedMoveType="Attack District" Value="11" IsTactical="true" /> <!-- Moving from 18 to potentially improve siege op, now from 15-->
+	
+	<Row AllowedMoveType="Pillage District" Value="12" IsTactical="true" />	
+	<Row AllowedMoveType="Pillage Improvement" Value="13" IsTactical="true" />	
+	
+	<Row AllowedMoveType="Attack Medium Priority" Value="14" IsTactical="true" />
+
+    <Row AllowedMoveType="Air Rebase" Value="15" isTactical="true" />
+
+	<Row AllowedMoveType="Move to Safety" Value="16" IsHomeland="true" IsTactical="true" />
+
+    <Row AllowedMoveType="Attack Camps" Value="17" IsTactical="true" />
+    <Row AllowedMoveType="Attack Low Priority" Value="18" IsTactical="true" />	
+	
+    <Row AllowedMoveType="Heal" Value="19" IsTactical="true" />
+    <Row AllowedMoveType="Plunder Trader" Value="20" IsTactical="true" isHomeland="true" />
+	<!-- low Priority + plus rock bands -->
+	<Row AllowedMoveType="Rock Band Move" Value="21" IsHomeland="true" />
+
+    <Row AllowedMoveType="Explore Land" Value="22" IsHomeland="true" />
+    <Row AllowedMoveType="Attack Civilians" Value="23" IsTactical="true" isHomeland="true" />
+    <Row AllowedMoveType="Chase Target" Value="24" IsTactical="true" />
+	<!-- barbs -->
+    <Row AllowedMoveType="Defend Camps" Value="25" IsTactical="true" />
+    <Row AllowedMoveType="Barbarian Rampage" Value="26" isTactical="true" />
+	<!-- GP, Relgious, Builders -->
+    <Row AllowedMoveType="Great Person Move" Value="27" IsHomeland="true" />
+    <Row AllowedMoveType="Found Park" Value="28" isHomeland="true" />
+    <Row AllowedMoveType="Religious Combat" Value="29" isHomeland="true" />
+    <Row AllowedMoveType="Missionary Move" Value="30" isHomeland="true" />
+    <Row AllowedMoveType="Builder Outside Ring" Value="31" isHomeland="true" />
+	<!-- wander -->
+    <Row AllowedMoveType="Wander" Value="32" IsTactical="true" />
+    <Row AllowedMoveType="Wander Near Camp" Value="33" IsTactical="true" />
+    <Row AllowedMoveType="Wander Near City" Value="34" IsTactical="true" />
+	<!-- end -->
+    <Row AllowedMoveType="End Turn" Value="35" IsHomeland="true" />
+  </AllowedMoves>
+  
+  <AiFavoredItems>
+	<Delete ListType="Default Tactical"/>
+	
+	<Row ListType="Default Tactical" Item="Make Military Formation" Value="1"/ > <!-- testing above ahp, promotion,  Favored="true", pvs 0 -->
+	
+	<Row ListType="Default Tactical" Item="Promotion"  Value="2"/ > <!-- testing higher, testing even high, was 4th, Favored="true" -->
+	<Row ListType="Default Tactical" Item="Leader Formation" Value="10"/ > <!-- testing above ahp -->
+	<Row ListType="Default Tactical" Item="Support Formation" Value="20"/ > <!-- testing above ahp -->
+	
+	<Row ListType="Default Tactical" Item="Attack High Priority" Value="50"/ >
+	<Row ListType="Default Tactical" Item="Gather Goody Hut" Value="60"/ >
+	<Row ListType="Default Tactical" Item="Air Assault" Value="65"/ >
+	<Row ListType="Default Tactical" Item="Air Deploy" Value="70" />
+	<Row ListType="Default Tactical" Item="Coastal Raid" Value="80" />
+	<Row ListType="Default Tactical" Item="Attack District" Value="90" /> 
+	
+	<Row ListType="Default Tactical" Item="Pillage District" Value="95" /> <!-- Testing Above Medium Priority -->
+	<Row ListType="Default Tactical" Item="Pillage Improvement" Value="100" /> <!-- testing above move to safety for hp --> <!-- Testing Above Medium Priority -->
+		
+	<Row ListType="Default Tactical" Item="Attack Medium Priority" Value="105" />
+
+	<Row ListType="Default Tactical" Item="Air Rebase" Value="110" />
+
+	<Row ListType="Default Tactical" Item="Attack Camps" Value="120" />
+
+	<Row ListType="Default Tactical" Item="Move to Safety" Value="130" /> <!-- similar to bar -->
+
+	<Row ListType="Default Tactical" Item="Attack Civilians" Value="140" />	
+	<Row ListType="Default Tactical" Item="Plunder Trader" Value="150" />
+
+	<Row ListType="Default Tactical" Item="Attack Low Priority" Value="160" /> <!-- Testing Above Heal -->
+	<Row ListType="Default Tactical" Item="Chase Target" Value="170" />  <!-- Testing Above Heal -->
+	
+	<Row ListType="Default Tactical" Item="Heal" Value="180" />
+
+	<Row ListType="Default Tactical" Item="Wander Near City" Value="190" />
+	<Row ListType="Default Tactical" Item="Wander" Value="195" />
+	
+	<Delete ListType="Default Homeland"/>
+		<Row ListType="Default Homeland" Item="Promotion" Value="1" />
+		<Row ListType="Default Homeland" Item="First Turn Settler" Value="2" />
+		<!--Row ListType="Default Homeland" Item="Make Military Formation" Value="5" /--> <!-- new, testing, not in minor civ homeland and they form formations -->
+		<Row ListType="Default Homeland" Item="Great Person Move" Value="10" />
+		<Row ListType="Default Homeland" Item="Move to Safety" Value="30" />
+
+		<!--Row ListType="Default Homeland" Item="Support Formation" Value="50" /--> <!-- New new --> <!-- Causes GP support formations etc -->
+		<Row ListType="Default Homeland" Item="Found Park" Value="60" />
+		<Row ListType="Default Homeland" Item="Rock Band Move" Value="70"/>
+		<Row ListType="Default Homeland" Item="Gather Goody Hut" Value="80" />
+		<Row ListType="Default Homeland" Item="Religious Combat" Value="90" />
+		<Row ListType="Default Homeland" Item="Charge Heal" Value="100" />
+		<Row ListType="Default Homeland" Item="Missionary Move" Value="110" />
+
+		<Row ListType="Default Homeland" Item="Attack Civilians" Value="120" />
+		<Row ListType="Default Homeland" Item="Builder Outside Ring" Value="130" />
+		<Row ListType="Default Homeland" Item="Explore Land" Value="140" />
+		<Row ListType="Default Homeland" Item="End Turn" Value="150" />
+			
+	<Delete ListType="Default Barbarian"/> <!-- slight adjustments -->
+
+	<Row ListType="Default Barbarian" Item="Defend Camps" /> <!-- Higher prio -->
+	<Row ListType="Default Barbarian" Item="Barbarian Rampage" />
+	<Row ListType="Default Barbarian" Item="Coastal Raid" />
+	<Row ListType="Default Barbarian" Item="Pillage District" />
+	<Row ListType="Default Barbarian" Item="Pillage Improvement" /> <!-- To heal (can heal from pillage improvement), testing above high priority -->
+	<Row ListType="Default Barbarian" Item="Attack High Priority" />
+	<Row ListType="Default Barbarian" Item="Plunder Trader" />
+	<Row ListType="Default Barbarian" Item="Attack Civilians" /> <!-- Too high and builders / gpp can be used to distract -->
+	<Row ListType="Default Barbarian" Item="Attack Medium Priority" />
+	<Row ListType="Default Barbarian" Item="Move to Safety" />
+	<Row ListType="Default Barbarian" Item="Attack Low Priority" />
+	<Row ListType="Default Barbarian" Item="Chase Target" />
+	<Row ListType="Default Barbarian" Item="Wander Near Camp" />
+	
+	<Delete ListType="Minor Civ Tactical"/>
+	
+	<Row ListType="Minor Civ Tactical" Item="Promotion" Favored="true"/>	
+	
+	<Row ListType="Minor Civ Tactical" Item="Make Military Formation" />
+	<Row ListType="Minor Civ Tactical" Item="Support Formation"/>
+	<Row ListType="Minor Civ Tactical" Item="Air Assault"/> <!-- testing -->
+	<Row ListType="Minor Civ Tactical" Item="Air Deploy"/>
+	
+    <Row ListType="Minor Civ Tactical" Item="Attack High Priority"/>
+
+	<Row ListType="Minor Civ Tactical" Item="Move to Safety"/>
+	<Row ListType="Minor Civ Tactical" Item="Attack Medium Priority" />
+	<Row ListType="Minor Civ Tactical" Item="Attack Civilians" />
+
+	<Row ListType="Minor Civ Tactical" Item="Plunder Trader" />
+	<Row ListType="Minor Civ Tactical" Item="Coastal Raid" />
+	<Row ListType="Minor Civ Tactical" Item="Pillage Improvement" />
+	<Row ListType="Minor Civ Tactical" Item="Pillage District" />
+	
+    <Row ListType="Minor Civ Tactical" Item="Attack Low Priority" />
+	<Row ListType="Minor Civ Tactical" Item="Heal" />
+	<Row ListType="Minor Civ Tactical" Item="Air Rebase"/> <!-- testing -->
+	<Row ListType="Minor Civ Tactical" Item="Chase Target" />
+	<Row ListType="Minor Civ Tactical" Item="Wander Near City" />
+	
+	<Delete ListType="Minor Civ Homeland"/>
+
+		<Row ListType="Minor Civ Homeland" Item="First Turn Settler" Value="1" />
+		<Row ListType="Minor Civ Homeland" Item="Promotion" Value="10" />
+		<Row ListType="Minor Civ Homeland" Item="Move to Safety" Value="20" />
+		<Row ListType="Minor Civ Homeland" Item="Attack Civilians" Value="30" />
+		<Row ListType="Minor Civ Homeland" Item="Builder Outside Ring" Value="40" />
+		<Row ListType="Minor Civ Homeland" Item="Explore Land" Value="100" /> <!-- not here by default -->
+		<Row ListType="Minor Civ Homeland" Item="End Turn" Value="110" />
+	
+	<!--
+	    <Row ListType="Default Barbarian" Item="Barbarian Rampage" />
+		<Row ListType="Default Barbarian" Item="Attack High Priority" />
+    <Row ListType="Default Barbarian" Item="Defend Camps" />
+		<Row ListType="Default Barbarian" Item="Attack Civilians" />
+    <Row ListType="Default Barbarian" Item="Plunder Trader" />
+    <Row ListType="Default Barbarian" Item="Coastal Raid" />
+    <Row ListType="Default Barbarian" Item="Pillage District" />
+		<Row ListType="Default Barbarian" Item="Pillage Improvement" />
+		<Row ListType="Default Barbarian" Item="Attack Medium Priority" />
+		<Row ListType="Default Barbarian" Item="Move to Safety" />
+		<Row ListType="Default Barbarian" Item="Attack Low Priority" />
+		<Row ListType="Default Barbarian" Item="Chase Target" />
+		<Row ListType="Default Barbarian" Item="Wander Near Camp" />
+		
+		
+    <Row ListType="Default Barbarian HL" Item="Plunder Trader" />
+		<Row ListType="Default Barbarian HL" Item="Move to Safety" />
+		<Row ListType="Default Barbarian HL" Item="Explore Land" />
+		<Row ListType="Default Barbarian HL" Item="End Turn" />
+		
+			<Row ListType="Default Homeland" Item="First Turn Settler" />
+	<Row ListType="Default Homeland" Item="Air Assault" />
+	<Row ListType="Default Homeland" Item="Air Deploy" />
+	<Row ListType="Default Homeland" Item="Rock Band Move" />
+	<Row ListType="Default Homeland" Item="Air Rebase" />
+	<Row ListType="Default Homeland" Item="Great Person Move" />
+	<Row ListType="Default Homeland" Item="Found Park" />
+	<Row ListType="Default Homeland" Item="Attack Civilians" />
+	<Row ListType="Default Homeland" Item="Gather Goody Hut" />
+
+	<Row ListType="Default Homeland" Item="Leader Formation" />
+	<Row ListType="Default Homeland" Item="Charge Heal" />
+
+	<Row ListType="Default Homeland" Item="Move to Safety" />
+	<Row ListType="Default Homeland" Item="Promotion" />
+	<Row ListType="Default Homeland" Item="Religious Combat" />
+	<Row ListType="Default Homeland" Item="Missionary Move" />
+	<Row ListType="Default Homeland" Item="Builder Outside Ring" />
+	<Row ListType="Default Homeland" Item="Explore Land" />
+	<Row ListType="Default Homeland" Item="End Turn" />
+	-->
+	
+	
+  </AiFavoredItems>
+  
+  	<!--AiListTypes>
+		<Row ListType="Pillage Tactical" />
+	</AiListTypes>
+	<AiLists>
+    <Row ListType="Pillage Tactical" LeaderType="TRAIT_LEADER_MAJOR_CIV" System="Tactics" />
+  </AiLists-->
+  
+ 
+  
+</GameInfo>

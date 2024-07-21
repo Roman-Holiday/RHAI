@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- RH Air Defense Tree -->
+
+<GameInfo>
+
+<BehaviorTrees>
+	<Row TreeName="RH City Air Defense Tree" />
+</BehaviorTrees>
+
+	
+ <!-- Todo Contract Managaer Decorator -->
+	
+<BehaviorTreeNodes>
+
+	<Row NodeType="Concurrent" NodeId="0" TreeName="RH City Air Defense Tree" JumpTo="8" />
+	
+		<!--Row NodeType="Is City Threatened" NodeId="1" TreeName="RH City Air Defense Tree" /-->
+		<Row NodeType="Operation Defend Units" NodeId="1" TreeName="RH City Air Defense Tree" />
+		<Row NodeType="Concurrent" NodeId="2" TreeName="RH City Air Defense Tree" JumpTo="8" />
+		
+		<Row NodeType="Contract Manager Decorator" NodeId="3" TreeName="RH City Air Defense Tree" JumpTo="5" />
+				<Row NodeType="Recruit Units" NodeId="4" TreeName="RH City Air Defense Tree" />
+				
+			<Row NodeType="Priority" NodeId="5" TreeName="RH City Air Defense Tree" JumpTo="7" />
+			
+				<Row NodeType="Garrison City" NodeId="6" TreeName="RH City Air Defense Tree" />
+				
+			<Row NodeType="Operation Move" NodeId="7" TreeName="RH City Air Defense Tree" />
+			
+</BehaviorTreeNodes>
+
+<TreeData>
+
+	<!-- Defend Units -->
+    <Row DefnId="1" NodeId="1" TreeName="RH City Air Defense Tree" DefaultData="10" /> <!-- def 5, rst 20, autoprotect percentage -->
+	
+	<!-- "Contract Manager Decorator" -->
+	<Row DefnId="0" NodeId="3" TreeName="RH City Air Defense Tree" Tag="Recruitment Contract" />
+	<Row DefnId="1" NodeId="3" TreeName="RH City Air Defense Tree" />
+	<Row DefnId="2" NodeId="3" TreeName="RH City Air Defense Tree" DefaultData="6" />
+	<Row DefnId="3" NodeId="3" TreeName="RH City Air Defense Tree" DefaultData="false" />
+	
+	<!-- Recruit Units -->
+    <Row DefnId="0" NodeId="4" TreeName="RH City Air Defense Tree" DefaultData="true" /> <!-- bool: Already in progress -->
+	<Row DefnId="2" NodeId="4" TreeName="RH City Air Defense Tree" DefaultData="15" /> <!-- Range, def not defined -->
+	<Row DefnId="3" NodeId="4" TreeName="RH City Air Defense Tree" DefaultData="true" /> <!-- Creation -->
+	<Row DefnId="5" NodeId="4" TreeName="RH City Air Defense Tree" DefaultData="6" />
+	
+    <Row DefnId="6" NodeId="5" TreeName="RH City Air Defense Tree" DefaultData="false" /> <!-- bool: Allow Stealing -->
+    <Row DefnId="7" NodeId="5" TreeName="RH City Air Defense Tree" DefaultData="false" /> <!-- bool: Allow Levying -->
+	
+	<!-- Move -->
+    <Row DefnId="0" NodeId="7" TreeName="RH City Air Defense Tree" DefaultData="1" /> <!-- def 1, int: Move To (enum) -->
+    <Row DefnId="1" NodeId="7" TreeName="RH City Air Defense Tree" DefaultData="0" /> <!-- def 0, (1 rh simple defense) rst 2 int: Range to goal -->
+	<!--Row DefnId="2" NodeId="7" TreeName="RH City Air Defense Tree" DefaultData="3" /--> <!-- def not defined, Unit distance -->
+	
+    <!--Row DefnId="5" NodeId="7" TreeName="RH City Air Defense Tree" DefaultData="true" /--> <!-- Always running -->
+	
+</TreeData>
+	
+
+
+</GameInfo>

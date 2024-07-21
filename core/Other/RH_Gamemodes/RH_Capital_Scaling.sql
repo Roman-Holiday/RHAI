@@ -1,0 +1,160 @@
+
+
+-- Author RomanHoliday
+
+
+-- RH Capital Scaling Gamemode
+
+
+
+
+
+
+INSERT INTO TraitModifiers	(TraitType,						ModifierId) VALUES	
+		('TRAIT_LEADER_MAJOR_CIV',		'MODIFIER_RH_AI_2_CAPITALS'),
+		('TRAIT_LEADER_MAJOR_CIV',		'MODIFIER_RH_AI_3_CAPITALS'),		
+		('TRAIT_LEADER_MAJOR_CIV',		'MODIFIER_RH_AI_4_CAPITALS'),		
+		('TRAIT_LEADER_MAJOR_CIV',		'MODIFIER_RH_AI_5_CAPITALS');		
+
+
+INSERT INTO Modifiers
+		(ModifierId,					ModifierType,					OwnerRequirementSetId) VALUES	
+		('MODIFIER_RH_AI_2_CAPITALS',	'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',		'RH_2_Capitals'),
+		('MODIFIER_RH_AI_3_CAPITALS',	'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',		'RH_3_Capitals'),
+		('MODIFIER_RH_AI_4_CAPITALS',	'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',		'RH_4_Capitals'),
+		('MODIFIER_RH_AI_5_CAPITALS',	'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',		'RH_5_Capitals');		
+		
+		
+INSERT INTO ModifierArguments
+		(ModifierId,									Name,						Value) VALUES	
+		('MODIFIER_RH_AI_2_CAPITALS',								'AbilityType',				'ABILITY_FASCISM_ATTACK_BUFF'),
+	--	('MODIFIER_RH_AI_2_CAPITALS',								'AbilityType',				'ABILITY_BERSERKER_MOVEMENT'),	
+		
+		('MODIFIER_RH_AI_3_CAPITALS',								'AbilityType',				'ABILITY_FASCISM_ATTACK_BUFF'),
+	--	('MODIFIER_RH_AI_3_CAPITALS',								'AbilityType',				'ABILITY_BERSERKER_MOVEMENT'),
+		
+		('MODIFIER_RH_AI_4_CAPITALS',								'AbilityType',				'ABILITY_FASCISM_ATTACK_BUFF'),
+		
+		('MODIFIER_RH_AI_5_CAPITALS',								'AbilityType',				'ABILITY_FASCISM_ATTACK_BUFF');
+	--	('MODIFIER_RH_AI_5_CAPITALS',								'AbilityType',				'ABILITY_BERSERKER_MOVEMENT');		
+
+-- ABILITY_BERSERKER_RAGE (also includes -5) 
+
+
+
+
+/*
+		<Row>
+			<RequirementSetId>FASCISM_REQUIREMENTS</RequirementSetId>
+			<RequirementId>PLAYER_IS_ATTACKER_REQUIREMENTS</RequirementId>
+		</Row>
+
+		<Row>
+			<ModifierId>FASCISM_ATTACK_BUFF</ModifierId>
+			<ModifierType>MODIFIER_UNIT_ADJUST_COMBAT_STRENGTH</ModifierType>
+			<SubjectRequirementSetId>FASCISM_REQUIREMENTS</SubjectRequirementSetId>
+		</Row>
+		
+		-- For BESERKER Movement Buff
+		<Row>
+			<RequirementSetId>BERSERKER_PLOT_IS_ENEMY_TERRITORY</RequirementSetId>
+			<RequirementId>UNIT_IN_ENEMY_TERRITORY_REQUIREMENT</RequirementId>
+		</Row>
+*/
+
+
+
+INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+		('RH_2_Capitals', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_3_Capitals', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_4_Capitals', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_5_Capitals', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_6_Capitals', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_7_Capitals', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_8_Capitals', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_9_Capitals', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_10_Capitals', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_11_Capitals', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_12_Capitals', 'REQUIREMENTSET_TEST_ALL');
+
+
+
+INSERT OR IGNORE INTO RequirementSetRequirements  (RequirementSetId, RequirementId) VALUES	
+		('RH_2_Capitals', 'RH_AI_HAS_2_CAPITALS'),
+		('RH_2_Capitals', 'REQUIRES_PLAYER_IS_AI'),
+		
+		('RH_3_Capitals', 'RH_AI_HAS_3_CAPITALS'),
+		('RH_3_Capitals', 'REQUIRES_PLAYER_IS_AI'),	
+		
+		('RH_4_Capitals', 'RH_AI_HAS_4_CAPITALS'),
+		('RH_4_Capitals', 'REQUIRES_PLAYER_IS_AI'),
+		
+		('RH_5_Capitals', 'RH_AI_HAS_5_CAPITALS'),
+		('RH_5_Capitals', 'REQUIRES_PLAYER_IS_AI'),
+		('RH_6_Capitals', 'RH_AI_HAS_6_CAPITALS'),
+		('RH_6_Capitals', 'REQUIRES_PLAYER_IS_AI'),
+		
+		('RH_7_Capitals', 'RH_AI_HAS_7_CAPITALS'),
+		('RH_7_Capitals', 'REQUIRES_PLAYER_IS_AI'),
+		('RH_8_Capitals', 'RH_AI_HAS_8_CAPITALS'),
+		('RH_8_Capitals', 'REQUIRES_PLAYER_IS_AI'),
+		('RH_9_Capitals', 'RH_AI_HAS_9_CAPITALS'),
+		('RH_9_Capitals', 'REQUIRES_PLAYER_IS_AI'),
+		('RH_10_Capitals', 'RH_AI_HAS_10_CAPITALS'),
+		('RH_10_Capitals', 'REQUIRES_PLAYER_IS_AI'),
+		('RH_11_Capitals', 'RH_AI_HAS_11_CAPITALS'),
+		('RH_11_Capitals', 'REQUIRES_PLAYER_IS_AI'),
+		('RH_12_Capitals', 'RH_AI_HAS_12_CAPITALS'),
+		('RH_12_Capitals', 'REQUIRES_PLAYER_IS_AI');
+
+	
+
+INSERT OR IGNORE INTO Requirements   	(RequirementId, RequirementType)  VALUES	
+		('RH_AI_HAS_2_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST'),
+		('RH_AI_HAS_3_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST'),
+		('RH_AI_HAS_4_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST'),
+		('RH_AI_HAS_5_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST'),
+		('RH_AI_HAS_6_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST'),
+		('RH_AI_HAS_7_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST'),
+		('RH_AI_HAS_8_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST'),
+		('RH_AI_HAS_9_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST'),
+		('RH_AI_HAS_10_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST'),
+		('RH_AI_HAS_11_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST'),
+		('RH_AI_HAS_12_CAPITALS', 			'REQUIREMENT_COLLECTION_COUNT_ATLEAST');
+
+
+INSERT OR IGNORE INTO RequirementArguments   (RequirementId,	Name, Value)  VALUES	
+('RH_AI_HAS_2_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_2_CAPITALS', 'Count', '2'),
+
+('RH_AI_HAS_3_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_3_CAPITALS', 'Count', '3'),
+
+('RH_AI_HAS_4_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_4_CAPITALS', 'Count', '4'),
+
+('RH_AI_HAS_5_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_5_CAPITALS', 'Count', '5'),
+
+('RH_AI_HAS_6_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_6_CAPITALS', 'Count', '6'),
+
+('RH_AI_HAS_7_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_7_CAPITALS', 'Count', '7'),
+
+('RH_AI_HAS_8_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_8_CAPITALS', 'Count', '8'),
+
+('RH_AI_HAS_9_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_9_CAPITALS', 'Count', '9'),
+
+('RH_AI_HAS_10_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_10_CAPITALS', 'Count', '10'),
+
+('RH_AI_HAS_11_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_11_CAPITALS', 'Count', '11'),
+
+('RH_AI_HAS_12_CAPITALS', 'CollectionType', 'COLLECTION_PLAYER_CAPITAL_CITY'),
+('RH_AI_HAS_12_CAPITALS', 'Count', '12');
+
+

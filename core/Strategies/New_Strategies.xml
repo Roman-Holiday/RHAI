@@ -1,0 +1,1619 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- AUTHOR: ROMANHOLIDAY -->
+
+<GameInfo>
+
+	<Strategies>
+		<!--These activate at their era or later, during modern they will stack-->
+		
+		<!-- Peaceful & Top 50% -->
+		<!--Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS" NumConditionsNeeded="3" /> -->
+		<!--Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_SCIENCE_ONWARDS" NumConditionsNeeded="3" /-->
+		
+		<!-- Industrial & VERY High (Top 25%) -->
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" NumConditionsNeeded="4" /> <!-- pvs 4-->
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" NumConditionsNeeded="3" />
+		
+		<!-- IMMINENT -->
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" NumConditionsNeeded="3" />
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" NumConditionsNeeded="3" />
+		
+		<!-- Cannot Use Religion Strategy -->
+		<Row StrategyType="STRATEGY_CANNOT_USE_RELIGION" NumConditionsNeeded="1" />
+
+		<!--Row StrategyType="STRATEGY_UNDER_SIEGE" NumConditionsNeeded="1"/>
+		<Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" NumConditionsNeeded="1"/-->
+		
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" NumConditionsNeeded="0" />
+		<Row StrategyType="STRATEGY_AT_WAR" NumConditionsNeeded="0" />
+
+		<Row StrategyType="STRATEGY_DEITY" NumConditionsNeeded="0" /> 
+		
+		<!-- Currently unused: -->
+		<Row StrategyType="STRATEGY_MODERN_PEACEFUL_ONWARDS" NumConditionsNeeded="2" />
+		
+	</Strategies>
+
+	<StrategyConditions>
+
+		<!-- At Peace & Top 50% -->
+		
+		<!--Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS" ConditionFunction="Is Renaissance" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS" ConditionFunction="Major Civ Wars" ThresholdValue="0" /> <!-- Might need to be 1? -->
+		<!--Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS" ConditionFunction="Good Culture" ThresholdValue="50"/>
+		<Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		
+		<Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_SCIENCE_ONWARDS" ConditionFunction="Is Renaissance" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_SCIENCE_ONWARDS" ConditionFunction="Major Civ Wars" ThresholdValue="0" />
+		<Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_SCIENCE_ONWARDS" ConditionFunction="Has Tech Lead" ThresholdValue="50"/>	
+		<Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_SCIENCE_ONWARDS" ConditionFunction="Is Not Major" Disqualifier="true"/-->	
+		
+		<!-- Industrial & VERY High (Top 25%) -->
+		<!--Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ConditionFunction="Is Industrial" ThresholdValue="1"/-->
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ConditionFunction="Tourists Taken" ThresholdValue="30"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ConditionFunction="Good Culture" ThresholdValue="25"/> <!-- Top -->
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ConditionFunction="Has Great Works" ThresholdValue="10"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ConditionFunction="Cities Under Threat" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ConditionFunction="Has Tech Lead" ThresholdValue="25" Forbidden="true"/> <!-- Do Science Victory Instead -->
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ConditionFunction="Is Not Major" Disqualifier="true"/>
+
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ConditionFunction="Is Industrial" ThresholdValue="1"/> <!-- very similar to science victory condition (also has value of 100-->
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ConditionFunction="Is Modern" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ConditionFunction="Is Atomic" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ConditionFunction="Has Tech Lead" ThresholdValue="25"/>  <!-- Top -->	
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ConditionFunction="Cities Under Threat" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ConditionFunction="Tourists Taken" ThresholdValue="110" Forbidden="true"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ConditionFunction="Has Great Works" ThresholdValue="19" Forbidden="true"/>
+		<!--Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ConditionFunction="Finished Space Project" ThresholdValue="2" Forbidden="true"/-->
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ConditionFunction="Is Not Major" Disqualifier="true"/>
+
+		<!-- IMMINENT -->
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ConditionFunction="Tourists Taken" ThresholdValue="110"/> <!-- pvs 150 -->
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ConditionFunction="Is Modern" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ConditionFunction="Is Information" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ConditionFunction="Is Atomic" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ConditionFunction="Is Future" ThresholdValue="1"/>
+		
+		
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ConditionFunction="Has Great Works" ThresholdValue="25"/> <!-- pvs 15-->
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ConditionFunction="Good Culture" ThresholdValue="20"/>
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ConditionFunction="Has Tech Lead" ThresholdValue="12" Forbidden="true"/> 
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		
+		<!-- Science, 3 Conditions -->
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ConditionFunction="Has Tech Lead" ThresholdValue="40" /> <!-- pvs 25-->
+		<!--Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ConditionFunction="Is Future" ThresholdValue="1"/-->
+
+		<!-- 3, 2 Didn't work -->
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ConditionFunction="Finished Space Project" ThresholdValue="2" />
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ConditionFunction="Cities Under Threat" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ConditionFunction="Has Great Works" ThresholdValue="25" Forbidden="true"/>
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ConditionFunction="Is Information" ThresholdValue="1"/>
+			
+		<!--Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ConditionFunction="Finished Space Project" ThresholdValue="1" Forbidden="true" /-->
+		
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ConditionFunction="Tourists Taken" ThresholdValue="275" Forbidden="true"/>
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		
+
+		<!-- Cannot Use Religion Strategy -->
+		<Row StrategyType="STRATEGY_CANNOT_USE_RELIGION" ConditionFunction="Cannot Found Religion" />
+		<Row StrategyType="STRATEGY_CANNOT_USE_RELIGION" ConditionFunction="Religion Destroyed" />
+		<Row StrategyType="STRATEGY_CANNOT_USE_RELIGION" ConditionFunction="Has Great Works" ThresholdValue="15" Forbidden="true"/>
+		<Row StrategyType="STRATEGY_CANNOT_USE_RELIGION" ConditionFunction="Tourists Taken" ThresholdValue="150" Forbidden="true"/>
+		<Row StrategyType="STRATEGY_CANNOT_USE_RELIGION" ConditionFunction="Is Not Major" Disqualifier="true"/>
+
+		<!-- Unused -->
+		<Row StrategyType="STRATEGY_MODERN_PEACEFUL_ONWARDS" ConditionFunction="Is Modern" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_MODERN_PEACEFUL_ONWARDS" ConditionFunction="Major Civ Wars" ThresholdValue="0" />
+		<Row StrategyType="STRATEGY_MODERN_PEACEFUL_ONWARDS" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		
+		<!-- Bit more fun for the Deity AI's lol-->
+		<Row StrategyType="STRATEGY_DEITY" ConditionFunction="Handicap at or below" ThresholdValue="6" Disqualifier="true"/>
+		<Row StrategyType="STRATEGY_DEITY" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ConditionFunction="Cities Under Threat" ThresholdValue="1" Forbidden="true" />
+		<Row StrategyType="STRATEGY_AT_WAR" ConditionFunction="Major Civ Wars" ThresholdValue="1" Forbidden="true" />
+
+
+		<!--Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" ConditionFunction="Cities Under Threat" ThresholdValue="2" />
+		<Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" ConditionFunction="Is Not Major" Disqualifier="true"/-->
+		
+	</StrategyConditions>
+	
+	<Strategy_Priorities>
+	
+		<!-- At Peace & Top 50% -->
+		<!-- Culture -->
+		<!--Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS" ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS" ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_YIELDS"/-->
+		
+		<!-- Science -->
+		<!--Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_SCIENCE_ONWARDS" ListType="STRATEGY_RENAISSANCE_PEACEFUL_SCIENCE_ONWARDS_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_RENAISSANCE_PEACEFUL_SCIENCE_ONWARDS" ListType="STRATEGY_RENAISSANCE_PEACEFUL_SCIENCE_ONWARDS_YIELDS"/-->
+		
+		<!-- Under Attack test -->
+		
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS"/>
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_UNITS"/>
+		
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_DIPLO"/>		
+	
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_DISTRICTS" />
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_YIELDS" />
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_PROJECTS"/>
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_SPECIALISE"/>
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_OPERATIONS"/>
+		
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_TECHS"/>
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_CIVICS"/>
+		
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ListType="STRATEGY_UNDER_ATTACK_SAVINGS"/>
+		
+		<Row StrategyType="STRATEGY_AT_WAR" ListType="STRATEGY_AT_WAR_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_AT_WAR" ListType="STRATEGY_AT_WAR_UNIT_BUILDS"/>
+		<Row StrategyType="STRATEGY_AT_WAR" ListType="STRATEGY_AT_WAR_DISTRICTS" />
+		<Row StrategyType="STRATEGY_AT_WAR" ListType="STRATEGY_AT_WAR_YIELDS" />
+		<Row StrategyType="STRATEGY_AT_WAR" ListType="STRATEGY_AT_WAR_PROJECTS"/>
+		
+		
+		<!-- Industrial & VERY High (Top 25%) -->
+		<!-- Culture -->
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_UNIT_BUILDS"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_DISTRICTS" />
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS" ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_YIELDS" />
+
+		<!-- Science -->
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_UNIT_BUILDS"/>
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_DISTRICTS" />
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_YIELDS" />
+		<Row StrategyType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS" ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PROJECTS" />
+
+		<!-- Imminent -->
+		
+		<!-- Culture -->
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNIT_BUILDS"/>
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS"/>
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS"/>
+		<Row StrategyType="STRATEGY_CULTURAL_VICTORY_IMMINENT" ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS"/>
+		
+		<!-- Science -->
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_UNIT_BUILDS"/>
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_YIELDS"/>
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS"/>
+		<Row StrategyType="STRATEGY_SCIENCE_VICTORY_IMMINENT" ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_OPERATIONS"/>
+		
+		<!-- Cannot Use Religion Strategy -->
+		<Row StrategyType="STRATEGY_CANNOT_USE_RELIGION" ListType="STRATEGY_CANNOT_USE_RELIGION_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_CANNOT_USE_RELIGION" ListType="STRATEGY_CANNOT_USE_RELIGION_YIELDS"/>		
+		<Row StrategyType="STRATEGY_CANNOT_USE_RELIGION" ListType="STRATEGY_CANNOT_USE_RELIGION_WONDERS"/>
+		<Row StrategyType="STRATEGY_CANNOT_USE_RELIGION" ListType="STRATEGY_CANNOT_USE_RELIGION_COMMEMORATIONS"/> 
+		 
+		<!-- Unused -->
+		
+		<Row StrategyType="STRATEGY_MODERN_PEACEFUL_ONWARDS" ListType="MODERN_PEACEFUL_ONWARDS_PSEUDOS"/>
+		
+		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_YIELDS"/>
+		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_BUILDINGS"/>
+		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_SPECIALISE"/>
+		
+		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_SCOUT_USES"/>
+		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_TACTICS"/>
+		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_OPERATIONS"/>
+		
+
+		<!--Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" ListType="UNDER_HEAVY_SIEGE_OPERATIONS"/>
+		<Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" ListType="UNDER_HEAVY_SIEGE_PSEUDOS"/-->
+
+
+	</Strategy_Priorities>
+	
+	<!--TreeData>
+		<Row DefnId="4" NodeId="13" TreeName="Nuclear Assault" DefaultData="true" />
+		<Row DefnId="4" NodeId="17" TreeName="Nuclear Assault" DefaultData="true" /> 
+	</TreeData-->
+	
+	<AiListTypes>	
+
+		<!-- Under Attack -->
+		
+		<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_UNITS"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_DIPLO"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_DISTRICTS" />
+		<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" />
+		<Row ListType="STRATEGY_UNDER_ATTACK_PROJECTS"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_SPECIALISE"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_SAVINGS"/>
+		
+		<Row ListType="STRATEGY_UNDER_ATTACK_TECHS"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_CIVICS"/>
+
+		<Row ListType="STRATEGY_AT_WAR_PSEUDOS"/>
+		<Row ListType="STRATEGY_AT_WAR_UNIT_BUILDS"/>
+		<Row ListType="STRATEGY_AT_WAR_DISTRICTS" />
+		<Row ListType="STRATEGY_AT_WAR_YIELDS" />
+		<Row ListType="STRATEGY_AT_WAR_PROJECTS"/>
+
+		<!-- Industrial & VERY High (Top 25%) -->
+		<!-- Culture -->
+		<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS"/>
+		<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_DISTRICTS" />
+		<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_YIELDS" />
+		<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_UNIT_BUILDS"/>
+		
+		<!-- Science -->
+		<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS"/>
+		<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_UNIT_BUILDS"/>
+		<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_DISTRICTS" />
+		<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_YIELDS" />
+		<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PROJECTS" />
+
+		<!-- Imminent -->
+		
+		<!-- Culture -->
+		<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNIT_BUILDS"/>
+		<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS"/>
+		<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS"/>
+		<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS"/>
+		<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS"/>
+		
+		<!-- Science -->
+		<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_UNIT_BUILDS"/>
+		<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_YIELDS"/>
+		<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS"/>
+		<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS"/>
+		<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_OPERATIONS"/>
+
+		<!-- Cannot Use Religion Strategy -->
+		<Row ListType="STRATEGY_CANNOT_USE_RELIGION_PSEUDOS"/>
+		<Row ListType="STRATEGY_CANNOT_USE_RELIGION_YIELDS"/>
+		<Row ListType="STRATEGY_CANNOT_USE_RELIGION_WONDERS"/>		
+		<Row ListType="STRATEGY_CANNOT_USE_RELIGION_COMMEMORATIONS"/> 
+
+		<!--Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_YIELDS" />
+		<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" /-->
+		
+		<!-- Deity -->
+		
+		<Row ListType="DEITY_PSEUDOS" />
+		<Row ListType="DEITY_TACTICS" />
+		<Row ListType="DEITY_BUILDINGS" />
+		<Row ListType="DEITY_SPECIALISE" />
+
+		<Row ListType="DEITY_SCOUT_USES" />
+		<Row ListType="DEITY_YIELDS" />
+		<Row ListType="DEITY_OPERATIONS" />
+		
+		<!-- Not used -->
+		
+		<Row ListType="MODERN_PEACEFUL_ONWARDS_PSEUDOS" />
+
+	</AiListTypes>
+	
+	<AiLists>
+	
+		<!-- Under Attack -->
+		<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" 		System="PseudoYields"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" 	System="UnitPromotionClasses"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" 		System="Units"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_DIPLO" 		System="DiplomaticActions"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_DISTRICTS" 	System="Districts"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" 		System="Yields"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_PROJECTS" 		System="Projects"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_SPECIALISE"	System="AiBuildSpecializations"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" 	System="AiOperationTypes"/>
+	    <Row ListType="STRATEGY_UNDER_ATTACK_SAVINGS" 		System="SavingTypes"/>
+		<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" 		System="Technologies"/>
+	    <Row ListType="STRATEGY_UNDER_ATTACK_CIVICS" 		System="Civics"/>	
+		
+	
+		<Row ListType="STRATEGY_AT_WAR_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="STRATEGY_AT_WAR_UNIT_BUILDS" System="UnitPromotionClasses"/>
+		<Row ListType="STRATEGY_AT_WAR_DISTRICTS" System="Districts"/>
+		<Row ListType="STRATEGY_AT_WAR_YIELDS" System="Yields"/>
+		<Row ListType="STRATEGY_AT_WAR_PROJECTS" System="Projects"/>
+	
+	
+		<!-- Industrial & VERY High (Top 25%) -->
+		<!-- Culture -->
+		<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_YIELDS" System="Yields"/>
+		<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_UNIT_BUILDS" System="UnitPromotionClasses"/>
+		<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_DISTRICTS" System="Districts"/>
+		
+		<!-- Science -->
+		<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_YIELDS" System="Yields"/>
+		<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_UNIT_BUILDS" System="UnitPromotionClasses"/>
+		<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_DISTRICTS" System="Districts"/>
+		<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PROJECTS" System="Projects"/>
+		
+		<!-- Imminent -->
+		
+		<!-- Culture -->
+		<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNIT_BUILDS" System="UnitPromotionClasses"/>
+		<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS" System="Units"/>
+		<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS" System="Yields"/>
+		<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" System="Districts"/>
+		
+		<!-- Science -->
+		<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_UNIT_BUILDS" System="UnitPromotionClasses"/>
+		<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_YIELDS" System="Yields"/>
+		<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS" System="Projects"/>
+		<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_OPERATIONS" System="AiOperationTypes"/>
+		
+		<!-- Cannot Use Religion Strategy -->
+		<Row ListType="STRATEGY_CANNOT_USE_RELIGION_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="STRATEGY_CANNOT_USE_RELIGION_YIELDS" System="Yields"/>
+		<Row ListType="STRATEGY_CANNOT_USE_RELIGION_WONDERS" System="Buildings"/>
+		<Row ListType="STRATEGY_CANNOT_USE_RELIGION_COMMEMORATIONS" System="Commemorations"/> 
+		
+		<!--Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_YIELDS" System="Yields"/>
+		<Row ListType="MODERN_PEACEFUL_ONWARDS_PSEUDOS" System="PseudoYields"/-->
+		
+		<Row ListType="DEITY_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="DEITY_YIELDS" System="Yields"/>
+		<Row ListType="DEITY_SCOUT_USES" System="AiScoutUses"/>
+		<Row ListType="DEITY_BUILDINGS" System="Buildings"/>
+		<Row ListType="DEITY_SPECIALISE" System="AiBuildSpecializations"/>
+		
+		
+		<Row ListType="DEITY_OPERATIONS" System="AiOperationTypes"/>
+		<Row ListType="DEITY_TACTICS" System="Tactics"/> 
+
+	</AiLists>
+
+	<AiFavoredItems>
+		
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_FOOD" Value="-15"/> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_CULTURE" Value="-5"/> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_GOLD" Value="15"/> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_SCIENCE" Value="30"/> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_PRODUCTION" Value="20"/> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_FAITH" Value="-15"/> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_FACSISM" Value="650"/> <!-- pvs 150, 350, unit production -->
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_OLIGARCHY" Value="975"/> <!-- pvs 350 -->
+	
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_CLASSICAL_REPUBLIC" Value="-35"/>
+	
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_MONARCHY" Value="220"/> 
+	
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_AT_WAR" Value="950"/> <!-- pvs 550--> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_JUST_WAR" Value="500"/> <!-- pvs 0--> 
+	
+	
+	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="5"/> 
+	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="15"/> <!-- pvs 5 -->
+	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="5"/> 
+	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="5"/> 
+	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_RESOURCE_LUXURY" Value="-15"/> 
+	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="-20"/> 
+
+	<!--Row ListType="STRATEGY_AT_WAR_DISTRICTS" Item="DISTRICT_ENCAMPMENT"	Favored="true"/-->
+	<Row ListType="STRATEGY_AT_WAR_PROJECTS" Item="PROJECT_REPAIR_OUTER_DEFENSES"	Favored="true" Value="200"/>
+	
+	<Row ListType="STRATEGY_AT_WAR_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"		 Value="1"/>
+	<!--Row ListType="STRATEGY_AT_WAR_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="3"/-->
+		
+	<Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_RH_DEFENSE_HP" Value="2"/> <!-- Favored="true" -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_SETTLE"  Value="-1"/>
+
+
+	<!--Row ListType="STRATEGY_UNDER_ATTACK_SPECIALISE" Item="BUILD_CITY_DEFENSES" Favored="true" Value="5"/-->
+
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_FOOD" Value="-65"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_CULTURE" Value="-60"/> <!-- pvs -10, -25 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_FAITH" Value="-50"/>  <!-- pvs -15, -35 -->
+	<!--Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_GOLD" Value="5"/--> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_SCIENCE" Value="-15"/> 	
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_PRODUCTION" Value="3"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_UNDER_ATTACK" Value="950"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_AT_WAR" Value="45"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_FACSISM" Value="450"/> <!-- pvs 150 --> <!-- Includes Corporate Lib -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_MONARCHY" Value="250"/> 
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_OLIGARCHY" Value="750"/> 
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_CLASSICAL_REPUBLIC" Value="-25"/>
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_BORDER_CONTROL_C_BAN" Value="150"/> 
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_MIGRATION_TREATY_BUFF" Value="150"/> <!-- Loyalty pen -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_ESPIONAGE_PACT_DOUBLE" Value="75"/> 
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_PUBLIC_RELATIONS_BUFF" Value="550"/> <!-- Double Grievances for attacker -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_MILITARY_ADVISORY_BUFF" Value="650"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_MILITARY_ADVISORY_DEBUFF" Value="650"/> 
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_MERCENARY_COMPANIES_BUFF" Value="250"/> <!-- Cheaper Units -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_TRADE_TREATY_BAN" Value="550"/> <!-- Embargo Them -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_DIPLO" Value="-90"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_LOYALTY" Value="-150"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_SPREAD_RELIGION" Value="-75"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_NUCLEAR" Value="60"/> 
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_CITY_CENTRE" Value="-950"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_HAPPINESS_BUILDING" Value="-950"/> 
+
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="15"/> <!-- pvs 14 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="5"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="25"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_NUCLEAR_WEAPON" Value="-50"/> 
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_DISTRICT" Value="-85"/> <!-- pvs -35, -55 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="-90"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_RESOURCE_LUXURY" Value="-55"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_HAPPINESS" Value="-80"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_TOURISM" Value="-20"/> <!-- Don't Concede too much Gw in peace deal -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="35"/> <!-- pvs 22, 33 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="37"/> <!-- pvs 25, 35, 36 -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="-30"/> <!-- pvs -50 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="42"/> <!-- pvs 35 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="20"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_CITY_ORIGINAL_CAPITAL" Value="200"/>
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_UNIT_SETTLER" Value="-98"/> <!-- pvs -60, -90 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_UNIT_TRADE" Value="-90"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_UNIT_EXPLORER" Value="-50"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_UNIT_RELIGIOUS" Value="-30"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_GPP_GENERAL" Value="40"/>  <!-- pvs 10, 35 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_GPP_ADMIRAL" Value="10"/>  <!-- Defence -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_INFLUENCE" Value="-35"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_GOVERNOR" Value="50"/> <!-- pvs -50, victor --> <!-- total, 3 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_VICTORY_POINT" Value="-30"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_BONUS" Value="15"/> <!-- pvs 7, 8 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_FAVOR" Value="35"/> <!-- To buy world congress votes, pvs -30 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_GRIEVANCE" Value="15"/> 
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="-95"/> 
+
+	<!--Row ListType="STRATEGY_UNDER_ATTACK_DISTRICTS" Item="DISTRICT_ENCAMPMENT"	Favored="true"/-->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PROJECTS" Item="PROJECT_REPAIR_OUTER_DEFENSES"	Favored="true" Value="200"/>
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_CASTLES"		 		Favored="true"/> <!-- Med Walls-->
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_SIEGE_TACTICS"		Favored="true"/> <!-- Ren Walls -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_ANIMAL_HUSBANDRY" 	Favored="true"/> <!-- For Archery -->		
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_ARCHERY" 			Favored="true"/>
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_SHIPBUILDING" 			Favored="true"/>
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_ADVANCED_FLIGHT" 	Favored="true"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_BALLISTICS" 			Favored="true"/> <!-- Field Cannons -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_IRON_WORKING" 		Favored="true"/> <!-- Swordsman / for Crossbowmen -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_CIVICS" Item="CIVIC_DEFENSIVE_TACTICS" 			Favored="true"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_CIVICS" Item="CIVIC_CRAFTSMANSHIP" 				Favored="true"/> <!-- 50% Unit Production -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_CIVICS" Item="CIVIC_MILITARY_TRADITION" 			Favored="true"/> <!-- Flanking Bonus -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_CIVICS" Item="CIVIC_MOBILIZATION" 					Favored="true"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_CIVICS" Item="CIVIC_CORPORATE_LIBERTARIANISM" 		Favored="true"/> <!-- Production / Resources -->
+	
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_DIPLO" Item="DIPLOACTION_JOINT_WAR" 				Favored="false"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_DIPLO" Item="DIPLOACTION_THIRD_PARTY_WAR" 			Favored="false"/>	
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_DIPLO" Item="DIPLOACTION_PROPOSE_TRADE" 			Favored="true"/>		
+	<Row ListType="STRATEGY_UNDER_ATTACK_DIPLO" Item="DIPLOACTION_RESIDENT_EMBASSY" 		Favored="true"/>		
+	<Row ListType="STRATEGY_UNDER_ATTACK_DIPLO" Item="DIPLOACTION_DECLARE_FRIENDSHIP" 		Favored="true"/>		
+	<Row ListType="STRATEGY_UNDER_ATTACK_DIPLO" Item="DIPLOACTION_ALLIANCE" 				Favored="true"/>	
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_ARCHER"					 Value="95"/> <!-- pvs 22 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_CROSSBOWMAN"				 Value="95"/> <!-- pvs 18 -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_FIELD_CANNON"			 Value="95"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_FIGHTER"					 Value="15"/> 
+	
+	<!-- Heavy Cav -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_KNIGHT"					 Value="40"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_TANK"					 Value="40"/>
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_ARTILLERY"				Value="-60"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_ROCKET_ARTILLERY"		Value="-50"/> 
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_TREBUCHET"				Value="-99"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_BOMBARD"					 Value="-99"/>  
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_CATAPULT"				 Value="-99"/>  <!-- pvs -40 -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_HEAVY_CAVALRY"		 Value="25"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"				 Value="95"/> <!-- pvs 10, 45 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_SIEGE"				 Value="-100"/> <!-- pvs -45, -95 --> <!-- May include bombers due to class changes, but unlikely -->
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="5"/> 
+	
+	<Row ListType="STRATEGY_UNDER_ATTACK_SAVINGS" Item="SAVING_UNITS" Value="-2"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_SAVINGS" Item="SAVING_PLOTS" Value="1"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_SAVINGS" Item="SAVING_GREAT_PEOPLE" Value="1"/>
+	
+
+	<!-- Peaceful & Top 50% Culture -->
+	<!--Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_YIELDS" Item="YIELD_FOOD" Value="2"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_YIELDS" Item="YIELD_SCIENCE" Value="-3"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_YIELDS" Item="YIELD_CULTURE" Value="7"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_YIELDS" Item="YIELD_PRODUCTION" Value="-4"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_YIELDS" Item="YIELD_GOLD" Value="3"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_DISTRICT" Value="9"/> 
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="-6"/> 
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="-5"/> 
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="-5"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="-15"/>
+	
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_TOURISM" Value="22"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="20"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_ADMIRAL" Value="5"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_ENGINEER" Value="-5"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_MERCHANT" Value="12"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_SCIENTIST" Value="-10"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_ARTIST" Value="20"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_MUSICIAN" Value="20"/>
+	<Row ListType="STRATEGY_RENAISSANCE_PEACEFUL_CULTURAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_WRITER" Value="20"/-->
+	
+	
+	<!-- Industrial & VERY High Culture (Top 25%) -->
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_FOOD" Value="5"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_FAITH" Value="10"/> <!-- pvs 8-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_GOLD" Value="10"/> <!-- Trade routes spread tourism -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_CULTURE" Value="20"/> <!-- Pvs 18, 15 -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_PRODUCTION" Value="-4"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_SCIENCE" Value="-4"/> <!-- Pvs -2 -->
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_RH_HAPPINESS_BUILDING" Value="250"/>
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_SPACE_RACE" Value="-40"/> <!-- Pvs -25, -35 -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="-2"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="-3"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="-5"/>
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="-5"/-->
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="-8"/-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_EXPLORER" Value="-10"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_SETTLER" Value="-10"/>
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_SCIENTIST" Value="-25"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_ENGINEER" Value="-10"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_GENERAL" Value="-40"/> <!-- Less military engineers and therefore mountain tunnels -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_PROPHET" Value="10"/> <!-- For extra faith -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_MERCHANT" Value="50"/> <!-- Trade Routes, modern onwards very good pvs 25, 35 -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_ARTIST" Value="100"/> <!-- pvs 40-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_MUSICIAN" Value="100"/> <!-- pvs 34-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_WRITER" Value="50"/> <!-- pvs 20-->
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_SCULPTURE" Value="60"/> <!-- For extra faith -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_PORTRAIT" Value="60"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_LANDSCAPE" Value="60"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_RELIGIOUS" Value="60"/> <!-- Art -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_ARTIFACT" Value="60"/>	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_WRITING" Value="40"/>	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_MUSIC" Value="60"/>	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_RELIC" Value="60"/>
+	
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_RELIGIOUS" Value="-10"/-->	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_ARCHAEOLOGIST" Value="60"/>
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GOLDENAGE_POINT" Value="15"/> <!-- For late game science golden age -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="-5"/> <!-- National Parks-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_TOURISM" Value="100"/> <!-- pvs 30, 55-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="75"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_DISTRICT" Value="15"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_HAPPINESS" Value="25"/> <!-- pvs 30-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_ENVIRONMENT" Value="20"/> <!-- pvs 15-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_TRADE" Value="80"/> <!-- Tourism -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="-18"/> <!-- pvs -12-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="2"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="7"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_BONUS" Value="4"/> <!-- New -->
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_DISTRICTS" Item="DISTRICT_THEATER" Favored="true"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_DISTRICTS" Item="DISTRICT_WATER_ENTERTAINMENT_COMPLEX" Favored="true"/>
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED" Value="2"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_UNIT_BUILDS" Item="PROMOTION_CLASS_SIEGE" Value="-1"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_UNIT_BUILDS" Item="PROMOTION_CLASS_MELEE" Value="-2"/>
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_CULTURE_INDUSTRIAL_ONWARDS_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="3"/--> <!-- pvs 4, 3, now 0-->
+
+	<!-- Modern & VERY High Tech Advantage -->
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_FOOD" Value="-5"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_FAITH" Value="-10"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_GOLD" Value="-5"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_CULTURE" Value="-7"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_PRODUCTION" Value="20"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_YIELDS" Item="YIELD_SCIENCE" Value="5"/>
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_SPACE_RACE" Value="40"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="-2"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="-3"/> <!-- pvs -2-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="-6"/>
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="-5"/-->
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="-8"/-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_EXPLORER" Value="-20"/>
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_SETTLER" Value="-15"/--> <!-- pvs 30-->
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_SCIENTIST" Value="40"/> <!-- pvs 28, 35-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GPP_ENGINEER" Value="35"/> <!-- pvs 30 -->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_GOLDENAGE_POINT" Value="20"/> <!-- For late game science golden age, pvs 15-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="35"/> <!-- For power / aluminium-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_TOURISM" Value="-20"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="-5"/>
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_DISTRICT" Value="-10"/-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_ENVIRONMENT" Value="-10"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_UNIT_TRADE" Value="-10"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="-10"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="-3"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="2"/>
+	
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED" Value="3"/-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_UNIT_BUILDS" Item="PROMOTION_CLASS_MELEE" Value="-1"/>
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="3"/-->
+	
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PROJECTS" Item="PROJECT_CARBON_RECAPTURE" Value="-90" Favored="false"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PROJECTS" Item="PROJECT_TRAIN_ASTRONAUTS" Favored="true"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PROJECTS" Item="PROJECT_TRAIN_ATHLETES" Value="-90" Favored="false"/>
+	<!--Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PROJECTS" Item="PROJECT_SEND_AID" Favored="false"/-->
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PROJECTS" Item="PROJECT_CONVERT_REACTOR_TO_OIL" Value="-90" Favored="false"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PROJECTS" Item="PROJECT_ORBITAL_LASER" Value="9000" Favored="true"/>
+	<Row ListType="STRATEGY_25_PERCENT_LATE_SCIENCE_INDUSTRIAL_ONWARDS_PROJECTS" Item="PROJECT_TERRESTRIAL_LASER" Value="9000" Favored="true"/>
+
+
+	
+	<!-- Science Victory Imminent -->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_YIELDS" Item="YIELD_FOOD" Value="-50"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_YIELDS" Item="YIELD_FAITH" Value="-45"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_YIELDS" Item="YIELD_GOLD" Value="-20"/> <!-- pvs -15-->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_YIELDS" Item="YIELD_CULTURE" Value="-15"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_YIELDS" Item="YIELD_PRODUCTION" Value="5"/> <!-- Power -->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_YIELDS" Item="YIELD_SCIENCE" Value="1"/> <!-- pvs 25, 8 AI builds science buildings when on future tech, already very high-->
+	
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_SPACE_RACE" Value="50"/> <!-- pvs 100-->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="-25"/> <!-- PVS -9, -10, -12, -14-->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="-20"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="-70"/> <!-- pvs -20, -22, -27 -->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="-25"/> <!-- pvs -6, -22 (build too many ships when about to win-->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="-25"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_NUCLEAR_WEAPON" Value="-15"/> <!-- pvs -11-->
+	
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_EXPLORER" Value="-80"/> <!-- pvs -60-->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_SETTLER" Value="-65"/>
+	
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GPP_SCIENTIST" Value="80"/> <!-- pvs 50-->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GPP_ENGINEER" Value="50"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GOLDENAGE_POINT" Value="20"/> <!-- For late game science golden age -->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="10"/> <!-- For power / aluminium, pvs 30 -->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_TOURISM" Value="-30"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="-25"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_HAPPINESS" Value="-50"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_DISTRICT" Value="-35"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_ENVIRONMENT" Value="-80"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_FAVOR" Value="-70"/> <!-- Carbon Recapture -->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_TRADE" Value="-25"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="-10"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="10"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="15"/>
+	
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED" Value="2"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_UNIT_BUILDS" Item="PROMOTION_CLASS_GIANT_DEATH_ROBOT" Value="-25"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_UNIT_BUILDS" Item="PROMOTION_CLASS_LIGHT_CAVALRY" Value="-20"/>
+	<!--Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_UNIT_BUILDS" Item="PROMOTION_CLASS_MELEE" Value="-7"/-->
+	<!--Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="4"/--> <!-- Leave some bombers for nukes -->
+	
+	<!--Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_OPERATIONS" Item="CITY_ASSAULT" Value="-1"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_OPERATIONS" Item="OP_SETTLE"  Value="-1"/-->
+	
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS" Item="PROJECT_CARBON_RECAPTURE" Value="-90" Favored="false"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS" Item="PROJECT_TRAIN_ASTRONAUTS" Favored="true"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS" Item="PROJECT_TRAIN_ATHLETES" Value="-90" Favored="false"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS" Item="PROJECT_SEND_AID" Value="-90" Favored="false"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS" Item="PROJECT_CONVERT_REACTOR_TO_OIL" Value="-90" Favored="false"/>
+	<!--Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS" Item="PROJECT_CONVERT_REACTOR_TO_COAL" Value="-90" Favored="false"/-->
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS" Item="PROJECT_ORBITAL_LASER" Value="9000" Favored="true"/>
+	<Row ListType="STRATEGY_SCIENCE_VICTORY_IMMINENT_PROJECTS" Item="PROJECT_TERRESTRIAL_LASER" Value="9000" Favored="true"/>
+	
+	
+	<!-- Cultural Victory Imminent -->
+	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS" Item="YIELD_FOOD" Value="-40"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS" Item="YIELD_FAITH" Value="12"/> <!-- For rock bands / naturalists -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS" Item="YIELD_GOLD" Value="7"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS" Item="YIELD_CULTURE" Value="30"/> <!-- pvs 30-->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS" Item="YIELD_PRODUCTION" Value="-20"/> <!-- pvs -25-->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS" Item="YIELD_SCIENCE" Value="-14"/> <!-- pvs -25, -22-->
+	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS" Item="YIELD_RH_DEMOCRACY" Value="500"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_YIELDS" Item="YIELD_RH_HAPPINESS_BUILDING" Value="200"/>
+	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_SPACE_RACE" Value="-15"/> <!-- pvs -25-->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="-2"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="-5"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="-12"/> <!-- pvs -5, -15 -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="6"/> <!-- pvs -5-->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="12"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_EXPLORER" Value="-40"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_SETTLER" Value="-65"/>
+	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GPP_SCIENTIST" Value="-40"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GPP_ENGINEER" Value="-40"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GPP_GENERAL" Value="5"/> <!-- Less military engineers and therefore mountain tunnels / but also defence -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GPP_MERCHANT" Value="60"/> <!-- pvs 12, 35 -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GPP_ARTIST" Value="70"/> <!-- pvs 40-->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GPP_MUSICIAN" Value="50"/> <!-- Pvs 36 -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GPP_WRITER" Value="20"/> <!-- Pvs 28 -->
+	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_SCULPTURE" Value="200"/> <!-- For extra faith -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_PORTRAIT" Value="200"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_LANDSCAPE" Value="200"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_RELIGIOUS" Value="200"/> <!-- Art -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_ARTIFACT" Value="200"/>	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_WRITING" Value="170"/>	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_MUSIC" Value="200"/>	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_RELIC" Value="200"/>
+	
+	<!--Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_RELIGIOUS" Value="-75"/-->	<!-- Rockband had "PSEUDOYIELD_UNIT_RELIGIOUS"/> -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_ARCHAEOLOGIST" Value="100"/>
+	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_GOLDENAGE_POINT" Value="15"/> <!-- For late game science golden age -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="20"/> <!-- Tourism Improvements -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_TOURISM" Value="110"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="100"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_DISTRICT" Value="25"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_HAPPINESS" Value="45"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_ENVIRONMENT" Value="20"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_UNIT_TRADE" Value="200"/> <!-- For Tourism -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="-20"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="3"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_CITY_ORIGINAL_CAPITAL" Value="80"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="10"/>
+	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" Item="DISTRICT_INDUSTRIAL_ZONE" Favored="false"/>
+	<!--Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" Item="DISTRICT_HOLY_SITE" Favored="false"/-->
+	<!--Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" Item="DISTRICT_HARBOR" Favored="true"/--> <!-- Trade Routes -->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" Item="DISTRICT_CAMPUS" Favored="false"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" Item="DISTRICT_THEATER" Favored="true"/>
+	<!--Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" Item="DISTRICT_ENCAMPMENT" Favored="true"/-->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" Item="DISTRICT_NEIGHBORHOOD" Favored="true"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" Item="DISTRICT_AERODROME" Favored="true"/>
+	<!--Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" Item="DISTRICT_ENTERTAINMENT_COMPLEX" Favored="true"/-->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_DISTRICTS" Item="DISTRICT_WATER_ENTERTAINMENT_COMPLEX" Favored="true"/>
+	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS" Item="UNIT_ROCK_BAND" Favored="true" Value="100"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS" Item="UNIT_NATURALIST" Favored="true" Value="5"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS" Item="UNIT_MISSIONARY" Favored="false" Value="-95"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS" Item="UNIT_GURU" Favored="false" Value="-100"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS" Item="UNIT_ANTIAIR_GUN" Favored="true" Value="200"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS" Item="UNIT_MOBILE_SAM" Favored="true" Value="120"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS" Item="UNIT_APOSTLE" Favored="false" Value="-80"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNITS" Item="UNIT_INQUISITOR" Favored="false" Value="-50"/>
+	
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNIT_BUILDS" Item="PROMOTION_CLASS_ROCK_BAND" Value="80"/> <!-- pvs 30-->
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED" Value="5"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNIT_BUILDS" Item="PROMOTION_CLASS_SIEGE" Value="-3"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNIT_BUILDS" Item="PROMOTION_CLASS_MELEE" Value="-4"/>
+	<Row ListType="STRATEGY_CULTURAL_VICTORY_IMMINENT_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="4"/> <!-- pvs 10, 6, 3-->
+
+	<!-- TODO, projects -->
+
+	
+	<!-- Testing Diety values -->
+	
+	<Row ListType="DEITY_YIELDS" Item="YIELD_SCIENCE" Value="3"/>
+	<Row ListType="DEITY_YIELDS" Item="YIELD_CULTURE" Value="3"/>
+
+	<Row ListType="DEITY_YIELDS" Item="YIELD_PRODUCTION" Value="25"/>
+	<Row ListType="DEITY_YIELDS" Item="YIELD_GOLD" Value="5"/> <!-- pvs 1, AI disbanding units-->
+	
+	<Row ListType="DEITY_YIELDS" Item="YIELD_RH_CITY_CENTRE" Value="50"/>
+	
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_HAPPINESS" Value="7"/> <!-- don't want too high-->
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="5"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="2"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_NUCLEAR_WEAPON" Value="5"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="45"/> <!-- at 30 were building wonders, that were not needed, testing 30 again, pvs 40 -->
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_INFLUENCE" Value="22"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="10"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_GPP_SCIENTIST" Value="15"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_GPP_ENGINEER" Value="10"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_GPP_MERCHANT" Value="15"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_GPP_ARTIST" Value="10"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_UNIT_ARCHAEOLOGIST" Value="15"/>
+	
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_DISTRICT" Value="7"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_UNIT_SETTLER" Value="50"/>
+	<!--Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_UNIT_EXPLORER" Value="5"/-->
+	
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_UNIT_SPY" Value="50"/>
+	
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_CLEAR_BANDIT_CAMPS" Value="90"/> <!-- pvs 60 -->
+	
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="45"/> <!-- at 20 using too much aluminium, 15 too low for most however, pvs 20 -->
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="10"/>
+	
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="20"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="-6"/>
+	<Row ListType="DEITY_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="-6"/>
+	
+	<Row ListType="DEITY_BUILDINGS" Item="BUILDING_WALLS" Favored="true" Value="200"/>
+	<Row ListType="DEITY_BUILDINGS" Item="BUILDING_CASTLE" Favored="true" Value="200"/>
+	<Row ListType="DEITY_BUILDINGS" Item="BUILDING_STAR_FORT" Favored="true" Value="200"/>
+	
+	<!--Row ListType="DEITY_SPECIALISE" Item="BUILD_CITY_DEFENSES" Favored="true" Value="10"/-->
+	
+	
+	<Row ListType="DEITY_SCOUT_USES" Item="DEFAULT_LAND_SCOUTS" Value="100"/>
+	<Row ListType="DEITY_SCOUT_USES" Item="LAND_SCOUTS_PER_SECONDARY_REGION" Value="50"/>
+	<Row ListType="DEITY_SCOUT_USES" Item="DEFAULT_NAVAL_SCOUTS" 			Value="100"/>
+	<Row ListType="DEITY_SCOUT_USES" Item="NAVAL_SCOUTS_FOR_WORLD_EXPLORATION" Value="150"/>
+	
+	<!-- Cannot Use Religion -->
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_YIELDS" Item="YIELD_FAITH" Value="-17"/> <!-- Keep some for culture victory, pvs -25, -20-->
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_PSEUDOS" Item="PSEUDOYIELD_GPP_PROPHET" Value="-50"/> <!-- pvs -90-->
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_PSEUDOS" Item="PSEUDOYIELD_UNIT_RELIGIOUS" Value="-15"/> <!-- Pvs -85 Reduces Rock bands as well-->
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_RELIGIOUS" Value="-8"/>
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_PSEUDOS" Item="PSEUDOYIELD_GREATWORK_RELIC" Value="-20"/>
+	
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_WONDERS" Item="BUILDING_MAHABODHI_TEMPLE" Favored="false"/> 
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_WONDERS" Item="BUILDING_MEENAKSHI_TEMPLE" Favored="false"/> <!-- Gurus -->
+
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_WONDERS" Item="BUILDING_HAGIA_SOPHIA" Favored="false"/> 
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_WONDERS" Item="BUILDING_MONT_ST_MICHEL" Favored="false"/> 
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_WONDERS" Item="BUILDING_STONEHENGE" Favored="false" Value ="-500"/> 
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_WONDERS" Item="BUILDING_ORACLE" Favored="false"/>
+
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_WONDERS" Item="BUILDING_CRISTO_REDENTOR" Favored="false"/> <!-- More Tourism from Relics and Holy Cities -->
+	
+	<Row ListType="STRATEGY_CANNOT_USE_RELIGION_COMMEMORATIONS" Item="COMMEMORATION_RELIGIOUS" Favored="false"/>
+	
+	
+	
+	</AiFavoredItems>
+
+<!--
+
+	<StrategyConditions>
+	<Update>
+			<Where StrategyType="VICTORY_STRATEGY_DIPLOMATIC_VICTORY" />
+			<Set Exclusive="false" />
+	</Update>
+
+
+	</StrategyConditions>
+
+-->
+
+
+	<!--Project_GreatPersonPoints>
+		<!--Row ProjectType="PROJECT_CARNIVAL" GreatPersonClassType="GREAT_PERSON_CLASS_ENGINEER" Points="5" PointProgressionModel="COST_PROGRESSION_GAME_PROGRESS" PointProgressionParam1="800"/>
+		<Row ProjectType="PROJECT_CARNIVAL" GreatPersonClassType="GREAT_PERSON_CLASS_MERCHANT" Points="5" PointProgressionModel="COST_PROGRESSION_GAME_PROGRESS" PointProgressionParam1="800"/>
+		<Row ProjectType="PROJECT_CARNIVAL" GreatPersonClassType="GREAT_PERSON_CLASS_WRITER" Points="5" PointProgressionModel="COST_PROGRESSION_GAME_PROGRESS" PointProgressionParam1="800"/>
+		<Row ProjectType="PROJECT_CARNIVAL" GreatPersonClassType="GREAT_PERSON_CLASS_ARTIST" Points="5" PointProgressionModel="COST_PROGRESSION_GAME_PROGRESS" PointProgressionParam1="800"/>
+		<Row ProjectType="PROJECT_CARNIVAL" GreatPersonClassType="GREAT_PERSON_CLASS_MUSICIAN" Points="5" PointProgressionModel="COST_PROGRESSION_GAME_PROGRESS" PointProgressionParam1="800"/>
+		<Row ProjectType="PROJECT_ENHANCE_DISTRICT_INDUSTRIAL_ZONE" GreatPersonClassType="GREAT_PERSON_CLASS_ENGINEER" Points="2" PointProgressionModel="COST_PROGRESSION_GAME_PROGRESS" PointProgressionParam1="800"/-->
+
+		<!--Row ProjectType="PROJECT_TERRESTRIAL_LASER" GreatPersonClassType="GREAT_PERSON_CLASS_SCIENTIST" Points="2" PointProgressionModel="COST_PROGRESSION_GAME_PROGRESS" PointProgressionParam1="800"/>
+		<Row ProjectType="PROJECT_ORBITAL_LASER" GreatPersonClassType="GREAT_PERSON_CLASS_SCIENTIST" Points="2" PointProgressionModel="COST_PROGRESSION_GAME_PROGRESS" PointProgressionParam1="800"/>
+
+	</Project_GreatPersonPoints-->
+
+	<AiBuildSpecializations>
+	<Update>
+			<Where SpecializationType="BUILD_FOR_CULTURE" />
+			<Set IncludeDefense="true" />
+	</Update>
+	
+	<!--Update>
+			<Where SpecializationType="BUILD_FOR_SCIENCE" />
+			<Set IncludeDefense="true" />
+	</Update-->
+	
+	<Update>
+			<Where SpecializationType="BUILD_FOR_FAITH" />
+			<Set IncludeDefense="true" />
+	</Update>
+	</AiBuildSpecializations>
+	
+	<BuildingModifiers>
+		<Row BuildingType="BUILDING_GOV_TALL" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
+		<Row BuildingType="BUILDING_GOV_WIDE" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
+		<Row BuildingType="BUILDING_GOV_CONQUEST" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
+		
+		<Row BuildingType="BUILDING_GOV_FAITH" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
+		<Row BuildingType="BUILDING_GOV_CITYSTATES" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
+		<Row BuildingType="BUILDING_GOV_SPIES" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
+		
+		<!--Row BuildingType="BUILDING_GOV_MILITARY" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
+		<Row BuildingType="BUILDING_GOV_SCIENCE" ModifierId="RH_GRANT_ONE_INFLUENCE"/-->
+		
+		<Row BuildingType="BUILDING_GOV_MILITARY" ModifierId="RH_GPP_GNR_POINTS"/>
+		<Row BuildingType="BUILDING_GOV_SCIENCE" ModifierId="RH_GPP_SCI_POINTS"/>
+		<Row BuildingType="BUILDING_GOV_CULTURE" ModifierId="RH_GPP_ART_POINTS"/> <!-- pvs 0-->
+		
+		<Row BuildingType="BUILDING_COLOSSEUM" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
+		<Row BuildingType="BUILDING_QUEENS_BIBLIOTHEQUE" ModifierId="RH_GRANT_TWO_INFLUENCE"/> <!-- needs 2 if others used-->
+		<!--Row BuildingType="BUILDING_MAHABODHI_TEMPLE" ModifierId="RH_GRANT_ONE_INFLUENCE"/> <!-- Dp victory -->
+		<!--Row BuildingType="BUILDING_VENETIAN_ARSENAL" ModifierId="RH_GRANT_ONE_INFLUENCE"/--> <!-- pvs 2 -->
+		<Row BuildingType="BUILDING_VENETIAN_ARSENAL" ModifierId="RH_GPP_ADR_POINTS"/>
+	</BuildingModifiers>
+
+	<!--CivicModifiers>
+
+		<Row>
+			<CivicType>CIVIC_DIVINE_RIGHT</CivicType>
+			<ModifierId>RH_GRANT_ONE_INFLUENCE</ModifierId>
+		</Row>
+
+		<Row>
+			<CivicType>CIVIC_EXPLORATION</CivicType>
+			<ModifierId>RH_GRANT_ONE_INFLUENCE</ModifierId>
+		</Row>
+
+		<Row>
+			<CivicType>CIVIC_HUMANISM</CivicType>
+			<ModifierId>RH_GRANT_NEGATIVE_ONE_INFLUENCE</ModifierId>
+		</Row>	
+
+		<Row>
+			<CivicType>CIVIC_DIPLOMATIC_SERVICE</CivicType>
+			<ModifierId>RH_GRANT_NEGATIVE_ONE_INFLUENCE</ModifierId>
+		</Row>
+
+	</CivicModifiers-->
+
+	<Modifiers>
+	
+		<Row>
+			<ModifierId>RH_GPP_ENG_POINTS</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS</ModifierType>
+			<SubjectRequirementSetId>RH_AI_ANCIENT_ONLY_REQ_S</SubjectRequirementSetId/>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_ADR_POINTS</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS</ModifierType>
+			<SubjectRequirementSetId>RH_AI_ANCIENT_ONLY_REQ_S</SubjectRequirementSetId/>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_GNR_POINTS</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS</ModifierType>
+			<SubjectRequirementSetId>RH_AI_ANCIENT_ONLY_REQ_S</SubjectRequirementSetId/>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_SCI_POINTS</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS</ModifierType>
+			<SubjectRequirementSetId>RH_AI_ANCIENT_ONLY_REQ_S</SubjectRequirementSetId/>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_SCI_POINTS_L</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS</ModifierType>
+			<SubjectRequirementSetId>RH_AI_ANCIENT_ONLY_REQ_S</SubjectRequirementSetId/>
+		</Row>
+	
+	
+		<Row>
+			<ModifierId>RH_GPP_ART_POINTS</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS</ModifierType>
+			<SubjectRequirementSetId>RH_AI_ANCIENT_ONLY_REQ_S</SubjectRequirementSetId/>
+		</Row>
+	
+	
+		<Row>
+			<ModifierId>RH_GRANT_TWO_INFLUENCE</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN</ModifierType>
+			<SubjectRequirementSetId>RH_AI_ANCIENT_ONLY_REQ_S</SubjectRequirementSetId/>
+			<RunOnce>true</RunOnce>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_GRANT_ONE_INFLUENCE</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN</ModifierType>
+			<SubjectRequirementSetId>RH_AI_ANCIENT_ONLY_REQ_S</SubjectRequirementSetId/>
+			<RunOnce>true</RunOnce>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_GRANT_NEGATIVE_ONE_INFLUENCE</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN</ModifierType>
+			<SubjectRequirementSetId>RH_AI_ANCIENT_ONLY_REQ_S</SubjectRequirementSetId/>
+		</Row>
+		
+		
+		
+	</Modifiers>
+	
+	<ModifierArguments>
+	
+		<Row>
+			<ModifierId>RH_GPP_ENG_POINTS</ModifierId>
+			<Name>GreatPersonClassType</Name>
+			<Value>GREAT_PERSON_CLASS_ENGINEER</Value>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_ENG_POINTS</ModifierId>
+			<Name>Amount</Name>
+			<Value>40</Value> <!-- pvs 15, 14, 17, 21, 32, 45, 50-->
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_ADR_POINTS</ModifierId>
+			<Name>GreatPersonClassType</Name>
+			<Value>GREAT_PERSON_CLASS_ADMIRAL</Value>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_ADR_POINTS</ModifierId>
+			<Name>Amount</Name>
+			<Value>80</Value> <!-- pvs 17, 35, 45, 60-->
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_GNR_POINTS</ModifierId>
+			<Name>GreatPersonClassType</Name>
+			<Value>GREAT_PERSON_CLASS_GENERAL</Value>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_GNR_POINTS</ModifierId>
+			<Name>Amount</Name>
+			<Value>950</Value> <!-- pvs 35, 150, 500 -->
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_SCI_POINTS</ModifierId>
+			<Name>GreatPersonClassType</Name>
+			<Value>GREAT_PERSON_CLASS_SCIENTIST</Value>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_SCI_POINTS</ModifierId>
+			<Name>Amount</Name>
+			<Value>25</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_GPP_SCI_POINTS_L</ModifierId>
+			<Name>GreatPersonClassType</Name>
+			<Value>GREAT_PERSON_CLASS_SCIENTIST</Value>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_SCI_POINTS_L</ModifierId>
+			<Name>Amount</Name>
+			<Value>60</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_GPP_ART_POINTS</ModifierId>
+			<Name>GreatPersonClassType</Name>
+			<Value>GREAT_PERSON_CLASS_ARTIST</Value>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GPP_ART_POINTS</ModifierId>
+			<Name>Amount</Name>
+			<Value>4</Value> <!-- pvs 14, AI goes for it anyway -->
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_GRANT_TWO_INFLUENCE</ModifierId>
+			<Name>Amount</Name>
+			<Value>9</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_GRANT_ONE_INFLUENCE</ModifierId>
+			<Name>Amount</Name>
+			<Value>1</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_GRANT_NEGATIVE_ONE_INFLUENCE</ModifierId>
+			<Name>Amount</Name>
+			<Value>-1</Value>
+		</Row>
+		
+		
+		</ModifierArguments>
+		
+	<Modifiers>
+
+		<Row>
+			<ModifierId>TRAIT_RH_AI_GOV_PLACEMENT_CHANGES</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_CITIES_DISTRICT_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+
+		<Row>
+			<ModifierId>TRAIT_RH_AI_SPR_PLACEMENT_CHANGES</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_CITIES_DISTRICT_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+
+
+		<Row>
+			<ModifierId>RH_AI_IND_PLAINS_HILLS</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_TERRAIN_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+
+		<Row>
+			<ModifierId>RH_AI_IND_GRASS_HILLS</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_TERRAIN_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+
+		<Row>
+			<ModifierId>RH_AI_GOV_GRASS_MOUNTAIN</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_TERRAIN_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+
+		<Row>
+			<ModifierId>RH_AI_GOV_PLAINS_MOUNTAIN</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_TERRAIN_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+
+		<Row>
+			<ModifierId>TRAIT_RH_AI_LUDWIG_TEST</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_CITIES_DISTRICT_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+
+
+	</Modifiers>
+
+
+	<ModifierArguments>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_GOV_PLACEMENT_CHANGES</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_GOVERNMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_GOV_PLACEMENT_CHANGES</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_GOV_PLACEMENT_CHANGES</ModifierId>
+			<Name>Amount</Name>
+			<Value>1</Value>
+		</Row>
+		<!--Row>
+			<ModifierId>TRAIT_RH_AI_GOV_PLACEMENT_CHANGES</ModifierId>
+			<Name>Description</Name>
+			<Value>LOC_DISTRICT_DISTRICT_1_GOLD</Value>
+		</Row-->
+		
+		
+		<Row>
+			<ModifierId>TRAIT_RH_AI_SPR_PLACEMENT_CHANGES</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_SPACEPORT</Value>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_SPR_PLACEMENT_CHANGES</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_SPR_PLACEMENT_CHANGES</ModifierId>
+			<Name>Amount</Name>
+			<Value>1</Value>
+		</Row>
+		
+		
+		
+		
+		<Row>
+			<ModifierId>TRAIT_RH_AI_LUDWIG_TEST</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_WONDER</Value>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_LUDWIG_TEST</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_LUDWIG_TEST</ModifierId>
+			<Name>Amount</Name>
+			<Value>1</Value>
+		</Row>
+		<!--Row>
+			<ModifierId>TRAIT_RH_AI_GOV_PLACEMENT_CHANGES</ModifierId>
+			<Name>Description</Name>
+			<Value>LOC_DISTRICT_DISTRICT_1_GOLD</Value>
+		</Row-->
+		
+		<Row>
+			<ModifierId>RH_AI_IND_PLAINS_HILLS</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_INDUSTRIAL_ZONE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_IND_PLAINS_HILLS</ModifierId>
+			<Name>TerrainType</Name>
+			<Value>TERRAIN_PLAINS_HILLS</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_IND_PLAINS_HILLS</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_IND_PLAINS_HILLS</ModifierId>
+			<Name>Amount</Name>
+			<Value>1</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_IND_GRASS_HILLS</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_INDUSTRIAL_ZONE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_IND_GRASS_HILLS</ModifierId>
+			<Name>TerrainType</Name>
+			<Value>TERRAIN_GRASS_HILLS</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_IND_GRASS_HILLS</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_IND_GRASS_HILLS</ModifierId>
+			<Name>Amount</Name>
+			<Value>1</Value>
+		</Row>
+		
+		
+		<!-- Gov Plaza Mountain Dis -->
+		<Row>
+			<ModifierId>RH_AI_GOV_GRASS_MOUNTAIN</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_GOVERNMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_GOV_GRASS_MOUNTAIN</ModifierId>
+			<Name>TerrainType</Name>
+			<Value>TERRAIN_GRASS_MOUNTAIN</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_GOV_GRASS_MOUNTAIN</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_GOV_GRASS_MOUNTAIN</ModifierId>
+			<Name>Amount</Name>
+			<Value>-2</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_GOV_PLAINS_MOUNTAIN</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_GOVERNMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_GOV_PLAINS_MOUNTAIN</ModifierId>
+			<Name>TerrainType</Name>
+			<Value>TERRAIN_PLAINS_MOUNTAIN</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_GOV_PLAINS_MOUNTAIN</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_GOV_PLAINS_MOUNTAIN</ModifierId>
+			<Name>Amount</Name>
+			<Value>-2</Value>
+		</Row>
+		
+		
+	</ModifierArguments>
+
+
+	<TraitModifiers>
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>TRAIT_RH_AI_GOV_PLACEMENT_CHANGES</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>TRAIT_RH_AI_SPR_PLACEMENT_CHANGES</ModifierId>
+		</Row>
+		
+		<!--Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_IND_PLAINS_HILLS</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_IND_GRASS_HILLS</ModifierId>
+		</Row-->
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_GOV_GRASS_MOUNTAIN</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_GOV_PLAINS_MOUNTAIN</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_LUDWIG</TraitType>
+			<ModifierId>TRAIT_RH_AI_LUDWIG_TEST</ModifierId>
+		</Row>
+		
+	</TraitModifiers>
+
+
+
+<!-- 1: Could use below for preserve adj tiles don't improve
+
+	<RequirementSets>
+		<Row>
+			<RequirementSetId>PLOT_ADJACENT_TO_SEOWON_MINES_REQUIREMENTS</RequirementSetId>
+			<RequirementSetType>REQUIREMENTSET_TEST_ALL</RequirementSetType>
+		</Row>
+		<Row>
+			<RequirementSetId>PLOT_ADJACENT_TO_SEOWON_FARMS_REQUIREMENTS</RequirementSetId>
+			<RequirementSetType>REQUIREMENTSET_TEST_ALL</RequirementSetType>
+		</Row>
+	</RequirementSets>
+	<RequirementArguments>
+		<Row>
+			<RequirementId>REQUIRES_PLOT_ADJACENT_TO_SEOWON</RequirementId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_SEOWON</Value>
+		</Row>
+	</RequirementArguments>
+	<Requirements>
+		<Row>
+			<RequirementId>REQUIRES_PLOT_ADJACENT_TO_SEOWON</RequirementId>
+			<RequirementType>REQUIREMENT_PLOT_ADJACENT_DISTRICT_TYPE_MATCHES</RequirementType>
+		</Row>
+		
+		<Row>
+			<RequirementId>REQUIRES_PLOT_HAS_COMMERCIAL_HUB</RequirementId>
+			<RequirementType>REQUIREMENT_PLOT_DISTRICT_TYPE_MATCHES</RequirementType>
+		</Row>
+		
+		
+	</Requirements>
+	<RequirementSetRequirements>
+		<Row>
+			<RequirementSetId>PLOT_ADJACENT_TO_SEOWON_MINES_REQUIREMENTS</RequirementSetId>
+			<RequirementId>REQUIRES_PLOT_HAS_MINE</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>PLOT_ADJACENT_TO_SEOWON_MINES_REQUIREMENTS</RequirementSetId>
+			<RequirementId>REQUIRES_PLOT_ADJACENT_TO_SEOWON</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>PLOT_ADJACENT_TO_SEOWON_FARMS_REQUIREMENTS</RequirementSetId>
+			<RequirementId>REQUIRES_PLOT_HAS_FARM</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>PLOT_ADJACENT_TO_SEOWON_FARMS_REQUIREMENTS</RequirementSetId>
+			<RequirementId>REQUIRES_PLOT_ADJACENT_TO_SEOWON</RequirementId>
+		</Row>
+	</RequirementSetRequirements>
+
+  1 -->
+
+
+<!--REQUIRES_DISTRICT_IS_CITY_CENTER -->
+
+<!--
+
+	Would apply to all civs and so wouldn't work
+	<District_Adjacencies>
+		<Row DistrictType="DISTRICT_GOVERNMENT" YieldChangeId="RH_AI_GOV_ADJ_DISTRICT"/>
+		<Row DistrictType="DISTRICT_GOVERNMENT" YieldChangeId="Government_Culture"/>
+		<Row DistrictType="DISTRICT_GOVERNMENT" YieldChangeId="Government_Culture"/>
+	</District_Adjacencies>
+
+
+	<Adjacency_YieldChanges>
+		<Row ID="RH_AI_GOV_ADJ_DISTRICT" Description="LOC_DISTRICT_DISTRICT_GOLD" YieldType="YIELD_GOLD" YieldChange="1" TilesRequired="2" OtherDistrictAdjacent="true"/>
+		<Row ID="Wonder_Culture" Description="LOC_DISTRICT_WONDER_CULTURE" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" AdjacentWonder="true"/>
+		<Row ID="District_Culture_City_Center" Description="LOC_DISTRICT_CULTURE_CITY_CENTER" YieldType="YIELD_CULTURE" YieldChange="1" TilesRequired="1" AdjacentDistrict="DISTRICT_CITY_CENTER"/>
+	</Adjacency_YieldChanges>
+		-->
+	
+	
+	
+	<!-- NOT IN USE May use to need unit promotions / abilities -->
+	<!--TraitModifiers>
+	
+	<Row TraitType="TRAIT_LEADER_MAJOR_CIV" ModifierId="RH_AI_SPY_SEDUCTION_TECH_ENCOURAGE"/>
+	<Row TraitType="TRAIT_LEADER_MAJOR_CIV" ModifierId="RH_AI_SPY_SEDUCTION_LICENSE_TO_KILL_DIS"/>
+
+	</TraitModifiers-->
+
+
+
+	<!--TraitModifiers>
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>TRAIT_RH_SPY_AI_TEST</ModifierId>
+		</Row>
+	</TraitModifiers>
+		
+	<Modifiers>
+		<Row>
+			<ModifierId>TRAIT_RH_SPY_AI_TEST</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_GRANT_ABILITY</ModifierType>
+			<Permanent>true</Permanent>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+	</Modifiers>
+		
+	<ModifierArguments>
+		<Row>
+			<ModifierId>TRAIT_RH_SPY_AI_TEST</ModifierId>
+			<Name>AbilityType</Name>
+			<Value>ABILITY_RH_AI_SPY_PRIORITY_CHANGES</Value>
+		</Row>
+	</ModifierArguments>
+	
+	<!--UnitOperations>
+		<Update>
+			<Where OperationType="UNITOPERATION_SPY_NEUTRALIZE_GOVERNOR"/>
+			<Set>
+				<BaseProbability>16</BaseProbability>
+			</Set>
+		</Update>
+
+	</UnitOperations-->
+	
+	
+	<!-- NOT IN USE All Civs Basil Ability -->
+		<!--
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>TRAIT_RH_SPY_AI_TEST</ModifierId>
+		</Row>
+		
+		<Row>
+			<ModifierId>TRAIT_RH_SPY_AI_TEST</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_GRANT_ABILITY</ModifierType>
+			<Permanent>true</Permanent>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		<Row>
+			<ModifierId>TRAIT_RH_SPY_AI_TEST</ModifierId>
+			<Name>AbilityType</Name>
+			<Value>ABILITY_ENABLE_WALL_ATTACK_SAME_RELIGION</Value>
+		</Row>
+		
+		-->
+
+
+
+
+ <!-- Testing Disabling for new method --------
+		<Modifiers>
+		<Row>
+			<ModifierId>RH_AI_SPY_SEDUCTION_TECH_ENCOURAGE</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNIT_ADJUST_SPY_OPERATION_CHANCE</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+
+		<Row>
+			<ModifierId>RH_AI_SPY_SEDUCTION_LICENSE_TO_KILL_DIS</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNIT_ADJUST_SPY_OPERATION_CHANCE</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		</Modifiers>
+
+
+		<ModifierArguments>
+			<Row>
+			<ModifierId>RH_AI_SPY_SEDUCTION_TECH_ENCOURAGE</ModifierId>
+			<Name>OperationType</Name>
+			<Value>UNITOPERATION_SPY_STEAL_TECH_BOOST</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_SPY_SEDUCTION_TECH_ENCOURAGE</ModifierId>
+			<Name>Offensive</Name>
+			<Value>true</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_SPY_SEDUCTION_TECH_ENCOURAGE</ModifierId>
+			<Name>Amount</Name>
+			<Value>2</Value>
+		</Row> 
+		
+		<Row>
+			<ModifierId>RH_AI_SPY_SEDUCTION_LICENSE_TO_KILL_DIS</ModifierId>
+			<Name>OperationType</Name>
+			<Value>UNITOPERATION_SPY_NEUTRALIZE_GOVERNOR</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_SPY_SEDUCTION_LICENSE_TO_KILL_DIS</ModifierId>
+			<Name>Offensive</Name>
+			<Value>true</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_SPY_SEDUCTION_LICENSE_TO_KILL_DIS</ModifierId>
+			<Name>Amount</Name>
+			<Value>-1</Value>
+		</Row> 
+		
+		</ModifierArguments>
+		
+		
+		
+	
+		
+		Testing Disabling for new method -------->
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<!-- NOT IN USE Unit Promotion Modifiers 
+		<Row>
+			<UnitPromotionType>PROMOTION_SPY_SEDUCTION</UnitPromotionType>
+			<ModifierId>SPY_SEDUCTION_STEALTECH</ModifierId>
+		</Row>
+		
+		
+		<Modifiers>
+				<Row>
+			<ModifierId>SPY_SEDUCTION_STEALTECH</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNIT_ADJUST_SPY_OPERATION_CHANCE</ModifierType>
+		</Row>
+		
+		-->
+		
+		<!--UnitAbilities>
+		<Row UnitAbilityType="ABILITY_RH_AI_SPY_PRIORITY_CHANGES" Name="LOC_ABILITY_RH_AI_SPY_PRIORITY_CHANGES" Description="LOC_LOC_ABILITY_RH_AI_SPY_PRIORITY_CHANGES_DESCRIPTION" Inactive="true"/>
+		</UnitAbilities>
+
+		<UnitAbilityModifiers>
+		<Row>
+			<UnitAbilityType>ABILITY_RH_AI_SPY_PRIORITY_CHANGES</UnitAbilityType>
+			<ModifierId>RH_AI_SPY_SEDUCTION_TECH_ENCOURAGE</ModifierId>
+		</Row>
+		</UnitAbilityModifiers-->
+		
+		
+</GameInfo>
+
+

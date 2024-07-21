@@ -1,0 +1,550 @@
+
+
+<GameInfo>
+
+	<Modifiers>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_DIPLO_QUARTER_PLACEMENT_CHANGES</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_CITIES_DISTRICT_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		<Row>
+			<ModifierId>TRAIT_RH_AI_PRESERVE_DIST_PLACEMENT_CHANGES</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_CITIES_DISTRICT_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_JUNGLE_ADJ</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_FEATURE_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_GRASSLAND</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_FEATURE_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+	
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_PLAINS</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_FEATURE_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_DOVER</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_FEATURE_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_CHOCOLATEHILLS</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_FEATURE_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PANTANAL</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_FEATURE_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_SAHARA_EL_BEYDA</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_FEATURE_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>	
+		
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FOREST</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_FEATURE_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_GRASS_MOUNTAIN</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_TERRAIN_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_MOUNTAIN</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_TERRAIN_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_GRASS_HILLS</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_TERRAIN_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_HILLS</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_TERRAIN_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_COAST</ModifierId>
+			<ModifierType>MODIFIER_ALL_CITIES_TERRAIN_ADJACENCY</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+		</Row>
+		
+		
+		
+	</Modifiers>
+
+
+	<ModifierArguments>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_DIPLO_QUARTER_PLACEMENT_CHANGES</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_DIPLOMATIC_QUARTER</Value>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_DIPLO_QUARTER_PLACEMENT_CHANGES</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_DIPLO_QUARTER_PLACEMENT_CHANGES</ModifierId>
+			<Name>Amount</Name>
+			<Value>1</Value>
+		</Row>
+		<!--Row>
+			<ModifierId>TRAIT_RH_AI_DIPLO_QUARTER_PLACEMENT_CHANGES</ModifierId>
+			<Name>Description</Name>
+			<Value>LOC_DISTRICT_DISTRICT_1_GOLD</Value>
+		</Row-->
+		
+				
+		<Row>
+			<ModifierId>TRAIT_RH_AI_PRESERVE_DIST_PLACEMENT_CHANGES</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_PRESERVE_DIST_PLACEMENT_CHANGES</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>TRAIT_RH_AI_PRESERVE_DIST_PLACEMENT_CHANGES</ModifierId>
+			<Name>Amount</Name>
+			<Value>-2</Value>
+		</Row>
+		
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_JUNGLE_ADJ</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_JUNGLE_ADJ</ModifierId>
+			<Name>FeatureType</Name>
+			<Value>FEATURE_JUNGLE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_JUNGLE_ADJ</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_JUNGLE_ADJ</ModifierId>
+			<Name>Amount</Name>
+			<Value>-1</Value>
+		</Row>
+		
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_GRASSLAND</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_GRASSLAND</ModifierId>
+			<Name>FeatureType</Name>
+			<Value>FEATURE_FLOODPLAINS_GRASSLAND</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_GRASSLAND</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_GRASSLAND</ModifierId>
+			<Name>Amount</Name>
+			<Value>-1</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_PLAINS</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_PLAINS</ModifierId>
+			<Name>FeatureType</Name>
+			<Value>FEATURE_FLOODPLAINS_PLAINS</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_PLAINS</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_PLAINS</ModifierId>
+			<Name>Amount</Name>
+			<Value>-1</Value>
+		</Row>
+		
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_DOVER</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_DOVER</ModifierId>
+			<Name>FeatureType</Name>
+			<Value>FEATURE_CLIFFS_DOVER</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_DOVER</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_DOVER</ModifierId>
+			<Name>Amount</Name>
+			<Value>11</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_CHOCOLATEHILLS</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_CHOCOLATEHILLS</ModifierId>
+			<Name>FeatureType</Name>
+			<Value>FEATURE_CHOCOLATEHILLS</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_CHOCOLATEHILLS</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_CHOCOLATEHILLS</ModifierId>
+			<Name>Amount</Name>
+			<Value>12</Value> <!-- very strong -->
+		</Row>
+		
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PANTANAL</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PANTANAL</ModifierId>
+			<Name>FeatureType</Name>
+			<Value>FEATURE_PANTANAL</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PANTANAL</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PANTANAL</ModifierId>
+			<Name>Amount</Name>
+			<Value>9</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_SAHARA_EL_BEYDA</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_SAHARA_EL_BEYDA</ModifierId>
+			<Name>FeatureType</Name>
+			<Value>FEATURE_WHITEDESERT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_SAHARA_EL_BEYDA</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_SAHARA_EL_BEYDA</ModifierId>
+			<Name>Amount</Name>
+			<Value>9</Value>
+		</Row>
+		
+		
+		
+		
+	
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FOREST</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FOREST</ModifierId>
+			<Name>FeatureType</Name>
+			<Value>FEATURE_FOREST</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FOREST</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_FOREST</ModifierId>
+			<Name>Amount</Name>
+			<Value>1</Value>
+		</Row>
+		
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_GRASS_MOUNTAIN</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_GRASS_MOUNTAIN</ModifierId>
+			<Name>TerrainType</Name>
+			<Value>TERRAIN_GRASS_MOUNTAIN</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_GRASS_MOUNTAIN</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_GRASS_MOUNTAIN</ModifierId>
+			<Name>Amount</Name>
+			<Value>2</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_MOUNTAIN</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_MOUNTAIN</ModifierId>
+			<Name>TerrainType</Name>
+			<Value>TERRAIN_PLAINS_MOUNTAIN</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_MOUNTAIN</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_MOUNTAIN</ModifierId>
+			<Name>Amount</Name>
+			<Value>2</Value>
+		</Row>
+
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_HILLS</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_HILLS</ModifierId>
+			<Name>TerrainType</Name>
+			<Value>TERRAIN_PLAINS_HILLS</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_HILLS</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_HILLS</ModifierId>
+			<Name>Amount</Name>
+			<Value>-1</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_GRASS_HILLS</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_GRASS_HILLS</ModifierId>
+			<Name>TerrainType</Name>
+			<Value>TERRAIN_GRASS_HILLS</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_GRASS_HILLS</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_GRASS_HILLS</ModifierId>
+			<Name>Amount</Name>
+			<Value>-1</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_COAST</ModifierId>
+			<Name>DistrictType</Name>
+			<Value>DISTRICT_PRESERVE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_COAST</ModifierId>
+			<Name>TerrainType</Name>
+			<Value>TERRAIN_COAST</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_COAST</ModifierId>
+			<Name>YieldType</Name>
+			<Value>YIELD_RH_PLACEMENT</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_AI_PRESERVE_COAST</ModifierId>
+			<Name>Amount</Name>
+			<Value>-2</Value>
+		</Row>
+		
+		
+	</ModifierArguments>
+
+
+	<TraitModifiers>
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>TRAIT_RH_AI_DIPLO_QUARTER_PLACEMENT_CHANGES</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>TRAIT_RH_AI_PRESERVE_DIST_PLACEMENT_CHANGES</ModifierId>
+		</Row>
+		
+		<!--Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_PRESERVE_JUNGLE_ADJ</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_GRASSLAND</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_PRESERVE_FLOODPLAINS_PLAINS</ModifierId>
+		</Row>
+
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_PRESERVE_DOVER</ModifierId>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_PRESERVE_CHOCOLATEHILLS</ModifierId>
+		</Row>
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_PRESERVE_PANTANAL</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_PRESERVE_SAHARA_EL_BEYDA</ModifierId>
+		</Row-->		
+		
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_ANTIQUES_AND_PARKS</TraitType> <!-- Temp Teddy Only -->
+			<ModifierId>RH_AI_PRESERVE_FOREST</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_KUPES_VOYAGE</TraitType> <!-- Temp Kupe As Well -->
+			<ModifierId>RH_AI_PRESERVE_FOREST</ModifierId>
+		</Row>	
+		
+		<Row>
+			<TraitType>TRAIT_CIVILIZATION_GREAT_MOUNTAINS</TraitType>
+			<ModifierId>RH_AI_PRESERVE_GRASS_MOUNTAIN</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_CIVILIZATION_GREAT_MOUNTAINS</TraitType>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_MOUNTAIN</ModifierId>
+		</Row>
+		
+		<!--Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_PRESERVE_GRASS_HILLS</ModifierId>
+		</Row>
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_PRESERVE_PLAINS_HILLS</ModifierId>
+		</Row-->
+		
+		<Row>
+			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
+			<ModifierId>RH_AI_PRESERVE_COAST</ModifierId>
+		</Row>
+		
+	</TraitModifiers>
+	
+	<BuildingModifiers>
+	
+		<Row BuildingType="BUILDING_GROVE" 	   ModifierId="RH_AI_PRESERVE_DOVER"/> 
+		<Row BuildingType="BUILDING_SANCTUARY" ModifierId="RH_AI_PRESERVE_DOVER"/> 
+	
+		<Row BuildingType="BUILDING_GROVE" 	   ModifierId="RH_AI_PRESERVE_CHOCOLATEHILLS"/> 
+		<Row BuildingType="BUILDING_SANCTUARY" ModifierId="RH_AI_PRESERVE_CHOCOLATEHILLS"/> 	
+	
+		<Row BuildingType="BUILDING_GROVE" 	   ModifierId="RH_AI_PRESERVE_PANTANAL"/> 
+		<Row BuildingType="BUILDING_SANCTUARY" ModifierId="RH_AI_PRESERVE_PANTANAL"/> 	
+	
+		<Row BuildingType="BUILDING_GROVE" 	   ModifierId="RH_AI_PRESERVE_SAHARA_EL_BEYDA"/> 
+		<Row BuildingType="BUILDING_SANCTUARY" ModifierId="RH_AI_PRESERVE_SAHARA_EL_BEYDA"/> 	
+	
+		<!--Row BuildingType="BUILDING_GROVE" 	   ModifierId="RH_AI_PRESERVE_FOREST"/> 
+		<Row BuildingType="BUILDING_SANCTUARY" ModifierId="RH_AI_PRESERVE_FOREST"/--> 		
+	
+		<!--Row BuildingType="BUILDING_GROVE" 	   ModifierId="RH_AI_PRESERVE_GRASS_MOUNTAIN"/> 
+		<Row BuildingType="BUILDING_SANCTUARY" ModifierId="RH_AI_PRESERVE_GRASS_MOUNTAIN"/> 		
+	
+		<Row BuildingType="BUILDING_GROVE" 	   ModifierId="RH_AI_PRESERVE_PLAINS_MOUNTAIN"/> 
+		<Row BuildingType="BUILDING_SANCTUARY" ModifierId="RH_AI_PRESERVE_PLAINS_MOUNTAIN"/--> 		
+	
+		<!--Row BuildingType="BUILDING_GROVE" 	   ModifierId="RH_AI_PRESERVE_GRASS_HILLS"/> 
+		<Row BuildingType="BUILDING_SANCTUARY" ModifierId="RH_AI_PRESERVE_GRASS_HILLS"/> 
+
+		<Row BuildingType="BUILDING_GROVE" 	   ModifierId="RH_AI_PRESERVE_PLAINS_HILLS"/> 
+		<Row BuildingType="BUILDING_SANCTUARY" ModifierId="RH_AI_PRESERVE_PLAINS_HILLS"/--> 
+		
+	</BuildingModifiers>
+	
+
+
+
+
+	
+		
+	
+</GameInfo>

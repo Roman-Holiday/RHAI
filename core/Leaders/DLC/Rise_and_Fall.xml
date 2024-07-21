@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<GameInfo>
+
+	<BuildingModifiers>
+		<Row BuildingType="BUILDING_AMUNDSEN_SCOTT_RESEARCH_STATION" ModifierId="RH_GRANT_ONE_INFLUENCE_RF"/>
+		<Row BuildingType="BUILDING_AMUNDSEN_SCOTT_RESEARCH_STATION" ModifierId="RH_GPP_SCI_POINTS_L"/>
+		
+		<!--Row BuildingType="BUILDING_STATUE_LIBERTY" ModifierId="RH_GRANT_TWO_INFLUENCE_RF"/-->
+
+	</BuildingModifiers>
+	
+	<Modifiers>
+		<Row>
+			<ModifierId>RH_GRANT_TWO_INFLUENCE_RF</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+			<RunOnce>true</RunOnce>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_GRANT_ONE_INFLUENCE_RF</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId/>
+			<RunOnce>true</RunOnce>
+		</Row>
+		
+	</Modifiers>
+	
+	<ModifierArguments>
+		<Row>
+			<ModifierId>RH_GRANT_TWO_INFLUENCE_RF</ModifierId>
+			<Name>Amount</Name>
+			<Value>4</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_GRANT_ONE_INFLUENCE_RF</ModifierId>
+			<Name>Amount</Name>
+			<Value>1</Value>
+		</Row>
+		
+	</ModifierArguments>
+
+	
+	
+	
+</GameInfo>

@@ -1,0 +1,195 @@
+﻿<!--
+-- ===========================================================================
+-- Air Blitz Tree
+-- ===========================================================================
+-->
+
+<?xml version="1.0" encoding="utf-8"?>
+<GameInfo>
+
+	
+	<AiTeams>
+		<Row TeamName="Air Infrastructure Blitz" />
+	</AiTeams>
+	<AiOperationTeams>
+
+		<Row TeamName="Air Infrastructure Blitz" OperationName="Air Blitz" InitialStrengthAdvantage="-1" OngoingStrengthAdvantage="-1" />
+	</AiOperationTeams>
+	<OpTeamRequirements>
+
+		<Row TeamName="Air Infrastructure Blitz" AiType="UNITTYPE_AIR_SIEGE" MinNumber="1" MaxNumber="1" /> <!-- Op limit 2, testing 1 again -->
+	</OpTeamRequirements>
+	<AiOperationDefs>
+		<!-- Jet Bombers have a range of 15 --> <!-- Target was passive district, now combat -->
+		<Row OperationName="Air Blitz" TargetType="TARGET_ENEMY_COMBAT_DISTRICT" EnemyType="WAR" OperationType="OP_BLITZ" BehaviorTree="Air Blitz Tree" Priority="2" SelfStart="true" MaxTargetDistInRegion="-1" MaxTargetDistInArea="15" MaxTargetDistInWorld="15" MinOddsOfSuccess="0" MustHaveUnits="1" />
+	</AiOperationDefs> <!-- Target Type could be TARGET_AIR_UNIT -->
+	<AllowedOperations>
+		<Row ListType="Default_List" OperationDef="Air Blitz" />
+	</AllowedOperations>
+	
+
+<!-- Behavior tree's definition -->
+<BehaviorTrees>
+	<Row TreeName="Air Blitz Tree" />
+</BehaviorTrees>
+	
+
+<BehaviorTreeNodes>
+
+
+<!--<Row NodeType="Concurrent" NodeId="0" TreeName="Air Blitz Tree" JumpTo="17" />--> 
+	<!--<Row NodeType="Operation Pillage" NodeId="1" TreeName="Air Blitz Tree" />--> 
+	
+	<Row NodeType="Sequence" NodeId="1" TreeName="Air Blitz Tree" JumpTo="30" />
+		<Row NodeType="Decode Trigger" NodeId="2" TreeName="Air Blitz Tree" />
+		<Row NodeType="Concurrent" NodeId="3" TreeName="Air Blitz Tree" JumpTo="13" />
+			<Row NodeType="Operation Defend Units" NodeId="4" TreeName="Air Blitz Tree" /> 
+			<Row NodeType="Contract Manager Decorator" NodeId="5" TreeName="Air Blitz Tree" JumpTo="7" />
+				<Row NodeType="Recruit Units" NodeId="6" TreeName="Air Blitz Tree" />
+				
+			<Row NodeType="Priority" NodeId="7" TreeName="Air Blitz Tree" JumpTo="10" />
+	
+				<Row NodeType="Operation Launch nuke" NodeId="8" TreeName="Air Blitz Tree" />
+				<Row NodeType="Operation Defend Units" NodeId="9" TreeName="Air Blitz Tree" /> 
+				
+			<Row NodeType="Operation Air Assault" NodeId="10" TreeName="Air Blitz Tree" /> 
+			<Row NodeType="Operation Change Target" NodeId="11" TreeName="Air Blitz Tree" />
+			<Row NodeType="Operation Move" NodeId="12" TreeName="Air Blitz Tree" />
+			
+		<Row NodeType="Concurrent" NodeId="13" TreeName="Air Blitz Tree" JumpTo="22" />
+			<Row NodeType="Operation Defend Units" NodeId="14" TreeName="Air Blitz Tree" /> 
+			<Row NodeType="Operation Change Target" NodeId="15" TreeName="Air Blitz Tree" />
+			<Row NodeType="Recruit Units" NodeId="16" TreeName="Air Blitz Tree" />
+			
+			<Row NodeType="Priority" NodeId="17" TreeName="Air Blitz Tree" JumpTo="20" />
+	
+				<Row NodeType="Operation Launch nuke" NodeId="18" TreeName="Air Blitz Tree" />
+				<Row NodeType="Operation Defend Units" NodeId="19" TreeName="Air Blitz Tree" /> 
+			
+			<Row NodeType="Operation Air Assault" NodeId="20" TreeName="Air Blitz Tree" /> 
+			<Row NodeType="Operation Move" NodeId="21" TreeName="Air Blitz Tree" />
+		<Row NodeType="Concurrent" NodeId="22" TreeName="Air Blitz Tree" JumpTo="30" />
+			<Row NodeType="Operation Defend Units" NodeId="23" TreeName="Air Blitz Tree" /> 
+			<Row NodeType="Operation Change Target" NodeId="24" TreeName="Air Blitz Tree" />
+			<Row NodeType="Recruit Units" NodeId="25" TreeName="Air Blitz Tree" />
+			
+			<Row NodeType="Priority" NodeId="26" TreeName="Air Blitz Tree" JumpTo="29" />
+	
+				<Row NodeType="Operation Launch nuke" NodeId="27" TreeName="Air Blitz Tree" />
+				<Row NodeType="Operation Defend Units" NodeId="28" TreeName="Air Blitz Tree" /> 
+			
+			<Row NodeType="Operation Air Assault" NodeId="29" TreeName="Air Blitz Tree" />
+
+</BehaviorTreeNodes>
+
+
+<TreeData>
+
+	<!--<Row DefnId="0" NodeId="2" TreeName="Air Blitz Tree" DefaultData="true" />--> 
+	<!--<Row DefnId="1" NodeId="2" TreeName="Air Blitz Tree" DefaultData="false" />--> 
+	<!-- "Decode Trigger" -->
+	<Row DefnId="0" NodeId="2" TreeName="Air Blitz Tree" Tag="Unused" />
+	<Row DefnId="1" NodeId="2" TreeName="Air Blitz Tree" />
+	<Row DefnId="2" NodeId="2" TreeName="Air Blitz Tree" />
+	<Row DefnId="3" NodeId="2" TreeName="Air Blitz Tree" />
+	<Row DefnId="4" NodeId="2" TreeName="Air Blitz Tree" />
+	<Row DefnId="5" NodeId="2" TreeName="Air Blitz Tree" />
+	<Row DefnId="6" NodeId="2" TreeName="Air Blitz Tree" />
+	<Row DefnId="7" NodeId="2" TreeName="Air Blitz Tree" />
+	<Row DefnId="8" NodeId="2" TreeName="Air Blitz Tree" Tag="Present Value" />
+	<!-- 3. Concurrent -->
+		<!-- "Operation Defend Units" -->
+		<Row DefnId="0" NodeId="4" TreeName="Air Blitz Tree" DefaultData="0" />
+		
+		<!-- "Contract Manager Decorator" -->
+		<Row DefnId="0" NodeId="5" TreeName="Air Blitz Tree" Tag="Recruitment Contract" />
+		<Row DefnId="1" NodeId="5" TreeName="Air Blitz Tree" />
+		<Row DefnId="2" NodeId="5" TreeName="Air Blitz Tree" DefaultData="5" />
+		<Row DefnId="3" NodeId="5" TreeName="Air Blitz Tree" DefaultData="false" />
+		
+		<!-- "Recruit Units" -->
+		<Row DefnId="0" NodeId="6" TreeName="Air Blitz Tree" DefaultData="false" />
+		<Row DefnId="1" NodeId="6" TreeName="Air Blitz Tree" Tag="Recruitment Contract" />
+		<Row DefnId="4" NodeId="6" TreeName="Air Blitz Tree" Tag="Present Value" />
+		
+		
+		<!-- "Operation Defend Units" -->
+		<Row DefnId="0" NodeId="9" TreeName="Air Blitz Tree" DefaultData="0" />
+		
+		<!-- Operation Air Assault -->
+		<Row DefnId="0" NodeId="10" TreeName="Air Blitz Tree" DefaultData="3" /> <!-- Improvement Priority (1-3) def 2-->
+		<Row DefnId="1" NodeId="10" TreeName="Air Blitz Tree" DefaultData="1" /> <!-- Combat District Priority (1-3) -->
+		<Row DefnId="2" NodeId="10" TreeName="Air Blitz Tree" DefaultData="2" /> <!-- Passive District Priority (1-3) def 1, pvs 2 (temp 1 for testing) -->
+		<Row DefnId="3" NodeId="10" TreeName="Air Blitz Tree" DefaultData="UNITTYPE_AIR_SIEGE" /> <!-- Bomber Unit Type -->
+		<!-- <Row DataName="Present Value" DefnId="4" DataType="int" NodeType="Operation Air Assault" Required="False" /> -->
+		
+		<!-- Change Target -->
+		<Row DefnId="0" NodeId="11" TreeName="Air Blitz Tree" DefaultData="0" />
+		<Row DefnId="1" NodeId="11" TreeName="Air Blitz Tree" DefaultData="-2" />
+		<Row DefnId="4" NodeId="11" TreeName="Air Blitz Tree" DefaultData="true" />
+		
+		
+		<!-- "Operation Move" -->
+		<Row DefnId="0" NodeId="12" TreeName="Air Blitz Tree" DefaultData="1" />
+		<Row DefnId="1" NodeId="12" TreeName="Air Blitz Tree" DefaultData="2" />
+		<Row DefnId="2" NodeId="12" TreeName="Air Blitz Tree" DefaultData="true" />
+		<Row DefnId="3" NodeId="12" TreeName="Air Blitz Tree" DefaultData="2" />
+	
+	<!-- 13. Concurrent -->
+	
+		<!-- "Operation Defend Units" -->
+		<Row DefnId="0" NodeId="14" TreeName="Air Blitz Tree" DefaultData="0" />
+		<!-- "Operation Change Target" -->
+		<Row DefnId="0" NodeId="15" TreeName="Air Blitz Tree" DefaultData="0" />
+		<Row DefnId="1" NodeId="15" TreeName="Air Blitz Tree" DefaultData="-2" />
+		<Row DefnId="4" NodeId="15" TreeName="Air Blitz Tree" DefaultData="true" />
+		
+		<!-- "Recruit Units" -->
+		<Row DefnId="0" NodeId="16" TreeName="Air Blitz Tree" DefaultData="true" />
+		<Row DefnId="4" NodeId="16" TreeName="Air Blitz Tree" Tag="Present Value" />
+
+		<!-- LN -->
+		<Row DefnId="0" NodeId="18" TreeName="Air Blitz Tree" DefaultData="true" /> 
+
+		<!-- "Operation Defend Units" -->
+		<Row DefnId="0" NodeId="19" TreeName="Air Blitz Tree" DefaultData="0" />
+
+		<!-- Operation Air Assault -->
+		<Row DefnId="0" NodeId="20" TreeName="Air Blitz Tree" DefaultData="3" /> <!-- Improvement Priority (1-3) def 2-->
+		<Row DefnId="1" NodeId="20" TreeName="Air Blitz Tree" DefaultData="1" /> <!-- Combat District Priority (1-3) -->
+		<Row DefnId="2" NodeId="20" TreeName="Air Blitz Tree" DefaultData="2" /> <!-- Passive District Priority (1-3) def 1, pvs 2 (temp 1 for testing) -->
+		<Row DefnId="3" NodeId="20" TreeName="Air Blitz Tree" DefaultData="UNITTYPE_AIR_SIEGE" /> <!-- Bomber Unit Type -->
+		<!-- <Row DataName="Present Value" DefnId="4" DataType="int" NodeType="Operation Air Assault" Required="False" /> -->
+		
+		<!-- "Operation Move" -->
+		<Row DefnId="0" NodeId="21" TreeName="Air Blitz Tree" DefaultData="1" />
+		<Row DefnId="1" NodeId="21" TreeName="Air Blitz Tree" DefaultData="2" />
+		<Row DefnId="2" NodeId="21" TreeName="Air Blitz Tree" DefaultData="true" />
+		<Row DefnId="3" NodeId="21" TreeName="Air Blitz Tree" DefaultData="2" />
+		
+	<!-- 22. Concurrent -->
+	
+		<!-- "Operation Defend Units" -->
+		<Row DefnId="0" NodeId="23" TreeName="Air Blitz Tree" DefaultData="0" />
+		
+		<!-- "Operation Change Target" -->
+		<Row DefnId="0" NodeId="24" TreeName="Air Blitz Tree" DefaultData="0" />
+		<Row DefnId="1" NodeId="24" TreeName="Air Blitz Tree" DefaultData="-2" />
+		<Row DefnId="4" NodeId="24" TreeName="Air Blitz Tree" DefaultData="true" />
+		
+		<!-- "Recruit Units" -->
+		<Row DefnId="0" NodeId="25" TreeName="Air Blitz Tree" DefaultData="true" />
+		<!--Row DefnId="2" NodeId="25" TreeName="Air Blitz Tree" DefaultData="2" /-->
+		<Row DefnId="4" NodeId="25" TreeName="Air Blitz Tree" Tag="Present Value" />
+
+
+		<!-- Operation Air Assault -->
+		<Row DefnId="0" NodeId="29" TreeName="Air Blitz Tree" DefaultData="3" /> <!-- Improvement Priority (1-3) def 2-->
+		<Row DefnId="1" NodeId="29" TreeName="Air Blitz Tree" DefaultData="1" /> <!-- Combat District Priority (1-3) -->
+		<Row DefnId="2" NodeId="29" TreeName="Air Blitz Tree" DefaultData="3" /> <!-- Passive District Priority (1-3) def 1, pvs 2 (temp 1 for testing) -->
+		<Row DefnId="3" NodeId="29" TreeName="Air Blitz Tree" DefaultData="UNITTYPE_AIR_SIEGE" /> <!-- Bomber Unit Type -->
+		<!-- <Row DataName="Present Value" DefnId="4" DataType="int" NodeType="Operation Air Assault" Required="False" /> -->
+		
+</TreeData>
+
+</GameInfo>

@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- AUTHOR: ROMANHOLIDAY -->
+<GameInfo>
+
+	<AiOperationTypes>
+		<!--Row OperationType="30_TILE_CITY_ASSAULT_OP" Value="7"/--> 
+	</AiOperationTypes>
+	
+	<AiOperationDefs>
+
+		<!--Update>
+			<Set TargetType="TARGET_FRIENDLY_CITY"  TargetParameter="1" BehaviorTree="Simple City Defense" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="-1" MaxTargetDistInWorld="-1"  MinOddsOfSuccess="0.02" OperationType="OP_DEFENSE"></Set>
+			<Where OperationName="City Defense"></Where>
+		</Update>
+		<Row OperationName="City Defense Unwalled" TargetType="TARGET_FRIENDLY_CITY" TargetParameter="0" BehaviorTree="Simple City Defense" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="-1" MaxTargetDistInWorld="-1" MinOddsOfSuccess="0.02" OperationType="OP_DEFENSE" />
+		
+		<!--Row OperationName="30tile Attack Unwalled" TargetType="TARGET_ENEMY_COMBAT_DISTRICT" OperationType="30_TILE_CITY_ASSAULT_OP" BehaviorTree="Early City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="30" MaxTargetDistInWorld="30" MinOddsOfSuccess="0.45" MustBeAtWar="true" />
+		
+		<Row OperationName="30tile Attack Walled" TargetType="TARGET_ENEMY_COMBAT_DISTRICT" TargetParameter="1" OperationType="30_TILE_CITY_ASSAULT_OP" BehaviorTree="Siege City Assault" SelfStart="True" Priority="3" MaxTargetDistInRegion="-1" MaxTargetDistInArea="30" MaxTargetDistInWorld="30" MinOddsOfSuccess="0.45" MustBeAtWar="true" /-->	
+		
+	</AiOperationDefs>
+	 
+
+	<!-- Additional Military Strategies if strong-->
+	<Strategies>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" NumConditionsNeeded="3"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" NumConditionsNeeded="2"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV_LATE" NumConditionsNeeded="2"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV" NumConditionsNeeded="3"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" NumConditionsNeeded="4"/>
+	</Strategies>
+	<StrategyConditions>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Leads Military" ThresholdValue="35" />
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Has Tech Lead" ThresholdValue="50" />
+		<!--Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Leads Score" ThresholdValue="50" /-->
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Major Civ Wars" ThresholdValue="1"/> <!-- rapid expansion strat has 1 -->
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Has Great Works" ThresholdValue="21" Forbidden="true"/> 
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Is Infomation" ThresholdValue="1" Disqualifier="true"/>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		<!--Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Finished Space Project" ThresholdValue="1" Disqualifier="true"/-->
+		
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Leads Military" ThresholdValue="50" />
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Has Tech Lead" ThresholdValue="40"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Leads Score" ThresholdValue="20"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Next Lower Score" ThresholdValue="250"/>
+		
+		<!--Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Cities Under Threat" ThresholdValue="1"/-->
+		<!--Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Finished Space Project" ThresholdValue="2" Disqualifier="true"/-->
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Tourists Taken" ThresholdValue="140" Forbidden="true"/> 		
+		
+		<!-- Not in use -->
+		<Row StrategyType="STRATEGY_STRENGTH_ADV_LATE" ConditionFunction="Leads Military" ThresholdValue="25" />
+		<Row StrategyType="STRATEGY_STRENGTH_ADV_LATE" ConditionFunction="Is Renaissance" ThresholdValue="1"/> <!-- Science Victory uses this a condition (no value only for era strat-->
+		<Row StrategyType="STRATEGY_STRENGTH_ADV_LATE" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		
+		<!-- Early -->
+		
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV" ConditionFunction="Leads Military" ThresholdValue="33" />
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV" ConditionFunction="Has Tech Lead" ThresholdValue="25"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV" ConditionFunction="Leads Score" ThresholdValue="25"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV" ConditionFunction="Next Lower Score" ThresholdValue="300"/>
+		
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV" ConditionFunction="Has Taken Capital" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV" ConditionFunction="Is Industrial" ThresholdValue="1" Disqualifier="true"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		
+		<!-- Late -->
+		
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Leads Military" ThresholdValue="33" />
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Has Tech Lead" ThresholdValue="25"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Leads Score" ThresholdValue="25"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Next Lower Score" ThresholdValue="350"/>
+		
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Has Taken Capital" ThresholdValue="1"/>
+		<!--Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Has Taken Capital" ThresholdValue="2"/--> <!-- Causes Error -->
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Is Industrial" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Is Modern" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Is Atomic" ThresholdValue="1"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Is Infomation" ThresholdValue="1"/>
+		
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Tourists Taken" ThresholdValue="200" Forbidden="true"/> 
+		<!--Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Is Future" ThresholdValue="1" Disqualifier="true"/-->
+		<!--Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Finished Space Project" ThresholdValue="2" Disqualifier="true"/-->
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ConditionFunction="Is Not Major" Disqualifier="true"/>
+		
+
+		
+	</StrategyConditions>
+	<Strategy_Priorities>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ListType="WAR_STRAT"/>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ListType="WAR_STRAT_OPERATIONS"/>
+		<!--Row StrategyType="STRATEGY_WAR_IF_STRONG" ListType="WAR_STRAT_DISTRICTS"/-->
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ListType="WAR_STRAT_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ListType="WAR_STRAT_YIELDS"/>
+		
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ListType="STRENGTH_ADV_OPERATIONS"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ListType="STRENGTH_ADV_PER_WAR_OPERATIONS"/>
+		
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ListType="STRENGTH_ADV_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ListType="STRENGTH_ADV_BUILDINGS"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ListType="STRENGTH_ADV_DIPLOS"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ListType="STRENGTH_ADV_UNIT_BUILDS"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ListType="STRENGTH_ADV_YIELDS"/>
+		
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV" ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV" ListType="VERY_HIGH_STRENGTH_ADV_OPERATIONS"/>
+		
+		<Row StrategyType="STRATEGY_STRENGTH_ADV_LATE" ListType="STRENGTH_ADV_LATE_OPERATIONS"/>
+		
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ListType="VERY_HIGH_STRENGTH_ADV_LATE_OPERATIONS"/>
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ListType="VERY_HIGH_STRENGTH_ADV_LATE_UNIT_BUILDS"/>	
+		<Row StrategyType="STRATEGY_VERY_HIGH_STRENGTH_ADV_LATE" ListType="VERY_HIGH_STRENGTH_ADV_LATE_YIELDS"/>	
+		
+		
+	</Strategy_Priorities>
+
+	<AiListTypes>
+		<Row ListType="WAR_STRAT" />
+		<Row ListType="WAR_STRAT_OPERATIONS" />
+		<Row ListType="WAR_STRAT_PSEUDOS" />
+		<Row ListType="WAR_STRAT_YIELDS" />
+		
+		<!--Row ListType="WAR_STRAT_DISTRICTS" -->
+		
+		<Row ListType="STRENGTH_ADV_OPERATIONS" />
+		<Row ListType="STRENGTH_ADV_PER_WAR_OPERATIONS" />
+		
+		<Row ListType="STRENGTH_ADV_PSEUDOS" />
+		<Row ListType="STRENGTH_ADV_BUILDINGS" />
+		<Row ListType="STRENGTH_ADV_DIPLOS" />
+		<Row ListType="STRENGTH_ADV_UNIT_BUILDS"/>
+		<Row ListType="STRENGTH_ADV_YIELDS"/>
+		
+		<Row ListType="STRENGTH_ADV_LATE_OPERATIONS" />
+		
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_OPERATIONS" />
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" />
+		
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_OPERATIONS" />
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" />
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_UNIT_BUILDS"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_YIELDS"/>
+		
+		<Row ListType="Extra_Preferred_Buildings"/>
+		
+	</AiListTypes>
+	<AiLists>
+		<Row ListType="WAR_STRAT" System="DiplomaticActions"/>
+		<Row ListType="WAR_STRAT_OPERATIONS" System="AiOperationTypes"/>
+		<Row ListType="WAR_STRAT_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="WAR_STRAT_YIELDS" System="Yields"/>
+		<!--Row ListType="WAR_STRAT_DISTRICTS" System="Districts"/-->
+		
+		<Row ListType="STRENGTH_ADV_OPERATIONS" System="AiOperationTypes"/>
+		<Row ListType="STRENGTH_ADV_PER_WAR_OPERATIONS" System="PerWarOperationTypes"/>
+
+		<Row ListType="STRENGTH_ADV_PSEUDOS" System="PseudoYields"/>
+		<Row ListType="STRENGTH_ADV_BUILDINGS" System="Buildings"/>
+		<Row ListType="STRENGTH_ADV_DIPLOS" System="DiplomaticActions"/>
+		<Row ListType="STRENGTH_ADV_UNIT_BUILDS" System="UnitPromotionClasses"/>
+		<Row ListType="STRENGTH_ADV_YIELDS" System="Yields"/>
+		
+		<Row ListType="STRENGTH_ADV_LATE_OPERATIONS" System="AiOperationTypes"/>
+		
+		
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_OPERATIONS" System="AiOperationTypes"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" System="PseudoYields"/>
+		
+		
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_OPERATIONS"  System="AiOperationTypes"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" 	System="PseudoYields"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_UNIT_BUILDS" System="UnitPromotionClasses"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_YIELDS" 		System="Yields"/>
+		
+		<Row ListType="Extra_Preferred_Buildings" LeaderType="TRAIT_LEADER_MAJOR_CIV" System="Buildings"/>	
+	</AiLists>
+
+
+	
+  <!--AiOperationTypes>
+  	<Update>
+		<Where OperationType="ATTACK_BARBARIANS" /> 
+		<Set Value="0" />
+	</Update>
+	
+	<Update>
+		<Where OperationType="CITY_ASSAULT" /> 
+		<Set Value="2" />
+	</Update>
+	
+	<Update>
+		<Where OperationType="OP_ESCORT" /> 
+		<Set Value="3" />
+	</Update>
+	
+	<Update>
+		<Where OperationType="OP_SETTLE" /> 
+		<Set Value="4" />
+	</Update>
+	
+	<Update>
+		<Where OperationType="OP_DEFENSE" /> 
+		<Set Value="5" />
+	</Update>
+
+	<Update>
+		<Where OperationType="OP_NUCLEAR" /> 
+		<Set Value="1" />
+	</Update-->
+
+	<!--Update>
+		<Where OperationType="NAVAL_SUPERIORITY" /> 
+		<Set Value="6" /> <!-- Is already 6-->
+	<!--/Update-->
+
+	<!-- Defaults -->
+    <!--Row OperationType="ATTACK_BARBARIANS" Value="0" />
+    <Row OperationType="CITY_ASSAULT" Value="1" />
+    <Row OperationType="OP_ESCORT" Value="2" />
+    <Row OperationType="OP_SETTLE" Value="3" />
+    <Row OperationType="OP_DEFENSE" Value="4" />
+    <Row OperationType="OP_NUCLEAR" Value="5" />
+    <Row OperationType="NAVAL_SUPERIORITY" Value="6" /-->
+	
+  <!--/AiOperationTypes-->
+  
+	<AiFavoredItems>
+
+		<!-- Basic war strat -->
+
+		<Row ListType="WAR_STRAT" Item="DIPLOACTION_DECLARE_HOLY_WAR" Favored="true" value="34"/>
+		<Row ListType="WAR_STRAT" Item="DIPLOACTION_JOINT_WAR" Favored="true" value="50"/>
+		<Row ListType="WAR_STRAT" Item="DIPLOACTION_DECLARE_FORMAL_WAR" value="32"/>
+		<Row ListType="WAR_STRAT" Item="DIPLOACTION_DECLARE_RECONQUEST_WAR" Favored="true" value="40"/> <!-- Test to 30 from 0.3 because values are much higher in other mods - From forums the value is probably a percentage therefore 30 instead of 0.3 is better -->
+		<Row ListType="WAR_STRAT" Item="DIPLOACTION_DECLARE_PROTECTORATE_WAR" Favored="true" value="35"/>
+		<Row ListType="WAR_STRAT" Item="DIPLOACTION_DECLARE_COLONIAL_WAR" Favored="true" value="40"/>
+		<Row ListType="WAR_STRAT" Item="DIPLOACTION_DECLARE_SURPRISE_WAR" Favored="true" value="30"/>
+		<Row ListType="WAR_STRAT" Item="DIPLOACTION_DECLARE_TERRITORIAL_WAR" Favored="true" value="35"/>
+		<Row ListType="WAR_STRAT" Item="DIPLOACTION_DECLARE_LIBERATION_WAR" Favored="true" value="45"/>
+
+		<Row ListType="WAR_STRAT" Item="DIPLOACTION_OPEN_BORDERS" Favored="true" />
+		
+		<!--Row ListType="WAR_STRAT_OPERATIONS" Item="OP_DEFENSE" Value="-1" /--> <!-- -1 -->
+		<!--Row ListType="WAR_STRAT_OPERATIONS" Item="OP_NUCLEAR" Value="1" /--> 
+
+
+		<Row ListType="WAR_STRAT_YIELDS" Item="YIELD_RH_JUST_WAR" Value="400" />
+		<Row ListType="WAR_STRAT_YIELDS" Item="YIELD_RH_AT_WAR" Value="25" />
+		<Row ListType="WAR_STRAT_YIELDS" Item="YIELD_RH_FACSISM" Value="220" />
+		<Row ListType="WAR_STRAT_YIELDS" Item="YIELD_RH_NUCLEAR" Value="40" />
+		<Row ListType="WAR_STRAT_YIELDS" Item="YIELD_RH_MILITARY_ADV" Value="50" />
+		<Row ListType="WAR_STRAT_YIELDS" Item="YIELD_RH_MILITARY_PRODUCTION" Value="50" />
+		
+		<Row ListType="WAR_STRAT_YIELDS" Item="YIELD_RH_MILITARY_ADVISORY_BUFF" Value="75" /> <!-- +5 Strength -->
+		<Row ListType="WAR_STRAT_YIELDS" Item="YIELD_RH_PUBLIC_RELATIONS_DEBUFF" Value="25" /> <!-- Fewer Grievances -->
+		
+
+		<Row ListType="WAR_STRAT_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="200" /> <!-- pvs 70 -->
+		<Row ListType="WAR_STRAT_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="-12"/>
+		<Row ListType="WAR_STRAT_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="-16"/>
+		<Row ListType="WAR_STRAT_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="5"/>
+		<Row ListType="WAR_STRAT_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_BONUS" Value="-1"/>
+		<Row ListType="WAR_STRAT_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="9"/> <!-- pvs 4,5-->
+		<Row ListType="WAR_STRAT_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="5"/> <!-- pvs 6 -->
+		
+		<!--Row ListType="STRENGTH_ADV_OPERATIONS" Item="CITY_ASSAULT" Value="-1" /--> <!-- Op -->
+		<Row ListType="STRENGTH_ADV_OPERATIONS" Item="OP_RH_AGR_ATTACK" Value="1" /> 
+		<Row ListType="STRENGTH_ADV_OPERATIONS" Item="OP_DEFENSE" Value="-1" /> 
+
+		<Row ListType="STRENGTH_ADV_OPERATIONS" Item="OP_RH_LONG_RANGE_ATTACK" Value="1" /> <!-- Test -->
+
+		<Row ListType="STRENGTH_ADV_PER_WAR_OPERATIONS" Item="OP_RH_AGR_ATTACK" Value="1" /> 
+		
+		
+		<!-- TODO -->
+		<!--Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_OPERATIONS" Item="CITY_ASSAULT" Value="2" /> <!-- Def 4, pvs 2-->
+		<!--Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_OPERATIONS" Item="OP_DEFENSE" Value="1" /--> 
+		
+		<!--Row ListType="VERY_HIGH_STRENGTH_ADV_OPERATIONS" Item="CITY_ASSAULT" Value="2" /--> <!-- Def 4, pvs 2, 4-->
+		<!--Row ListType="VERY_HIGH_STRENGTH_ADV_OPERATIONS" Item="OP_DEFENSE" Value="-1" /--> 
+		
+		<!--Row ListType="STRENGTH_ADV_LATE_OPERATIONS" Item="30_TILE_CITY_ASSAULT_OP" Value="2" /-->
+		
+		<!--Row ListType="STRENGTH_ADV_LATE_OPERATIONS" Item="OP_NUCLEAR" Value="1" />
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_OPERATIONS" Item="OP_NUCLEAR" Value="1" /-->
+		
+		<!--Row ListType="MilitaryVictoryOperations" Item="OP_NUCLEAR" Value="1"/-->
+
+
+		<!-- high strength (all eras) -->
+
+		<Row ListType="STRENGTH_ADV_YIELDS" Item="YIELD_RH_JUST_WAR" Value="750" /> <!-- pvs 60, 200 -->
+		<Row ListType="STRENGTH_ADV_YIELDS" Item="YIELD_RH_AT_WAR" Value="90" />
+		<Row ListType="STRENGTH_ADV_YIELDS" Item="YIELD_RH_FACSISM" Value="375" /> <!-- pvs 150, 325 -->
+		<Row ListType="STRENGTH_ADV_YIELDS" Item="YIELD_RH_NUCLEAR" Value="40" />
+		<Row ListType="STRENGTH_ADV_YIELDS" Item="YIELD_RH_MILITARY_ADV" Value="500" />
+		<Row ListType="STRENGTH_ADV_YIELDS" Item="YIELD_RH_MILITARY_PRODUCTION" Value="90" />
+		
+		<Row ListType="STRENGTH_ADV_YIELDS" Item="YIELD_RH_MILITARY_ADVISORY_BUFF" Value="950" /> <!-- +5 Strength -->
+		
+		<Row ListType="STRENGTH_ADV_YIELDS" Item="YIELD_RH_PUBLIC_RELATIONS_DEBUFF" Value="400" /> <!-- Fewer Grievances -->
+		
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="9000" Favored="true" /> <!-- pvs 82, 110, 850 -->
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="-50"/> <!-- pvs -15, -16, -25-->
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="-50"/> <!-- pvs -11, -15-->
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_FAVOR" Value="-8"/>
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_BONUS" Value="-15"/> <!-- pvs -5, -15 -->
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_GRIEVANCE" Value="-35"/>
+
+	
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="5"/> <!-- pvs 8, 10-->
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="16"/> <!-- pvs 9, 10, 20-->
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="11"/>  <!-- pvs 4, 10, 6, 14 (too high) -->
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="20"/> 
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="30"/> <!-- pvs 12, 22, 35-->
+		
+		<!-- Diplos -->
+		<Row ListType="STRENGTH_ADV_DIPLOS" Item="DIPLOACTION_DEMAND_TRIBUTE" Favored="true" Value="100"/>
+		<Row ListType="STRENGTH_ADV_DIPLOS" Item="DIPLOACTION_JOINT_WAR" Favored="true" value="90"/>
+		<Row ListType="STRENGTH_ADV_DIPLOS" Item="DIPLOACTION_MAKE_PEACE" Favored="false" />
+		<!--Row ListType="STRENGTH_ADV_DIPLOS" Item="DIPLOACTION_PROPOSE_PEACE_DEAL" Favored="false" /-->
+		<Row ListType="STRENGTH_ADV_DIPLOS" Item="DIPLOACTION_OPEN_BORDERS" Favored="true" />
+
+		<!-- Buildings -->
+		<Row ListType="STRENGTH_ADV_BUILDINGS" Item="BUILDING_TERRACOTTA_ARMY" Value="90" Favored="true"/>
+
+		<Row ListType="STRENGTH_ADV_BUILDINGS" Item="BUILDING_GOV_MILITARY" Value="200" Favored="true"/>
+		<!--Row ListType="STRENGTH_ADV_BUILDINGS" Item="BUILDING_GOV_WIDE" Value="150" Favored="true"/-->
+		<Row ListType="STRENGTH_ADV_BUILDINGS" Item="BUILDING_GOV_CONQUEST" Value="150" Favored="true"/>
+		
+		<Row ListType="STRENGTH_ADV_UNIT_BUILDS" Item="PROMOTION_CLASS_SIEGE" Value="11"/> <!-- pvs 10-->
+		<Row ListType="STRENGTH_ADV_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_BOMBER" Value="45" Favored="true"/> <!-- pvs 4, 80, 35 -->
+	
+		<!-- Very high strength early -->
+		
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="-65"/>  <!-- -26, 55 -->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="-65"/> <!-- pvs -27, -35, 55-->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="9000" Favored="true" /> <!-- pvs 250, 350, 950-->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_BONUS" Value="-18"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_FAVOR" Value="-16"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_GRIEVANCE" Value="-50"/> 
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="40"/> <!-- pvs 20-->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="7"/> <!-- pvs 15 -->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="16"/> <!-- pvs 15, 20-->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="10"/> <!-- pvs 6, 14-->
+		
+		<!--Row ListType="VERY_HIGH_STRENGTH_ADV_DIPLOS" Item="DIPLOACTION_DEMAND_TRIBUTE" Favored="true" Value="35"/--> <!-- Todo in future (has a higher value than basic strength advantage)-->
+		
+		<!-- Very high strength late -->
+		
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="20"/> <!-- pvs 20, 15, 8 -->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="-15"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="10"/>
+		<!--Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_DISTRICT" Value="-10"/-->
+		<!--Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_TOURISM" Value="-10"/-->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_FAVOR" Value="-15"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_ENVIRONMENT" Value="-25"/> <!-- pvs -20 -->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_GRIEVANCE" Value="-75"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_BONUS" Value="-25"/> <!-- pvs -21, -25, -24-->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_VICTORY_POINT" Value="-30"/>
+		
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_UNIT_EXPLORER" Value="-35"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="25"/> <!-- pvs 50, 55 -->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="15"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="20"/> <!-- pvs 10, 11, 23 -->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="15"/> <!-- pvs 6, 18 --> 
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="-95"/> <!-- pvs 32, 35, 40, 55, 85-->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="-95"/> <!-- pvs -35, -45, -48, 85 -->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="5000" Favored="true" />	
+
+		<!-- Yields -->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_YIELDS" Item="YIELD_RH_FACSISM" Value="925" />	
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_YIELDS" Item="YIELD_RH_JUST_WAR" Value="500" />
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_YIELDS" Item="YIELD_RH_AT_WAR" Value="20" />
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_YIELDS" Item="YIELD_RH_MILITARY_ADV" Value="200" />
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_YIELDS" Item="YIELD_RH_NUCLEAR" Value="100" />
+
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_YIELDS" Item="YIELD_RH_MILITARY_ADVISORY_BUFF" Value="350" />
+
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_NUCLEAR_WEAPON" Value="5"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_SPACE_RACE" Value="5"/>
+		<!--Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED" Value="-1"/-->
+		<!--Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_UNIT_BUILDS" Item="PROMOTION_CLASS_MELEE" Value="1"/-->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_UNIT_BUILDS" Item="PROMOTION_CLASS_SIEGE" Value="3"/>
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_BOMBER" Value="10"/> <!-- More bombers :) -->
+
+	
+	
+	
+		<!-- Misc -->
+		<Row ListType="Extra_Preferred_Buildings" Item="BUILDING_WALLS" Favored="true"/>
+	
+	</AiFavoredItems>
+	
+
+
+	
+	<!--AllowedOperations>
+	    <Row ListType="Default_List" OperationDef="City Defense Unwalled" />  
+	</AllowedOperations-->
+
+</GameInfo>

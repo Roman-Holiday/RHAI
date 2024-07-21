@@ -1,0 +1,176 @@
+﻿<!--
+-- ===========================================================================
+-- Fast Pillage Operation Tree - Credit Delnar's AI Cleanup mod and of course Infixo for making it work
+-- ===========================================================================
+-->
+
+<?xml version="1.0" encoding="utf-8"?>
+<GameInfo>
+
+	<AiTeams>
+		<Row TeamName="Pillage Team" />
+	</AiTeams>
+	<AiOperationTeams>
+		<Row TeamName="Pillage Team" OperationName="Nimble District Pillage" InitialStrengthAdvantage="-1" OngoingStrengthAdvantage="-1" />
+	</AiOperationTeams>
+	<OpTeamRequirements>
+		<!-- Only need a few, fast-moving units, any more hinders the operation -->
+		<Row TeamName="Pillage Team" AiType="UNITTYPE_CAVALRY" MinNumber="2" MaxNumber="3" />
+	</OpTeamRequirements>
+	<AiOperationDefs>
+		<!-- Delnar: Operation targets non-encampment districts (passive districts) and doesn't target past 16 tiles because that might make the AI travel way too much just to pillage a district -->
+		<Row OperationName="Nimble District Pillage" TargetType="TARGET_ENEMY_PASSIVE_DISTRICT" EnemyType="WAR" OperationType="OP_PILLAGE" BehaviorTree="District Pillage Tree" Priority="3" SelfStart="true" MaxTargetDistInRegion="12" MaxTargetDistInArea="12" MaxTargetDistInWorld="12" MinOddsOfSuccess="0.33" MustHaveUnits="2" />
+	</AiOperationDefs>
+	<AllowedOperations>
+		<Row ListType="Default_List" OperationDef="Nimble District Pillage" />
+	</AllowedOperations>
+	
+	<!-- Behavior tree powering new operation, powers how unis in the operation _should_ target districts, move to them, and pillage -->
+	<!-- Delnar: Holy balls was this a pain in the backside to edit without the tool that Firaxis obviously uses, and I don't even know if it works properly.
+		 This is why I'm going to wait for the SDK before making major edits to behavior trees and their nodes.
+
+		 Also, disclaimer, some of my explanations may not be correct, especially the odd list + decorator combo and the way concurrent nodes trigger.
+		 This stuff will hopefully get cleared up once we have proper documentation and/or when we get our hands on the DLL source code...
+		 ... or just after months' worth of trial and error. -->
+	
+<!-- Behavior tree's definition -->
+<BehaviorTrees>
+	<Row TreeName="District Pillage Tree" />
+</BehaviorTrees>
+	
+<!-- New behavior tree's nodes, cross-reference with NodeDefinitions and TreeData to make sure the right thing is being done -->
+<BehaviorTreeNodes>
+		<!-- List proceeds as followed (each row corresponds to one node), list is modelled after Simple Operation Attack
+		
+		Tree runs until encounters FAILURE or RUNNING (standard for all trees)
+		Pillage districts (improvements ignored, restriction in TreeData)
+		Recruitment and retargeting sequence, basically lets the AI cycle through backups (child nodes) until it starts running one, then pick up where it left off when this is run again
+		  Create a new value list  (check TreeData)
+		  Label 1: Do the following until failure, then jump to Label 2
+		    Decorate newly created value list as a list for unit recruitment values, name list "Recruitment Contracts"
+				- Delnar: I don't know why this ^ here is under Label 1, it makes more sense to occur before the label, but Simple Operation Attack had it like this, so huh
+		    Select eligible units (from the formation) using "Recruitment Contracts" as storage to carry out the next nodes' orders
+		    Attack units that are along the way to target district, but only if at favorable odds (see TreeData)
+		    Move towards target district
+		  Label 2: Do the following until failure, then jump to Label 3
+		    Change target to a new district
+		    Select eligible units (from the formation) using "Recruitment Contracts" as storage to carry out the next nodes' orders
+		    Attack units that are along the way to target district, but only if at favorable odds (see TreeData)
+		    Move towards target district
+		  Label 3: Do the following until failure, then end
+		    Select eligible units (from the formation) using "Recruitment Contracts" as storage to carry out the next nodes' orders
+		    Pillage anything nearby (restrictions lifted in TreeData)
+			
+		-->
+		
+<!--<Row NodeType="Concurrent" NodeId="0" TreeName="District Pillage Tree" JumpTo="17" />--> <!-- Infixo: deleted -->
+	<!--<Row NodeType="Operation Pillage" NodeId="1" TreeName="District Pillage Tree" />--> <!-- Infixo:deleted -->
+	<Row NodeType="Sequence" NodeId="1" TreeName="District Pillage Tree" JumpTo="21" />
+		<Row NodeType="Decode Trigger" NodeId="2" TreeName="District Pillage Tree" />
+		<Row NodeType="Concurrent" NodeId="3" TreeName="District Pillage Tree" JumpTo="10" />
+			<Row NodeType="Operation Defend Units" NodeId="4" TreeName="District Pillage Tree" /> <!-- Infixo -->
+			<Row NodeType="Contract Manager Decorator" NodeId="5" TreeName="District Pillage Tree" JumpTo="7" />
+				<Row NodeType="Recruit Units" NodeId="6" TreeName="District Pillage Tree" />
+			<Row NodeType="Operation Attack Units" NodeId="7" TreeName="District Pillage Tree" />
+			<Row NodeType="Operation Pillage" NodeId="8" TreeName="District Pillage Tree" /> <!-- RHAI Added-->
+			<Row NodeType="Operation Move" NodeId="9" TreeName="District Pillage Tree" />
+		<Row NodeType="Concurrent" NodeId="10" TreeName="District Pillage Tree" JumpTo="17" />
+			<Row NodeType="Operation Defend Units" NodeId="11" TreeName="District Pillage Tree" /> <!-- Infixo -->
+			<Row NodeType="Operation Change Target" NodeId="12" TreeName="District Pillage Tree" />
+			<Row NodeType="Recruit Units" NodeId="13" TreeName="District Pillage Tree" />
+			<Row NodeType="Operation Attack Units" NodeId="14" TreeName="District Pillage Tree" />
+			<Row NodeType="Operation Pillage" NodeId="15" TreeName="District Pillage Tree" /> <!-- RHAI Added-->
+			<Row NodeType="Operation Move" NodeId="16" TreeName="District Pillage Tree" />
+		<Row NodeType="Concurrent" NodeId="17" TreeName="District Pillage Tree" JumpTo="21" />
+			<Row NodeType="Operation Defend Units" NodeId="18" TreeName="District Pillage Tree" /> <!-- Infixo -->
+			<Row NodeType="Recruit Units" NodeId="19" TreeName="District Pillage Tree" />
+			<Row NodeType="Operation Pillage" NodeId="20" TreeName="District Pillage Tree" />
+
+</BehaviorTreeNodes>
+
+
+
+<!-- This is where the arguments and data fields for each node are. DefnID = argument ID, NodeId = node ID
+     Cross-reference with BehaviorTreeNodes and NodeDataDefinitions to make sure you're editing the right nodes and fields. -->
+<TreeData>
+
+	<!--<Row DefnId="0" NodeId="2" TreeName="District Pillage Tree" DefaultData="true" />--> <!-- Infixo: deleted looping -->
+	<!--<Row DefnId="1" NodeId="2" TreeName="District Pillage Tree" DefaultData="false" />--> <!-- Infixo: deleted -->
+	<!-- "Decode Trigger" -->
+	<Row DefnId="0" NodeId="2" TreeName="District Pillage Tree" Tag="Unused" />
+	<Row DefnId="1" NodeId="2" TreeName="District Pillage Tree" />
+	<Row DefnId="2" NodeId="2" TreeName="District Pillage Tree" />
+	<Row DefnId="3" NodeId="2" TreeName="District Pillage Tree" />
+	<Row DefnId="4" NodeId="2" TreeName="District Pillage Tree" />
+	<Row DefnId="5" NodeId="2" TreeName="District Pillage Tree" />
+	<Row DefnId="6" NodeId="2" TreeName="District Pillage Tree" />
+	<Row DefnId="7" NodeId="2" TreeName="District Pillage Tree" />
+	<Row DefnId="8" NodeId="2" TreeName="District Pillage Tree" Tag="Present Value" />
+	<!-- 3. Concurrent -->
+		<!-- "Operation Defend Units" -->
+		<Row DefnId="0" NodeId="4" TreeName="District Pillage Tree" DefaultData="40" />
+		
+		<!-- "Contract Manager Decorator" -->
+		<Row DefnId="0" NodeId="5" TreeName="District Pillage Tree" Tag="Recruitment Contract" />
+		<Row DefnId="1" NodeId="5" TreeName="District Pillage Tree" />
+		<Row DefnId="2" NodeId="5" TreeName="District Pillage Tree" DefaultData="5" />
+		<Row DefnId="3" NodeId="5" TreeName="District Pillage Tree" DefaultData="false" />
+		
+		<!-- "Recruit Units" -->
+		<Row DefnId="0" NodeId="6" TreeName="District Pillage Tree" DefaultData="false" />
+		<Row DefnId="1" NodeId="6" TreeName="District Pillage Tree" Tag="Recruitment Contract" />
+		<Row DefnId="4" NodeId="6" TreeName="District Pillage Tree" Tag="Present Value" />
+		
+		<!-- "Operation Attack Units" -->
+		<Row DefnId="0" NodeId="7" TreeName="District Pillage Tree" DefaultData="false" />
+		<Row DefnId="1" NodeId="7" TreeName="District Pillage Tree" DefaultData="false" /> <!-- testing false as attacks early and then dies quickly-->
+		<Row DefnId="2" NodeId="7" TreeName="District Pillage Tree" DefaultData="false" />
+		
+		<!-- "Operation Pillage" -->
+		<Row DefnId="0" NodeId="8" TreeName="District Pillage Tree" DefaultData="true" /> <!-- RHAI Added-->
+		<Row DefnId="1" NodeId="8" TreeName="District Pillage Tree" DefaultData="true" /> <!-- Testing true, may want to use false -->
+	
+		<!-- "Operation Move" -->
+		<Row DefnId="0" NodeId="9" TreeName="District Pillage Tree" DefaultData="1" />
+		<Row DefnId="1" NodeId="9" TreeName="District Pillage Tree" DefaultData="2" />
+		<Row DefnId="2" NodeId="9" TreeName="District Pillage Tree" DefaultData="true" />
+		<Row DefnId="3" NodeId="9" TreeName="District Pillage Tree" DefaultData="2" />
+	
+	<!-- 10. Concurrent -->
+	
+		<!-- "Operation Defend Units" -->
+		<Row DefnId="0" NodeId="11" TreeName="District Pillage Tree" DefaultData="35" />
+		<!-- "Operation Change Target" -->
+		<Row DefnId="0" NodeId="12" TreeName="District Pillage Tree" DefaultData="0" />
+		<Row DefnId="1" NodeId="12" TreeName="District Pillage Tree" DefaultData="-2" />
+		<!-- "Recruit Units" -->
+		<Row DefnId="0" NodeId="13" TreeName="District Pillage Tree" DefaultData="true" />
+		<Row DefnId="4" NodeId="13" TreeName="District Pillage Tree" Tag="Present Value" />
+		<!-- "Operation Attack Units" -->
+		<Row DefnId="0" NodeId="14" TreeName="District Pillage Tree" DefaultData="false" />
+		<Row DefnId="1" NodeId="14" TreeName="District Pillage Tree" DefaultData="true" />
+		<Row DefnId="2" NodeId="14" TreeName="District Pillage Tree" DefaultData="false" />
+		<!-- "Operation Pillage" -->
+		<Row DefnId="0" NodeId="15" TreeName="District Pillage Tree" DefaultData="true" /> <!-- RHAI Added-->
+		<Row DefnId="1" NodeId="15" TreeName="District Pillage Tree" DefaultData="true" />
+		<!-- "Operation Move" -->
+		<Row DefnId="0" NodeId="16" TreeName="District Pillage Tree" DefaultData="1" />
+		<Row DefnId="1" NodeId="16" TreeName="District Pillage Tree" DefaultData="2" />
+		<Row DefnId="2" NodeId="16" TreeName="District Pillage Tree" DefaultData="true" />
+		<Row DefnId="3" NodeId="16" TreeName="District Pillage Tree" DefaultData="2" />
+		
+	<!-- 17. Concurrent -->
+	
+		<!-- "Operation Defend Units" -->
+		<Row DefnId="0" NodeId="18" TreeName="District Pillage Tree" DefaultData="35" />
+		<!-- "Recruit Units" -->
+		<Row DefnId="0" NodeId="19" TreeName="District Pillage Tree" DefaultData="true" />
+		<Row DefnId="2" NodeId="19" TreeName="District Pillage Tree" DefaultData="4" />
+		<Row DefnId="4" NodeId="19" TreeName="District Pillage Tree" Tag="Present Value" />
+		<!-- "Operation Pillage" -->
+		<Row DefnId="0" NodeId="20" TreeName="District Pillage Tree" DefaultData="true" />
+		<Row DefnId="1" NodeId="20" TreeName="District Pillage Tree" DefaultData="true" />
+
+</TreeData>
+
+</GameInfo>

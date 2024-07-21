@@ -1,0 +1,127 @@
+
+
+<!-- Roman Holidays Wall Attack Gamemode -->
+
+<GameInfo>
+
+		<Modifiers>
+
+		<Row>
+			<ModifierId>RH_MODIFIER_WALL_ATTACK_GAMEMODE_MELEE</ModifierId>
+			<ModifierType>MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_MODIFIER_WALL_ATTACK_GAMEMODE_ANTI</ModifierId>
+			<ModifierType>MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_MODIFIER_WALL_ATTACK_GAMEMODE_HEAVY_CAV</ModifierId>
+			<ModifierType>MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_MODIFIER_WALL_ATTACK_GAMEMODE_LIGHT_CAV</ModifierId>
+			<ModifierType>MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_MODIFIER_WALL_ATTACK_GAMEMODE_RANGED</ModifierId>
+			<ModifierType>MODIFIER_ALL_PLAYERS_ATTACH_MODIFIER</ModifierType>
+			<SubjectRequirementSetId>PLAYER_IS_AI</SubjectRequirementSetId>
+		</Row>
+		
+		
+		<Row>
+			<ModifierId>RH_ENABLE_WALL_ATTACK_MELEE_AI</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ADJUST_ENABLE_WALL_ATTACK_WHOLE_GAME_PROMOTION_CLASS</ModifierType>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_ENABLE_WALL_ATTACK_ANTI_AI</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ADJUST_ENABLE_WALL_ATTACK_WHOLE_GAME_PROMOTION_CLASS</ModifierType>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_ENABLE_WALL_ATTACK_HCAV_AI</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ADJUST_ENABLE_WALL_ATTACK_WHOLE_GAME_PROMOTION_CLASS</ModifierType>
+		</Row>
+		<Row>
+			<ModifierId>RH_ENABLE_WALL_ATTACK_LCAV_AI</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ADJUST_ENABLE_WALL_ATTACK_WHOLE_GAME_PROMOTION_CLASS</ModifierType>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_ENABLE_WALL_ATTACK_RANG_AI</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_UNITS_ADJUST_ENABLE_WALL_ATTACK_WHOLE_GAME_PROMOTION_CLASS</ModifierType>
+		</Row>
+		
+		
+		</Modifiers>
+		
+		<ModifierArguments>
+		
+		<Row>
+			<ModifierId>RH_MODIFIER_WALL_ATTACK_GAMEMODE_MELEE</ModifierId>
+			<Name>ModifierId</Name>
+			<Value>RH_ENABLE_WALL_ATTACK_MELEE_AI</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_ENABLE_WALL_ATTACK_MELEE_AI</ModifierId>
+			<Name>PromotionClass</Name>
+			<Value>PROMOTION_CLASS_MELEE</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_MODIFIER_WALL_ATTACK_GAMEMODE_ANTI</ModifierId>
+			<Name>ModifierId</Name>
+			<Value>RH_ENABLE_WALL_ATTACK_ANTI_AI</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_ENABLE_WALL_ATTACK_ANTI_AI</ModifierId>
+			<Name>PromotionClass</Name>
+			<Value>PROMOTION_CLASS_ANTI_CAVALRY</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_MODIFIER_WALL_ATTACK_GAMEMODE_HEAVY_CAV</ModifierId>
+			<Name>ModifierId</Name>
+			<Value>RH_ENABLE_WALL_ATTACK_HCAV_AI</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_ENABLE_WALL_ATTACK_HCAV_AI</ModifierId>
+			<Name>PromotionClass</Name>
+			<Value>PROMOTION_CLASS_HEAVY_CAVALRY</Value>
+		</Row>
+		
+		<Row>
+			<ModifierId>RH_MODIFIER_WALL_ATTACK_GAMEMODE_LIGHT_CAV</ModifierId>
+			<Name>ModifierId</Name>
+			<Value>RH_ENABLE_WALL_ATTACK_LCAV_AI</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_ENABLE_WALL_ATTACK_LCAV_AI</ModifierId>
+			<Name>PromotionClass</Name>
+			<Value>PROMOTION_CLASS_LIGHT_CAVALRY</Value>
+		</Row>
+		
+		
+		<Row>
+			<ModifierId>RH_MODIFIER_WALL_ATTACK_GAMEMODE_RANGED</ModifierId>
+			<Name>ModifierId</Name>
+			<Value>RH_ENABLE_WALL_ATTACK_RANG_AI</Value>
+		</Row>
+		<Row>
+			<ModifierId>RH_ENABLE_WALL_ATTACK_RANG_AI</ModifierId>
+			<Name>PromotionClass</Name>
+			<Value>PROMOTION_CLASS_RANGED</Value>
+		</Row>
+		
+		
+		</ModifierArguments>
+		
+</GameInfo>
