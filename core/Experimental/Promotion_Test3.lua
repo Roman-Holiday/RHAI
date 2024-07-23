@@ -1,7 +1,7 @@
 
 
 include("Civ6Common")
-include("SupportFunctions.lua");
+include("SupportFunctions.lua")
 
 -- ===========================================================================
 --  Initial Utility Function to Determine the Available Promotions
@@ -109,17 +109,18 @@ end)
 
 local function RHAIUnitPromotionInitialize()
   -- GameEvents subscriptions
-  GameEvents.PlayerTurnStarted.Add(function (playerId);
+  GameEvents.PlayerTurnStarted.Add(function (playerId)
 
+  end) 
 
   -- Log the initialization
- print("Unit Promotion Test Initialised");
+ print("Unit Promotion Test Initialised")
 end
 
 
 
 
-RHAIUnitPromotionInitialize();
+RHAIUnitPromotionInitialize()
 
 
 
