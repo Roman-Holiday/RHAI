@@ -1,3 +1,4 @@
+-- Full Credit, Especially for writing the inital the PlayerTurnStarted Function -- The Legend WILDW
 
 
 include("Civ6Common")
