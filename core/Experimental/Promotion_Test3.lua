@@ -1,4 +1,4 @@
--- Full Credit, Especially for writing the inital the PlayerTurnStarted Function -- The Legend WILDW
+-- Massive Thanks Especially for writing the inital the PlayerTurnStarted Function to The Legend WILDW
 
 
 include("Civ6Common")
