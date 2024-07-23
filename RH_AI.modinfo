@@ -286,6 +286,18 @@
 	  <File>core/Strategies/Internal_Strat4.sql</File>
 	  
     </UpdateDatabase>
+	
+	<AddGameplayScripts id="AI_Auto_Promotion_Test">
+	
+			<Properties>
+				<LoadOrder>400</LoadOrder>
+			</Properties>
+			<File>core/Experimental/Promotion_Test3.lua</File>	
+
+	</AddGameplayScripts>    
+		
+		
+	
   <!--   	  <File Priority="1">core/Strategies/Relic_Strat.sql</File> -->
 
 	   <UpdateDatabase id="RH_AI_Standard_Diplo_Offset" criteria="STANDARD_DIPLO_OFFSET">
@@ -312,7 +324,13 @@
 		<ImportFiles id="RH_AI_SETUP">
 			<File>core/Strategies/RH.xml</File>
 			<File>core/Strategies/RH.lua</File>
+			
+	
+			
 		</ImportFiles>
+		
+		
+
 		
 		<AddUserInterfaces id="RH_AI_SETUP_2">
 			<Properties>
@@ -679,6 +697,9 @@
 	  
 	  <File>core/Strategies/RH.xml</File>
 	  <File>core/Strategies/RH.lua</File>
+	  
+	  <File>core/Experimental/Promotion_Test3.lua</File>	
+	  
 	  <File>core/Strategies/CS_Strat.sql</File>
 	  <File>core/Leaders/Trait_Leader.sql</File>
 
