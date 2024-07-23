@@ -1,6 +1,5 @@
 
 
-include("Civ6Common")
 include("SupportFunctions.lua")
 
 -- ===========================================================================
@@ -88,7 +87,7 @@ end
 --	Main Script to Automatically Promote AI Units
 -- ===========================================================================
 GameEvents.PlayerTurnStarted.Add(function (playerId)
-    if not Players[playerId]:IsAI() then return end
+    if Players[playerId]:IsHuman () then return end
 
     for _, unit in Players[playerId]:GetUnits():Members() do
         local unitExp = unit:GetExperience()
