@@ -107,23 +107,6 @@ end)
 
 
 
-local function RHAIUnitPromotionInitialize()
-  -- GameEvents subscriptions
-  GameEvents.PlayerTurnStarted.Add(function (playerId)
-
-  end) 
-
-  -- Log the initialization
- print("Unit Promotion Test Initialised")
-end
-
-
-
-
-RHAIUnitPromotionInitialize()
-
-
-
 -- ===========================================================================
 --	Special GDR Civ Royale Promotion
 -- ===========================================================================
