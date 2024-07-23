@@ -16,7 +16,7 @@ end
 -- Gathers a list of available promotions for the unit based on its promotion class
 function GetAvailablePromotions(unit)
     local unitExperience = unit:GetExperience()
-    local currentPromotions = unitExperience:GetPromotions()
+    local currentPromotions = ExposedMembers.GetPromotions(playerId, unitId)
     local promotionClass = GameInfo.Units[unit:GetUnitType()].PromotionClass -- Get Unit Promotion Class
     local promotionCandidates = {}
     local availablePromotions = {}
