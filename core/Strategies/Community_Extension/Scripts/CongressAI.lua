@@ -33,7 +33,8 @@ function PlayerOrDiploLeaderTargetChooser(info: table)
         return false
     end
 
-    rPrint(info)
+    local player = Players[info.PlayerId]
+    if player:IsHuman() or not player:IsMajor() then return false end
 
     -- If on a team, vote for the player with the most points on the team, otherwise, vote for themself.
     if info.OutcomeType == OutcomeTypes.A then
@@ -60,7 +61,7 @@ function PlayerOrDiploLeaderTargetChooser(info: table)
         for _, otherPlayer in ipairs(PlayerManager.GetAliveMajors()) do
             local otherId: number = otherPlayer:GetID()
             if Teams[info.PlayerId][otherId] == nil and Players[info.PlayerId]:GetDiplomacy():HasMet(otherId) then
-                local newHighestPoints: number = Players[otherId]:GetStats():GetDiplomaticVictoryPoints()
+                local newHighestPoints: number = ExposedMembers.GetDiplomaticVictoryPoints(otherId)
                 if newHighestPoints > highestPoints then
                     highestPoints = newHighestPoints
                     highestPointsId = otherId
@@ -112,7 +113,6 @@ end
 
 local function flushScoredDistricts()
     g_scoredDistricts = nil
-    rPrint(g_scoredDistricts, 1000)
     Events.TurnEnd.Remove(flushScoredDistricts)
 end
 
@@ -211,13 +211,11 @@ function DistrictTargetChooser(info: table)
         return false
     end
 
-    rPrint(info)
-
     if info.OutcomeType == OutcomeTypes.A then
         if g_scoredDistricts == nil then
             g_scoredDistricts = getScoredDistricts(getMajorTeams())
         end
-        rPrint(g_scoredDistricts)
+
         info.DistrictIndex = g_scoredDistricts.best[player:GetTeam()].districtIndex
         return true
     end
@@ -228,6 +226,30 @@ function DistrictTargetChooser(info: table)
         end
 
         info.DistrictIndex = g_scoredDistricts.worst[player:GetTeam()].districtIndex
+        return true
+    end
+
+    return false
+end
+
+function MostCommonLuxuryTargetChooser(info: table)
+    if info == nil then
+        print("MostCommonLuxuryTargetChooser called, but received no arguments!")
+        return false
+    end
+
+    local player = Players[info.PlayerId]
+    if player:IsHuman() or not player:IsMajor() then
+        return false
+    end
+
+    if info.OutcomeType == OutcomeTypes.A then
+        
+        return true
+    end
+
+    if info.OutcomeType == OutcomeTypes.B then
+        
         return true
     end
 

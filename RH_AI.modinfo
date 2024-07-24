@@ -8,6 +8,7 @@
 		<Authors>RomanHoliday, WildW</Authors>
 		<SpecialThanks>My Special Patrons Seby, Gargamellor, Ptfpsu5018, Olly, CataHula!, twoDarkMessiah and Listopadek for Helping me Spend Months on this mod! Infixo, Denlar, Mysterymilosh, Smally, TheCivShow and OmarBaba</SpecialThanks>
 		<CompatibleVersions>2.0</CompatibleVersions>
+		<AffectsSavedGames>0</AffectsSavedGames>
 	</Properties>
 
 	<ActionCriteria>
@@ -333,12 +334,18 @@
 			<File>core/Strategies/RH.xml</File>
 		</AddUserInterfaces>
 
+		<ImportFiles id="RH_WILDW_AI_SETUP">
+			<File>core/Strategies/Community_Extension/UI/ExposedMembers.lua</File>
+			<File>core/Strategies/Community_Extension/UI/ExposedMembers.xml</File>
+		</ImportFiles>
+
 		<!-- Community Extension Support -->
 		<AddUserInterfaces id="RH_WILDW_AI_EXPOSEDMEMBERS">
 			<Properties>
 				<Context>InGame</Context>
+				<LoadOrder>10</LoadOrder>
 			</Properties>
-			<File>core/Strategies/RH.xml</File>
+			<File>core/Strategies/Community_Extension/UI/ExposedMembers.xml</File>
 		</AddUserInterfaces>
 
 		<UpdateDatabase id="RH_AI_MAIN">
@@ -712,7 +719,10 @@
 
 		<!-- Community Extension Support -->
 		<AddGameplayScripts id="RH_WILDW_AI_SCRIPTS">
-			<File>core/Strategies/Community_Extension/Scripts</File>
+			<File>core/Strategies/Community_Extension/Scripts/CongressAI.lua</File>
+			<Properties>
+				<LoadOrder>300</LoadOrder>
+			</Properties>
 		</AddGameplayScripts>
 
 	</InGameActions>
