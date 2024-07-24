@@ -15,13 +15,18 @@ end
 
 -- Gathers a list of available promotions for the unit based on its promotion class
 function GetAvailablePromotions(unit)
-    local unitExperience = unit:GetExperience()
-    local currentPromotions = ExposedMembers.GetPromotions(playerId, unitId)
-    local promotionClass = GameInfo.Units[unit:GetUnitType()].PromotionClass -- Get Unit Promotion Class
+    local unitExperience = unit:GetExperience() -- Current Unit Experience
+
+    
+    local currentPromotions = ExposedMembers.GetPromotions(playerId, unitId) -- Current Unit Promotions
+
+	--		local promotionList :table = unitExperience:GetPromotions();
+
+    local promotionClass = GameInfo.Units[unit:GetUnitType()].PromotionClass -- Get Unit Promotion Class Type 
     local promotionCandidates = {}
     local availablePromotions = {}
 
-    -- Gather all promotions that are available for the Unit Promotion Class
+    -- Identify all potential promotions that are available for the Unit Promotion Class
     for row in GameInfo.UnitPromotions() do
         if row.PromotionClass == promotionClass then
             promotionCandidates[row.UnitPromotionType] = row
@@ -135,4 +140,66 @@ function IsActionLimited(actionType : string, pUnit : table)
 	return false;
 end
 
+
+
+-- ===========================================================================
+--	Game UI Unit Flag Update Promotions
+-- ===========================================================================
+
+
+function UnitFlag.UpdatePromotions( self )
+	self.m_Instance.Promotion_Flag:SetHide(true);
+	local pUnit : table = self:GetUnit();
+	if pUnit ~= nil then
+		-- If this unit is levied (ie. from a city-state), showing that takes precedence
+		local iLevyTurnsRemaining = GetLevyTurnsRemaining(pUnit);
+		if (iLevyTurnsRemaining >= 0) then
+			self.m_Instance.UnitNumPromotions:SetText("[ICON_Turn]");
+			self.m_Instance.Promotion_Flag:SetHide(false);
+		-- Otherwise, show the experience level
+		else
+			local unitExperience = pUnit:GetExperience();
+			if (unitExperience ~= nil) then
+				local promotionList :table = unitExperience:GetPromotions();
+				if (#promotionList > 0) then
 ]]
+
+					--[[ Commented by Default
+					local tooltipString :string = "";
+					for i, promotion in ipairs(promotionList) do
+						tooltipString = tooltipString .. Locale.Lookup(GameInfo.UnitPromotions[promotion].Name);
+						if (i < #promotionList) then
+							tooltipString = tooltipString .. "[NEWLINE]";
+						end
+					end
+					self.m_Instance.Promotion_Flag:SetToolTipString(tooltipString);
+					--]]
+
+--[[                  
+					self.m_Instance.UnitNumPromotions:SetText(#promotionList);
+					self.m_Instance.Promotion_Flag:SetHide(false);
+				end
+			end
+		end
+	end
+end
+
+]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]
+
+
+
+

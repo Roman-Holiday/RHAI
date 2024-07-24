@@ -287,6 +287,25 @@
 	  
     </UpdateDatabase>
 	
+	
+	
+	<!-- Unit Promotion Test -->
+	
+	<AddGameplayScripts id="AI_Auto_Promotion_Exposed_Functions">
+	
+			<Properties>
+				<LoadOrder>350</LoadOrder>
+			</Properties>
+			<File>core/Experimental/ExposedUnitPromotionFunctions.lua</File>	
+
+	</AddGameplayScripts>    	
+	
+	<UpdateDatabase id="AI_Auto_Promotion_Exposed_Functions_XML">
+			<Properties><LoadOrder>350</LoadOrder></Properties>
+			<File>core/Experimental/ExposedUnitPromotionFunctions.xml</File>	
+	</UpdateDatabase>	
+	
+			
 	<AddGameplayScripts id="AI_Auto_Promotion_Test">
 	
 			<Properties>
@@ -699,6 +718,9 @@
 	  <File>core/Strategies/RH.lua</File>
 	  
 	  <File>core/Experimental/Promotion_Test3.lua</File>	
+	  
+	  <File>core/Experimental/ExposedUnitPromotionFunctions.lua</File>	
+	  <File>core/Experimental/ExposedUnitPromotionFunctions.xml</File>		  
 	  
 	  <File>core/Strategies/CS_Strat.sql</File>
 	  <File>core/Leaders/Trait_Leader.sql</File>
