@@ -38,6 +38,48 @@ function contains(tb: table, val)
     return false
 end
 
+-- ===========================================================================
+--	orderedPairs() from SupportFunctions.lua
+--	Allows an ordered iteratation of the pairs in a table.  Use like pairs().
+--	Original version from: http://lua-users.org/wiki/SortedIteration
+-- ===========================================================================
+local function __genOrderedIndex( t )
+    local orderedIndex = {}
+    for key in pairs(t) do
+        table.insert( orderedIndex, key )
+    end
+    table.sort( orderedIndex )
+    return orderedIndex
+end
+
+local function orderedNext(t, state)
+    -- Equivalent of the next function, but returns the keys in the alphabetic order. 
+    -- Using a temporary ordered key table that is stored in the table being iterated.
+    local key = nil
+    if state == nil then
+        -- Is first time; generate the index.
+        t.__orderedIndex = __genOrderedIndex( t )
+        key = t.__orderedIndex[1]
+    else
+        -- Fetch next value.
+        for i = 1, table.count(t.__orderedIndex) do
+            if t.__orderedIndex[i] == state then
+                key = t.__orderedIndex[i+1]
+            end
+        end
+    end
+
+    if key then
+        return key, t[key]
+	else
+		t.__orderedIndex = nil -- No more value to return, cleanup.
+    end
+end
+
+local function opairs(t)
+    return orderedNext, t, nil
+end
+
 -- Diplomatic victory point resolution
 function PlayerOrDiploLeaderTargetChooser(info: table)
     if info == nil then
@@ -118,7 +160,7 @@ end
 -- you're neglecting to consider the odd mod that might come out that screws around with how
 -- teams work that could move players between them during a game or create teams that have city states as well as players in them.
 --
--- So in the end, use pairs.
+-- So in the end, use opairs or pairs.
 local function getMajorTeams()
     local majorTeams = {}
 
@@ -164,7 +206,7 @@ local function getScoredDistricts(majorTeams: table)
         worst = {}
     }
 
-    for teamId, team in pairs(majorTeams) do
+    for teamId, team in opairs(majorTeams) do
         if not areAllHuman(team) then
             local protoScore = {}
 
@@ -176,14 +218,14 @@ local function getScoredDistricts(majorTeams: table)
                     for districtIndex in ipairs(g_buildingPrereqs) do
                         for _, buildingHash in ipairs(g_buildingPrereqs[districtIndex]) do
                             if ExposedMembers.CanProduce(playerId, city:GetID(), buildingHash) then
-                                protoScore[districtIndex] = protoScore[districtIndex] + 1 * #majorTeams
+                                protoScore[districtIndex] = protoScore[districtIndex] + 1 * table.count(majorTeams)
                             end
                         end
                     end
                 end
             end
 
-            for otherTeamId, otherTeam in pairs(majorTeams) do
+            for otherTeamId, otherTeam in opairs(majorTeams) do
                 -- Check if anyone on this team has met anyone on the other team
                 if teamId ~= otherTeamId and Players[team[1]]:GetDiplomacy():HasMet(otherTeam[1]) then
                     for _, otherPlayerId in ipairs(otherTeam) do
@@ -273,17 +315,17 @@ local function getScoredLuxuries(majorTeams: table)
         worst = {}
     }
 
-    for teamId, team in pairs(majorTeams) do
+    for teamId, team in opairs(majorTeams) do
         if not areAllHuman(team) then
             local protoScore = {}
 
             for _, playerId in ipairs(team) do
                 for _, index in ipairs(g_luxuryResources) do
-                    protoScore[index] = Players[playerId]:GetResources():GetResourceCount(index)
+                    protoScore[index] = Players[playerId]:GetResources():GetResourceCount(index) * table.count(majorTeams)
                 end
             end
 
-            for otherTeamId, otherTeam in pairs(majorTeams) do
+            for otherTeamId, otherTeam in opairs(majorTeams) do
                 -- Check if anyone on this team has met anyone on the other team
                 if teamId ~= otherTeamId and Players[team[1]]:GetDiplomacy():HasMet(otherTeam[1]) then
                     for _, otherPlayerId in ipairs(otherTeam) do
