@@ -112,10 +112,9 @@ local function getLuxuryResources()
     end
 end
 
--- Returns a table with keys that often start at 0 and have gaps, so operate on with pairs, not ipairs ...
+-- Returns a table with keys that often start at 0, so operate on with pairs, not ipairs ...
 -- ... Is what you WOULD think, but this is havokscript! ipairs will start at 0 or 1 in havokscript.
--- And since excludePlayerId is optional here, you can use ipairs if you do not specify it ...
--- ... but then there's ANOTHER consideration: If you assume that minor teams will only come after major teams, then
+-- But there's ANOTHER consideration: If you assume that minor teams will only come after major teams, then
 -- you're neglecting to consider the odd mod that might come out that screws around with how
 -- teams work that could move players between them during a game or create teams that have city states as well as players in them.
 --
@@ -126,7 +125,7 @@ local function getMajorTeams()
     for _, player in ipairs(PlayerManager.GetAliveMajors()) do
         local playerId = player:GetID()
         local teamId = player:GetTeam()
-        
+
         if not majorTeams[teamId] then
             majorTeams[teamId] = {}
         end
