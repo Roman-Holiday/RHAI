@@ -10,7 +10,10 @@
 -- Depends on: Community Extension
 
 local g_scoredDistricts: table
+local g_scoredLuxuries: table
+
 local g_buildingPrereqs: table
+local g_luxuryResources: table
 
 -- Debug
 function rPrint(s, l, i) -- recursive Print (structure, limit, indent)
@@ -100,6 +103,15 @@ local function getBuildingPrereqs()
     return buildingPrereqs
 end
 
+local function getLuxuryResources()
+    local luxuries = {}
+    for row in GameInfo.Resources() do
+        if row.ResourceClassType == "RESOURCECLASS_LUXURY" then
+            luxuries[#luxuries + 1] = row.Index
+        end
+    end
+end
+
 -- Returns a table with keys that often start at 0 and have gaps, so operate on with pairs, not ipairs ...
 -- ... Is what you WOULD think, but this is havokscript! ipairs will start at 0 or 1 in havokscript.
 -- And since excludePlayerId is optional here, you can use ipairs if you do not specify it ...
@@ -108,24 +120,19 @@ end
 -- teams work that could move players between them during a game or create teams that have city states as well as players in them.
 --
 -- So in the end, use pairs.
-local function getMajorTeams(excludePlayerId: number)
+local function getMajorTeams()
     local majorTeams = {}
-    local excludeTeam = -1
 
     for _, player in ipairs(PlayerManager.GetAliveMajors()) do
         local playerId = player:GetID()
         local teamId = player:GetTeam()
-        if playerId == excludePlayerId then
-            excludeTeam = teamId
-        else
-            if not majorTeams[teamId] then
-                majorTeams[teamId] = {}
-            end
-            majorTeams[teamId][#majorTeams[teamId] + 1] = playerId
+        
+        if not majorTeams[teamId] then
+            majorTeams[teamId] = {}
         end
+        majorTeams[teamId][#majorTeams[teamId] + 1] = playerId
     end
 
-    majorTeams[excludeTeam] = nil
     return majorTeams
 end
 
@@ -158,20 +165,19 @@ local function getScoredDistricts(majorTeams: table)
         worst = {}
     }
 
-    local protoScores = {}
     for teamId, team in pairs(majorTeams) do
         if not areAllHuman(team) then
-            protoScores[teamId] = {}
+            protoScore = {}
 
             for _, playerId in ipairs(team) do
                 for districtIndex in ipairs(g_buildingPrereqs) do
-                    protoScores[teamId][districtIndex] = 0
+                    protoScore[districtIndex] = 0
                 end
                 for _, city in Players[playerId]:GetCities():Members() do
                     for districtIndex in ipairs(g_buildingPrereqs) do
                         for _, buildingHash in ipairs(g_buildingPrereqs[districtIndex]) do
                             if ExposedMembers.CanProduce(playerId, city:GetID(), buildingHash) then
-                                protoScores[teamId][districtIndex] = protoScores[teamId][districtIndex] + 1 * #majorTeams
+                                protoScore[districtIndex] = protoScore[districtIndex] + 1 * #majorTeams
                             end
                         end
                     end
@@ -190,7 +196,7 @@ local function getScoredDistricts(majorTeams: table)
                                     if PlayersVisibility[team[1]]:IsVisible(otherDistrict:GetX(), otherDistrict:GetY()) then
                                         for _, buildingHash in ipairs(g_buildingPrereqs[districtIndex]) do
                                             if ExposedMembers.CanProduce(otherPlayerId, otherCity:GetID(), buildingHash) then
-                                                protoScores[teamId][districtIndex] = protoScores[teamId][districtIndex] - 1
+                                                protoScore[districtIndex] = protoScore[districtIndex] - 1
                                             end
                                         end
                                     end
@@ -203,8 +209,8 @@ local function getScoredDistricts(majorTeams: table)
 
             -- g_buildingPrereqs is 0-based because its index is districtIndex
             if g_buildingPrereqs[0] ~= nil then
-                scoredDistricts.best[teamId] = { districtIndex = 0, score = protoScores[teamId][0] }
-                scoredDistricts.worst[teamId] = { districtIndex = 0, score = protoScores[teamId][0] }
+                scoredDistricts.best[teamId] = { districtIndex = 0, score = protoScore[0] }
+                scoredDistricts.worst[teamId] = { districtIndex = 0, score = protoScore[0] }
 
                 -- Here is where things are confusing.
                 -- You'd THINK that # means the length of the array, accounting for it being 0-based, but you're WRONG!
@@ -213,11 +219,11 @@ local function getScoredDistricts(majorTeams: table)
                 -- So instead of `#g_buildingPrereqs - 1`, we just use `#g_buildingPrereqs`.
                 if g_buildingPrereqs[1] ~= nil then
                     for districtIndex = 1, #g_buildingPrereqs do
-                        if protoScores[teamId][districtIndex] > scoredDistricts.best[teamId].score then
-                            scoredDistricts.best[teamId].score = protoScores[teamId][districtIndex]
+                        if protoScore[districtIndex] > scoredDistricts.best[teamId].score then
+                            scoredDistricts.best[teamId].score = protoScore[districtIndex]
                             scoredDistricts.best[teamId].districtIndex = districtIndex
-                        elseif protoScores[teamId][districtIndex] < scoredDistricts.worst[teamId].score then
-                            scoredDistricts.worst[teamId].score = protoScores[teamId][districtIndex]
+                        elseif protoScore[districtIndex] < scoredDistricts.worst[teamId].score then
+                            scoredDistricts.worst[teamId].score = protoScore[districtIndex]
                             scoredDistricts.worst[teamId].districtIndex = districtIndex
                         end
                     end
@@ -226,7 +232,6 @@ local function getScoredDistricts(majorTeams: table)
         end
     end
 
-    Events.TurnEnd.Add(flushScoredDistricts)
     return scoredDistricts
 end
 
@@ -242,21 +247,17 @@ function DistrictTargetChooser(info: table)
         return false
     end
 
-    if info.OutcomeType == OutcomeTypes.A then
+    if info.OutcomeType == OutcomeTypes.A or info.OutcomeType == OutcomeTypes.B then
         if g_scoredDistricts == nil then
             g_scoredDistricts = getScoredDistricts(getMajorTeams())
+            Events.TurnEnd.Add(flushScoredDistricts)
         end
 
-        info.DistrictIndex = g_scoredDistricts.best[player:GetTeam()].districtIndex
-        return true
-    end
+        -- Ternary
+        info.DistrictIndex = (info.OutcomeType == OutcomeTypes.A)
+            and g_scoredDistricts.best[player:GetTeam()].districtIndex
+            or g_scoredDistricts.worst[player:GetTeam()].districtIndex
 
-    if info.OutcomeType == OutcomeTypes.B then
-        if g_scoredDistricts == nil then
-            g_scoredDistricts = getScoredDistricts(getMajorTeams())
-        end
-
-        info.DistrictIndex = g_scoredDistricts.worst[player:GetTeam()].districtIndex
         return true
     end
 
@@ -268,7 +269,54 @@ local function getScoredLuxuries(majorTeams: table)
         error("Unexpected: Major teams list is nil.")
     end
 
-    
+    local scoredResources = {
+        best = {},
+        worst = {}
+    }
+
+    for teamId, team in pairs(majorTeams) do
+        if not areAllHuman(team) then
+            protoScore = {}
+
+            for _, playerId in ipairs(team) do
+                for _, index in ipairs(g_luxuryResources) do
+                    protoScore[index] = Players[playerId]:GetResources():GetResourceCount(index)
+                end
+            end
+
+            for otherTeamId, otherTeam in pairs(majorTeams) do
+                -- Check if anyone on this team has met anyone on the other team
+                if teamId ~= otherTeamId and Players[team[1]]:GetDiplomacy():HasMet(otherTeam[1]) then
+                    for _, otherPlayerId in ipairs(otherTeam) do
+                        for _, index in ipairs(g_luxuryResources) do
+                            protoScore[index] =
+                                protoScore[index] - Players[otherPlayerId]:GetResources():GetResourceCount(index)
+                        end
+                    end
+                end
+            end
+
+            scoredResources.best[teamId] = { resourceIndex = 0, score = protoScore[0] }
+            scoredResources.worst[teamId] = { resourceIndex = 0, score = protoScore[0] }
+
+            for resourceIndex = 1, #g_buildingPrereqs do
+                if protoScore[resourceIndex] > scoredResources.best[teamId].score then
+                    scoredResources.best[teamId].score = protoScore[resourceIndex]
+                    scoredResources.best[teamId].resourceIndex = resourceIndex
+                elseif protoScore[resourceIndex] < scoredResources.worst[teamId].score then
+                    scoredResources.worst[teamId].score = protoScore[resourceIndex]
+                    scoredResources.worst[teamId].resourceIndex = resourceIndex
+                end
+            end
+        end
+    end
+
+    return scoredResources
+end
+
+local function flushScoredLuxuries()
+    g_scoredLuxuries = nil
+    Events.TurnEnd.Remove(flushScoredLuxuries)
 end
 
 function MostCommonLuxuryTargetChooser(info: table)
@@ -282,51 +330,18 @@ function MostCommonLuxuryTargetChooser(info: table)
         return false
     end
 
-    if info.OutcomeType == OutcomeTypes.A then
-        local bestResourceIndex = -1
-        local bestResourceCount = -1
-
-        for row in GameInfo.Resources() do
-            if row.ResourceClassType == "RESOURCECLASS_LUXURY" then
-                local count = 0
-                for _, otherId in ipairs(Teams[player:GetTeam()]) do
-                    count = count + Players[otherId]:GetResources():GetResourceAmount(row.Index)
-                end
-                if count > bestResourceCount then
-                    bestResourceIndex = row.Index
-                    bestResourceCount = count
-                end
-            end
+    if info.OutcomeType == OutcomeTypes.A or info.OutcomeType == OutcomeTypes.B then
+        if g_scoredLuxuries == nil then
+            g_scoredLuxuries = getScoredLuxuries(getMajorTeams())
+            Events.TurnEnd.Add(flushScoredLuxuries)
         end
 
-        if bestResourceIndex ~= -1 then
-            info.ResourceIndex = bestResourceIndex
-            return true
-        end
-    elseif info.OutcomeType == OutcomeTypes.B then
-        local bestResourceIndex = -1
-        local bestResourceCount = -1
+        -- Ternary
+        info.ResourceIndex = (info.OutcomeType == OutcomeTypes.A)
+            and g_scoredLuxuries.best[player:GetTeam()].resourceIndex
+            or g_scoredLuxuries.worst[player:GetTeam()].resourceIndex
 
-        for teamId, team in pairs(getMajorTeams(info.PlayerId)) do
-            local teamBestResourceIndex = -1
-            local teamBestResourceCount = -1
-
-            for row in GameInfo.Resources() do
-                local count = 0
-                for _, otherId in ipairs(team) do
-                    count = count + Players[otherId]:GetResources():GetResourceAmount(row.Index)
-                end
-                if count > bestResourceCount then
-                    teamBestResourceIndex = row.Index
-                    teamBestResourceCount = count
-                end
-            end
-        end
-
-        if bestResourceIndex ~= -1 then
-            info.ResourceIndex = bestResourceIndex
-            return true
-        end
+        return true
     end
 
     return false
@@ -343,6 +358,7 @@ function Init()
     RegisterProcessor("MostCommonLuxuryTargetChooser", MostCommonLuxuryTargetChooser)
 
     g_buildingPrereqs = getBuildingPrereqs()
+    g_luxuryResources = getLuxuryResources()
 end
 
 Init()
