@@ -38,46 +38,20 @@ function contains(tb: table, val)
     return false
 end
 
--- ===========================================================================
---	orderedPairs() from SupportFunctions.lua
---	Allows an ordered iteratation of the pairs in a table.  Use like pairs().
---	Original version from: http://lua-users.org/wiki/SortedIteration
--- ===========================================================================
-local function __genOrderedIndex( t )
-    local orderedIndex = {}
-    for key in pairs(t) do
-        table.insert( orderedIndex, key )
+-- Ordered pairs. Should be like the one from SupportFunctions.lua but more optimized.
+local function opairs(t: table)
+    local keys = {}
+    for k in pairs(t) do
+        keys[#keys + 1] = k
     end
-    table.sort( orderedIndex )
-    return orderedIndex
-end
-
-local function orderedNext(t, state)
-    -- Equivalent of the next function, but returns the keys in the alphabetic order. 
-    -- Using a temporary ordered key table that is stored in the table being iterated.
-    local key = nil
-    if state == nil then
-        -- Is first time; generate the index.
-        t.__orderedIndex = __genOrderedIndex( t )
-        key = t.__orderedIndex[1]
-    else
-        -- Fetch next value.
-        for i = 1, table.count(t.__orderedIndex) do
-            if t.__orderedIndex[i] == state then
-                key = t.__orderedIndex[i+1]
-            end
+    table.sort(keys)
+    local i = 0
+    return function ()
+        i = i + 1
+        if keys[i] then
+            return keys[i], t[keys[i]]
         end
     end
-
-    if key then
-        return key, t[key]
-	else
-		t.__orderedIndex = nil -- No more value to return, cleanup.
-    end
-end
-
-local function opairs(t)
-    return orderedNext, t, nil
 end
 
 -- Diplomatic victory point resolution
