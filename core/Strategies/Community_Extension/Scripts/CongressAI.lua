@@ -166,7 +166,7 @@ local function getScoredDistricts(majorTeams: table)
 
     for teamId, team in pairs(majorTeams) do
         if not areAllHuman(team) then
-            protoScore = {}
+            local protoScore = {}
 
             for _, playerId in ipairs(team) do
                 for districtIndex in ipairs(g_buildingPrereqs) do
@@ -275,7 +275,7 @@ local function getScoredLuxuries(majorTeams: table)
 
     for teamId, team in pairs(majorTeams) do
         if not areAllHuman(team) then
-            protoScore = {}
+            local protoScore = {}
 
             for _, playerId in ipairs(team) do
                 for _, index in ipairs(g_luxuryResources) do
