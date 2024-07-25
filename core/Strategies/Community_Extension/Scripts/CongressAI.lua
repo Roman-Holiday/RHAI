@@ -26,6 +26,15 @@ function rPrint(s, l, i) -- recursive Print (structure, limit, indent)
     return l
 end
 
+function contains(tb: table, val)
+    for _, v in pairs(tb) do
+        if v == val then
+            return true
+        end
+    end
+    return false
+end
+
 -- Diplomatic victory point resolution
 function PlayerOrDiploLeaderTargetChooser(info: table)
     if info == nil then
@@ -41,7 +50,7 @@ function PlayerOrDiploLeaderTargetChooser(info: table)
         local highestPoints: number = ExposedMembers.GetDiplomaticVictoryPoints(info.PlayerId)
         local highestPointsId: number = info.PlayerId
 
-        for _, otherId in ipairs(Teams[info.PlayerId]) do
+        for _, otherId in ipairs(Teams[player:GetTeam()]) do
             local newHighestPoints: number = ExposedMembers.GetDiplomaticVictoryPoints(info.PlayerId)
             if newHighestPoints > highestPoints then
                 highestPoints = newHighestPoints
@@ -60,7 +69,7 @@ function PlayerOrDiploLeaderTargetChooser(info: table)
 
         for _, otherPlayer in ipairs(PlayerManager.GetAliveMajors()) do
             local otherId: number = otherPlayer:GetID()
-            if Teams[info.PlayerId][otherId] == nil and Players[info.PlayerId]:GetDiplomacy():HasMet(otherId) then
+            if Teams[player:GetTeam()][otherId] == nil and player:GetDiplomacy():HasMet(otherId) then
                 local newHighestPoints: number = ExposedMembers.GetDiplomaticVictoryPoints(otherId)
                 if newHighestPoints > highestPoints then
                     highestPoints = newHighestPoints
@@ -91,13 +100,32 @@ local function getBuildingPrereqs()
     return buildingPrereqs
 end
 
-local function getMajorTeams()
+-- Returns a table with keys that often start at 0 and have gaps, so operate on with pairs, not ipairs ...
+-- ... Is what you WOULD think, but this is havokscript! ipairs will start at 0 or 1 in havokscript.
+-- And since excludePlayerId is optional here, you can use ipairs if you do not specify it ...
+-- ... but then there's ANOTHER consideration: If you assume that minor teams will only come after major teams, then
+-- you're neglecting to consider the odd mod that might come out that screws around with how
+-- teams work that could move players between them during a game or create teams that have city states as well as players in them.
+--
+-- So in the end, use pairs.
+local function getMajorTeams(excludePlayerId: number)
     local majorTeams = {}
+    local excludeTeam = -1
+
     for _, player in ipairs(PlayerManager.GetAliveMajors()) do
+        local playerId = player:GetID()
         local teamId = player:GetTeam()
-        majorTeams[teamId] = majorTeams[teamId] or {}
-        table.insert(majorTeams[teamId], player:GetID())
+        if playerId == excludePlayerId then
+            excludeTeam = teamId
+        else
+            if not majorTeams[teamId] then
+                majorTeams[teamId] = {}
+            end
+            majorTeams[teamId][#majorTeams[teamId] + 1] = playerId
+        end
     end
+
+    majorTeams[excludeTeam] = nil
     return majorTeams
 end
 
@@ -131,18 +159,10 @@ local function getScoredDistricts(majorTeams: table)
     }
 
     local protoScores = {}
-    for teamId, team in ipairs(majorTeams) do
+    for teamId, team in pairs(majorTeams) do
         if not areAllHuman(team) then
-            scoredDistricts.best[teamId] = {
-                districtIndex = 0,
-                score = -math.huge
-            }
-            scoredDistricts.worst[teamId] = {
-                districtIndex = 0,
-                score = math.huge
-            }
-
             protoScores[teamId] = {}
+
             for _, playerId in ipairs(team) do
                 for districtIndex in ipairs(g_buildingPrereqs) do
                     protoScores[teamId][districtIndex] = 0
@@ -158,7 +178,7 @@ local function getScoredDistricts(majorTeams: table)
                 end
             end
 
-            for otherTeamId, otherTeam in ipairs(majorTeams) do
+            for otherTeamId, otherTeam in pairs(majorTeams) do
                 -- Check if anyone on this team has met anyone on the other team
                 if teamId ~= otherTeamId and Players[team[1]]:GetDiplomacy():HasMet(otherTeam[1]) then
                     for _, otherPlayerId in ipairs(otherTeam) do
@@ -181,14 +201,25 @@ local function getScoredDistricts(majorTeams: table)
                 end
             end
 
-            for _, scores in ipairs(protoScores) do
-                for districtIndex in ipairs(g_buildingPrereqs) do
-                    if scores[districtIndex] > scoredDistricts.best[teamId].score then
-                        scoredDistricts.best[teamId].score = scores[districtIndex]
-                        scoredDistricts.best[teamId].districtIndex = districtIndex
-                    elseif scores[districtIndex] < scoredDistricts.worst[teamId].score then
-                        scoredDistricts.worst[teamId].score = scores[districtIndex]
-                        scoredDistricts.worst[teamId].districtIndex = districtIndex
+            -- g_buildingPrereqs is 0-based because its index is districtIndex
+            if g_buildingPrereqs[0] ~= nil then
+                scoredDistricts.best[teamId] = { districtIndex = 0, score = protoScores[teamId][0] }
+                scoredDistricts.worst[teamId] = { districtIndex = 0, score = protoScores[teamId][0] }
+
+                -- Here is where things are confusing.
+                -- You'd THINK that # means the length of the array, accounting for it being 0-based, but you're WRONG!
+                -- Havokscript changes how ipairs works, but it DOES NOT change how # works, so # will
+                -- return a value 1 less than the actual length of the array if it's indexed from 0.
+                -- So instead of `#g_buildingPrereqs - 1`, we just use `#g_buildingPrereqs`.
+                if g_buildingPrereqs[1] ~= nil then
+                    for districtIndex = 1, #g_buildingPrereqs do
+                        if protoScores[teamId][districtIndex] > scoredDistricts.best[teamId].score then
+                            scoredDistricts.best[teamId].score = protoScores[teamId][districtIndex]
+                            scoredDistricts.best[teamId].districtIndex = districtIndex
+                        elseif protoScores[teamId][districtIndex] < scoredDistricts.worst[teamId].score then
+                            scoredDistricts.worst[teamId].score = protoScores[teamId][districtIndex]
+                            scoredDistricts.worst[teamId].districtIndex = districtIndex
+                        end
                     end
                 end
             end
@@ -232,6 +263,14 @@ function DistrictTargetChooser(info: table)
     return false
 end
 
+local function getScoredLuxuries(majorTeams: table)
+    if majorTeams == nil then
+        error("Unexpected: Major teams list is nil.")
+    end
+
+    
+end
+
 function MostCommonLuxuryTargetChooser(info: table)
     if info == nil then
         print("MostCommonLuxuryTargetChooser called, but received no arguments!")
@@ -244,13 +283,50 @@ function MostCommonLuxuryTargetChooser(info: table)
     end
 
     if info.OutcomeType == OutcomeTypes.A then
-        
-        return true
-    end
+        local bestResourceIndex = -1
+        local bestResourceCount = -1
 
-    if info.OutcomeType == OutcomeTypes.B then
-        
-        return true
+        for row in GameInfo.Resources() do
+            if row.ResourceClassType == "RESOURCECLASS_LUXURY" then
+                local count = 0
+                for _, otherId in ipairs(Teams[player:GetTeam()]) do
+                    count = count + Players[otherId]:GetResources():GetResourceAmount(row.Index)
+                end
+                if count > bestResourceCount then
+                    bestResourceIndex = row.Index
+                    bestResourceCount = count
+                end
+            end
+        end
+
+        if bestResourceIndex ~= -1 then
+            info.ResourceIndex = bestResourceIndex
+            return true
+        end
+    elseif info.OutcomeType == OutcomeTypes.B then
+        local bestResourceIndex = -1
+        local bestResourceCount = -1
+
+        for teamId, team in pairs(getMajorTeams(info.PlayerId)) do
+            local teamBestResourceIndex = -1
+            local teamBestResourceCount = -1
+
+            for row in GameInfo.Resources() do
+                local count = 0
+                for _, otherId in ipairs(team) do
+                    count = count + Players[otherId]:GetResources():GetResourceAmount(row.Index)
+                end
+                if count > bestResourceCount then
+                    teamBestResourceIndex = row.Index
+                    teamBestResourceCount = count
+                end
+            end
+        end
+
+        if bestResourceIndex ~= -1 then
+            info.ResourceIndex = bestResourceIndex
+            return true
+        end
     end
 
     return false
@@ -264,6 +340,7 @@ function Init()
 
     RegisterProcessor("PlayerOrDiploLeaderTargetChooser", PlayerOrDiploLeaderTargetChooser)
     RegisterProcessor("DistrictTargetChooser", DistrictTargetChooser)
+    RegisterProcessor("MostCommonLuxuryTargetChooser", MostCommonLuxuryTargetChooser)
 
     g_buildingPrereqs = getBuildingPrereqs()
 end
