@@ -613,7 +613,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',  		 1, 35), -- Early Great Scientist
 ('AncientPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',   1, 50), -- pvs 0
 
-('AncientPseudoYields', 'PSEUDOYIELD_CITY_BASE', 			  1, -75),
+('AncientPseudoYields', 'PSEUDOYIELD_CITY_BASE', 			  1, -85),
 ('AncientPseudoYields', 'PSEUDOYIELD_CITY_DEFENSES',  		  1, 250),
 ('AncientPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS',   1, 250), -- pvs 5, 8, 15
 ('AncientPseudoYields', 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL',   1, 50), -- pvs -45
@@ -721,7 +721,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 11), -- pvs 19, 17, 15, 13
 ('ClassicalPseudoYields', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS',   1, 300), -- pvs 40, 110
 --('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, -10), -- pvs 3
-('ClassicalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, -30), -- pvs 0
+('ClassicalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, -40), -- pvs 0
 ('ClassicalPseudoYields', 'PSEUDOYIELD_HAPPINESS', 0, -70),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 		  1, 125), -- pvs 15, 3, 10
 ('ClassicalPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, 75), -- pvs 0
@@ -829,7 +829,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalDistricts', 'DISTRICT_CAMPUS',  		1, 0),
 
 ('MedievalPseudoYields', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS',   1, 120), -- pvs 0
---('MedievalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, 10),
+('MedievalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, -10),
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 		 1, 25),
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, 25),
 ('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 15), -- pvs 13, 17

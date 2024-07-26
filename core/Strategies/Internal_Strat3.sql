@@ -56,6 +56,73 @@ INSERT INTO TechnologyPrereqs				(Technology,	PrereqTech)  VALUES
 
 
 
+-- Tech Boosts for Fake Techs
+/*
+<Modifiers>
+		<Row>
+			<ModifierId>TRAIT_FREE_TECH_BOOST_WRITING</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST</ModifierType>
+			<RunOnce>true</RunOnce>
+			<Permanent>true</Permanent>
+		</Row>
+
+<ModifierArguments>
+		<Row>
+			<ModifierId>TRAIT_FREE_TECH_BOOST_WRITING</ModifierId>
+			<Name>TechType</Name>
+			<Value>TECH_WRITING</Value>
+		</Row>
+*/
+
+/*
+-- Query to generate insert statements for Modifiers and ModifierArguments
+WITH TechBoosts AS (
+    SELECT 
+        TechName,
+        'TRAIT_FREE_TECH_BOOST_' || REPLACE(TechName, 'TECHNOLOGY_RH_', 'RH_') AS ModifierId
+    FROM 
+        Technologies
+    WHERE 
+        TechName LIKE 'TECHNOLOGY_RH%'
+)
+-- Auto Insert into Modifiers table
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent)
+SELECT 
+    ModifierId,
+    'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',
+    1, -- RunOnce = true
+    1  -- Permanent = true
+FROM 
+    TechBoosts;
+
+-- Auto Insert into ModifierArguments table
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+SELECT 
+    ModifierId,
+    'TechType',
+    TechName
+FROM 
+    TechBoosts;
+
+
+INSERT INTO TraitModifiers (TraitType, ModifierId)
+TRAIT_LEADER_MAJOR_CIV,
+
+
+WHERE 
+    TraitType LIKE 'TRAIT_FREE_TECH_BOOST_%';
+
+
+
+
+	<TraitModifiers>
+		<!--Canada-->
+		<Row>
+			<TraitType>TRAIT_CIVILIZATION_FACES_OF_PEACE</TraitType>
+			<ModifierId>TRAIT_NO_SUPRISE_WAR_FOR_CANADA</ModifierId>
+		</Row>
+*/
+
 
 INSERT INTO Technologies_XP2    (TechnologyType,		HiddenUntilPrereqComplete) VALUES	
 

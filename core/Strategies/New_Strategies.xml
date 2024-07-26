@@ -384,10 +384,10 @@
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_SCIENCE" Value="30"/> 
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_PRODUCTION" Value="20"/> 
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_FAITH" Value="-15"/> 
-	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_FACSISM" Value="650"/> <!-- pvs 150, 350, unit production -->
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_FACSISM" Value="810"/> <!-- pvs 150, 350, unit production -->
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_OLIGARCHY" Value="975"/> <!-- pvs 350 -->
 	
-	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_CLASSICAL_REPUBLIC" Value="-35"/>
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_CLASSICAL_REPUBLIC" Value="-75"/>
 	
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_MONARCHY" Value="220"/> 
 	

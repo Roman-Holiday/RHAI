@@ -582,7 +582,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_GOV_MODIFIER_CLASSICAL',					'YieldType', 'YIELD_CULTURE'),
 		('RH_GOV_MODIFIER_CLASSICAL',					'Amount'   , 2), -- pvs 1
 		('RH_GOV_MODIFIER_THEOCRACY_REL',				'YieldType', 'YIELD_FAITH'),
-		('RH_GOV_MODIFIER_THEOCRACY_REL',				'Amount'   , 21), -- pvs 17, 22
+		('RH_GOV_MODIFIER_THEOCRACY_REL',				'Amount'   , 11), -- pvs 17, 22, 21
 		--('RH_GOV_MODIFIER_THEOCRACY_REL',				'Amount'   , 1),
 		('RH_GOV_MODIFIER_MONARCHY',					'YieldType', 'YIELD_GOLD'),
 		('RH_GOV_MODIFIER_MONARCHY',					'Amount'   , -1), -- pvs -1, -2, -3
