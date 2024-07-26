@@ -362,6 +362,16 @@ function MostCommonLuxuryTargetChooser(info: table)
     return false
 end
 
+-- Public relations chooser
+--
+-- Outcome A: 100% more grievances generated and 100% more received.
+-- Outcome B: 50% less grievances generated and 50% less received.
+--
+-- Regular AI will always choose itself for outcome B, and will choose the player it has the most grievances
+-- from that it denounced or is at war with for outcome A. If it does not find a player to choose, it's random.
+--
+-- Plan: Introduce nuance into the decision. For example:
+-- Outcome B: AI player wishes to go to war against another player, so it chooses that player to receive less grievances.
 function GrievancesTypeTargetChooser(info: table)
     local player = Players[info.PlayerId]
     if player:IsHuman() or not player:IsMajor() then
