@@ -383,7 +383,7 @@ function GrievancesTypeTargetChooser(info: table)
     end
 
     if info.OutcomeType == OutcomeTypes.B then
-        
+
     end
 
     return false
