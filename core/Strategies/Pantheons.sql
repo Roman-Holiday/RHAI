@@ -57,7 +57,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_PANTH_DIS_IS_XL',						'Amount'   , -99),
-		('RH_PANTH_DIS_IS',							'Amount'   , -99); -- pvs -1, -5
+		('RH_PANTH_DIS_IS',							'Amount'   , -990); -- pvs -1, -5
 
 INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES	
 

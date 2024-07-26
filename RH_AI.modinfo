@@ -291,7 +291,7 @@
 	
 	<!-- Unit Promotion Test -->
 	
-	<AddGameplayScripts id="AI_Auto_Promotion_Exposed_Functions">
+	<!--AddGameplayScripts id="AI_Auto_Promotion_Exposed_Functions">
 	
 			<Properties>
 				<LoadOrder>350</LoadOrder>
@@ -313,7 +313,7 @@
 			</Properties>
 			<File>core/Experimental/Promotion_Test3.lua</File>	
 
-	</AddGameplayScripts>    
+	</AddGameplayScripts-->    
 		
 		
 	

@@ -59,7 +59,7 @@ REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('DarwinistEnjoysWarYields', 'YIELD_RH_FASCISM', 			1, 750),
 ('DarwinistEnjoysWarYields', 'YIELD_RH_NUCLEAR', 			1, 120),
 ('DarwinistEnjoysWarYields', 'YIELD_RH_MILITARY_PRODUCTION', 1, 650),
-('DarwinistEnjoysWarYields', 'YIELD_RH_MAYHEM', 			1, 650),
+('DarwinistEnjoysWarYields', 'YIELD_RH_MAYHEM', 			1, 850),
 
 ('DarwinistEnjoysWarDiplomacy', 'DIPLOACTION_DENOUNCE', 1, 0),
 ('DarwinistEnjoysWarDiplomacy', 'DIPLOACTION_DEMAND_TRIBUTE', 1, 0),
@@ -369,7 +369,7 @@ INSERT OR IGNORE INTO AiLists (ListType, AgendaType, System) VALUES
 ('GossipFavoredYields', 		'TRAIT_AGENDA_GOSSIP', 'Yields');
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('GossipFavoredYields', 'YIELD_RH_MAYHEM', 								1, 50),
+('GossipFavoredYields', 'YIELD_RH_MAYHEM', 								1, 150),
 
 ('GossipFavoredPseudoYields', 'PSEUDOYIELD_UNIT_SPY', 						1,	 25),
 ('GossipFavoredPseudoYields', 'PSEUDOYIELD_UNIT_TRADE', 					1, 	30),
@@ -416,6 +416,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('FunLovingYields', 'YIELD_RH_HAPPINESS_BUILDING', 				1, 250),
 ('FunLovingYields', 'YIELD_RH_HAPPINESS_COMP', 					1, 210),
+('FunLovingYields', 'YIELD_RH_MAYHEM', 							1, 75),
 
 ('FunLovingPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 			1, 	3),
 ('FunLovingPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_GRIEVANCE',		 1, 5),
@@ -563,7 +564,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('NukeLoverYields', 'YIELD_RH_FASCISM', 							1,  30),
 ('NukeLoverYields', 'YIELD_RH_NUCLEAR', 							1, 150),
 
-('NukeLoverYields', 'YIELD_RH_MAYHEM', 								1, 175),
+('NukeLoverYields', 'YIELD_RH_MAYHEM', 								1, 250),
 
 ('NukeLoverNukePreference', 'PSEUDOYIELD_CITY_DEFENSES', 			1, -20),
 ('NukeLoverNukePreference', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 	1, -20),
@@ -839,7 +840,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('Expansionist_AgendaYields', 'YIELD_RH_FASCISM', 						1, 110),
 ('Expansionist_AgendaYields', 'YIELD_RH_EXPANSION', 					1, 150),
-('Expansionist_AgendaYields', 'YIELD_RH_MAYHEM', 						1, 75),
+('Expansionist_AgendaYields', 'YIELD_RH_MAYHEM', 						1, 250),
 
 /*
 ('Expansionist_AgendaDistricts', 'DISTRICT_CAMPUS', 				1, 0), -- todo ancient and classical only
@@ -1003,13 +1004,18 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 --AGENDA_PILLAGER -- Early Era Only
 
 INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
-('Pillager_AgendaOperations');
+('Pillager_AgendaOperations'),
+('Pillager_AgendaYields');
+
 
 INSERT OR IGNORE INTO AiLists (ListType, AgendaType, System) VALUES
-('Pillager_AgendaOperations',   'AGENDA_PILLAGER', 'PerWarOperationTypes'); -- testing PerWarOperationTypes instead of AiOperationTypes
+('Pillager_AgendaOperations',   'AGENDA_PILLAGER', 'PerWarOperationTypes'), -- testing PerWarOperationTypes instead of AiOperationTypes
+('Pillager_AgendaYields',   		'AGENDA_PILLAGER', 'Yields'); 
+
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('Pillager_AgendaOperations', 'OP_RH_AGGRESSIVE_PILLAGE', 1, 1);  
+('Pillager_AgendaOperations', 'OP_RH_AGGRESSIVE_PILLAGE', 1, 1),
+('Pillager_AgendaYields', 		'YIELD_RH_MAYHEM', 1, 250);  
 
 
 -- AGENDA_TURTLER -- Late Era Only

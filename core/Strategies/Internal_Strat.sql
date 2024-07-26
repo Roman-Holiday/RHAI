@@ -1943,18 +1943,18 @@ VALUES
 INSERT OR IGNORE INTO RequirementSetRequirements 
 		(RequirementSetId, RequirementId)
 VALUES
-		('RH_HAS_APPRENTICESHIP', 'RH_APPRENTICESHIP_REQ'),
+		('RH_HAS_APPRENTICESHIP', 'RH_APPRENTICESHIP_REQ2'),
 		('RH_HAS_APPRENTICESHIP', 'REQUIRES_PLAYER_IS_AI');
 		
 INSERT OR IGNORE INTO Requirements
 		(RequirementId, RequirementType)
 VALUES
-		('RH_APPRENTICESHIP_REQ', 'REQUIREMENT_PLAYER_HAS_TECHNOLOGY');
+		('RH_APPRENTICESHIP_REQ2', 'REQUIREMENT_PLAYER_HAS_TECHNOLOGY');
 
 INSERT OR IGNORE INTO RequirementArguments
 		(RequirementId,	Name, Value)
 VALUES
-		('RH_APPRENTICESHIP_REQ','TechnologyType', 'TECH_APPRENTICESHIP'); -- pvs smart materials, back to nuclear fusion -- SMART_MATERIALS -- TECH_NUCLEAR_FUSION -- Back to smart materials for new ops test, stills builds way too many
+		('RH_APPRENTICESHIP_REQ2','TechnologyType', 'TECH_APPRENTICESHIP'); -- pvs smart materials, back to nuclear fusion -- SMART_MATERIALS -- TECH_NUCLEAR_FUSION -- Back to smart materials for new ops test, stills builds way too many
 
 
 

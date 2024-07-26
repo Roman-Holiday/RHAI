@@ -875,7 +875,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('NewRomeCulturePreference', 'YIELD_RH_PLACEMENT', 1, -20), -- May Improve Holy Site Placement?
 ('NewRomeCulturePreference', 'YIELD_FAITH', 1, 55), -- pvs 20, 50 (culture adj bonus)
 
-('NewRomeCulturePreference', 'YIELD_RH_SCRIPTURE', 1, 850),
+('NewRomeCulturePreference', 'YIELD_RH_SCRIPTURE', 1, 950),
 
 --('NewRomeCulturePreference', 'YIELD_FOOD', 1, 25), -- Farms
 

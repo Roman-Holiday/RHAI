@@ -633,9 +633,9 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientPseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 		1, 100); -- To reduce chance AI puts farms on strategics and builds loads of workers before settlers etc, pvs -15
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
-('AncientSavings', 'SAVING_GREAT_PEOPLE',									1), 
-('AncientSavings', 'SAVING_SLUSH_FUND', 									1), -- pvs 2
-('AncientSavings', 'SAVING_PLOTS', 											-1);
+('AncientSavings', 'SAVING_GREAT_PEOPLE',									1); 
+--('AncientSavings', 'SAVING_SLUSH_FUND', 									1), -- pvs 2
+--('AncientSavings', 'SAVING_PLOTS', 											-1);
 --('AncientSavings', 'SAVING_UNITS', 											-1); -- Test
 
 --('AncientSavings', 'SAVING_SLUSH_FUND', 								 0); 
@@ -737,11 +737,11 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalPseudoYields', 'PSEUDOYIELD_INFLUENCE',		 1, 10),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_DISTRICT', 		1, -5); -- Goes for District Techs too Much, 100
 
-INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
+--INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
 --('ClassicalSavings', 'SAVING_GREAT_PEOPLE', 								 0), 
 --('ClassicalSavings', 'SAVING_SLUSH_FUND', 									1), -- pvs 1 -- For builder purchase
 --('ClassicalSavings', 'SAVING_UNITS', 										1), -- test
-('ClassicalSavings', 'SAVING_PLOTS', 										-1); 
+--('ClassicalSavings', 'SAVING_PLOTS', 										-1); 
 --('ClassicalSavings', 'SAVING_SLUSH_FUND', 								 0); 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
@@ -902,11 +902,11 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalImprovements', 'IMPROVEMENT_COLOSSAL_HEAD',    0, -90);
 
 
-INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
+--INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
 --('MedievalSavings', 'SAVING_GREAT_PEOPLE', 								 0), 
 --('MedievalSavings', 'SAVING_SLUSH_FUND', 									1),
 --('MedievalSavings', 'SAVING_UNITS', 										1),
-('MedievalSavings', 'SAVING_PLOTS', 										-1); 
+--('MedievalSavings', 'SAVING_PLOTS', 										-1); 
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES

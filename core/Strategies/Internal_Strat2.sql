@@ -136,7 +136,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_DEF',		'YieldType'    , 'YIELD_RH_UNDER_ATTACK'),
-		('RH_DEF',						'Amount'   , 38); -- pvs 2 Culture lol, 5, 9, 30, 20, 30
+		('RH_DEF',						'Amount'   , 90); -- pvs 2 Culture lol, 5, 9, 30, 20, 30, 38
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_WALLS', 'RH_DEF');
@@ -172,7 +172,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_DEF_W',	'YieldType'    , 'YIELD_RH_UNDER_ATTACK'),
-		('RH_DEF_W',						'Amount'   , 7);
+		('RH_DEF_W',						'Amount'   , 8);
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_CASTLE', 'RH_DEF_W');
