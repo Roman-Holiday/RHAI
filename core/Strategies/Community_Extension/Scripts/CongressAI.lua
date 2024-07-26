@@ -29,14 +29,41 @@ function rPrint(s, l, i) -- recursive Print (structure, limit, indent)
     return l
 end
 
-function contains(tb: table, val)
-    for _, v in pairs(tb) do
-        if v == val then
-            return true
-        end
-    end
-    return false
-end
+-- Utilities
+--[[
+-- function contains(tb: table, val)
+--     for _, v in pairs(tb) do
+--         if v == val then
+--             return true
+--         end
+--     end
+--     return false
+-- end
+
+-- -- Only works with 1 argument, does not support nil results
+-- -- Faster than the function approach on subsequent uses, but less flexible
+-- function tmemoize(func: ifunction)
+--     return setmetatable({}, {
+--         __index = function(self, k)
+--             local v = func(k)
+--             self[k] = v  -- This line sets the key for future lookups
+--             return v
+--         end
+--     })
+-- end
+
+-- -- Works with any number of arguments
+-- function fmemoize(func: ifunction)
+--     local cache = {}
+--     return function(...)
+--         local key = ...  -- Using ... directly as the key
+--         if cache[key] == nil then
+--             cache[key] = func(...)
+--         end
+--         return cache[key]
+--     end
+-- end
+--]]
 
 -- Ordered pairs. Should be like the one from SupportFunctions.lua but more optimized.
 local function opairs(t: table)
@@ -56,11 +83,6 @@ end
 
 -- Diplomatic victory point resolution
 function PlayerOrDiploLeaderTargetChooser(info: table)
-    if info == nil then
-        print("PlayerOrDiploLeaderTargetChooser called, but received no arguments!")
-        return false
-    end
-
     local player = Players[info.PlayerId]
     if player:IsHuman() or not player:IsMajor() then return false end
 
@@ -128,13 +150,13 @@ local function getLuxuryResources()
     end
 end
 
--- Returns a table with keys that often start at 0, so operate on with pairs, not ipairs ...
+-- Returns a table with keys that often start at 0, so operate on with opairs, not ipairs ...
 -- ... Is what you WOULD think, but this is havokscript! ipairs will start at 0 or 1 in havokscript.
 -- But there's ANOTHER consideration: If you assume that minor teams will only come after major teams, then
 -- you're neglecting to consider the odd mod that might come out that screws around with how
 -- teams work that could move players between them during a game or create teams that have city states as well as players in them.
 --
--- So in the end, use opairs or pairs.
+-- So in the end, use opairs.
 local function getMajorTeams()
     local majorTeams = {}
 
@@ -167,14 +189,6 @@ local function flushScoredDistricts()
 end
 
 local function getScoredDistricts(majorTeams: table)
-    if majorTeams == nil then
-        error("Unexpected: Major teams list is nil.")
-    end
-
-    if g_buildingPrereqs == nil then
-        error("Unexpected: Building prereqs list is nil.")
-    end
-
     local scoredDistricts = {
         best = {},
         worst = {}
@@ -252,11 +266,6 @@ end
 
 -- Urban development resolution
 function DistrictTargetChooser(info: table)
-    if info == nil then
-        print("DistrictTargetChooser called, but received no arguments!")
-        return false
-    end
-
     local player = Players[info.PlayerId]
     if player:IsHuman() or not player:IsMajor() then
         return false
@@ -280,10 +289,6 @@ function DistrictTargetChooser(info: table)
 end
 
 local function getScoredLuxuries(majorTeams: table)
-    if majorTeams == nil then
-        error("Unexpected: Major teams list is nil.")
-    end
-
     local scoredResources = {
         best = {},
         worst = {}
@@ -335,11 +340,6 @@ local function flushScoredLuxuries()
 end
 
 function MostCommonLuxuryTargetChooser(info: table)
-    if info == nil then
-        print("MostCommonLuxuryTargetChooser called, but received no arguments!")
-        return false
-    end
-
     local player = Players[info.PlayerId]
     if player:IsHuman() or not player:IsMajor() then
         return false
@@ -362,18 +362,34 @@ function MostCommonLuxuryTargetChooser(info: table)
     return false
 end
 
-function Init()
-    print("--------------------")
-    print("Loading Congress AI!")
-    print("Author: WildW")
-    print("--------------------")
+function GrievancesTypeTargetChooser(info: table)
+    local player = Players[info.PlayerId]
+    if player:IsHuman() or not player:IsMajor() then
+        return false
+    end
 
-    RegisterProcessor("PlayerOrDiploLeaderTargetChooser", PlayerOrDiploLeaderTargetChooser)
-    RegisterProcessor("DistrictTargetChooser", DistrictTargetChooser)
-    RegisterProcessor("MostCommonLuxuryTargetChooser", MostCommonLuxuryTargetChooser)
+    if info.OutcomeType == OutcomeTypes.A then
 
-    g_buildingPrereqs = getBuildingPrereqs()
-    g_luxuryResources = getLuxuryResources()
+    end
+
+    if info.OutcomeType == OutcomeTypes.B then
+        
+    end
+
+    return false
 end
 
-Init()
+-- Init
+print("--------------------")
+print("Loading Congress AI!")
+print("Author: WildW")
+print("--------------------")
+
+RegisterProcessor("PlayerOrDiploLeaderTargetChooser", PlayerOrDiploLeaderTargetChooser)
+RegisterProcessor("DistrictTargetChooser", DistrictTargetChooser)
+RegisterProcessor("MostCommonLuxuryTargetChooser", MostCommonLuxuryTargetChooser)
+RegisterProcessor("GrievancesTypeTargetChooser", GrievancesTypeTargetChooser)
+
+g_buildingPrereqs = getBuildingPrereqs()
+g_luxuryResources = getLuxuryResources()
+-- Init end
