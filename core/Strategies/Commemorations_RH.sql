@@ -297,7 +297,7 @@ INSERT OR IGNORE INTO RequirementArguments   (RequirementId,	Name, Value)  VALUE
 INSERT OR IGNORE INTO RequirementArguments   (RequirementId,	Name, Value)  VALUES	
 ('RH_AI_HIGH_HAR_ADJ_3', 'DistrictType', 'DISTRICT_HARBOR'),
 ('RH_AI_HIGH_HAR_ADJ_3', 'YieldType', 'YIELD_GOLD'),
-('RH_AI_HIGH_HAR_ADJ_3', 'Amount', '3');
+('RH_AI_HIGH_HAR_ADJ_3', 'Amount', '2');
 
 INSERT OR IGNORE INTO RequirementArguments   (RequirementId,	Name, Value)  VALUES	
 ('RH_AI_HIGH_HAR_ADJ_5', 'DistrictType', 'DISTRICT_HARBOR'),
@@ -307,7 +307,7 @@ INSERT OR IGNORE INTO RequirementArguments   (RequirementId,	Name, Value)  VALUE
 INSERT OR IGNORE INTO RequirementArguments   (RequirementId,	Name, Value)  VALUES	
 ('RH_AI_HIGH_COMMERC_ADJ_3', 'DistrictType', 'DISTRICT_COMMERCIAL_HUB'),
 ('RH_AI_HIGH_COMMERC_ADJ_3', 'YieldType', 'YIELD_GOLD'),
-('RH_AI_HIGH_COMMERC_ADJ_3', 'Amount', '3');
+('RH_AI_HIGH_COMMERC_ADJ_3', 'Amount', '2');
 
 
 
@@ -353,11 +353,11 @@ INSERT OR IGNORE INTO CommemorationModifiers  (CommemorationType, ModifierId)  V
 		('COMMEMORATION_SCIENTIFIC',      		  			'RH_FREE_INQUIRY_PUSH_LOW');
 
 INSERT OR IGNORE INTO Modifiers   (ModifierId, ModifierType, SubjectRequirementSetId) VALUES	
-		('RH_FREE_INQUIRY_PUSH_LOW',	'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE',	'RH_FREE_INQUIRY_PUSH_REQ_S_3');
+		('RH_FREE_INQUIRY_PUSH_LOW',	'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE',	'RH_FREE_INQUIRY_PUSH_REQ_S_3'); -- Harbours 2 ADJ
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_FREE_INQUIRY_PUSH_LOW',	'YieldType'    , 'YIELD_SCIENCE'),
-		('RH_FREE_INQUIRY_PUSH_LOW',	'Amount'       , 15); -- pvs 10 placement
+		('RH_FREE_INQUIRY_PUSH_LOW',	'Amount'       , 40); -- pvs 10 placement, 15
 
 
 INSERT OR IGNORE INTO CommemorationModifiers  (CommemorationType, ModifierId)  VALUES	
@@ -368,7 +368,7 @@ INSERT OR IGNORE INTO Modifiers   (ModifierId, ModifierType, SubjectRequirementS
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_FREE_INQUIRY_PUSH_MED',	'YieldType'    , 'YIELD_SCIENCE'),
-		('RH_FREE_INQUIRY_PUSH_MED',	'Amount'       , 100); 
+		('RH_FREE_INQUIRY_PUSH_MED',	'Amount'       , 150); 
 		
 		
 
@@ -380,5 +380,57 @@ INSERT OR IGNORE INTO Modifiers   (ModifierId, ModifierType, SubjectRequirementS
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_FREE_INQUIRY_PUSH_COMMERICAL_MOD',	'YieldType'    , 'YIELD_SCIENCE'),
-		('RH_FREE_INQUIRY_PUSH_COMMERICAL_MOD',	'Amount'       , 100); 
+		('RH_FREE_INQUIRY_PUSH_COMMERICAL_MOD',	'Amount'       , 150); 
 		
+		
+		
+		
+-- Harbour and Commercial Hub Strat Golden Age in Advance
+
+
+-- High Faith Adj
+
+INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+		('RH_COMMERCIAL_GOLDEN_AGE_REQS', 'REQUIREMENTSET_TEST_ALL'),
+		('RH_HARBOUR_GOLDEN_AGE_REQS', 'REQUIREMENTSET_TEST_ALL');
+
+
+-- Commercial
+
+INSERT OR IGNORE INTO RequirementSetRequirements  (RequirementSetId, RequirementId) VALUES	
+		('RH_COMMERCIAL_GOLDEN_AGE_REQS', 'PLAYER_AT_ANCIENT_ERA'),
+		('RH_COMMERCIAL_GOLDEN_AGE_REQS', 'PLAYER_NOT_MEDIEVAL_ERA'),
+	--	('RH_COMMERCIAL_GOLDEN_AGE_REQS', 'RH_AI_HIGH_SCI_ADJ_3'),
+		('RH_COMMERCIAL_GOLDEN_AGE_REQS', 'REQUIRES_PLAYER_IS_AI'),
+		('RH_COMMERCIAL_GOLDEN_AGE_REQS', 'REQUIRES_PLAYER_HAS_GOLDEN_AGE');	
+	
+-- Harbour
+	
+INSERT OR IGNORE INTO RequirementSetRequirements  (RequirementSetId, RequirementId) VALUES	
+		('RH_HARBOUR_GOLDEN_AGE_REQS', 'PLAYER_AT_ANCIENT_ERA'),
+		('RH_HARBOUR_GOLDEN_AGE_REQS', 'PLAYER_NOT_MEDIEVAL_ERA'),
+	--	('RH_HARBOUR_GOLDEN_AGE_REQS', 'RH_AI_HIGH_SCI_ADJ_5'),
+		('RH_HARBOUR_GOLDEN_AGE_REQS', 'REQUIRES_PLAYER_IS_AI'),
+		('RH_HARBOUR_GOLDEN_AGE_REQS', 'REQUIRES_PLAYER_HAS_GOLDEN_AGE');		
+		
+
+
+
+INSERT OR IGNORE INTO CommemorationModifiers  (CommemorationType, ModifierId)  VALUES	
+		('COMMEMORATION_SCIENTIFIC',      		  			'RH_FREE_INQUIRY_PUSH_ADVANCE_COMMERICAL'),
+		('COMMEMORATION_SCIENTIFIC',      		  			'RH_FREE_INQUIRY_PUSH_ADVANCE_HARBOUR');
+
+
+INSERT OR IGNORE INTO Modifiers   (ModifierId, ModifierType, SubjectRequirementSetId) VALUES	
+		('RH_FREE_INQUIRY_PUSH_ADVANCE_COMMERICAL',	'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE',	'RH_COMMERCIAL_GOLDEN_AGE_REQS'),
+
+		('RH_FREE_INQUIRY_PUSH_ADVANCE_HARBOUR',	'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE',	'RH_HARBOUR_GOLDEN_AGE_REQS');
+
+
+
+INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
+		('RH_FREE_INQUIRY_PUSH_ADVANCE_COMMERICAL',	'YieldType'    , 'YIELD_RH_NAVAL'),
+		('RH_FREE_INQUIRY_PUSH_ADVANCE_COMMERICAL',	'Amount'       , 10),
+		
+		('RH_FREE_INQUIRY_PUSH_ADVANCE_HARBOUR',	'YieldType'    , 'YIELD_RH_TRADE'),
+		('RH_FREE_INQUIRY_PUSH_ADVANCE_HARBOUR',	'Amount'       , 10); 		
