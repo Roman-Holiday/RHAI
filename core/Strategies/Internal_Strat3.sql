@@ -182,7 +182,7 @@ SELECT
 FROM Technologies
 WHERE TechnologyType LIKE 'TECHNOLOGY_RH_%';
 
--- Step 2: Insert corresponding arguments for each new modifier
+-- 2: Insert corresponding arguments for each new tech boost modifier
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
 SELECT
     TechnologyType || '_BOOST_MOD' AS ModifierId,
@@ -191,7 +191,7 @@ SELECT
 FROM Technologies
 WHERE TechnologyType LIKE 'TECHNOLOGY_RH_%';
 
--- Step 3: Insert corresponding entries into TraitModifiers
+-- 3: Insert corresponding entries for TraitModifiers
 INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
 SELECT
     'TRAIT_LEADER_MAJOR_CIV' AS TraitType,

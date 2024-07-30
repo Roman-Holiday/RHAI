@@ -206,9 +206,10 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('YongleYields', 'YIELD_RH_MAGNUS', 1, 950),
 
-('YongleYields', 'YIELD_RH_CLASSICAL_REPUBLIC', 1, 150),
+('YongleYields', 'YIELD_RH_CLASSICAL_REPUBLIC', 1, 350),
+
 ('YongleYields', 'YIELD_RH_MONARCHY', 1, 950),
-('YongleYields', 'YIELD_RH_MERCHANT_REPUBLIC', 0, -950),
+--('YongleYields', 'YIELD_RH_MERCHANT_REPUBLIC', 0, -950),
 
 ('YongleYields', 'YIELD_RH_DEMOCRACY', 1, 950), -- pvs 600
 ('YongleYields', 'YIELD_RH_COMMUNISM', 0, -950), -- pvs -30, -95

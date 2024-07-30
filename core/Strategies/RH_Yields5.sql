@@ -66,7 +66,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_ANCIENT_MOD_XXS',							'Amount'   , 4),
 
 		('RH_ANCIENT_MOD_MINUS',		'YieldType', 		'YIELD_RH_ANCIENT'), -- Shipbuilding
-		('RH_ANCIENT_MOD_MINUS',							'Amount'   , -250), -- pvs -150
+		('RH_ANCIENT_MOD_MINUS',							'Amount'   , -500), -- pvs -150, -250
 
 		('RH_ANCIENT_MOD_MS',		'YieldType', 		'YIELD_RH_ANCIENT'),
 		('RH_ANCIENT_MOD_MS',							'Amount'   , 40), 
@@ -88,6 +88,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_SHRINE', 		'RH_ANCIENT_MOD_MXL'),
 ('BUILDING_LIBRARY', 		'RH_ANCIENT_MOD_S'),
 
+('BUILDING_WATER_MILL', 		'RH_ANCIENT_MOD_MINUS'),
 ('BUILDING_GRANARY', 		'RH_ANCIENT_MOD_MINUS');
 
 
@@ -472,7 +473,7 @@ FROM Types WHERE Type = 'BUILDING_TAJ_MAHAL';
 
 -- City State Test Yield		
 			
-			
+/*			
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
 		('RH_CITY_STATE_MOD_XXS',			'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),
 		('RH_CITY_STATE_MOD_XS',			'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),
@@ -511,7 +512,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_CASTLE', 		'RH_CITY_STATE_MOD'),
 ('BUILDING_STAR_FORT', 		'RH_CITY_STATE_MOD');
 
-
+*/
 
 
 
@@ -1063,7 +1064,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_MAUS_H_MOD_MINUS',							'Amount'   , '-90'),
 
 		('RH_MAUS_H_MOD',			'YieldType', 		'YIELD_RH_MAUS_H'),
-		('RH_MAUS_H_MOD',								'Amount'   , 250); -- pvs 25, 75
+		('RH_MAUS_H_MOD',								'Amount'   , 330); -- pvs 25, 75, 250
 
 
 
