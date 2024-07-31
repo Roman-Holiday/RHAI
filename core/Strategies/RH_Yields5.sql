@@ -1225,7 +1225,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_CITY_CENTRE_MOD_XS',							'Amount'   , 4),
 
 		('RH_CITY_CENTRE_MOD_MS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_MS',							'Amount'   , 9), 
+		('RH_CITY_CENTRE_MOD_MS',							'Amount'   , 7), -- pvs 9
 
 		('RH_CITY_CENTRE_MOD_S',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
 		('RH_CITY_CENTRE_MOD_S',							'Amount'   , 12), -- pvs 9

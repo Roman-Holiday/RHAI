@@ -638,7 +638,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('AggressiveYields', 'YIELD_RH_OLIGARCHY', 				1, 140), -- pvs 50, 125
 
-('AggressiveYields', 'YIELD_RH_JUST_WAR',   		1, 400), -- pvs 150, 200
+('AggressiveYields', 'YIELD_RH_JUST_WAR',   		1, 750), -- pvs 150, 200, 400
 ('AggressiveYields', 'YIELD_SCIENCE', 				1, 25), 
 ('AggressiveYields', 'YIELD_PRODUCTION', 			1, 25),
 

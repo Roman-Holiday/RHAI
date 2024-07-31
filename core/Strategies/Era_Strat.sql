@@ -586,6 +586,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientDiplo', 'DIPLOACTION_THIRD_PARTY_WAR', 0, 0),
 ('AncientDiplo', 'DIPLOACTION_JOINT_WAR', 		0, 0),
 ('AncientDiplo', 'DIPLOACTION_OPEN_BORDERS', 		0, 0),
+('AncientDiplo', 'DIPLOACTION_MAKE_PEACE', 		0, 0),
 
 --('AncientYields', 'YIELD_FAITH',     1, 85), -- Base -22 -- pvs 12, 22, 40, 100, 120, 220, 250, 300, 150, 120
 ('AncientYields', 'YIELD_SCIENCE',   1, 220), -- pvs 30, 75, 105, 200, 145, 200, 230

@@ -535,6 +535,9 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('MajorFavorBuildings',	'BUILDING_BANK',				0, -90),
 ('MajorFavorBuildings',	'BUILDING_GREAT_BATH',			0, -10),
+
+('MajorFavorBuildings',	'BUILDING_GRANARY',			0, -5), -- Test
+
 --('MajorFavorBuildings',	'BUILDING_PETRA',				0, 0),
 ('MajorFavorBuildings', 'BUILDING_VENETIAN_ARSENAL', 	1, 900), -- pvs 0
 ('MajorFavorBuildings', 'BUILDING_COLOSSEUM', 			1, 900), 
