@@ -669,6 +669,14 @@
 		<File>core/Strategies/Internal_Strat3.sql</File>
 
 		</UpdateDatabase>
+
+	  	<ImportFiles id="LUA_Replacers">
+      		<Properties>
+        		<LoadOrder>150000</LoadOrder>
+      		</Properties>
+      		<File>core/Experimental/ResearchChooser.lua</File>
+      		<File>core/Experimental/TechTree.lua</File>
+	  	</ImportFiles>
 		
 		<!-- Text -->
 
@@ -806,6 +814,8 @@
 	  <File>core/Other/RH_Gamemodes/Extra_Strategics/RH_Extra_Strategics.sql</File>
 	  <File>core/Other/RH_AI_Loc_Text.xml</File>
 	  <File>core/Other/Misc.sql</File>
+	  <File>core/Experimental/ResearchChooser.lua</File>
+	  <File>core/Experimental/TechTree.lua</File>
 
   </Files>
 </Mod>
