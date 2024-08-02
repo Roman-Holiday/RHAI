@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mod id="2501be3e-9780-4e9f-9506-4ff71cf076cb" version="14">
-	<Properties>
-		<Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.21 Patreon Beta[ENDCOLOR]</Name>
-		<Description>------------------------------------[NEWLINE]There's an AI System in the Game, says Shirk. ... it's called a [COLOR:ResScienceLabelCS]"Mayhem Level"[ENDCOLOR][NEWLINE]For Civ Chat, Feedback and Suggestions Use the RomanHoliday AI Discord! (Link on Steam Page).[NEWLINE]Enjoy! ;) </Description>
-		<Teaser>Thanks for Supporting the Mod!! It's Big Time Now.</Teaser>
-		<SupportsMultiplayer>1</SupportsMultiplayer>
-		<Authors>RomanHoliday, WildW</Authors>
-		<SpecialThanks>My Special Patrons Seby, Gargamellor, Ptfpsu5018, Olly, CataHula!, twoDarkMessiah and Listopadek for Helping me Spend Months on this mod! Infixo, Denlar, Mysterymilosh, Smally, TheCivShow and OmarBaba</SpecialThanks>
-		<CompatibleVersions>2.0</CompatibleVersions>
-		<AffectsSavedGames>0</AffectsSavedGames>
-	</Properties>
-
-	<ActionCriteria>
+  <Properties>
+    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.212 Patreon Beta[ENDCOLOR]</Name>
+    <Description>------------------------------------[NEWLINE]There's an AI System in the Game, says Shirk. ... it's called a [COLOR:ResScienceLabelCS]"Mayhem Level"[ENDCOLOR][NEWLINE]For Civ Chat, Feedback and Suggestions Use the RomanHoliday AI Discord! (Link on Steam Page).[NEWLINE]Enjoy! ;) </Description>
+    <Teaser>Thanks for Supporting the Mod!! It's Big Time Now.</Teaser>
+    <SupportsMultiplayer>1</SupportsMultiplayer>
+    <Authors>RomanHoliday</Authors>
+    <SpecialThanks>My Special Patrons Seby, Gargamellor, Ptfpsu5018, Olly, CataHula!, twoDarkMessiah and Listopadek for Helping me Spend Months on this mod! Infixo, Denlar, Mysterymilosh, Smally, TheCivShow and OmarBaba</SpecialThanks>
+    <CompatibleVersions>2.0</CompatibleVersions>
+  </Properties>
+  
+  <ActionCriteria>
 		<Criteria id="Expansion1">
 			<GameCoreInUse>Expansion1</GameCoreInUse>
 		</Criteria>
@@ -280,18 +279,49 @@
 
 			<File>core/Main/LAI_Main.sql</File>
 
-		</UpdateDatabase>
-
-		<UpdateDatabase id="RH_AI_GPP2">
+    </UpdateDatabase>
+  
+     <UpdateDatabase id="RH_AI_GPP2">
+      <Properties>
+        <LoadOrder>4</LoadOrder>
+      </Properties>
+	  
+  	  <File>core/Strategies/Relic_Strat.sql</File>
+	  <File>core/Strategies/Internal_Strat4.sql</File>
+	  
+    </UpdateDatabase>
+	
+	
+	
+	<!-- Unit Promotion Test -->
+	
+	<!--AddGameplayScripts id="AI_Auto_Promotion_Exposed_Functions">
+	
 			<Properties>
-				<LoadOrder>4</LoadOrder>
+				<LoadOrder>350</LoadOrder>
 			</Properties>
+			<File>core/Experimental/ExposedUnitPromotionFunctions.lua</File>	
 
-			<File>core/Strategies/Relic_Strat.sql</File>
-			<File>core/Strategies/Internal_Strat4.sql</File>
+	</AddGameplayScripts>    	
+	
+	<UpdateDatabase id="AI_Auto_Promotion_Exposed_Functions_XML">
+			<Properties><LoadOrder>350</LoadOrder></Properties>
+			<File>core/Experimental/ExposedUnitPromotionFunctions.xml</File>	
+	</UpdateDatabase>	
+	
+			
+	<AddGameplayScripts id="AI_Auto_Promotion_Test">
+	
+			<Properties>
+				<LoadOrder>400</LoadOrder>
+			</Properties>
+			<File>core/Experimental/Promotion_Test3.lua</File>	
 
-		</UpdateDatabase>
-		<!--   	  <File Priority="1">core/Strategies/Relic_Strat.sql</File> -->
+	</AddGameplayScripts-->    
+		
+		
+	
+  <!--   	  <File Priority="1">core/Strategies/Relic_Strat.sql</File> -->
 
 		<UpdateDatabase id="RH_AI_Standard_Diplo_Offset" criteria="STANDARD_DIPLO_OFFSET">
 			<Properties>
@@ -325,6 +355,9 @@
 		<ImportFiles id="RH_AI_SETUP">
 			<File>core/Strategies/RH.xml</File>
 			<File>core/Strategies/RH.lua</File>
+			
+	
+			
 		</ImportFiles>
 
 		<AddUserInterfaces id="RH_AI_SETUP_2">
@@ -709,6 +742,14 @@
 
 		</UpdateDatabase>
 
+	  	<ImportFiles id="LUA_Replacers">
+      		<Properties>
+        		<LoadOrder>150000</LoadOrder>
+      		</Properties>
+      		<File>core/Experimental/ResearchChooser.lua</File>
+      		<File>core/Experimental/TechTree.lua</File>
+	  	</ImportFiles>
+		
 		<!-- Text -->
 
 		<UpdateText id="RH_TEXT_2">
@@ -736,35 +777,41 @@
 		<File>core/Strategies/Era_Strat3.sql</File>
 		<File>core/Strategies/Era_Strat4.sql</File>
 
-		<File>core/Strategies/Vict.sql</File>
-		<File>core/Strategies/Vict2.sql</File>
-		<File>core/Strategies/Vict3.sql</File>
-		<File>core/Strategies/Vict4.sql</File>
-		<File>core/Strategies/Vict5.sql</File>
-		<File>core/Strategies/Internal_Strat.sql</File>
-		<File>core/Strategies/Internal_Strat2.sql</File>
-		<File>core/Strategies/Internal_Strat3.sql</File>
-		<File>core/Strategies/Internal_Strat4.sql</File>
-
-		<File>core/Strategies/Extended_Strat.sql</File>
-		<File>core/Strategies/Extended_Wonder_Strat.sql</File>
-		<File>core/Strategies/Commemorations_RH.sql</File>
-		<File>core/Strategies/Military_Strat2.sql</File>
-
-		<File>core/Strategies/Relic_Strat.sql</File>
-		<File>core/Strategies/Pantheons.sql</File>
-		<File>core/Strategies/Pantheons2.sql</File>
-
-		<File>core/Strategies/RH_Yields1.sql</File>
-		<File>core/Strategies/RH_Yields2.sql</File>
-		<File>core/Strategies/RH_Yields3.sql</File>
-		<File>core/Strategies/RH_Yields4.sql</File>
-		<File>core/Strategies/RH_Yields5.sql</File>
-
-		<File>core/Strategies/RH.xml</File>
-		<File>core/Strategies/RH.lua</File>
-		<File>core/Strategies/CS_Strat.sql</File>
-		<File>core/Leaders/Trait_Leader.sql</File>
+      <File>core/Strategies/Vict.sql</File>
+      <File>core/Strategies/Vict2.sql</File>
+      <File>core/Strategies/Vict3.sql</File>
+      <File>core/Strategies/Vict4.sql</File>
+      <File>core/Strategies/Vict5.sql</File>
+	  <File>core/Strategies/Internal_Strat.sql</File>
+	  <File>core/Strategies/Internal_Strat2.sql</File>
+	  <File>core/Strategies/Internal_Strat3.sql</File>
+	  <File>core/Strategies/Internal_Strat4.sql</File>	  
+	  
+	  <File>core/Strategies/Extended_Strat.sql</File>
+	  <File>core/Strategies/Extended_Wonder_Strat.sql</File>		  
+	  <File>core/Strategies/Commemorations_RH.sql</File>	
+	  <File>core/Strategies/Military_Strat2.sql</File>		  
+	 
+	  <File>core/Strategies/Relic_Strat.sql</File>
+	  <File>core/Strategies/Pantheons.sql</File>
+	  <File>core/Strategies/Pantheons2.sql</File>
+	  
+	  <File>core/Strategies/RH_Yields1.sql</File>
+	  <File>core/Strategies/RH_Yields2.sql</File>
+	  <File>core/Strategies/RH_Yields3.sql</File>	  
+	  <File>core/Strategies/RH_Yields4.sql</File>	 	  
+	  <File>core/Strategies/RH_Yields5.sql</File>	
+	  
+	  <File>core/Strategies/RH.xml</File>
+	  <File>core/Strategies/RH.lua</File>
+	  
+	  <File>core/Experimental/Promotion_Test3.lua</File>	
+	  
+	  <File>core/Experimental/ExposedUnitPromotionFunctions.lua</File>	
+	  <File>core/Experimental/ExposedUnitPromotionFunctions.xml</File>		  
+	  
+	  <File>core/Strategies/CS_Strat.sql</File>
+	  <File>core/Leaders/Trait_Leader.sql</File>
 
 		<File>core/Leaders/Base/RH_Base_Africa.sql</File>
 		<File>core/Leaders/Base/RH_Base_America.sql</File>
@@ -777,76 +824,78 @@
 		<File>core/Leaders/Modded/Germany.sql</File>
 		<File>core/Leaders/Modded/Italy.sql</File>
 
-		<File>core/Leaders/DLC/Aztec.sql</File>
-		<File>core/Leaders/DLC/Poland.sql</File>
-		<File>core/Leaders/DLC/Australia.sql</File>
-		<File>core/Leaders/DLC/Macedon_Persia.sql</File>
-		<File>core/Leaders/DLC/Macedon_Persia.xml</File>
-		<!--File>core/Leaders/DLC/Persia2.xml</File-->
-		<File>core/Leaders/DLC/Nubia.sql</File>
-		<File>core/Leaders/DLC/Khmer_Indon.sql</File>
-		<File>core/Leaders/DLC/Rise_and_Fall.sql</File>
-		<File>core/Leaders/DLC/Rise_and_Fall.xml</File>
-		<File>core/Leaders/DLC/Gathering_Storm.sql</File>
-		<File>core/Leaders/DLC/New_Frontier_Pass.sql</File>
-		<File>core/Leaders/DLC/New_Frontier_Pass2.sql</File>
-		<File>core/Leaders/DLC/New_Frontier_Pass.xml</File>
-		<File>core/Leaders/DLC/JuliusCaesar.sql</File>
-		<File>core/Leaders/DLC/Leader_Pass.sql</File>
-		<File>core/Main/LAI_Main2.sql</File>
-		<File>core/Main/LAI_Main3.sql</File>
-		<File>core/Main/LAI_Main4.sql</File>
-		<File>core/Strategies/Naval.sql</File>
-		<File>core/Main/Decisions/Moves.xml</File>
-		<!--File>core/Main/Decisions/Trees.xml</File-->
-		<File>core/Main/Decisions/Backup_Trees.xml</File>
-		<File>core/Main/Decisions/Late_Tree.xml</File>
-		<!--File>core/Main/Decisions/MC_Trees.xml</File-->
-		<File>core/Main/Decisions/Air_Defense.xml</File>
-		<File>core/Main/Other/Gamemode_Support/RH_Heroes_And_Legends.sql</File>
-		<File>core/Main/Other/Gamemode_Support/RH_MC_Mode.sql</File>
-
-		<File>core/Other/RH_Gamemodes/Early_Agg.sql</File>
-
-
-		<File>core/Ops/Settle.sql</File>
-		<!--File>core/Not_In_Use/DifRequire.sql</File-->
-		<File>core/Other/Scale.sql</File>
-		<File>core/Main/Decisions/Pillage.xml</File>
-		<File>core/Main/Decisions/Pillage_Aggressive.xml</File>
-		<File>core/Main/Decisions/Air.xml</File>
-		<File>core/Main/Decisions/Air_Defense.xml</File>
-		<File>core/Ops/Ops.sql</File>
-		<File>core/Ops/Ops2.sql</File>
-		<File>core/Ops/Ops3.sql</File>
-		<File>core/Ops/Ops4.sql</File>
-		<File>core/Ops/Ops5.sql</File>
-		<File>core/Ops/Ops6.sql</File>
-		<File>core/Ops/Ops7.sql</File>
-		<File>core/Ops/Ops8.sql</File>
-
-		<File>core/Other/May.sql</File>
-		<File>core/Main/Diplomacy/Diplomacy.xml</File>
-		<File>core/Main/Diplomacy/RH_New_Diplo_Strat1.sql</File>
-		<File>core/Main/Diplomacy/RH_New_Diplo_Strat2.sql</File>
-
-		<File>core/Other/Strategics.sql</File>
-		<File>core/Other/Various_Bugfix.sql</File>
-		<File>core/Other/Deity_Plus_Support.sql</File>
-		<File>core/Other/Deity_Plus_Standard_Starting_Units_Changes.sql</File>
-		<File>core/Other/Deity_Plus_Fewer_Starting_Units.sql</File>
-		<File>core/Other/Deity_Plus_No_Starting_Units.sql</File>
-		<File>core/Strategies/New_Strategies.xml</File>
-		<File>core/Other/Mod_Support/Monopolies_Plus_Tycoons_Investors_Support.sql</File>
-		<File>core/Other/Parameter_Setup.sql</File>
-		<File>core/Other/Diplomacy_Offset/Standard_Offset.sql</File>
-		<File>core/Other/Diplomacy_Offset/Lower_Offset.sql</File>
-		<File>core/Other/Diplomacy_Offset/Lowest_Offset.sql</File>
-		<File>core/Other/RH_Gamemodes/RH_ROM.sql</File>
-		<File>core/Other/RH_Gamemodes/RH_ROM.xml</File>
-		<File>core/Other/RH_Gamemodes/Extra_Strategics/RH_Extra_Strategics.sql</File>
-		<File>core/Other/RH_AI_Loc_Text.xml</File>
-		<File>core/Other/Misc.sql</File>
+	 <File>core/Leaders/DLC/Aztec.sql</File>
+     <File>core/Leaders/DLC/Poland.sql</File>
+     <File>core/Leaders/DLC/Australia.sql</File>
+     <File>core/Leaders/DLC/Macedon_Persia.sql</File>
+	 <File>core/Leaders/DLC/Macedon_Persia.xml</File>
+     <!--File>core/Leaders/DLC/Persia2.xml</File-->
+     <File>core/Leaders/DLC/Nubia.sql</File>
+     <File>core/Leaders/DLC/Khmer_Indon.sql</File>
+     <File>core/Leaders/DLC/Rise_and_Fall.sql</File>
+	 <File>core/Leaders/DLC/Rise_and_Fall.xml</File>
+     <File>core/Leaders/DLC/Gathering_Storm.sql</File>
+     <File>core/Leaders/DLC/New_Frontier_Pass.sql</File>
+	 <File>core/Leaders/DLC/New_Frontier_Pass2.sql</File>
+	 <File>core/Leaders/DLC/New_Frontier_Pass.xml</File>
+     <File>core/Leaders/DLC/JuliusCaesar.sql</File>
+     <File>core/Leaders/DLC/Leader_Pass.sql</File>
+      <File>core/Main/LAI_Main2.sql</File>
+      <File>core/Main/LAI_Main3.sql</File>
+      <File>core/Main/LAI_Main4.sql</File>
+      <File>core/Strategies/Naval.sql</File>
+      <File>core/Main/Decisions/Moves.xml</File>
+      <!--File>core/Main/Decisions/Trees.xml</File-->
+      <File>core/Main/Decisions/Backup_Trees.xml</File>
+      <File>core/Main/Decisions/Late_Tree.xml</File>	
+	  <!--File>core/Main/Decisions/MC_Trees.xml</File-->
+	  <File>core/Main/Decisions/Air_Defense.xml</File>
+	  <File>core/Main/Other/Gamemode_Support/RH_Heroes_And_Legends.sql</File>
+	  <File>core/Main/Other/Gamemode_Support/RH_MC_Mode.sql</File>
+	  
+	  <File>core/Other/RH_Gamemodes/Early_Agg.sql</File>
+	  
+	  
+      <File>core/Ops/Settle.sql</File>
+      <!--File>core/Not_In_Use/DifRequire.sql</File-->
+      <File>core/Other/Scale.sql</File>
+      <File>core/Main/Decisions/Pillage.xml</File>
+	  <File>core/Main/Decisions/Pillage_Aggressive.xml</File>
+      <File>core/Main/Decisions/Air.xml</File>
+	  <File>core/Main/Decisions/Air_Defense.xml</File>
+      <File>core/Ops/Ops.sql</File>
+      <File>core/Ops/Ops2.sql</File>
+      <File>core/Ops/Ops3.sql</File>
+      <File>core/Ops/Ops4.sql</File>
+      <File>core/Ops/Ops5.sql</File>
+      <File>core/Ops/Ops6.sql</File>
+      <File>core/Ops/Ops7.sql</File>
+      <File>core/Ops/Ops8.sql</File>	  
+	  
+      <File>core/Other/May.sql</File>
+      <File>core/Main/Diplomacy/Diplomacy.xml</File>  
+	  <File>core/Main/Diplomacy/RH_New_Diplo_Strat1.sql</File>
+	  <File>core/Main/Diplomacy/RH_New_Diplo_Strat2.sql</File>	  
+	  
+      <File>core/Other/Strategics.sql</File>
+      <File>core/Other/Various_Bugfix.sql</File>
+	  <File>core/Other/Deity_Plus_Support.sql</File>
+	  <File>core/Other/Deity_Plus_Standard_Starting_Units_Changes.sql</File>
+	  <File>core/Other/Deity_Plus_Fewer_Starting_Units.sql</File>
+	  <File>core/Other/Deity_Plus_No_Starting_Units.sql</File>
+      <File>core/Strategies/New_Strategies.xml</File>
+	  <File>core/Other/Mod_Support/Monopolies_Plus_Tycoons_Investors_Support.sql</File>
+	  <File>core/Other/Parameter_Setup.sql</File>
+	  <File>core/Other/Diplomacy_Offset/Standard_Offset.sql</File>
+	  <File>core/Other/Diplomacy_Offset/Lower_Offset.sql</File>
+	  <File>core/Other/Diplomacy_Offset/Lowest_Offset.sql</File>
+	  <File>core/Other/RH_Gamemodes/RH_ROM.sql</File>
+	  <File>core/Other/RH_Gamemodes/RH_ROM.xml</File>
+	  <File>core/Other/RH_Gamemodes/Extra_Strategics/RH_Extra_Strategics.sql</File>
+	  <File>core/Other/RH_AI_Loc_Text.xml</File>
+	  <File>core/Other/Misc.sql</File>
+	  <File>core/Experimental/ResearchChooser.lua</File>
+	  <File>core/Experimental/TechTree.lua</File>
 
 		<!-- Community Extension Support -->
 		<File>core/Strategies/Community_Extension/Scripts/CongressAI.lua</File>

@@ -56,6 +56,73 @@ INSERT INTO TechnologyPrereqs				(Technology,	PrereqTech)  VALUES
 
 
 
+-- Tech Boosts for Fake Techs
+/*
+<Modifiers>
+		<Row>
+			<ModifierId>TRAIT_FREE_TECH_BOOST_WRITING</ModifierId>
+			<ModifierType>MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST</ModifierType>
+			<RunOnce>true</RunOnce>
+			<Permanent>true</Permanent>
+		</Row>
+
+<ModifierArguments>
+		<Row>
+			<ModifierId>TRAIT_FREE_TECH_BOOST_WRITING</ModifierId>
+			<Name>TechType</Name>
+			<Value>TECH_WRITING</Value>
+		</Row>
+*/
+
+/*
+-- Query to generate insert statements for Modifiers and ModifierArguments
+WITH TechBoosts AS (
+    SELECT 
+        TechName,
+        'TRAIT_FREE_TECH_BOOST_' || REPLACE(TechName, 'TECHNOLOGY_RH_', 'RH_') AS ModifierId
+    FROM 
+        Technologies
+    WHERE 
+        TechName LIKE 'TECHNOLOGY_RH%'
+)
+-- Auto Insert into Modifiers table
+INSERT INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent)
+SELECT 
+    ModifierId,
+    'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',
+    1, -- RunOnce = true
+    1  -- Permanent = true
+FROM 
+    TechBoosts;
+
+-- Auto Insert into ModifierArguments table
+INSERT INTO ModifierArguments (ModifierId, Name, Value)
+SELECT 
+    ModifierId,
+    'TechType',
+    TechName
+FROM 
+    TechBoosts;
+
+
+INSERT INTO TraitModifiers (TraitType, ModifierId)
+TRAIT_LEADER_MAJOR_CIV,
+
+
+WHERE 
+    TraitType LIKE 'TRAIT_FREE_TECH_BOOST_%';
+
+
+
+
+	<TraitModifiers>
+		<!--Canada-->
+		<Row>
+			<TraitType>TRAIT_CIVILIZATION_FACES_OF_PEACE</TraitType>
+			<ModifierId>TRAIT_NO_SUPRISE_WAR_FOR_CANADA</ModifierId>
+		</Row>
+*/
+
 
 INSERT INTO Technologies_XP2    (TechnologyType,		HiddenUntilPrereqComplete) VALUES	
 
@@ -97,7 +164,129 @@ INSERT INTO Technologies_XP2    (TechnologyType,		HiddenUntilPrereqComplete) VAL
 		('TECHNOLOGY_RH_UNLOCK_FASCISM',				1),
 		('TECHNOLOGY_RH_UNLOCK_COMMUNISM',				1),	--  +0.6 Production per Citizen in cities with Governors.
 		('TECHNOLOGY_RH_UNLOCK_DEMOCRACY',				1);		
+
+
+
+-- Auto Tech Boost for New AI Technologies
+
+--  SubjectRequirementSetId,
+
+
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, RunOnce, Permanent)
+SELECT
+    TechnologyType || '_BOOST_MOD' AS ModifierId,
+    'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST' AS ModifierType,
+--    'PLAYER_IS_AI' AS SubjectRequirementSetId,
+    1 AS RunOnce,
+    1 AS Permanent
+FROM Technologies
+WHERE TechnologyType LIKE 'TECHNOLOGY_RH_%';
+
+-- 2: Insert corresponding arguments for each new tech boost modifier
+INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value)
+SELECT
+    TechnologyType || '_BOOST_MOD' AS ModifierId,
+    'TechType' AS Name,
+    TechnologyType AS Value
+FROM Technologies
+WHERE TechnologyType LIKE 'TECHNOLOGY_RH_%';
+
+-- 3: Insert corresponding entries for TraitModifiers
+INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
+SELECT
+    'TRAIT_LEADER_MAJOR_CIV' AS TraitType,
+    TechnologyType || '_BOOST_MOD' AS ModifierId
+FROM Technologies
+WHERE TechnologyType LIKE 'TECHNOLOGY_RH_%';
+
+
+
+
+
+
+
+--INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType,  RunOnce, Permanent) VALUES		
+--		('TECHNOLOGY_RH_AI_RIV_GODDESS_BOOST_MOD2',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',    1, 1);
 		
+		
+		
+/*		
+		('TECHNOLOGY_RH_AI_MH',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_FEED',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+*/
+
+/*
+INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
+		('TECHNOLOGY_RH_AI_RIV_GODDESS_BOOST_MOD2',				'TechType', 					 'TECHNOLOGY_RH_AI_RIV_GODDESS');
+
+
+
+INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId)
+		('TRAIT_LEADER_MAJOR_CIV',			'TECHNOLOGY_RH_AI_RIV_GODDESS_BOOST_MOD2');
+*/		
+		
+
+		
+
+
+
+
+
+
+
+
+
+
+/*
+INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId, RunOnce, Permanent) VALUES		
+		('TECHNOLOGY_RH_',					'MODIFIER_PLAYER_GRANT_SPECIFIC_TECH_BOOST',	'PLAYER_IS_AI', 1, 1),
+
+
+
+
+INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
+		('TECHNOLOGY_RH_',				'TechType', 					 'TECHNOLOGY_RH_'),
+
+
+
+
+
+
+<Modifiers>
+		<Row>
+			<ModifierId> (techname)</ModifierId>
+			<ModifierType></ModifierType>
+			<RunOnce>true</RunOnce>
+			<Permanent>true</Permanent>
+		</Row>
+
+<ModifierArguments>
+		<Row>
+			<ModifierId>TECHNOLOGY_RH_ (techname)</ModifierId>
+			<Name></Name>
+			<Value>techname</Value>
+		</Row>
+
+*/
+
+
+
+
+
+
+
 
 
 /*

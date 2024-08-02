@@ -145,9 +145,16 @@ INSERT OR IGNORE INTO Types     (Type,		Kind)    VALUES
 		('YIELD_RH_HAPPINESS_COMP',						'KIND_YIELD'),
 		('YIELD_RH_GW_SLOT',							'KIND_YIELD'),
 		
-		('YIELD_RH_CULTURE_VICTORY_BASE',							'KIND_YIELD'),
-		('YIELD_RH_STATUE_LIBERTY',						'KIND_YIELD'),		
-		('YIELD_RH_KILWA',								'KIND_YIELD'),		
+		('YIELD_RH_CULTURE_VICTORY_BASE',				'KIND_YIELD'),
+		('YIELD_RH_STATUE_LIBERTY',						'KIND_YIELD'),	
+		
+		('YIELD_RH_CAMPUS',								'KIND_YIELD'),		
+		
+		
+		
+		
+		
+		
 		('YIELD_RH_MAUS_H',								'KIND_YIELD'),	
 
 		('YIELD_RH_CITY_CENTRE',						'KIND_YIELD'),	
@@ -234,16 +241,6 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 ('YIELD_RH_DIPLO', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0'),
 ('YIELD_RH_LOYALTY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0'),
 
--- Govs
-
-('YIELD_RH_DEMOCRACY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0'),
-('YIELD_RH_COMMUNISM', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0'),
-('YIELD_RH_FASCISM', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0'),
-('YIELD_RH_SYNTHETIC_TECHNOCRACY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0'), --10
-
-('YIELD_RH_CLASSICAL_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0'),
-('YIELD_RH_MERCHANT_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0'),
-('YIELD_RH_MONARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0'),
 
 
 ('YIELD_RH_MAGNUS', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0'),
@@ -344,7 +341,7 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 
 INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChange, DefaultValue)    VALUES
 
-('YIELD_RH_OLIGARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', 							'0', 0.7),
+
 
 -- Individual CASE
 
@@ -383,7 +380,7 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 ('YIELD_RH_GW_SLOT', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.8),	
 
 ('YIELD_RH_STATUE_LIBERTY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.8),		
---('YIELD_RH_KILWA', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.15),	
+--('YIELD_RH_CAMPUS', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.15),	
 
 
 ('YIELD_RH_CITY_CENTRE', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.8),		
@@ -392,7 +389,20 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 
 ('YIELD_RH_CAV', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  0.7),
 
-	
+-- Govs
+
+('YIELD_RH_DEMOCRACY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  1.5),
+('YIELD_RH_COMMUNISM', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  1.5),
+('YIELD_RH_FASCISM', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  1.5),
+('YIELD_RH_SYNTHETIC_TECHNOCRACY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  1.2), 
+
+('YIELD_RH_CLASSICAL_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  1.2),
+('YIELD_RH_OLIGARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', 		'0',							  1.1),
+
+('YIELD_RH_MERCHANT_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			    1.5),
+('YIELD_RH_MONARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  			1.5),
+
+
 -- Policy Card
 
 ('YIELD_RH_EXPANSION', 	'LOC_YIELD_RH_AI', '[ICON_GOLD]', 			'0', 			    0.3),	
@@ -425,7 +435,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('DefaultYieldBias', 'YIELD_RH_MERCHANT_REPUBLIC', 		0, -25), -- pvs -75
 
 ('DefaultYieldBias', 'YIELD_RH_CLASSICAL_REPUBLIC', 	1, 30),
-('DefaultYieldBias', 'YIELD_RH_MONARCHY', 				1, 150), -- Pvs -50, 20
+('DefaultYieldBias', 'YIELD_RH_MONARCHY', 				1, 175), -- Pvs -50, 20
 ('DefaultYieldBias', 'YIELD_RH_OLIGARCHY', 				1, -40); -- Pvs -50
 
 
@@ -533,7 +543,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
 
 -- Buildings / Infrastrucutre
 
---('DefaultYieldBias', 'YIELD_RH_KILWA', 						1, 5),
+--('DefaultYieldBias', 'YIELD_RH_CAMPUS', 						1, 5),
 ('DefaultYieldBias', 'YIELD_RH_MAUS_H', 					 -20),
 
 ('DefaultYieldBias', 'YIELD_RH_CITY_CENTRE', 				 -150);

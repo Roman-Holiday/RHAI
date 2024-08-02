@@ -23,7 +23,7 @@ INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('EleanorDistricts', 'DISTRICT_THEATER', 1, 100),
 ('EleanorYields', 'YIELD_FOOD', 1, 100), -- pvs 45, 50
-('EleanorYields', 'YIELD_CULTURE', 1, 75), -- pvs 50
+('EleanorYields', 'YIELD_CULTURE', 1, 600), -- pvs 50
 ('EleanorYields', 'YIELD_SCIENCE', 0, -11),
 ('EleanorYields', 'YIELD_PRODUCTION', 1, -2),
 ('EleanorYields', 'YIELD_RH_LOYALTY', 1, 950),
@@ -797,7 +797,7 @@ INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('CanadaYields', 'YIELD_RH_DEMOCRACY', 1, 300),
-('CanadaYields', 'YIELD_RH_DIPLO', 1, 750),
+('CanadaYields', 'YIELD_RH_DIPLO', 1, 950),
 
 ('CanadaYields', 'YIELD_CULTURE', 1, 60),
 ('CanadaYields', 'YIELD_FOOD', 1, 35), -- Farms over Lumber Mills
@@ -840,7 +840,7 @@ SELECT 'LaurierWonders', 'BUILDING_AMUNDSEN_SCOTT_RESEARCH_STATION', 1, 300
 FROM Types WHERE Type = 'BUILDING_AMUNDSEN_SCOTT_RESEARCH_STATION';
 
 UPDATE AiFavoredItems SET Value = 76 WHERE ListType = 'LaurierUnits' AND Item = 'UNIT_NATURALIST'; -- def. -1, pvs 90
-UPDATE AiFavoredItems SET Value = 100 WHERE ListType = 'LaurierTourism' AND Item = 'PSEUDOYIELD_TOURISM'; -- base 0.82, pvs 55
+UPDATE AiFavoredItems SET Value = 150 WHERE ListType = 'LaurierTourism' AND Item = 'PSEUDOYIELD_TOURISM'; -- base 0.82, pvs 55
 UPDATE AiFavoredItems SET Value = 100 WHERE ListType = 'LaurierWonders' AND Item = 'BUILDING_EIFFEL_TOWER';
 
 DELETE FROM AiFavoredItems WHERE ListType = 'LaurierDiplomacy' AND Item IN ('DIPLOACTION_DENOUNCE'); -- Late game AI COMPATIBILITY

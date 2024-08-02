@@ -638,7 +638,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('AggressiveYields', 'YIELD_RH_OLIGARCHY', 				1, 140), -- pvs 50, 125
 
-('AggressiveYields', 'YIELD_RH_JUST_WAR',   		1, 400), -- pvs 150, 200
+('AggressiveYields', 'YIELD_RH_JUST_WAR',   		1, 750), -- pvs 150, 200, 400
 ('AggressiveYields', 'YIELD_SCIENCE', 				1, 25), 
 ('AggressiveYields', 'YIELD_PRODUCTION', 			1, 25),
 
@@ -1350,6 +1350,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('RHTradeAlliances', 'ALLIANCE_ECONOMIC', 	1, 60),
 
+--('RHTradeCommemorations', 'COMMEMORATION_SCIENTIFIC', 	1, 60), -- Commercial Hub Science, Temp for Golden Age
 ('RHTradeCommemorations', 'COMMEMORATION_ECONOMIC', 	1, 60),
 ('RHTradeCommemorations', 'COMMEMORATION_INDUSTRIAL', 	0, 0),
 
@@ -1428,8 +1429,12 @@ INSERT OR IGNORE INTO AiLists (ListType, LeaderType, System) VALUES
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
+--('RHNaval_ExplorationCommemorations', 'COMMEMORATION_SCIENTIFIC', 1, 100), -- Harbour Science
+
 ('RHNaval_ExplorationScoutUses', 'DEFAULT_NAVAL_SCOUTS', 1, 300), 
 ('RHNaval_ExplorationScoutUses', 'NAVAL_SCOUTS_FOR_WORLD_EXPLORATION', 1, 300); 
+
+
 
 
 

@@ -66,7 +66,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_ANCIENT_MOD_XXS',							'Amount'   , 4),
 
 		('RH_ANCIENT_MOD_MINUS',		'YieldType', 		'YIELD_RH_ANCIENT'), -- Shipbuilding
-		('RH_ANCIENT_MOD_MINUS',							'Amount'   , -250), -- pvs -150
+		('RH_ANCIENT_MOD_MINUS',							'Amount'   , -500), -- pvs -150, -250
 
 		('RH_ANCIENT_MOD_MS',		'YieldType', 		'YIELD_RH_ANCIENT'),
 		('RH_ANCIENT_MOD_MS',							'Amount'   , 40), 
@@ -88,6 +88,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_SHRINE', 		'RH_ANCIENT_MOD_MXL'),
 ('BUILDING_LIBRARY', 		'RH_ANCIENT_MOD_S'),
 
+('BUILDING_WATER_MILL', 		'RH_ANCIENT_MOD_MINUS'),
 ('BUILDING_GRANARY', 		'RH_ANCIENT_MOD_MINUS');
 
 
@@ -160,7 +161,8 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 		
 		('RH_END_OF_TECH_MOD_M',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),
 
-		('RH_END_OF_TECH_MOD_ML',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),		
+		('RH_END_OF_TECH_MOD_ML',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),	
+		('RH_END_OF_TECH_MOD_MML',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),			
 		('RH_END_OF_TECH_MOD_L',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),
 		('RH_END_OF_TECH_MOD_XS',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),
 		('RH_END_OF_TECH_MOD_XXS',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),	
@@ -178,6 +180,9 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 
 		('RH_END_OF_TECH_MOD_ML',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
 		('RH_END_OF_TECH_MOD_ML',							'Amount'   , 700),
+
+		('RH_END_OF_TECH_MOD_MML',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
+		('RH_END_OF_TECH_MOD_MML',							'Amount'   , 550),
 
 		('RH_END_OF_TECH_MOD_XS',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
 		('RH_END_OF_TECH_MOD_XS',							'Amount'   , 30),
@@ -211,7 +216,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 
 
 		('RH_END_OF_TECH_MOD_NEGATIVE2',		'YieldType', 	'YIELD_RH_END_OF_TECH'),
-		('RH_END_OF_TECH_MOD_NEGATIVE2',						'Amount'   , -9500),
+		('RH_END_OF_TECH_MOD_NEGATIVE2',						'Amount'   , -950),
 
 	--	('RH_END_OF_TECH_MOD_NEGATIVE',		'YieldType', 	'YIELD_RH_END_OF_TECH'),
 		('RH_END_OF_TECH_MOD_NEGATIVE',						'Amount'   , -99); -- pvs 2500
@@ -223,15 +228,40 @@ INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES
 			('GOVERNMENT_AUTOCRACY', 						'RH_END_OF_TECH_MOD_NEGATIVE');
 
 
---INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES	
---
---			('GOVERNMENT_CHIEFDOM', 						'RH_END_OF_TECH_MOD_NEGATIVE2'),
---			('GOVERNMENT_AUTOCRACY', 						'RH_END_OF_TECH_MOD_NEGATIVE2');
+INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES	
+
+			('GOVERNMENT_CHIEFDOM', 						'RH_END_OF_TECH_MOD_NEGATIVE2'),
+			('GOVERNMENT_AUTOCRACY', 						'RH_END_OF_TECH_MOD_NEGATIVE2');
 
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 ('BUILDING_STONEHENGE',		 'RH_END_OF_TECH_MOD_NEGATIVE_XXS');
+
+
+-- Unique Districts
+INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId)
+SELECT DistrictType, 'RH_END_OF_TECH_MOD_ML' 
+FROM Districts
+WHERE TraitType IS NOT NULL;
+
+
+-- Unique Buildings
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId)
+SELECT BuildingType, 'RH_END_OF_TECH_MOD_MML' 
+FROM Buildings
+WHERE TraitType IS NOT NULL;
+
+
+-- Test for Food and Production Unique Improvements as well
+
+INSERT OR IGNORE INTO ImprovementModifiers (ImprovementType, ModifierId)
+SELECT DISTINCT i.ImprovementType, 'RH_END_OF_TECH_MOD_XS'
+FROM Improvements i
+JOIN Improvement_YieldChanges iyc
+ON i.ImprovementType = iyc.ImprovementType
+WHERE i.TraitType IS NOT NULL
+AND (iyc.YieldType = 'YIELD_FOOD' OR iyc.YieldType = 'YIELD_PRODUCTION');
 
 
 
@@ -443,7 +473,7 @@ FROM Types WHERE Type = 'BUILDING_TAJ_MAHAL';
 
 -- City State Test Yield		
 			
-			
+/*			
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
 		('RH_CITY_STATE_MOD_XXS',			'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),
 		('RH_CITY_STATE_MOD_XS',			'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),
@@ -482,7 +512,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_CASTLE', 		'RH_CITY_STATE_MOD'),
 ('BUILDING_STAR_FORT', 		'RH_CITY_STATE_MOD');
 
-
+*/
 
 
 
@@ -1034,7 +1064,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_MAUS_H_MOD_MINUS',							'Amount'   , '-90'),
 
 		('RH_MAUS_H_MOD',			'YieldType', 		'YIELD_RH_MAUS_H'),
-		('RH_MAUS_H_MOD',								'Amount'   , 250); -- pvs 25, 75
+		('RH_MAUS_H_MOD',								'Amount'   , 330); -- pvs 25, 75, 250
 
 
 
@@ -1195,7 +1225,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_CITY_CENTRE_MOD_XS',							'Amount'   , 4),
 
 		('RH_CITY_CENTRE_MOD_MS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_MS',							'Amount'   , 9), 
+		('RH_CITY_CENTRE_MOD_MS',							'Amount'   , 7), -- pvs 9
 
 		('RH_CITY_CENTRE_MOD_S',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
 		('RH_CITY_CENTRE_MOD_S',							'Amount'   , 12), -- pvs 9
@@ -2097,7 +2127,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 		
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 
-		('RH_END_OF_TECH_MOD_GOV1',						'Amount'   , 20),
+		('RH_END_OF_TECH_MOD_GOV1',						'Amount'   , 2), -- pvs 20
 		('RH_END_OF_TECH_MOD_GOV2',						'Amount'   , 100),
 		('RH_END_OF_TECH_MOD_GOV3',						'Amount'   , 200),
 		('RH_END_OF_TECH_MOD_GOV4',						'Amount'   , 300);
@@ -2122,3 +2152,188 @@ INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES
 			('GOVERNMENT_SYNTHETIC_TECHNOCRACY', 			'RH_END_OF_TECH_MOD_GOV4');
 
 
+
+INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
+		('RH_END_OF_TECH_MOD_GOV_DT_1',				'MODIFIER_PLAYER_ADJUST_DUPLICATE_FIRST_INFLUENCE_TOKEN',	'RH_AI_ANCIENT_ONLY_REQ_S'),
+		('RH_END_OF_TECH_MOD_GOV_DT_2',				'MODIFIER_PLAYER_ADJUST_DUPLICATE_FIRST_INFLUENCE_TOKEN',	'RH_AI_ANCIENT_ONLY_REQ_S'),		
+		('RH_END_OF_TECH_MOD_GOV_DT_3',				'MODIFIER_PLAYER_ADJUST_DUPLICATE_FIRST_INFLUENCE_TOKEN',	'RH_AI_ANCIENT_ONLY_REQ_S'),		
+		('RH_END_OF_TECH_MOD_GOV_DT_4',				'MODIFIER_PLAYER_ADJUST_DUPLICATE_FIRST_INFLUENCE_TOKEN',	'RH_AI_ANCIENT_ONLY_REQ_S');			
+		
+		
+INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
+
+		('RH_END_OF_TECH_MOD_GOV_DT_1',						'Amount'   , 2),
+		('RH_END_OF_TECH_MOD_GOV_DT_2',						'Amount'   , 80),
+		('RH_END_OF_TECH_MOD_GOV_DT_3',						'Amount'   , 90),
+		('RH_END_OF_TECH_MOD_GOV_DT_4',						'Amount'   , 95);
+
+
+INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES	
+
+	--		('GOVERNMENT_AUTOCRACY', 						'RH_END_OF_TECH_MOD_GOV_DT_1'),
+			('GOVERNMENT_OLIGARCHY', 						'RH_END_OF_TECH_MOD_GOV_DT_1'),
+			('GOVERNMENT_CLASSICAL_REPUBLIC', 				'RH_END_OF_TECH_MOD_GOV_DT_1'),
+
+			('GOVERNMENT_MONARCHY', 						'RH_END_OF_TECH_MOD_GOV_DT_2'),
+			('GOVERNMENT_THEOCRACY', 						'RH_END_OF_TECH_MOD_GOV_DT_2'),
+			('GOVERNMENT_MERCHANT_REPUBLIC', 				'RH_END_OF_TECH_MOD_GOV_DT_2'),
+			
+			('GOVERNMENT_FASCISM', 							'RH_END_OF_TECH_MOD_GOV_DT_3'),
+			('GOVERNMENT_COMMUNISM', 						'RH_END_OF_TECH_MOD_GOV_DT_3'),
+			('GOVERNMENT_DEMOCRACY', 						'RH_END_OF_TECH_MOD_GOV_DT_3'),
+			
+			('GOVERNMENT_CORPORATE_LIBERTARIANISM', 		'RH_END_OF_TECH_MOD_GOV_DT_4'),
+			('GOVERNMENT_DIGITAL_DEMOCRACY', 				'RH_END_OF_TECH_MOD_GOV_DT_4'),
+			('GOVERNMENT_SYNTHETIC_TECHNOCRACY', 			'RH_END_OF_TECH_MOD_GOV_DT_4');
+
+
+-- Delete the following modifiers for the GOVERNMENT_AUTOCRACY, Temp until Fix to prevent AI ANARCHY
+
+DELETE FROM GovernmentModifiers
+WHERE GovernmentType = 'GOVERNMENT_AUTOCRACY'
+AND ModifierId IN (
+    'AUTOCRACY_TIER1', 'AUTOCRACY_TIER2', 'AUTOCRACY_TIER3', 'AUTOCRACY_CAPITAL', 
+    'CONSULATE_TIER1', 'CHANCERY_TIER2', 'AUTOCRACY_CULTURE', 'AUTOCRACY_FOOD', 
+    'AUTOCRACY_GOLD', 'AUTOCRACY_PRODUCTION', 'AUTOCRACY_SCIENCE', 'AUTOCRACY_FAITH',
+    'AUTOCRACY_WONDERS_ACCUMULATING'
+);
+
+UPDATE GlobalParameters SET Value = '-25' WHERE Name = 'GOVERNMENT_BASE_ANARCHY_TURNS';	 -- Def 2, Temp, 0
+
+UPDATE GlobalParameters SET Value = '-8' WHERE Name = 'THRESHOLD_SHIFT_PER_ANARCHY';	 -- Def 0, Temp to Help AI
+
+
+-- Temp
+--DELETE FROM GovernmentModifiers
+--WHERE GovernmentType = 'GOVERNMENT_AUTOCRACY';
+
+--MODIFIER_PLAYER_CITIES_ADJUST_CITY_ALL_YIELDS_CHANGE
+
+
+--UPDATE MODIFIERS WHERE ModifierId ='AUTOCRACY_CAPITAL' and ModifierType ='MODIFIER_PLAYER_CITIES_ADJUST_CITY_ALL_YIELDS_CHANGE' SET SubjectRequirementSetId = 'RH_BUILDING_IS_PALACE';
+
+
+
+SELECT ModifierId, ModifierType, SubjectRequirementSetId
+FROM MODIFIERS
+WHERE ModifierId IN (
+    'AUTOCRACY_CAPITAL', 
+    'AUTOCRACY_TIER1', 
+    'AUTOCRACY_TIER2', 
+    'AUTOCRACY_TIER3', 
+    'CONSULATE_TIER1', 
+    'CHANCERY_TIER2'
+) 
+AND ModifierType = 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_ALL_YIELDS_CHANGE';
+
+-- Fix RequirementSets to prevent AI Gov Switching Anarchy Bug
+UPDATE MODIFIERS
+SET SubjectRequirementSetId = 'RH_' || SubjectRequirementSetId
+WHERE ModifierId IN (
+    'AUTOCRACY_CAPITAL', 
+    'AUTOCRACY_TIER1', 
+    'AUTOCRACY_TIER2', 
+    'AUTOCRACY_TIER3', 
+    'CONSULATE_TIER1', 
+    'CHANCERY_TIER2'
+) 
+AND ModifierType = 'MODIFIER_PLAYER_CITIES_ADJUST_CITY_ALL_YIELDS_CHANGE';
+
+
+INSERT INTO Requirements     (RequirementId, 			RequirementType,					Inverse) VALUES	
+('RH_NOT_FUTURE_TECH',						'REQUIREMENT_PLAYER_HAS_TECHNOLOGY',		1);
+
+
+INSERT OR IGNORE INTO RequirementArguments  (RequirementId,	Name, Value) VALUES
+('RH_NOT_FUTURE_TECH',							'TechnologyType', 			'FUTURE_TECH'); 
+
+
+
+INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('RH_BUILDING_IS_PALACE', 'REQUIREMENTSET_TEST_ALL'),
+    ('RH_BUILDING_IS_TIER1', 'REQUIREMENTSET_TEST_ALL'),
+    ('RH_BUILDING_IS_TIER2', 'REQUIREMENTSET_TEST_ALL'),
+    ('RH_BUILDING_IS_TIER3', 'REQUIREMENTSET_TEST_ALL'),
+    ('RH_BUILDING_IS_CONSULATE', 'REQUIREMENTSET_TEST_ALL'),
+    ('RH_BUILDING_IS_CHANCERY', 'REQUIREMENTSET_TEST_ALL');
+
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('RH_BUILDING_IS_PALACE', 'REQUIRES_CITY_HAS_PALACE'),
+    ('RH_BUILDING_IS_PALACE', 'RH_NOT_FUTURE_TECH'),
+
+    ('RH_BUILDING_IS_TIER1', 'REQUIRES_CITY_HAS_GOV_TALL'),
+    ('RH_BUILDING_IS_TIER1', 'REQUIRES_CITY_HAS_GOV_WIDE'),
+    ('RH_BUILDING_IS_TIER1', 'REQUIRES_CITY_HAS_GOV_CONQUEST'),
+    ('RH_BUILDING_IS_TIER1', 'RH_NOT_FUTURE_TECH'),
+
+    ('RH_BUILDING_IS_TIER2', 'REQUIRES_CITY_HAS_GOV_CITYSTATES'),
+    ('RH_BUILDING_IS_TIER2', 'REQUIRES_CITY_HAS_GOV_SPIES'),
+    ('RH_BUILDING_IS_TIER2', 'REQUIRES_CITY_HAS_GOV_FAITH'),
+    ('RH_BUILDING_IS_TIER2', 'RH_NOT_FUTURE_TECH'),
+
+    ('RH_BUILDING_IS_TIER3', 'REQUIRES_CITY_HAS_GOV_MILITARY'),
+    ('RH_BUILDING_IS_TIER3', 'REQUIRES_CITY_HAS_GOV_CULTURE'),
+    ('RH_BUILDING_IS_TIER3', 'REQUIRES_CITY_HAS_GOV_SCIENCE'),
+    ('RH_BUILDING_IS_TIER3', 'RH_NOT_FUTURE_TECH'),
+
+    ('RH_BUILDING_IS_CONSULATE', 'REQUIRES_CITY_HAS_CONSULATE'),
+    ('RH_BUILDING_IS_CONSULATE', 'RH_NOT_FUTURE_TECH'),
+
+    ('RH_BUILDING_IS_CHANCERY', 'REQUIRES_CITY_HAS_CHANCERY'),
+    ('RH_BUILDING_IS_CHANCERY', 'RH_NOT_FUTURE_TECH');
+
+
+
+
+/*
+		<Row>
+			<RequirementSetId>BUILDING_IS_PALACE</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_PALACE</RequirementId>
+		</Row>
+		
+		
+			<Row>
+			<RequirementSetId>BUILDING_IS_TIER1</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_GOV_TALL</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>BUILDING_IS_TIER1</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_GOV_WIDE</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>BUILDING_IS_TIER1</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_GOV_CONQUEST</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>BUILDING_IS_TIER2</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_GOV_CITYSTATES</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>BUILDING_IS_TIER2</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_GOV_SPIES</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>BUILDING_IS_TIER2</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_GOV_FAITH</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>BUILDING_IS_TIER3</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_GOV_MILITARY</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>BUILDING_IS_TIER3</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_GOV_CULTURE</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>BUILDING_IS_TIER3</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_GOV_SCIENCE</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>CAPITAL_OR_GOV_DISTRICT_REQUIREMENTS</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_PALACE</RequirementId>
+		</Row>
+		<Row>
+			<RequirementSetId>CAPITAL_OR_GOV_DISTRICT_REQUIREMENTS</RequirementSetId>
+			<RequirementId>REQUIRES_CITY_HAS_GOV_DISTRICT</RequirementId>
+		</Row>
+		*/

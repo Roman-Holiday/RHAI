@@ -5,6 +5,8 @@
 
 INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_HAMMURABI', 'TRAIT_LEADER_ESPIONAGE');
 
+
+
 -- todo check science victory preference
 
 INSERT OR IGNORE INTO	TraitModifiers	
@@ -433,7 +435,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_DEF_PRES1',		'YieldType'    , 'YIELD_FOOD'),
-		('RH_DEF_PRES1',						'Amount'   , 80); -- pvs 7 Culture, 20, 35, 37, 60, 90, 135, 105, 35
+		('RH_DEF_PRES1',						'Amount'   , 95); -- pvs 7 Culture, 20, 35, 37, 60, 90, 135, 105, 35
 
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_GROVE', 		'RH_DEF_PRES1');
@@ -444,7 +446,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_DEF_PRES2',		'YieldType'    , 'YIELD_FOOD'),
-		('RH_DEF_PRES2',						'Amount'   , 110); -- 50, 60, 90, 135, 105, 32
+		('RH_DEF_PRES2',						'Amount'   , 125); -- 50, 60, 90, 135, 105, 32
 
 
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
@@ -589,7 +591,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_DEF_PRES_NEGATIVE',			'YieldType'    , 'YIELD_SCIENCE'),
-		('RH_DEF_PRES_NEGATIVE',						'Amount'   , -45); -- PVS -15
+		('RH_DEF_PRES_NEGATIVE',						'Amount'   , -75); -- PVS -15, -45
 
 INSERT INTO DistrictModifiers (DistrictType, ModifierId) VALUES
 ('DISTRICT_PRESERVE', 		'RH_DEF_PRES_NEGATIVE');

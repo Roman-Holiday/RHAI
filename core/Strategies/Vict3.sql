@@ -88,26 +88,31 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('CultureVictoryPseudoYields', 'PSEUDOYIELD_UNIT_ARCHAEOLOGIST', 1, 200); -- base 4 -- RHAI 3.7 (results in similar value of 6.84 vs 6) -- increased to 85 from 80, 110
 
 UPDATE AiFavoredItems SET Value = 310 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_TOURISM'; -- def. 75 (lower 0.82 value), pvs 110, 120, test
-UPDATE AiFavoredItems SET Value = 155 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MUSICIAN'; -- base is lower, pvs 85, 100, 120
-UPDATE AiFavoredItems SET Value = 155 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ARTIST'; -- higher tourism , pvs 85, 100, 120, 125
+UPDATE AiFavoredItems SET Value = 180 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MUSICIAN'; -- base is lower, pvs 85, 100, 120
+UPDATE AiFavoredItems SET Value = 170 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ARTIST'; -- higher tourism , pvs 85, 100, 120, 125
 UPDATE AiFavoredItems SET Value = 155 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- less tourism, doubled at printing, 75
-UPDATE AiFavoredItems SET Value = 100 WHERE ListType = 'CultureVictoryYields'       AND Item = 'YIELD_CULTURE'; -- pvs 40, 45, 50
+UPDATE AiFavoredItems SET Value = 250 WHERE ListType = 'CultureVictoryYields'       AND Item = 'YIELD_CULTURE'; -- pvs 40, 45, 50
 UPDATE AiFavoredItems SET Value = 900 WHERE ListType = 'CultureVictoryPseudoYields' AND Item LIKE 'PSEUDOYIELD_GREATWORK_%'; -- def. 20, pvs 50, 90
 
-UPDATE StrategyConditions SET ThresholdValue = 10 WHERE StrategyType="VICTORY_STRATEGY_CULTURAL_VICTORY" AND ConditionFunction = 'Has Great Works'; -- 8
-UPDATE StrategyConditions SET ThresholdValue = 30 WHERE StrategyType="VICTORY_STRATEGY_CULTURAL_VICTORY" AND ConditionFunction = 'Good Culture'; -- pvs 40, 33
+UPDATE StrategyConditions SET ThresholdValue = 5 WHERE StrategyType="VICTORY_STRATEGY_CULTURAL_VICTORY" AND ConditionFunction = 'Has Great Works'; -- 8
+UPDATE StrategyConditions SET ThresholdValue = 28 WHERE StrategyType="VICTORY_STRATEGY_CULTURAL_VICTORY" AND ConditionFunction = 'Good Culture'; -- pvs 40, 33, 30
 
-UPDATE StrategyConditions SET ThresholdValue = 5 WHERE StrategyType="VICTORY_STRATEGY_CULTURAL_VICTORY" AND ConditionFunction = 'Has Great Writer'; -- Don't think it works - far fewer civs going for culture -- Leaving and Adding new Tourist Conditions
---DELETE FROM StrategyConditions WHERE StrategyType="VICTORY_STRATEGY_CULTURAL_VICTORY" AND ConditionFunction = 'Has Great Writer';
+--UPDATE StrategyConditions SET ThresholdValue = 1 WHERE StrategyType="VICTORY_STRATEGY_CULTURAL_VICTORY" AND ConditionFunction = 'Has Great Writer'; -- Don't think it works - far fewer civs going for culture -- Leaving and Adding new Tourist Conditions
+DELETE FROM StrategyConditions WHERE StrategyType="VICTORY_STRATEGY_CULTURAL_VICTORY" AND ConditionFunction = 'Has Great Writer';
+--DELETE FROM StrategyConditions WHERE StrategyType="VICTORY_STRATEGY_CULTURAL_VICTORY" AND ConditionFunction = 'Has Great Artist';
 
+-- Activates at 28%, 5GW, Great Artist, will redo this conditon completely soon
 
 INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, StringValue, ThresholdValue) VALUES
-('VICTORY_STRATEGY_CULTURAL_VICTORY',      				'Tourists Taken',			 null, 8); -- pvs 5
+('VICTORY_STRATEGY_CULTURAL_VICTORY',      				'Has Great Works',			 null, 20); -- Also at 5
+
+--INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, StringValue, ThresholdValue) VALUES
+--('VICTORY_STRATEGY_CULTURAL_VICTORY',      				'Tourists Taken',			 null, 8); -- pvs 5
 
 INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, StringValue, ThresholdValue) VALUES
-('VICTORY_STRATEGY_CULTURAL_VICTORY',      				'Tourists Taken',			 null, 55); -- pvs 40
+('VICTORY_STRATEGY_CULTURAL_VICTORY',      				'Tourists Taken',			 null, 30); 
 
---75
+-- Def 75
 
 INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, StringValue, ThresholdValue) VALUES
 ('VICTORY_STRATEGY_CULTURAL_VICTORY',      				'Tourists Taken',			 null, 250); -- 250 Tourists

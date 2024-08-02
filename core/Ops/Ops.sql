@@ -36,6 +36,8 @@ INSERT OR REPLACE INTO AiFavoredItems(ListType, Item, Value) VALUES
 ('UnitPriorityBoosts', 'UNIT_CATAPULT', 4), -- pvs 7, 8, 10, 11 (11 too high), 5
 ('UnitPriorityBoosts', 'UNIT_GALLEY', -15),
 
+('UnitPriorityBoosts', 'UNIT_QUADRIREME', 50),
+
 ('UnitPriorityBoosts', 'UNIT_BUILDER', 900), -- Test, 95, 200
 
 --('UnitPriorityBoosts', 'UNIT_TREBUCHET', 1), -- pvs 10, 11, 5 (disabled as was way too high)
@@ -314,7 +316,7 @@ INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
 INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 ('DefaultUnitBuilds', 'TRAIT_LEADER_MAJOR_CIV', 'UnitPromotionClasses');
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('DefaultUnitBuilds', 'PROMOTION_CLASS_NAVAL_RANGED', 1, 19), -- pvs 8, 11, 17
+('DefaultUnitBuilds', 'PROMOTION_CLASS_NAVAL_RANGED', 1, 21), -- pvs 8, 11, 17, 19
 --('DefaultUnitBuilds', 'PROMOTION_CLASS_NAVAL_RAIDER', 1, 5),
 ('DefaultUnitBuilds', 'PROMOTION_CLASS_SIEGE', 1, 15), -- New +1 -- testing +4 (will probs be too high) -reverting back to 2 (testing 5, now 7, 10 as reducing military trait from 20 to 16) -- pvs 10
 ('DefaultUnitBuilds', 'PROMOTION_CLASS_RANGED', 1, 4), -- pvs 3, 4 -- back to 4, now 3, 2 (back to 3, 2 is too low)
