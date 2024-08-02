@@ -247,9 +247,9 @@
 			</ConfigurationValueMatches>
 		</Criteria>
 
-
-
-
+		<Criteria id="RH_WILDW_COMMUNITY_EXTENSION_ENABLED">
+			<ModInUse>3351473b-0746-417a-a618-2b66a04d8f3d</ModInUse>
+		</Criteria>
 	</ActionCriteria>
 
 
@@ -334,13 +334,13 @@
 			<File>core/Strategies/RH.xml</File>
 		</AddUserInterfaces>
 
-		<ImportFiles id="RH_WILDW_AI_SETUP">
+		<!-- Community Extension Support -->
+		<ImportFiles id="RH_WILDW_AI_SETUP" criteria="RH_WILDW_COMMUNITY_EXTENSION_ENABLED">
 			<File>core/Strategies/Community_Extension/UI/ExposedMembers.lua</File>
 			<File>core/Strategies/Community_Extension/UI/ExposedMembers.xml</File>
 		</ImportFiles>
 
-		<!-- Community Extension Support -->
-		<AddUserInterfaces id="RH_WILDW_AI_EXPOSEDMEMBERS">
+		<AddUserInterfaces id="RH_WILDW_AI_EXPOSEDMEMBERS" criteria="RH_WILDW_COMMUNITY_EXTENSION_ENABLED">
 			<Properties>
 				<Context>InGame</Context>
 				<LoadOrder>10</LoadOrder>
@@ -351,7 +351,6 @@
 		<UpdateDatabase id="RH_AI_MAIN">
 			<Properties>
 				<LoadOrder>600</LoadOrder>
-
 			</Properties>
 
 			<File>core/Ops/Ops.sql</File>
