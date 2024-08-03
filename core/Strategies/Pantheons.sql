@@ -5,8 +5,8 @@ INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType) VAL
 		('RH_AI_ANCIENT_ONLY_REQ_S', 'REQUIREMENTSET_TEST_ALL');
 
 INSERT OR IGNORE INTO RequirementSetRequirements  (RequirementSetId, RequirementId) VALUES	
-		('RH_AI_ANCIENT_ONLY_REQ_S', 'PLAYER_AT_ANCIENT_ERA'),
-		('RH_AI_ANCIENT_ONLY_REQ_S', 'PLAYER_NOT_CLASSICAL_ERA'),
+		('RH_AI_ANCIENT_ONLY_REQ_S', 'RH_PLAYER_AT_ANCIENT_ERA'),
+		('RH_AI_ANCIENT_ONLY_REQ_S', 'RH_PLAYER_NOT_CLASSICAL_ERA'),
 		('RH_AI_ANCIENT_ONLY_REQ_S', 'REQUIRES_RH_HAS_CIVIC_DEFENSE'),
 		
 		('RH_AI_ANCIENT_ONLY_REQ_S', 'REQUIRES_PLAYER_IS_AI');
@@ -158,8 +158,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- Requirement: plot has a resource with a specific tag
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_GOD_OF_THE_SEA_RESOURCES', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_SEA_RESOURCES', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_SEA_RESOURCES', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_SEA_RESOURCES', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_SEA_RESOURCES', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 
 --INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_SEA_RESOURCES', 'REQUIRES_PLOT_HAS_NO_IMPROVEMENT');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_SEA_RESOURCES', 'REQUIRES_PLOT_HAS_TAG_GOD_OF_THE_SEA');
@@ -225,8 +225,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- Requirement: plot has a resource with a specific tag
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_GODDESS_OF_FESTIVALS_RESOURCES', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_FESTIVALS_RESOURCES', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_FESTIVALS_RESOURCES', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_FESTIVALS_RESOURCES', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_FESTIVALS_RESOURCES', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 
 --INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_FESTIVALS_RESOURCES', 'REQUIRES_PLOT_HAS_NO_IMPROVEMENT');
 

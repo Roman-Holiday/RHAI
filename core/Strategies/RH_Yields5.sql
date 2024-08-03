@@ -1940,8 +1940,8 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementI
 		
 		('RH_REQ_S_Harbor', 'RH_AI_HARBOR_LOW_ADJ'),		
 		
-		('RH_REQ_S_Harbor', 'PLAYER_AT_ANCIENT_ERA'),		
-		('RH_REQ_S_Harbor', 'PLAYER_NOT_CLASSICAL_ERA'),		
+		('RH_REQ_S_Harbor', 'RH_PLAYER_AT_ANCIENT_ERA'),		
+		('RH_REQ_S_Harbor', 'RH_PLAYER_NOT_CLASSICAL_ERA'),		
 		
 		('RH_REQ_S_Harbor', 'REQUIRES_PLAYER_IS_AI');
 
@@ -1992,8 +1992,8 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementI
 		('RH_REQ_S_Market', 'RH_AI_COMMERICAL_LOW_ADJ'),		
 		
 		
-		('RH_REQ_S_Market', 'PLAYER_AT_ANCIENT_ERA'),		
-		('RH_REQ_S_Market', 'PLAYER_NOT_CLASSICAL_ERA'),		
+		('RH_REQ_S_Market', 'RH_PLAYER_AT_ANCIENT_ERA'),		
+		('RH_REQ_S_Market', 'RH_PLAYER_NOT_CLASSICAL_ERA'),		
 		
 		('RH_REQ_S_Market', 'REQUIRES_PLAYER_IS_AI');
 
@@ -2018,8 +2018,8 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementI
 		('RH_REQ_S_Shrine', 'RH_AI_HOLY_SITE_LOW_ADJ'),		
 		
 		
-		('RH_REQ_S_Shrine', 'PLAYER_AT_ANCIENT_ERA'),		
-		('RH_REQ_S_Shrine', 'PLAYER_NOT_CLASSICAL_ERA'),		
+		('RH_REQ_S_Shrine', 'RH_PLAYER_AT_ANCIENT_ERA'),		
+		('RH_REQ_S_Shrine', 'RH_PLAYER_NOT_CLASSICAL_ERA'),		
 		
 		('RH_REQ_S_Shrine', 'REQUIRES_PLAYER_IS_AI');
 

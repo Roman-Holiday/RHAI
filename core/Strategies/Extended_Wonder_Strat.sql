@@ -38,8 +38,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 -- Requirement: plot has a resource with a specific tag
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_TEMPLE_ARTEMIS_RESOURCES', 'REQUIREMENTSET_TEST_ALL');
 
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_TEMPLE_ARTEMIS_RESOURCES', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_TEMPLE_ARTEMIS_RESOURCES', 'PLAYER_NOT_MEDIEVAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_TEMPLE_ARTEMIS_RESOURCES', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_TEMPLE_ARTEMIS_RESOURCES', 'RH_PLAYER_NOT_MEDIEVAL_ERA');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_TEMPLE_ARTEMIS_RESOURCES', 'REQUIRES_RH_HAS_CIVIC_DEFENSE');
 
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_TEMPLE_ARTEMIS_RESOURCES', 'REQUIRES_PLOT_HAS_TAG_TEMPLE_ARTEMIS');
@@ -72,8 +72,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 -- Requirement: plot has a resource with a specific tag
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_RUHR_VALLEY_RESOURCES', 'REQUIREMENTSET_TEST_ALL');
 
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RUHR_VALLEY_RESOURCES', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RUHR_VALLEY_RESOURCES', 'PLAYER_NOT_MEDIEVAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RUHR_VALLEY_RESOURCES', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RUHR_VALLEY_RESOURCES', 'RH_PLAYER_NOT_MEDIEVAL_ERA');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RUHR_VALLEY_RESOURCES', 'REQUIRES_RH_HAS_CIVIC_DEFENSE');
 
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RUHR_VALLEY_RESOURCES', 'RH_REQUIRES_PLOT_MINE');
@@ -114,8 +114,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 -- Requirements
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_WIND_FARM_RESOURCES', 'REQUIREMENTSET_TEST_ALL');
 
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_WIND_FARM_RESOURCES', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_WIND_FARM_RESOURCES', 'PLAYER_NOT_MEDIEVAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_WIND_FARM_RESOURCES', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_WIND_FARM_RESOURCES', 'RH_PLAYER_NOT_MEDIEVAL_ERA');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_WIND_FARM_RESOURCES', 'REQUIRES_RH_HAS_CIVIC_DEFENSE');
 
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_WIND_FARM_RESOURCES', 'RH_REQUIRES_PLOT_WIND_FARM');
@@ -146,8 +146,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- Requirements
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_OFFSHORE_WIND_FARM_IMPROVEMENT', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_OFFSHORE_WIND_FARM_IMPROVEMENT', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_OFFSHORE_WIND_FARM_IMPROVEMENT', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_OFFSHORE_WIND_FARM_IMPROVEMENT', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_OFFSHORE_WIND_FARM_IMPROVEMENT', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_OFFSHORE_WIND_FARM_IMPROVEMENT', 'RH_REQUIRES_PLOT_IMPROVEMENT_OFFSHORE_WIND_FARM');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_OFFSHORE_WIND_FARM_IMPROVEMENT', 'REQUIRES_PLAYER_IS_AI');
@@ -177,8 +177,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- Requirements
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_GEOTHERMAL_PLANT_IMPROVEMENT', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GEOTHERMAL_PLANT_IMPROVEMENT', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GEOTHERMAL_PLANT_IMPROVEMENT', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GEOTHERMAL_PLANT_IMPROVEMENT', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GEOTHERMAL_PLANT_IMPROVEMENT', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GEOTHERMAL_PLANT_IMPROVEMENT', 'RH_REQUIRES_PLOT_IMPROVEMENT_GEOTHERMAL_PLANT');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GEOTHERMAL_PLANT_IMPROVEMENT', 'REQUIRES_PLAYER_IS_AI');
@@ -207,8 +207,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- Requirements
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_SOLAR_FARM_IMPROVEMENT', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_SOLAR_FARM_IMPROVEMENT', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_SOLAR_FARM_IMPROVEMENT', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_SOLAR_FARM_IMPROVEMENT', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_SOLAR_FARM_IMPROVEMENT', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_SOLAR_FARM_IMPROVEMENT', 'RH_REQUIRES_PLOT_IMPROVEMENT_SOLAR_FARM');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_SOLAR_FARM_IMPROVEMENT', 'REQUIRES_PLAYER_IS_AI');

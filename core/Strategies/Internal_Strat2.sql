@@ -719,8 +719,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		VALUES ('RH_WORKSHOP_REQ_S', 'REQUIREMENTSET_TEST_ALL');
 
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_WORKSHOP_REQ_S', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_WORKSHOP_REQ_S', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_WORKSHOP_REQ_S', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_WORKSHOP_REQ_S', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_WORKSHOP_REQ_S', 'REQUIRES_PLAYER_IS_AI');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('RH_WORKSHOP_REQ_S', 'REQUIRES_RH_HAS_CIVIC_DEFENSE');
 

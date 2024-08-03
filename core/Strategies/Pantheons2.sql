@@ -33,20 +33,20 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 ('DIVINE_SPARK_THEATER_ANCIENT_MODIFIER', 'Amount', '1');
 
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_DIVINE_SPARK_HOLY_SITE', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_HOLY_SITE', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_HOLY_SITE', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_HOLY_SITE', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_HOLY_SITE', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_HOLY_SITE', 'REQUIRES_PLAYER_IS_AI');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_HOLY_SITE', 'REQUIRES_DISTRICT_IS_HOLY_SITE'); 
 
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_DIVINE_SPARK_CAMPUS', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_CAMPUS', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_CAMPUS', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_CAMPUS', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_CAMPUS', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_CAMPUS', 'REQUIRES_PLAYER_IS_AI');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_CAMPUS', 'REQUIRES_DISTRICT_IS_CAMPUS'); 
 
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_DIVINE_SPARK_THEATER', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_THEATER', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_THEATER', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_THEATER', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_THEATER', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_THEATER', 'REQUIRES_PLAYER_IS_AI');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_DIVINE_SPARK_THEATER', 'REQUIRES_DISTRICT_IS_THEATER'); 
 
@@ -74,8 +74,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- Requirement: plot has a resource with a specific tag
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_GOD_OF_THE_OPEN_SKY_RESOURCES', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_OPEN_SKY_RESOURCES', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_OPEN_SKY_RESOURCES', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_OPEN_SKY_RESOURCES', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_OPEN_SKY_RESOURCES', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 
 --INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GOD_OF_THE_OPEN_SKY_RESOURCES', 'REQUIRES_PLOT_HAS_NO_IMPROVEMENT');
 
@@ -114,8 +114,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- Requirement: plot has a resource with a specific tag
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_GODDESS_OF_THE_HUNT_RESOURCES', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_THE_HUNT_RESOURCES', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_THE_HUNT_RESOURCES', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_THE_HUNT_RESOURCES', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_THE_HUNT_RESOURCES', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 
 --INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_GODDESS_OF_THE_HUNT_RESOURCES', 'REQUIRES_PLOT_HAS_NO_IMPROVEMENT');
 
@@ -141,8 +141,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- Requirement: plot has a resource with a specific tag
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_RELIGIOUS_IDOLS_RESOURCES', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RELIGIOUS_IDOLS_RESOURCES', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RELIGIOUS_IDOLS_RESOURCES', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RELIGIOUS_IDOLS_RESOURCES', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RELIGIOUS_IDOLS_RESOURCES', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 
 --INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RELIGIOUS_IDOLS_RESOURCES', 'REQUIRES_PLOT_HAS_NO_IMPROVEMENT');
 
@@ -166,8 +166,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 ('STONE_CIRCLES_RESOURCES_FAITH_MODIFIER', 'Amount',    '1'); -- reducing to 1
 
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_STONE_CIRCLES_RESOURCES', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_STONE_CIRCLES_RESOURCES', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_STONE_CIRCLES_RESOURCES', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_STONE_CIRCLES_RESOURCES', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_STONE_CIRCLES_RESOURCES', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_STONE_CIRCLES_RESOURCES', 'REQUIRES_PLAYER_IS_AI');
 
 --INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_STONE_CIRCLES_RESOURCES', 'REQUIRES_PLOT_HAS_NO_IMPROVEMENT');
@@ -193,8 +193,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		VALUES ('REQ_S_AI_NO_SPECIALTY_DISTRICTS', 'REQUIREMENTSET_TEST_ALL');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)	VALUES ('REQ_S_AI_NO_SPECIALTY_DISTRICTS', 'REQUIRES_CITY_FOLLOWS_PANTHEON');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQ_S_AI_NO_SPECIALTY_DISTRICTS', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQ_S_AI_NO_SPECIALTY_DISTRICTS', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQ_S_AI_NO_SPECIALTY_DISTRICTS', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQ_S_AI_NO_SPECIALTY_DISTRICTS', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQ_S_AI_NO_SPECIALTY_DISTRICTS', 'REQUIRES_PLAYER_IS_AI');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId)	VALUES ('REQ_S_AI_NO_SPECIALTY_DISTRICTS', 'REQUIRES_CITY_HAS_0_SPECIALTY_DISTRICTS'); 
 
@@ -270,8 +270,8 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 
 -- Requirement: plot has a resource with a specific tag
 INSERT INTO RequirementSets (RequirementSetId, RequirementSetType)		 VALUES ('REQUIREMENTS_RH_RIVER_GODDESS', 'REQUIREMENTSET_TEST_ALL');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RH_RIVER_GODDESS', 'PLAYER_AT_ANCIENT_ERA');
-INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RH_RIVER_GODDESS', 'PLAYER_NOT_CLASSICAL_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RH_RIVER_GODDESS', 'RH_PLAYER_AT_ANCIENT_ERA');
+INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RH_RIVER_GODDESS', 'RH_PLAYER_NOT_CLASSICAL_ERA');
 INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES ('REQUIREMENTS_RH_RIVER_GODDESS', 'REQUIRES_RH_HAS_CIVIC_DEFENSE');
 
 
