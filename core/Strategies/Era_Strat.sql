@@ -825,7 +825,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalYields', 'YIELD_RH_MAGNUS',  1, 400),
 ('MedievalYields', 'YIELD_RH_HAPPINESS_BUILDING',   0, -95),
 
-('MedievalYields', 'YIELD_RH_SCIENCE_VICTORY_BASE', 	   1, 200), -- temp
+('MedievalYields', 'YIELD_RH_SCIENCE_VICTORY_BASE', 	   1, 350), -- temp, 200
 ('MedievalYields', 'YIELD_RH_MONARCHY',  		  1, 50),
 ('MedievalYields', 'YIELD_RH_MERCHANT_REPUBLIC',  1, 50),
 
