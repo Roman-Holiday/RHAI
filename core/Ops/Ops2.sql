@@ -37,7 +37,7 @@ UPDATE AiOperationDefs SET Priority = '4', MinOddsOfSuccess = '0.33', MaxTargetD
 UPDATE TriggeredBehaviorTrees SET Priority = '4' WHERE TriggerType = 'TRIGGER_TECH_UPGRADE' AND TreeName = 'Upgrade Units';
 UPDATE TriggeredBehaviorTrees SET Priority = '4' WHERE TriggerType = 'TRIGGER_CIVIC_UPGRADE' AND TreeName = 'Upgrade Units';
 
-UPDATE TriggeredBehaviorTrees SET Priority = 3 WHERE TriggerType = 'TRIGGER_RAILROAD' AND TreeName ='Build Railroad'; -- Def 2
+UPDATE TriggeredBehaviorTrees SET Priority = 4 WHERE TriggerType = 'TRIGGER_RAILROAD' AND TreeName ='Build Railroad'; -- Def 2, pvs 3, testing 4
 
 
 --TriggeredBehaviorTrees

@@ -677,15 +677,15 @@ INSERT OR IGNORE INTO AiLists (ListType, System) VALUES
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
-('RHExpansionYields', 'YIELD_RH_EXPANSION', 1, 550),
+('RHExpansionYields', 'YIELD_RH_EXPANSION', 1, 250),
 
 ('RHExpansionOperations', 'ATTACK_BARBARIANS', 1, 1), -- test
 
-('RHExpansionOperations', 'OP_SETTLE', 1, 1);
+('RHExpansionOperations', 'OP_SETTLE', 1, 2);
 
 
 REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('ExpansionUnitPreferences', 'PSEUDOYIELD_CITY_BASE',			  1, -20),
+('ExpansionUnitPreferences', 'PSEUDOYIELD_CITY_BASE',			  1, -30),
 ('ExpansionUnitPreferences', 'PSEUDOYIELD_CITY_DEFENDING_UNITS',  1, 15),
 ('ExpansionUnitPreferences', 'PSEUDOYIELD_CITY_DEFENSES', 		  1, 15),
 

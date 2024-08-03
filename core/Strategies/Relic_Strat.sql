@@ -397,7 +397,7 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 ('YIELD_RH_SYNTHETIC_TECHNOCRACY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  1.2), 
 
 ('YIELD_RH_CLASSICAL_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  1.2),
-('YIELD_RH_OLIGARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', 		'0',							  1.1),
+('YIELD_RH_OLIGARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', 		'0',							  1.2),
 
 ('YIELD_RH_MERCHANT_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			    1.5),
 ('YIELD_RH_MONARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  			1.5),
@@ -411,7 +411,7 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 
 UPDATE Yields SET DefaultValue = 2 WHERE YieldType = 'YIELD_PRODUCTION'; -- pvs 1.65
 UPDATE Yields SET DefaultValue = 2.4 WHERE YieldType = 'YIELD_SCIENCE'; 
-UPDATE Yields SET DefaultValue = 2.1 WHERE YieldType = 'YIELD_CULTURE'; -- pvs 1.35, 1.7
+UPDATE Yields SET DefaultValue = 2.3 WHERE YieldType = 'YIELD_CULTURE'; -- pvs 1.35, 1.7
 UPDATE Yields SET DefaultValue = 0.7 WHERE YieldType = 'YIELD_GOLD'; -- pvs 0.75
 UPDATE Yields SET DefaultValue = 2.0 WHERE YieldType = 'YIELD_FAITH'; -- pvs 1.25, 1.6
 UPDATE Yields SET DefaultValue = 1.7 WHERE YieldType = 'YIELD_FOOD'; 
@@ -436,7 +436,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('DefaultYieldBias', 'YIELD_RH_CLASSICAL_REPUBLIC', 	1, 30),
 ('DefaultYieldBias', 'YIELD_RH_MONARCHY', 				1, 175), -- Pvs -50, 20
-('DefaultYieldBias', 'YIELD_RH_OLIGARCHY', 				1, -40); -- Pvs -50
+('DefaultYieldBias', 'YIELD_RH_OLIGARCHY', 				1, -33); -- Pvs -50
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES

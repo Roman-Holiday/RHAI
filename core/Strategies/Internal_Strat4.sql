@@ -48,14 +48,14 @@ INSERT INTO Types				(Type,	Kind)  VALUES
 		
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3 
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3 
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_HAS_OLIGARCHY');	
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3 
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3 
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_UNLOCK_OLIGARCHY');	
@@ -63,14 +63,14 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_HAS_CLASSICAL');	
 		
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_UNLOCK_CLASSICAL');	
@@ -79,7 +79,7 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_HAS_MONARCHY');	
@@ -87,7 +87,7 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_UNLOCK_MONARCHY');	
@@ -96,14 +96,14 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_HAS_THEOCRACY');	
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_UNLOCK_THEOCRACY');	
@@ -112,14 +112,14 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_HAS_MERCHANT');	
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_UNLOCK_MERCHANT');	
@@ -129,14 +129,14 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_HAS_FASCISM');	
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_UNLOCK_FASCISM');	
@@ -144,7 +144,7 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_HAS_COMMUNISM');	
@@ -152,7 +152,7 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_UNLOCK_COMMUNISM');	
@@ -160,14 +160,14 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_HAS_DEMOCRACY');	
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_UNLOCK_DEMOCRACY');	

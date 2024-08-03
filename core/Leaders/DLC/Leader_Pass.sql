@@ -102,7 +102,6 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal
 
 -- Todo, all strategic resources, coal and iron settle
 
-
 -- Elizabeth
 
 --INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
@@ -112,6 +111,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal
 --('ElizabethYields',   		'TRAIT_LEADER_ELIZABETH', 'Yields');
 
 INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_ELIZABETH', 'TRAIT_LEADER_EXPANSIONIST');
+
+INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_ELIZABETH', 'TRAIT_LEADER_RH_TRADE');
 
 --INSERT OR REPLACE INTO AgendaPreferredLeaders	(LeaderType,	AgendaType,		PercentageChance) VALUES	
 --		('LEADER_ELIZABETH',				'AGENDA_EXPLORER',						30);
@@ -132,7 +133,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 -- <Row ListType="ElizabethPseudoYields" Item="PSEUDOYIELD_UNIT_TRADE" Value="50"/> -- Existing
 
 ('ElizabethPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, 26),
-('ElizabethPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 1, 60); -- pvs 35, 50
+('ElizabethPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 1, 75); -- pvs 35, 50
 
 INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
 --('ElizabethYields'),
@@ -162,8 +163,8 @@ UPDATE AiFavoredItems SET Value = 33 WHERE ListType = 'ElizabethYields' AND Item
 --INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_YONGLE', 'TRAIT_LEADER_EXPANSIONIST');
 
 
---INSERT OR REPLACE INTO AgendaPreferredLeaders	(LeaderType,	AgendaType,		PercentageChance) VALUES	
---		('LEADER_YONGLE',				'AGENDA_DEVOUT',						25); -- Feed the World
+INSERT OR REPLACE INTO AgendaPreferredLeaders	(LeaderType,	AgendaType,		PercentageChance) VALUES	
+		('LEADER_YONGLE',				'AGENDA_DEVOUT',						20); -- Feed the World
 
 
 INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_YONGLE', 'TRAIT_LEADER_RH_GROWTH');
@@ -188,20 +189,27 @@ INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 ('YongleUnits',   		'TRAIT_LEADER_YONGLE', 'Units'),
 ('YongleProjects', 		'TRAIT_LEADER_YONGLE', 'Projects');
 
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
+
+('YongleYields', 'YIELD_SCIENCE', 					-55), -- Growth First, -10, -27, -33
+('YongleYields', 'YIELD_RH_SCIENCE_VICTORY_BASE',   -45); -- Growth First
+
+
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('YongleYields', 'YIELD_FOOD', 1, 350), -- Already 200
+('YongleYields', 'YIELD_FOOD', 1, 550), -- Already 200 -- 350
 ('YongleYields', 'YIELD_GOLD', 1, 20), -- Internal, pvs 40, 50, 40
 ('YongleYields', 'YIELD_FAITH', 1, 950), -- Internal, pvs 40, 125, 300, 400, 300
 
-('YongleYields', 'YIELD_RH_TRADE', 1, 500), -- Internal, 150, 350, 850, 800, 720, 680, 550
+('YongleYields', 'YIELD_RH_TRADE', 1, 450), -- Internal, 150, 350, 850, 800, 720, 680, 550, 500
 ('YongleYields', 'YIELD_RH_NAVAL', 1, 100),
 
 ('YongleYields', 'YIELD_RH_RV_BASE', 1, 990),
 
-('YongleYields', 'YIELD_SCIENCE', 1, -33), -- Growth First, -10, -27
+
 ('YongleYields', 'YIELD_RH_PLACEMENT', 0, -35), -- Growth First
 
-('YongleYields', 'YIELD_RH_CITY_CENTRE', 1, 550), -- pvs 650, 580
+('YongleYields', 'YIELD_RH_CITY_CENTRE', 1, 400), -- pvs 650, 580, 550
 ('YongleYields', 'YIELD_RH_FOOD_EXT', 1, 950),
 
 ('YongleYields', 'YIELD_RH_MAGNUS', 1, 950),
@@ -216,8 +224,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('YongleProjects', 'PROJECT_LIJIA_FOOD', 1, 900), -- pvs 0, 90
 
-('YonglePseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 1, 250), -- Food
-('YonglePseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, 75), -- Food
+('YonglePseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 1, 350), -- Food
+('YonglePseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, 125), -- Food
 ('YonglePseudoYields', 'PSEUDOYIELD_GOVERNOR', 1, 10), -- Audience -- already in growth
 
 ('YonglePseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, 15),
@@ -227,12 +235,12 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('YonglePseudoYields', 'PSEUDOYIELD_UNIT_TRADE', 1, 200), -- Internal Trade
 
-('YonglePseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 30),
+('YonglePseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 25),
 
-('YonglePseudoYields', 'PSEUDOYIELD_WONDER', 1, 45), -- China base ability and useful for food
-('YonglePseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 15), 
+('YonglePseudoYields', 'PSEUDOYIELD_WONDER', 1, 40), -- China base ability and useful for food
+('YonglePseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 10), 
 
-('YonglePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER', 1, -10), -- Large Cities, pvs -6
+('YonglePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER', 1, -12), -- Large Cities, pvs -6
 
 ('YonglePseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 1, 6), -- Can Turtle, Democracy Trade Routes, Have slightly increased positive income diplo
 
@@ -288,8 +296,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('YongleWonders', 'BUILDING_ESTADIO_DO_MARACANA', 		1, 900), -- must be built on flat land adjacent to an Entertainment Complex with a Stadium.
 ('YongleWonders', 'BUILDING_FOOD_MARKET', 		1, 90),
 
-('YongleWonders', 'BUILDING_COLOSSEUM', 	1, 90),
-('YongleWonders', 'BUILDING_HANGING_GARDENS', 1, 90);
+('YongleWonders', 'BUILDING_COLOSSEUM', 	1, 900),
+('YongleWonders', 'BUILDING_HANGING_GARDENS', 1, 900);
 
 /*
 		<Row ListType="YongleTechs" Item="TECH_MASONRY" Favored="true"/>

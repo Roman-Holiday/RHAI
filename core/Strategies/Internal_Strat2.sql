@@ -288,7 +288,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 
 		('RH_URBAN_DEVELOPMENT_HALF_MOD',		'YieldType', 			'YIELD_RH_CITY_CENTRE'),
-		('RH_URBAN_DEVELOPMENT_HALF_MOD',								'Amount'   , 10); -- pvs 3, 4
+		('RH_URBAN_DEVELOPMENT_HALF_MOD',								'Amount'   , 15); -- pvs 3, 4, 10, 12
 
 
 INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		
@@ -313,7 +313,7 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('WC_RES_RH_URBAN_DEVELOPEMENT_FAITH_AGENDA',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_PROPHET'),	
-			('WC_RES_RH_URBAN_DEVELOPEMENT_FAITH_AGENDA',				'Amount',					5); 
+			('WC_RES_RH_URBAN_DEVELOPEMENT_FAITH_AGENDA',				'Amount',					2); 
 
 
 INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		
@@ -532,14 +532,14 @@ INSERT INTO Types				(Type,	Kind)  VALUES
 		
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3 
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3 
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_AI_MAIN');	
 		-- Testing 4 UI
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_AI_THEODORA_ADJ');	
@@ -547,7 +547,7 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_AI_LUDWIG_ADJ');	
@@ -555,7 +555,7 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_AI_GERMANY_ADJ');	
@@ -563,21 +563,21 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_AI_HUNGARY_ADJ');	
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_AI_RIV_GODDESS');	
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_AI_MH');	
@@ -585,7 +585,7 @@ WHERE	Type IN (
 
 INSERT OR IGNORE INTO Technologies
 		(TechnologyType,	EraType,		Cost,			Name, 		UITreeRow)
-SELECT	Type,		'ERA_ANCIENT',	80,		'LOC_' || Type || '_NAME', -3
+SELECT	Type,		'ERA_ANCIENT',	25,		'LOC_' || Type || '_NAME', -3
 FROM	Types
 WHERE	Type IN (
 				'TECHNOLOGY_RH_AI_KHMER');	

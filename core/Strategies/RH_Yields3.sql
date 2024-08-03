@@ -622,7 +622,7 @@ INSERT OR IGNORE INTO BeliefModifiers (BeliefType        ,ModifierId)   VALUES
 ('BELIEF_ZEN_MEDITATION',				'RH_FOOD_EXT_MOD_XXS'),
 ('BELIEF_STUPA',						'RH_FOOD_EXT_MOD_XS'), -- +1 Amenity
 
-('BELIEF_CHORAL_MUSIC',					'RH_FOOD_EXT_MOD_XS'); -- pvs 5, 10
+('BELIEF_CHORAL_MUSIC',					'RH_FOOD_EXT_MOD_XXS'); -- pvs 5, 10, 5
 
 -- Pantheons
 --('BELIEF_RIVER_GODDESS',				'RH_FOOD_EXT_MOD_XXS');

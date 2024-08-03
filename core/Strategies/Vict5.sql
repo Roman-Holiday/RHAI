@@ -1163,8 +1163,8 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_DIPLOVICTORY_DEBUFF_MOD_XL',		'YieldType', 		'YIELD_RH_DIPLOVICTORY_DEBUFF'),
 		('RH_DIPLOVICTORY_DEBUFF_MOD_XL',							'Amount'   , 110),
 
-		('RH_DIPLOVICTORY_DEBUFF_MOD',		'YieldType', 			'YIELD_CULTURE'),
-		('RH_DIPLOVICTORY_DEBUFF_MOD',								'Amount'   , 15); -- pvs 50, 40, 35, 20, 15, 5, 10
+		('RH_DIPLOVICTORY_DEBUFF_MOD',		'YieldType', 			'YIELD_PRODUCTION'),
+		('RH_DIPLOVICTORY_DEBUFF_MOD',								'Amount'   , 3); -- pvs 50, 40, 35, 20, 15, 5, 10, 15
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES

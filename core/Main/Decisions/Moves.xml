@@ -74,11 +74,12 @@
 	<Row ListType="Default Tactical" Item="Air Assault" Value="65"/ >
 	<Row ListType="Default Tactical" Item="Air Deploy" Value="70" />
 	<Row ListType="Default Tactical" Item="Coastal Raid" Value="80" />
-	<Row ListType="Default Tactical" Item="Attack District" Value="90" /> 
 	
-	<Row ListType="Default Tactical" Item="Pillage District" Value="95" /> <!-- Testing Above Medium Priority -->
-	<Row ListType="Default Tactical" Item="Pillage Improvement" Value="100" /> <!-- testing above move to safety for hp --> <!-- Testing Above Medium Priority -->
-		
+	<Row ListType="Default Tactical" Item="Pillage District" Value="85" /> <!-- Testing Above Medium Priority -->
+	<Row ListType="Default Tactical" Item="Pillage Improvement" Value="95" /> <!-- testing above move to safety for hp --> <!-- Testing Above Medium Priority -->
+	
+	<Row ListType="Default Tactical" Item="Attack District" Value="100" /> 
+			
 	<Row ListType="Default Tactical" Item="Attack Medium Priority" Value="105" />
 
 	<Row ListType="Default Tactical" Item="Air Rebase" Value="110" />

@@ -256,7 +256,7 @@ WHERE TraitType IS NOT NULL;
 -- Test for Food and Production Unique Improvements as well
 
 INSERT OR IGNORE INTO ImprovementModifiers (ImprovementType, ModifierId)
-SELECT DISTINCT i.ImprovementType, 'RH_END_OF_TECH_MOD_XS'
+SELECT DISTINCT i.ImprovementType, 'RH_END_OF_TECH_MOD_XXS'
 FROM Improvements i
 JOIN Improvement_YieldChanges iyc
 ON i.ImprovementType = iyc.ImprovementType
@@ -1225,7 +1225,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_CITY_CENTRE_MOD_XS',							'Amount'   , 4),
 
 		('RH_CITY_CENTRE_MOD_MS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_MS',							'Amount'   , 7), -- pvs 9
+		('RH_CITY_CENTRE_MOD_MS',							'Amount'   , 4), -- pvs 9, 7, 5
 
 		('RH_CITY_CENTRE_MOD_S',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
 		('RH_CITY_CENTRE_MOD_S',							'Amount'   , 12), -- pvs 9
@@ -1244,7 +1244,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_MONUMENT', 		'RH_CITY_CENTRE_MOD'),
 
-('BUILDING_WATER_MILL', 	'RH_CITY_CENTRE_MOD_S'),
+('BUILDING_WATER_MILL', 	'RH_CITY_CENTRE_MOD_MS'),
 ('BUILDING_GRANARY', 		 'RH_CITY_CENTRE_MOD_MS'),
 
 ('BUILDING_STAR_FORT', 		 'RH_CITY_CENTRE_MOD_XS'),

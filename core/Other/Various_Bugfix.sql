@@ -978,3 +978,42 @@ INSERT OR IGNORE INTO RequirementArguments
 		('RH_REQUIRES_HAS_TECH_MILT_ENGINEERING',					'TechnologyType',			'TECH_MILITARY_ENGINEERING');
 	
 
+
+
+---------------------------------------------------------------
+-- Temp to Help the AI Build RailRoads and not use all Charges on Spamming Airstrips Etc, on Emperor or Above
+
+
+INSERT OR IGNORE INTO TraitModifiers
+		(TraitType,						ModifierId) VALUES	
+		--
+		('TRAIT_LEADER_MAJOR_CIV',		'RH_AI_ENGINEER_RAIL_ENCOURAGE');
+
+INSERT OR IGNORE INTO Modifiers
+		(ModifierId,									ModifierType,								OwnerRequirementSetId, Permanent) VALUES	
+		
+		('RH_AI_ENGINEER_RAIL_ENCOURAGE',								'MODIFIER_PLAYER_TRAINED_UNITS_ADJUST_BUILDER_CHARGES',		'RH_AI_UNIT_IS_MILITARY_ENGINEER', 1);		
+
+INSERT OR IGNORE INTO ModifierArguments
+		(ModifierId,									Name,						Value) VALUES	
+		--
+				
+		('RH_AI_ENGINEER_RAIL_ENCOURAGE',								'Amount',					1);
+
+		
+INSERT OR IGNORE INTO RequirementSets
+		(RequirementSetId,								RequirementSetType) VALUES	
+		--
+		('RH_AI_UNIT_IS_MILITARY_ENGINEER',							'REQUIREMENTSET_TEST_ALL');
+		
+INSERT OR IGNORE INTO RequirementSetRequirements
+		(RequirementSetId,								RequirementId) VALUES	
+		--
+		
+		('RH_AI_UNIT_IS_MILITARY_ENGINEER',									'REQUIREMENT_UNIT_IS_MILITARY_ENGINEER'),
+		
+		('RH_AI_UNIT_IS_MILITARY_ENGINEER',									'REQUIRES_PLAYER_IS_AI'),
+		('RH_AI_UNIT_IS_MILITARY_ENGINEER',									'REQUIRES_PLAYER_EMPEROR_RH');		
+	
+
+		
