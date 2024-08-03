@@ -185,21 +185,3 @@ function UnitFlag.UpdatePromotions( self )
 end
 
 ]]
-
-
-
-
-
-
-
-
-
-
-
-
-
-]]
-
-
-
-
