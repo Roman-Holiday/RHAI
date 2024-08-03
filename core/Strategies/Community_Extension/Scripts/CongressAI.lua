@@ -148,6 +148,7 @@ local function getLuxuryResources()
             luxuries[#luxuries + 1] = row.Index
         end
     end
+    return luxuries
 end
 
 -- Returns a table with keys that often start at 0, so operate on with opairs, not ipairs ...
@@ -300,7 +301,7 @@ local function getScoredLuxuries(majorTeams: table)
 
             for _, playerId in ipairs(team) do
                 for _, index in ipairs(g_luxuryResources) do
-                    protoScore[index] = Players[playerId]:GetResources():GetResourceCount(index) * table.count(majorTeams)
+                    protoScore[index] = Players[playerId]:GetResources():GetResourceAmount(index) * table.count(majorTeams)
                 end
             end
 
@@ -310,17 +311,17 @@ local function getScoredLuxuries(majorTeams: table)
                     for _, otherPlayerId in ipairs(otherTeam) do
                         for _, index in ipairs(g_luxuryResources) do
                             protoScore[index] =
-                                protoScore[index] - Players[otherPlayerId]:GetResources():GetResourceCount(index)
+                                protoScore[index] - Players[otherPlayerId]:GetResources():GetResourceAmount(index)
                         end
                     end
                 end
             end
 
-            scoredResources.best[teamId] = { resourceIndex = 0, score = protoScore[0] }
-            scoredResources.worst[teamId] = { resourceIndex = 0, score = protoScore[0] }
-
-            for resourceIndex = 1, #g_buildingPrereqs do
-                if protoScore[resourceIndex] > scoredResources.best[teamId].score then
+            for _, resourceIndex in ipairs(g_luxuryResources) do
+                if scoredResources.best[teamId] == nil then
+                    scoredResources.best[teamId] = { resourceIndex = resourceIndex, score = protoScore[resourceIndex] }
+                    scoredResources.worst[teamId] = { resourceIndex = resourceIndex, score = protoScore[resourceIndex] }
+                elseif protoScore[resourceIndex] > scoredResources.best[teamId].score then
                     scoredResources.best[teamId].score = protoScore[resourceIndex]
                     scoredResources.best[teamId].resourceIndex = resourceIndex
                 elseif protoScore[resourceIndex] < scoredResources.worst[teamId].score then
@@ -400,7 +401,6 @@ print("--------------------")
 RegisterProcessor("PlayerOrDiploLeaderTargetChooser", PlayerOrDiploLeaderTargetChooser)
 RegisterProcessor("DistrictTargetChooser", DistrictTargetChooser)
 RegisterProcessor("MostCommonLuxuryTargetChooser", MostCommonLuxuryTargetChooser)
-RegisterProcessor("GrievancesTypeTargetChooser", GrievancesTypeTargetChooser)
 
 g_buildingPrereqs = getBuildingPrereqs()
 g_luxuryResources = getLuxuryResources()
