@@ -691,7 +691,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('ClassicalYields', 'YIELD_RH_CULTURE_VICTORY_BASE',  0, -20),
 
-('ClassicalYields', 'YIELD_RH_CITY_CENTRE',  0, -750), -- pvs -200
+('ClassicalYields', 'YIELD_RH_CITY_CENTRE',  0, -800), -- pvs -200
 
 ('ClassicalTechs', 'TECH_POTTERY', 				1, 0), 
 ('ClassicalTechs', 'TECH_MINING', 				1, 0), 
@@ -829,7 +829,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalYields', 'YIELD_RH_MONARCHY',  		  1, 50),
 ('MedievalYields', 'YIELD_RH_MERCHANT_REPUBLIC',  1, 50),
 
-('MedievalYields', 'YIELD_RH_CITY_CENTRE',  1, 150), -- pvs 550
+('MedievalYields', 'YIELD_RH_CITY_CENTRE',  1, 100), -- pvs 550
 ('MedievalYields', 'YIELD_RH_FOOD_EXT',  1, 150),
 
 --('MedievalDistricts', 'DISTRICT_AQUEDUCT',  1, 50),
@@ -977,7 +977,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('RenaissanceYields', 'YIELD_RH_MONARCHY',  		  1, 120), -- pvs 50
 ('RenaissanceYields', 'YIELD_RH_MERCHANT_REPUBLIC',   1, 120), -- pvs 50
 
-('RenaissanceYields', 'YIELD_RH_CITY_CENTRE',  1, 750), -- pvs 950
+('RenaissanceYields', 'YIELD_RH_CITY_CENTRE',  1, 500), -- pvs 950
 ('RenaissanceYields', 'YIELD_RH_FOOD_EXT',  	1, 350), -- pvs 600
 
 --('RenaissanceDistricts', 'DISTRICT_AQUEDUCT',  1, 50),

@@ -1441,7 +1441,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_SCIENCE_VICTORY_BASE_MOD_L',							'Amount'   , 180), 
 
 		('RH_SCIENCE_VICTORY_BASE_MOD_ML',		'YieldType', 		'YIELD_RH_SCIENCE_VICTORY_BASE'),
-		('RH_SCIENCE_VICTORY_BASE_MOD_ML',							'Amount'   , 75), 
+		('RH_SCIENCE_VICTORY_BASE_MOD_ML',							'Amount'   , 100), -- pvs 75
 
 		('RH_SCIENCE_VICTORY_BASE_MOD_S',		'YieldType', 		'YIELD_RH_SCIENCE_VICTORY_BASE'),
 		('RH_SCIENCE_VICTORY_BASE_MOD_S',							'Amount'   , 15),
@@ -2041,7 +2041,7 @@ INSERT INTO ModifierArguments (ModifierId, Name, Value) VALUES
 		('RH_Market_Test_Attach',          'ModifierId', 'RH_Market_Test_Mod'),
 
 		('RH_Market_Test_Mod',			'GreatPersonClassType', 		'GREAT_PERSON_CLASS_MERCHANT'),
-		('RH_Market_Test_Mod',								'Amount'   , 210); -- pvs 175
+		('RH_Market_Test_Mod',								'Amount'   , 170); -- pvs 175, 210
 
 
 
