@@ -1,7 +1,9 @@
 
 
-UPDATE ModifierArguments SET Value = 11 WHERE ModifierId = 'STANDARD_DIPLOMACY_RANDOM' AND Name = 'ReductionTurns'; 
+UPDATE ModifierArguments SET Value = 10 WHERE ModifierId = 'STANDARD_DIPLOMACY_RANDOM' AND Name = 'ReductionTurns'; -- pvs 11
 
+
+UPDATE ModifierArguments SET Type = 'ScaleByGameSpeed' WHERE ModifierId = 'STANDARD_DIPLOMACY_RANDOM' AND Name = 'ReductionTurns'; -- Test
 
 
 UPDATE ModifierArguments SET Value = -6 WHERE ModifierId = 'STANDARD_DIPLOMACY_RANDOM' AND Name = 'DifficultyOffset'; 
@@ -27,3 +29,7 @@ UPDATE ModifierArguments SET Value=18 WHERE ModifierId='STANDARD_DIPLOMATIC_ONE_
 UPDATE ModifierArguments SET Value=2 WHERE ModifierId='STANDARD_DIPLOMATIC_ONE_SIDED_TRADES' AND Name='ReductionValue'; -- def 1
 
 UPDATE ModifierArguments SET Value=5 WHERE ModifierId='STANDARD_DIPLOMATIC_ONE_SIDED_TRADES' AND Name='ReductionTurns'; -- def 2
+
+
+
+

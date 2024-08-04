@@ -92,7 +92,7 @@ INSERT OR REPLACE INTO AiFavoredItems(ListType, Item, Value) VALUES
 
 -- UU's
 
-INSERT OR IGNORE INTO AiFavoredItems(ListType, Item, Value)
+INSERT OR IGNORE INTO AiFavoredItems(ListType, Value, Item)
 
 SELECT 'UnitPriorityBoosts', 45,  UnitType 
 FROM Units
