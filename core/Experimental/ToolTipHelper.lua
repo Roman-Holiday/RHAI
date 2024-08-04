@@ -75,7 +75,7 @@ ToolTipHelper.GetAdjacencyBonuses = function(t, field, key)
 
 			local yield = GameInfo.Yields[row.YieldType];
 
-			if(object and yield) then
+			if(object and yield and not(GameInfo.RHAITags[yield.Name])) then
 
 				local key = (row.TilesRequired > 1) and "LOC_TYPE_TRAIT_ADJACENT_BONUS_PER" or "LOC_TYPE_TRAIT_ADJACENT_BONUS";
 
