@@ -131,9 +131,10 @@ REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('GilgameshDiplomacy', 'DIPLOACTION_ALLIANCE' , 1, 0),
 ('GilgameshDiplomacy', 'DIPLOACTION_JOINT_WAR' , 1, 0),
-('GilgameshDiplomacy', 'DIPLOACTION_RENEW_ALLIANCE' , 1, 0),
+--('GilgameshDiplomacy', 'DIPLOACTION_RENEW_ALLIANCE' , 1, 0),
 ('GilgameshDiplomacy', 'DIPLOACTION_OPEN_BORDERS', 1, 0), -- might already exist
 ('GilgameshDiplomacy', 'DIPLOACTION_RESIDENT_EMBASSY', 1, 0), -- gila
+('GilgameshDiplomacy', 'DIPLOACTION_DIPLOMATIC_DELEGATION', 1, 0), -- gila
 
 ('GilgameshDistricts', 'DISTRICT_DAM', 1, 0), -- ziggarat protection
 
@@ -161,7 +162,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('GilgameshPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT' , 1, 25), -- War carts, pvs 20 
 ('GilgameshPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST' , 1, 22),
 ('GilgameshPseudoYields', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS' , 1, 110), -- gold camp bonus
-('GilgameshPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS' , 1, 10), -- pvs 5, 10, 11, 18
+('GilgameshPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS' , 1, 25), -- pvs 5, 10, 11, 18
 
 ('GilgameshPseudoYields', 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL', 1, 100),
 ('GilgameshPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_GRIEVANCE', 1, 20),

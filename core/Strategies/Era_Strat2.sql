@@ -62,7 +62,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 --('IndustrialPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 7), -- pvs 15, 13, 11, 7
 
 ('IndustrialPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR', 1, 35),
-('IndustrialPseudoYields', 'PSEUDOYIELD_RESOURCE_LUXURY', 0, -35),
+('IndustrialPseudoYields', 'PSEUDOYIELD_RESOURCE_LUXURY', 0, -60),
 ('IndustrialPseudoYields', 'PSEUDOYIELD_WONDER',   		1, 40),
 
 ('IndustrialPseudoYields', 'PSEUDOYIELD_GPP_PROPHET',   1, -15),
@@ -194,6 +194,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ModernPseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 75),
 ('ModernPseudoYields', 'PSEUDOYIELD_INFLUENCE', 1, -10),
 ('ModernPseudoYields', 'PSEUDOYIELD_HAPPINESS', 	1, 65),
+('ModernPseudoYields', 'PSEUDOYIELD_RESOURCE_LUXURY', 1, -15),
+
 ('ModernPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, 25), -- pvs 24
 ('ModernPseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 1, 10),
 ('ModernPseudoYields', 'PSEUDOYIELD_UNIT_AIR_COMBAT', 1, -18), -- Only have Bi-Planes in Modern Era, pvs -16

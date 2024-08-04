@@ -90,6 +90,23 @@ INSERT OR REPLACE INTO AiFavoredItems(ListType, Item, Value) VALUES
 --('UnitPriorityBoosts', 'UNIT_BATTERING_RAM', 2);
 
 
+-- UU's
+
+INSERT OR IGNORE INTO AiFavoredItems(ListType, Item, Value)
+
+SELECT 'UnitPriorityBoosts', 45,  UnitType 
+FROM Units
+WHERE TraitType IS NOT NULL;
+
+
+
+
+
+
+
+-- TraitType="TRAIT_CIVILIZATION_UNIT_BRAZILIAN_MINAS_GERAES"
+
+
 --------------------------------------------------------------------------------------------------------------------------
 -- Improvements
 --------------------------------------------------------------------------------------------------------------------------

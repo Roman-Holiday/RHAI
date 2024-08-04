@@ -1012,7 +1012,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('RenaissancePseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 1, 10),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 1, 800), -- pvs 110, 160
 ('RenaissancePseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 1, 3),
-('RenaissancePseudoYields', 'PSEUDOYIELD_RESOURCE_LUXURY', 0, -65), -- pvs -60
+('RenaissancePseudoYields', 'PSEUDOYIELD_RESOURCE_LUXURY', 0, -70), -- pvs -60
 
 ('RenaissancePseudoYields', 'PSEUDOYIELD_INFLUENCE', 1, 150), -- pvs 25, 75
 ('RenaissancePseudoYields', 'PSEUDOYIELD_GOVERNOR', 0, -25),
