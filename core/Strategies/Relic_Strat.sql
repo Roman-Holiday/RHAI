@@ -411,7 +411,7 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 
 UPDATE Yields SET DefaultValue = 2 WHERE YieldType = 'YIELD_PRODUCTION'; -- pvs 1.65
 UPDATE Yields SET DefaultValue = 2.4 WHERE YieldType = 'YIELD_SCIENCE'; 
-UPDATE Yields SET DefaultValue = 2.3 WHERE YieldType = 'YIELD_CULTURE'; -- pvs 1.35, 1.7
+UPDATE Yields SET DefaultValue = 2.4 WHERE YieldType = 'YIELD_CULTURE'; -- pvs 1.35, 1.7
 UPDATE Yields SET DefaultValue = 0.7 WHERE YieldType = 'YIELD_GOLD'; -- pvs 0.75
 UPDATE Yields SET DefaultValue = 2.0 WHERE YieldType = 'YIELD_FAITH'; -- pvs 1.25, 1.6
 UPDATE Yields SET DefaultValue = 1.7 WHERE YieldType = 'YIELD_FOOD'; 
