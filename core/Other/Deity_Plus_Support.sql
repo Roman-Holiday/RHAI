@@ -302,8 +302,8 @@ INSERT OR IGNORE INTO ModifierArguments      (ModifierId, 		Name, 					Value)  V
 
 
 
-REPLACE INTO TraitModifiers (TraitType, ModifierId)  VALUES
-		('TRAIT_LEADER_MAJOR_CIV', 'AI_FOOD_ERA_MODERN');
+--REPLACE INTO TraitModifiers (TraitType, ModifierId)  VALUES
+--		('TRAIT_LEADER_MAJOR_CIV', 'AI_FOOD_ERA_MODERN');
 
 REPLACE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId)  VALUES
 		('AI_FOOD_ERA_MODERN', 					'MODIFIER_PLAYER_CITIES_ATTACH_MODIFIER',	'REQUIRES_AI_POPULATION_10'),
@@ -348,11 +348,11 @@ REPLACE INTO RequirementArguments  (RequirementId,	Name, Value) VALUES
 --VALUES ('UNIT_BUILDER', 'ERA_ANCIENT', 1, 'DISTRICT_NEIGHBORHOOD', 1, 0, 1,  'DIFFICULTY_DEITY_PLUS', 0.5);
 
 
-INSERT OR IGNORE INTO TraitModifiers
-		(TraitType,						ModifierId) VALUES	
+--INSERT OR IGNORE INTO TraitModifiers
+--		(TraitType,						ModifierId) VALUES	
 		--
-		('TRAIT_LEADER_MAJOR_CIV',		'RH_AI_IMPROVEMENT1_DEITY_PLUS'),
-		('TRAIT_LEADER_MAJOR_CIV',		'RH_AI_IMPROVEMENT2_DEITY_PLUS');
+--		('TRAIT_LEADER_MAJOR_CIV',		'RH_AI_IMPROVEMENT1_DEITY_PLUS'),
+--		('TRAIT_LEADER_MAJOR_CIV',		'RH_AI_IMPROVEMENT2_DEITY_PLUS');
 
 INSERT OR IGNORE INTO Modifiers
 		(ModifierId,									ModifierType,								OwnerRequirementSetId) VALUES	

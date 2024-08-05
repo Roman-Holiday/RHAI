@@ -998,7 +998,7 @@ INSERT OR IGNORE INTO ModifierArguments
 		(ModifierId,									Name,						Value) VALUES	
 		--
 				
-		('RH_AI_ENGINEER_RAIL_ENCOURAGE',								'Amount',					1);
+		('RH_AI_ENGINEER_RAIL_ENCOURAGE',								'Amount',					2);
 
 		
 INSERT OR IGNORE INTO RequirementSets

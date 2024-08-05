@@ -619,7 +619,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS',   1, 250), -- pvs 5, 8, 15
 ('AncientPseudoYields', 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL',   1, 50), -- pvs -45
 ('AncientPseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 55), -- pvs 6, 7, 10
-('AncientPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 250), -- pvs 11, 15, 27, 50, 100, 130, 150
+('AncientPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 215), -- pvs 11, 15, 27, 50, 100, 130, 150, 250
 ('AncientPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 40), -- pvs 8, 9, 19, 30, 35
 
 ('AncientPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 30), -- pvs 32, 31, 30, 29

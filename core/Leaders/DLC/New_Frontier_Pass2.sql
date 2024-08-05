@@ -116,18 +116,18 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('HammurabiYields', 'YIELD_RH_NUCLEAR_PROGRAM', 		 1, 950),
 
-('HammurabiYields', 'YIELD_RH_PRODUCTION',	 1, 700), -- 50
+('HammurabiYields', 'YIELD_RH_PRODUCTION',	 1, 850), -- 50
 ('HammurabiYields', 'YIELD_RH_MAUS_H',	 	 1, 950),
 ('HammurabiYields', 'YIELD_RH_NAVAL',	 	 1, 450), -- 0
 ('HammurabiYields', 'YIELD_RH_HAPPINESS_BUILDING',	 	 0, -95), -- 0
 
-('HammurabiYields', 'YIELD_RH_SCIENCE_VICTORY_BASE',	 	 1, 450), -- 0, 700
+('HammurabiYields', 'YIELD_RH_SCIENCE_VICTORY_BASE',	 	 1, 430), -- 0, 700
 
 ('HammurabiYields', 'YIELD_SCIENCE', 		 1, -50), -- 50% Science Nerf, pvs -20, -25, -30, 20, -15, 25, 35
 ('HammurabiYields', 'YIELD_FAITH', 		 	 1, -10),
 ('HammurabiYields', 'YIELD_CULTURE',		  1, 15), -- pvs 10
 ('HammurabiYields', 'YIELD_GOLD', 			 1, 20), -- pvs 9, 15
-('HammurabiYields', 'YIELD_PRODUCTION', 	 1, 85); -- pvs 12, 65
+('HammurabiYields', 'YIELD_PRODUCTION', 	 1, 200); -- pvs 12, 65, 85
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('HammurabiWonders', 'BUILDING_GREAT_LIBRARY',     1, 900), -- Euraka -- critical

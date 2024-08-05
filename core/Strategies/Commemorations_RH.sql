@@ -430,7 +430,32 @@ INSERT OR IGNORE INTO Modifiers   (ModifierId, ModifierType, SubjectRequirementS
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_FREE_INQUIRY_PUSH_ADVANCE_COMMERICAL',	'YieldType'    , 'YIELD_RH_NAVAL'),
-		('RH_FREE_INQUIRY_PUSH_ADVANCE_COMMERICAL',	'Amount'       , 10),
+		('RH_FREE_INQUIRY_PUSH_ADVANCE_COMMERICAL',	'Amount'       , 20), -- pvs 10
 		
 		('RH_FREE_INQUIRY_PUSH_ADVANCE_HARBOUR',	'YieldType'    , 'YIELD_RH_TRADE'),
-		('RH_FREE_INQUIRY_PUSH_ADVANCE_HARBOUR',	'Amount'       , 10); 		
+		('RH_FREE_INQUIRY_PUSH_ADVANCE_HARBOUR',	'Amount'       , 25); 		
+				
+		
+INSERT OR IGNORE INTO Modifiers
+		(ModifierId,									ModifierType,								OwnerRequirementSetId) VALUES	
+		
+		('RH_INFRA_PURCHASE_TEMP',								'MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL',		'PLAYER_IS_AI');
+		
+INSERT OR IGNORE INTO ModifierArguments
+		(ModifierId,									Name,						Value) VALUES	
+			
+		('RH_INFRA_PURCHASE_TEMP',								'UnitType',					'UNIT_BUILDER'),
+		('RH_INFRA_PURCHASE_TEMP',								'Amount',					1),
+		('RH_INFRA_PURCHASE_TEMP',								'AllowUniqueOverride',		0);				
+		
+		
+INSERT OR IGNORE INTO CommemorationModifiers  (CommemorationType, ModifierId)  VALUES	
+		('COMMEMORATION_INFRASTRUCTURE',      		  			'RH_AI_IMPROVEMENT1_GOLD_SIM'),
+		('COMMEMORATION_INFRASTRUCTURE',      		  			'RH_INFRA_PURCHASE_TEMP');		
+		
+		
+		
+-- Todo His Sunk Dracanas Golden Age Pick in Mid Game		
+		
+		
+		

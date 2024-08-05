@@ -100,17 +100,14 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_WONDER_MOD_L',							'Amount'   , 100),
 
 		('RH_WONDER_MOD_XL',		'YieldType', 		'YIELD_RH_WONDER'),
-		('RH_WONDER_MOD_XL',							'Amount'   , 300),
+		('RH_WONDER_MOD_XL',							'Amount'   , 400),
 
 		('RH_WONDER_MOD',		'YieldType', 		'YIELD_RH_WONDER'),
 		('RH_WONDER_MOD',							'Amount'   , 22);
 
 
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-('BUILDING_MONUMENT', 'RH_WONDER_MOD_XS'),
-('BUILDING_COLOSSEUM', 'RH_WONDER_MOD_L'),
-('BUILDING_RUHR_VALLEY', 'RH_WONDER_MOD');
-
+('BUILDING_MONUMENT', 'RH_WONDER_MOD_XS');
 
 INSERT OR IGNORE INTO BeliefModifiers (BeliefType        ,ModifierId)   VALUES
 ('BELIEF_MONUMENT_TO_THE_GODS',		'RH_WONDER_MOD_XXS'), -- 15% Production Ancient and Classical Pantheon
@@ -126,13 +123,13 @@ INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES
 
 
 INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividualType, ModifierId, AttachmentTargetType)  VALUES	
-		('GREAT_PERSON_INDIVIDUAL_ISIDORE_OF_MILETUS', 		  'RH_WONDER_MOD_XL', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_WONDER_IN_TILE'); -- Test -- Grants 215 Production towards wonder construction at standard speed. (2 charges)
+		('GREAT_PERSON_INDIVIDUAL_ISIDORE_OF_MILETUS', 		  'RH_WONDER_MOD_L', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_WONDER_IN_TILE'); -- Test -- Grants 215 Production towards wonder construction at standard speed. (2 charges)
 
 INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividualType, ModifierId, AttachmentTargetType)  VALUES	
 		('GREAT_PERSON_INDIVIDUAL_IMHOTEP', 		  'RH_WONDER_MOD_XL', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_WONDER_IN_TILE'); -- Test
 
 INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividualType, ModifierId, AttachmentTargetType)  VALUES	
-		('GREAT_PERSON_INDIVIDUAL_FILIPPO_BRUNELLESCHI', 		  'RH_WONDER_MOD_XL', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_WONDER_IN_TILE'); -- Test -- Grants 315 Production towards wonder construction. Ren Era
+		('GREAT_PERSON_INDIVIDUAL_FILIPPO_BRUNELLESCHI', 		  'RH_WONDER_MOD_L', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_DISTRICT_WONDER_IN_TILE'); -- Test -- Grants 315 Production towards wonder construction. Ren Era
 
 
 -- Test
@@ -149,11 +146,32 @@ INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_KILWA_KISIWANI', 		'RH_WONDER_MOD'),
 ('BUILDING_HALICARNASSUS_MAUSOLEUM', 'RH_WONDER_MOD'),
 
+('BUILDING_GREAT_LIGHTHOUSE', 	'RH_WONDER_MOD_XS'),
+('BUILDING_COLOSSUS', 			'RH_WONDER_MOD_XXS'),
+
+('BUILDING_COLOSSEUM', 		'RH_WONDER_MOD_XL'),
+
+('BUILDING_TERRACOTTA_ARMY', 	'RH_WONDER_MOD_S'),
 ('BUILDING_HANGING_GARDENS', 	'RH_WONDER_MOD_S'),
 ('BUILDING_BIG_BEN', 			'RH_WONDER_MOD_S'),
-('BUILDING_RUHR_VALLEY', 		'RH_WONDER_MOD_S'),
+('BUILDING_RUHR_VALLEY', 		'RH_WONDER_MOD'),
+
+('BUILDING_BOLSHOI_THEATRE', 		'RH_WONDER_MOD'), -- 2 Free Civics
+
+('BUILDING_ESTADIO_DO_MARACANA', 		'RH_WONDER_MOD_S'),
 
 ('BUILDING_TAJ_MAHAL', 				'RH_WONDER_MOD');
+
+
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId) -- Persia Macedon dlc wonder
+SELECT 'BUILDING_STATUE_OF_ZEUS', 'RH_WONDER_MOD_XS'
+WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_STATUE_OF_ZEUS'); 
+
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId) 
+SELECT 'BUILDING_JEBEL_BARKAL', 'RH_WONDER_MOD_XXS'
+WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_JEBEL_BARKAL'); 
+
+
 
 
 /*

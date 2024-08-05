@@ -142,7 +142,7 @@ INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId) VALUES
 
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
-SELECT 'BUILDING_BIOSPHERE', 'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM'
+SELECT 'BUILDING_BIOSPHERE', 'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S'
 WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_BIOSPHERE'); 
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
@@ -165,17 +165,20 @@ INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
 SELECT 'BUILDING_HERMITAGE', 'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S'
 WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_HERMITAGE'); 
 
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
+SELECT 'BUILDING_CRISTO_REDENTOR', 'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S'
+WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_CRISTO_REDENTOR'); 
 
 
 INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	
-		('POLICY_ONLINE_COMMUNITIES', 		  		    'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S'); -- 50% Tourism to Civs with Trade Route
+		('POLICY_ONLINE_COMMUNITIES', 		  		    'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM'); -- 50% Tourism to Civs with Trade Route
 
 
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
 ('RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S', 'MODIFIER_PLAYER_ADJUST_TOURISM', 'PLAYER_IS_HIGH_DIFFICULTY_AI');
 
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Type, Value, Extra) VALUES
-('RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S', 'Amount', 'LinearScaleFromDefaultHandicap', 100, 45); -- 50, 10 - 80,10, 100, 10, 80,20, 80,35
+('RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S', 'Amount', 'LinearScaleFromDefaultHandicap', 150, 45); -- 50, 10 - 80,10, 100, 10, 80,20, 80,35
 
 
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
@@ -194,7 +197,7 @@ INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId
 ('RH_HEGEMONY_CIVIC_DEITY_TOUR', 'MODIFIER_PLAYER_ADJUST_TOURISM', 'RH_IMMORTAL_HEGEMONY_CIVIC');
 
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
-('RH_HEGEMONY_CIVIC_DEITY_TOUR', 'Amount',  500); -- pvs 350
+('RH_HEGEMONY_CIVIC_DEITY_TOUR', 'Amount',  700); -- pvs 350
 
 
 --INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Type, Value, Extra) VALUES

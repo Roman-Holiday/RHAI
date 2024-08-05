@@ -94,7 +94,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('Info_Science_PseudoYields', 'PSEUDOYIELD_GPP_GENERAL', 0, -15),
 
 ('Info_Science_PseudoYields', 'PSEUDOYIELD_GPP_ENGINEER', 1, 165), -- pvs 70, 80, 120, 130, 150
-('Info_Science_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST', 1, 650); -- Does Campus research grants when supposed to be launching orbital laser -- pvs 75, 85, 150, 200, 210, 230, 330
+('Info_Science_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST', 1, 600); -- Does Campus research grants when supposed to be launching orbital laser -- pvs 75, 85, 150, 200, 210, 230, 330, 650
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES

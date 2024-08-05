@@ -82,7 +82,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 -- todo ancient and classical only
 ('ExpansionistPsuedos', 'PSEUDOYIELD_UNIT_SETTLER', 		1, 25),  
 ('ExpansionistPsuedos', 'PSEUDOYIELD_UNIT_COMBAT',      	 1, 10), -- todo ancient and classical only
-('ExpansionistPsuedos', 'PSEUDOYIELD_UNIT_EXPLORER',      	 1, 15),
+('ExpansionistPsuedos', 'PSEUDOYIELD_UNIT_EXPLORER',      	 1, 5),
 --('ExpansionistDistricts', 'DISTRICT_CAMPUS', 				1, 0), -- todo ancient and classical only
 ('ExpansionistPsuedos', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS',   1, 90),
 ('ExpansionistBuildings', 'BUILDING_WALLS', 				1, 30), -- Defence after expansion
@@ -107,7 +107,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ExpansionistPsuedos', 'PSEUDOYIELD_UNIT_AIR_COMBAT',   1, 5), 
 
 ('ExpansionistPsuedos', 'PSEUDOYIELD_GPP_ADMIRAL',   1, 30), -- pvs Harbor Favored
-('ExpansionistPsuedos', 'PSEUDOYIELD_GPP_GENERAL',   1, 50), -- New, 8, 25
+('ExpansionistPsuedos', 'PSEUDOYIELD_GPP_GENERAL',   1, 60), -- New, 8, 25
 
 ('ExpansionistPsuedos', 'PSEUDOYIELD_STANDING_ARMY_NUMBER', 1, 8), 
 ('ExpansionistPsuedos', 'PSEUDOYIELD_STANDING_ARMY_VALUE',  1, 8), 

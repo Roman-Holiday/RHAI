@@ -6,7 +6,7 @@
 
 -- CITY ATTACK FORCE (WALLED)
 
-UPDATE AiOperationTeams SET InitialStrengthAdvantage = 0.9, OngoingStrengthAdvantage = 1.5 WHERE TeamName = 'City Attack Force' AND OperationName = 'Attack Walled City'; -- int pvs 0.9, ongoing now 1.5 instead of 1.6 -- int 0.8 too low
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = 0.9, OngoingStrengthAdvantage = 1.3 WHERE TeamName = 'City Attack Force' AND OperationName = 'Attack Walled City'; -- int pvs 0.9, ongoing now 1.5 instead of 1.6 -- int 0.8 too low
 
 -- pvs 0.9, 1.5
 
@@ -16,8 +16,8 @@ UPDATE AiOperationTeams SET InitialStrengthAdvantage = 0.1, OngoingStrengthAdvan
 
 -- pvs 0.3, 0.8
 
-UPDATE OpTeamRequirements SET MinNumber = 6, MaxNumber = 12 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITAI_COMBAT'; -- Def MinNumber=5 MaxNumber=16, increasing from 14 to 15 -- back to 6
-UPDATE OpTeamRequirements SET MinNumber = 2, MaxNumber = 8 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_MELEE'; -- pvs 5, 6, 5
+UPDATE OpTeamRequirements SET MinNumber = 5, MaxNumber = 12 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITAI_COMBAT'; -- Def MinNumber=5 MaxNumber=16, increasing from 14 to 15 -- back to 6
+UPDATE OpTeamRequirements SET MinNumber = 3, MaxNumber = 8 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_MELEE'; -- pvs 5, 6, 5, min 2
 UPDATE OpTeamRequirements SET MinNumber = 1, MaxNumber = 7 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_RANGED'; -- pvs 6 --def min 1
 --UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 4 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_CAVALRY';
 UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 4 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_AIR'; -- pvs max 5
