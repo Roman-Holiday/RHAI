@@ -137,6 +137,14 @@
 		<Criteria id="GEDEMO_NAPOLEON">
 			<ModInUse>cf3588c2-f427-412e-b8c6-ca67f8a35a02</ModInUse>
 			<LeaderPlayable>Players:StandardPlayers::LEADER_GEDEMO_NAPOLEON,Players:Expansion1_Players::LEADER_GEDEMO_NAPOLEON,Players:Expansion2_Players::LEADER_GEDEMO_NAPOLEON</LeaderPlayable>
+			</Criteria>
+
+	  	<Criteria id="RH_Tree_Randomizer_Mode">
+			<ConfigurationValueMatches>
+				<Group>Game</Group>
+				<ConfigurationId>GAMEMODE_TREE_RANDOMIZER</ConfigurationId>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
 		</Criteria>
 
 		<Criteria id="JFD_GERMANY">
@@ -550,6 +558,15 @@
 			<File>core/Main/Other/Gamemode_Support/RH_MC_Mode.sql</File>
 		</UpdateDatabase>
 
+		<UpdateDatabase id="RH_AI_TR_GAMEMODE" criteria="RH_Tree_Randomizer_Mode">
+			<Properties>
+				<LoadOrder>660</LoadOrder>
+			</Properties>
+			<File>core/Other/Gamemode_Support/RH_Tree_Randomizer.sql</File>
+		</UpdateDatabase>
+
+
+
 
 		<UpdateDatabase id="RH_AI_BASE_LEADERS">
 			<Properties>
@@ -881,8 +898,15 @@
 	  <File>core/Main/Decisions/Air_Defense.xml</File>
 	  
 	  <!-- Gamemodes -->
+	  <!-- DLC -->
 	  <File>core/Main/Other/Gamemode_Support/RH_Heroes_And_Legends.sql</File>
+
 	  <File>core/Main/Other/Gamemode_Support/RH_MC_Mode.sql</File>
+	  
+	  <!-- Slothoth's Tech Tree Shuffle Mode Fix -->
+	  <File>core/Other/Gamemode_Support/RH_Tree_Randomizer.sql</File>
+	  
+	  <!-- RH -->
 	  <File>core/Other/RH_Gamemodes/Early_Agg.sql</File>
 	  
 	  <!-- Ops -->
