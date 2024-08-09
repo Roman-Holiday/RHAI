@@ -133,6 +133,14 @@
 			</ConfigurationValueMatches>
 		</Criteria>
 
+	  	<Criteria id="RH_Tree_Randomizer_Mode">
+			<ConfigurationValueMatches>
+				<Group>Game</Group>
+				<ConfigurationId>GAMEMODE_TREE_RANDOMIZER</ConfigurationId>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>
+
 		<Criteria id="JFD_GERMANY">
 			<!--ModInUse>a0b4cdd6-16df-42ed-a8ce-0c5bdd6908c3</ModInUse-->
 			<LeaderPlayable>Players:StandardPlayers::LEADER_JFD_HITLER,Players:Expansion1_Players::LEADER_JFD_HITLER,Players:Expansion2_Players::LEADER_JFD_HITLER</LeaderPlayable>
@@ -545,6 +553,15 @@
 			<File>core/Main/Other/Gamemode_Support/RH_MC_Mode.sql</File>
 		</UpdateDatabase>
 
+		<UpdateDatabase id="RH_AI_TR_GAMEMODE" criteria="RH_Tree_Randomizer_Mode">
+			<Properties>
+				<LoadOrder>660</LoadOrder>
+			</Properties>
+			<File>core/Other/Gamemode_Support/RH_Tree_Randomizer.sql</File>
+		</UpdateDatabase>
+
+
+
 
 		<UpdateDatabase id="RH_AI_BASE_LEADERS">
 			<Properties>
@@ -851,7 +868,8 @@
 	  <!--File>core/Main/Decisions/MC_Trees.xml</File-->
 	  <File>core/Main/Decisions/Air_Defense.xml</File>
 	  <File>core/Main/Other/Gamemode_Support/RH_Heroes_And_Legends.sql</File>
-	  <File>core/Main/Other/Gamemode_Support/RH_MC_Mode.sql</File>
+	  <File>core/Main/Other/Gamemode_Support/RH_MC_Mode.sql</File>#
+		<File>core/Other/Gamemode_Support/RH_Tree_Randomizer.sql</File>
 	  
 	  <File>core/Other/RH_Gamemodes/Early_Agg.sql</File>
 	  
