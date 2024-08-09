@@ -9,6 +9,20 @@ INSERT OR IGNORE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_MONTEZ
 DELETE FROM AiFavoredItems WHERE ListType = 'MontezumaTechs' AND Item = 'TECH_ASTROLOGY';
 
 
+INSERT OR IGNORE INTO	TraitModifiers	
+			(TraitType,					ModifierId) VALUES		
+			('TRAIT_LEADER_GIFTS_FOR_TLATOANI',	'RH_EAGLE_ONLY');
+
+INSERT OR IGNORE INTO	Modifiers	
+			(ModifierId,						ModifierType,							SubjectRequirementSetId) VALUES		
+			('RH_EAGLE_ONLY',	'MODIFIER_PLAYER_UNIT_BUILD_DISABLED', 'PLAYER_IS_AI');
+
+INSERT OR IGNORE INTO	ModifierArguments	
+			(ModifierId,						Name,			Value) VALUES		
+			('RH_EAGLE_ONLY',	'UnitType',		'UNIT_SCOUT');
+
+
+
 
 REPLACE INTO AiListTypes (ListType) VALUES
 ('MontezumaDistricts'),
@@ -72,6 +86,8 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MontezumaWonders',      'BUILDING_HUEY_TEOCALLI', 1, 0), 
 ('MontezumaUnits',        'UNIT_BUILDER', 1, 12), 
 ('MontezumaUnits',        'UNIT_AZTEC_EAGLE_WARRIOR', 1, 35), -- test, 15, 30
+
+('MontezumaUnits',        'UNIT_SLINGER', 0, -50),
 
 ('MontezumaUnits',        'UNIT_MILITARY_ENGINEER', 0, -90);
 

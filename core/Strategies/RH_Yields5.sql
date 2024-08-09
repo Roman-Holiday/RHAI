@@ -921,6 +921,31 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
+SELECT 'BUILDING_PRASAT', 'RH_CULTURE_VICTORY_BASE_MOD_XL'
+WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_PRASAT'); 
+
+-- Other Unique Buildings
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId)
+SELECT BuildingType, 'RH_CULTURE_VICTORY_BASE_MOD_MXL' 
+FROM Buildings
+WHERE TraitType IS NOT NULL
+AND PrereqDistrict = 'DISTRICT_THEATER';
+
+
+-- Other Amenity Unique Buildings
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId)
+SELECT BuildingType, 'RH_CULTURE_VICTORY_BASE_MOD_S' 
+FROM Buildings
+WHERE TraitType IS NOT NULL
+AND PrereqDistrict = 'DISTRICT_ENTERTAINMENT_COMPLEX';
+
+
+
+
+
+
+
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
 SELECT 'BUILDING_BIOSPHERE', 'RH_CULTURE_VICTORY_BASE_MOD_MXL'
 WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_BIOSPHERE'); 
 
@@ -1211,41 +1236,45 @@ INSERT OR IGNORE INTO RequirementArguments  (RequirementId,	Name, Value) VALUES
 -- REQUIRES_CITY_HAS_0_SPECIALTY_DISTRICTS todo instead
 			
 			
-			
+-- MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION			
+-- MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE
+
 			
 			
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
-		('RH_CITY_CENTRE_MOD_XXS',			'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_REQ_S_MIN_5_Pop_Enable'),
-		('RH_CITY_CENTRE_MOD_XS',			'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_REQ_S_MIN_5_Pop_Enable'),
-		('RH_CITY_CENTRE_MOD',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_REQ_S_MIN_5_Pop_Enable'),
-		('RH_CITY_CENTRE_MOD_S',			'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_REQ_S_MIN_5_Pop_Enable'),
-		('RH_CITY_CENTRE_MOD_MS',			'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_REQ_S_MIN_5_Pop_Enable'),		
+		('RH_CITY_CENTRE_MOD_XXS',			'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_REQ_S_MIN_5_Pop_Enable'),
+		('RH_CITY_CENTRE_MOD_XS',			'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_REQ_S_MIN_5_Pop_Enable'),
+		('RH_CITY_CENTRE_MOD',				'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_REQ_S_MIN_5_Pop_Enable'),
+		('RH_CITY_CENTRE_MOD_S',			'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_REQ_S_MIN_5_Pop_Enable'),
+		('RH_CITY_CENTRE_MOD_MS',			'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_REQ_S_MIN_5_Pop_Enable'),		
 		
-		('RH_CITY_CENTRE_MOD_XL',			'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_REQ_S_MIN_5_Pop_Enable'),
-		('RH_CITY_CENTRE_MOD_L',			'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_REQ_S_MIN_5_Pop_Enable');
+		('RH_CITY_CENTRE_MOD_XL',			'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_REQ_S_MIN_5_Pop_Enable'),
+		('RH_CITY_CENTRE_MOD_L',			'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_REQ_S_MIN_5_Pop_Enable');
 
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_CITY_CENTRE_MOD_XXS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_XXS',							'Amount'   , 3),
+		('RH_CITY_CENTRE_MOD_XXS',							'Amount'   , 1), -- Pvs 3 Total
 
 		('RH_CITY_CENTRE_MOD_XS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_XS',							'Amount'   , 4),
+		('RH_CITY_CENTRE_MOD_XS',							'Amount'   , 1), -- Pvs 4 Total
 
 		('RH_CITY_CENTRE_MOD_MS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_MS',							'Amount'   , 4), -- pvs 9, 7, 5
+		('RH_CITY_CENTRE_MOD_MS',							'Amount'   , 1), -- pvs 9, 7, 5, 4 Total, 
 
 		('RH_CITY_CENTRE_MOD_S',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_S',							'Amount'   , 12), -- pvs 9
+		('RH_CITY_CENTRE_MOD_S',							'Amount'   , 2), -- pvs 9, 12 Total
 
 		('RH_CITY_CENTRE_MOD_L',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_L',							'Amount'   , 50),
+		('RH_CITY_CENTRE_MOD_L',							'Amount'   , 5), -- pvs 50T
 
 		('RH_CITY_CENTRE_MOD_XL',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_XL',							'Amount'   , 175),
+		('RH_CITY_CENTRE_MOD_XL',							'Amount'   , 10), -- Pvs 175T
 
 		('RH_CITY_CENTRE_MOD',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD',							'Amount'   , 15);
+		('RH_CITY_CENTRE_MOD',							'Amount'   , 3); -- Pvs 15T
+
+
 
 
 
@@ -1274,7 +1303,7 @@ WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_CONSULATE')
 -- +3 Influence points per turn. When this civilization captures or kills an enemy Spy, receive 50 Science for every level of the enemy Spy.
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
-SELECT 'BUILDING_PALGUM', 'RH_CITY_CENTRE_MOD_L'
+SELECT 'BUILDING_PALGUM', 'RH_CITY_CENTRE_MOD_XL'
 WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_PALGUM'); 
 
 
@@ -1586,6 +1615,15 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_VENETIAN_ARSENAL', 			'RH_SCIENCE_VICTORY_BASE_MOD');
 
 
+-- Other Unique Buildings
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId)
+SELECT BuildingType, 'RH_SCIENCE_VICTORY_BASE_MOD_MXL' 
+FROM Buildings
+WHERE TraitType IS NOT NULL
+AND PrereqDistrict = 'DISTRICT_CAMPUS';
+
+
+
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId) -- Persia Macadon dlc wonder
 SELECT 'BUILDING_HALICARNASSUS_MAUSOLEUM', 'RH_SCIENCE_VICTORY_BASE_MOD_XL'
 WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_HALICARNASSUS_MAUSOLEUM'); 
@@ -1748,10 +1786,6 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_SHRINE', 				'RH_RV_BASE_MOD_L'), 
 ('BUILDING_TEMPLE', 				'RH_RV_BASE_MOD_MXL'),
 
-('BUILDING_PRASAT', 				'RH_RV_BASE_MOD_XL'),
-
-('BUILDING_STAVE_CHURCH', 			'RH_RV_BASE_MOD_L'), 
-
 ('BUILDING_CATHEDRAL', 				'RH_RV_BASE_MOD'), 
 ('BUILDING_DAR_E_MEHR', 			'RH_RV_BASE_MOD_S'), 
 ('BUILDING_MEETING_HOUSE', 			'RH_RV_BASE_MOD_ML'), 
@@ -1760,6 +1794,24 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_STUPA', 					'RH_RV_BASE_MOD_ML'), 
 ('BUILDING_SYNAGOGUE', 				'RH_RV_BASE_MOD_S'), 
 ('BUILDING_WAT', 					'RH_RV_BASE_MOD_S'); 
+
+
+
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
+SELECT 'BUILDING_STAVE_CHURCH', 'RH_RV_BASE_MOD_L'
+WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_STAVE_CHURCH'); 
+
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
+SELECT 'BUILDING_PRASAT', 'RH_RV_BASE_MOD_XL'
+WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_PRASAT'); 
+
+
+-- Other Unique Buildings
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId)
+SELECT BuildingType, 'RH_RV_BASE_MOD_MXL' 
+FROM Buildings
+WHERE TraitType IS NOT NULL
+AND PrereqDistrict = 'DISTRICT_HOLY_SITE';
 
 
 
@@ -1896,10 +1948,10 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('RH_MILITARY_TRADITION',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
-			('RH_MILITARY_TRADITION',				'Amount',					75), -- pvs 3, 4, 7, 10, 12, 24, 45, 50
+			('RH_MILITARY_TRADITION',				'Amount',					110), -- pvs 3, 4, 7, 10, 12, 24, 45, 50, 75
 
 			('RH_MILITARY_TRADITION_M',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
-			('RH_MILITARY_TRADITION_M',				'Amount',					60); -- pvs 4, 10, 16, 45, 50
+			('RH_MILITARY_TRADITION_M',				'Amount',					100); -- pvs 4, 10, 16, 45, 50, 60
 
 
 INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES

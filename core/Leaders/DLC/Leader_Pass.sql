@@ -114,6 +114,11 @@ INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_ELIZA
 
 INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_ELIZABETH', 'TRAIT_LEADER_RH_TRADE');
 
+
+INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_ELIZABETH', 'TRAIT_LEADER_PURSUE_DIPLOMATIC_VICTORY');
+
+
+
 --INSERT OR REPLACE INTO AgendaPreferredLeaders	(LeaderType,	AgendaType,		PercentageChance) VALUES	
 --		('LEADER_ELIZABETH',				'AGENDA_EXPLORER',						30);
 
@@ -1099,7 +1104,6 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('HaraldAltWonders', 'BUILDING_GOV_CITYSTATES', 1, 200), -- CS levy discount / combat strength, important!
 ('HaraldAltWonders', 'BUILDING_GOV_WIDE', 1, 200), -- either one
 ('HaraldAltWonders', 'BUILDING_GOV_CONQUEST', 1, 200),
-('HaraldAltWonders', 'BUILDING_STAVE_CHURCH', 1, 900), -- extra boost as very useful now
 ('HaraldAltWonders', 'BUILDING_ORSZAGHAZ',     1, 150), -- Important
 
 ('HaraldAltEnvoys', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS', 1, 72), -- barb ship spam
@@ -1129,6 +1133,14 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('HaraldAltEnvoys', 'PSEUDOYIELD_TOURISM', 1,  10), 
 ('HaraldAltEnvoys', 'PSEUDOYIELD_UNIT_RELIGIOUS', 1, 10),
 ('HaraldAltEnvoys', 'PSEUDOYIELD_UNIT_SETTLER', 1, 7); -- more cities
+
+
+-- COMPATIBILITY with p0kiehl's Norway Rework
+
+INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)
+SELECT 'HaraldAltWonders', 'BUILDING_STAVE_CHURCH', 1, 900 -- extra boost as very useful now
+FROM Types WHERE Type = 'BUILDING_STAVE_CHURCH';
+
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal) VALUES

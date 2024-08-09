@@ -2,7 +2,7 @@
 -- AUTHOR: ROMANHOLIDAY
 
 -----------------------------------------------
--- Additional Ops Changes 2
+-- Additional Ops Changes 2, OP Updates
 -----------------------------------------------
 
 UPDATE OpTeamRequirements SET MinNumber = '1', MaxNumber = '7' WHERE TeamName = 'Nuclear Attack' AND AiType = 'UNITTYPE_NUCLEAR'; -- MinNumber=1	MaxNumber= -- pvs 5 , UNIT_BOMBER, UNIT_BOMBER, UNIT_JET_BOMBER, UNIT_NUCLEAR_SUBMARINE
@@ -23,13 +23,13 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 --UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion =  -1, MaxTargetDistInArea =  11, MaxTargetDistInWorld = 16, MinOddsOfSuccess = 0.48, MustHaveUnits = 7 WHERE OperationName = 'Attack Walled City'; -- 60%, 10
 --UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion =  -1, MaxTargetDistInArea =  11, MaxTargetDistInWorld = 16, MinOddsOfSuccess = 0.3, MustHaveUnits = 6 WHERE OperationName = 'Wartime Attack Walled City'; -- 40%, 6
 
-UPDATE AiOperationDefs SET Priority = '4', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '10', MaxTargetDistInWorld = '10', MinOddsOfSuccess = '0.4', MustHaveUnits = '5' WHERE OperationName = 'Attack Enemy City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT';
+UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '10', MaxTargetDistInWorld = '10', MinOddsOfSuccess = '0.4', MustHaveUnits = '5' WHERE OperationName = 'Attack Enemy City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT';
 UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '10', MaxTargetDistInWorld = '12', MinOddsOfSuccess = '0.2', MustHaveUnits = '4' WHERE OperationName = 'Wartime Attack Enemy City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; 
 UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '14', MaxTargetDistInWorld = '15', MinOddsOfSuccess = '0.4', MustHaveUnits = '8' WHERE OperationName = 'Attack Walled City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; -- pvs 0.5 -- def must have units is 10 -- testing 8 from 7 for possibly larger attacks
 UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '14', MaxTargetDistInWorld = '15', MinOddsOfSuccess = '0.2', MustHaveUnits = '5' WHERE OperationName = 'Wartime Attack Walled City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; -- min units pvs 6, 5 -- Testing increasing back to 6 to see effect on attacks
 
 
-UPDATE AiOperationDefs SET Priority = '4', MinOddsOfSuccess = '0.33', MaxTargetDistInArea ='22' WHERE OperationName = 'Attack Barb Camp' AND TargetType = 'TARGET_BARBARIAN_CAMP';
+UPDATE AiOperationDefs SET Priority = '3', MinOddsOfSuccess = '0.33', MaxTargetDistInArea ='22' WHERE OperationName = 'Attack Barb Camp' AND TargetType = 'TARGET_BARBARIAN_CAMP';
 
 
 

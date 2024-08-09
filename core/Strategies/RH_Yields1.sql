@@ -256,9 +256,16 @@ INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_ORSZAGHAZ', 						'RH_DIPLO_MOD'),
 ('BUILDING_KILWA_KISIWANI', 				'RH_DIPLO_MOD'),
 ('BUILDING_PAGODA', 						'RH_DIPLO_MOD_MXL'), -- Test 300 instead of 100 to build Holy Sites if possible
-('BUILDING_STAVE_CHURCH', 					'RH_DIPLO_MOD_ML'), -- Todo Alt Harold Only
 
 ('BUILDING_GOV_CITYSTATES', 				'RH_DIPLO_MOD');
+
+
+
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId) -- Todo Alt Harold Only
+SELECT 'BUILDING_STAVE_CHURCH', 'RH_DIPLO_MOD_ML' 
+WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_STAVE_CHURCH'); 
+
+
 
 
 INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	

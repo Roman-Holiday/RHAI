@@ -40,15 +40,18 @@ UPDATE AiFavoredItems SET Value = 25 WHERE ListType = 'ScienceVictoryAgendas' AN
 
 
 
+
 -- DARWINIST ENJOYS WAR Random Agenda - Changes -- Late Era Only
 
 INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
+('DarwinistEnjoysWarComms'),
 ('DarwinistEnjoysWarDiplomacy'),
 ('DarwinistEnjoysWarPseudoYields'),
 ('DarwinistEnjoysWarYields'),
 ('DarwinistEnjoysWarSettlement');
 
 INSERT OR IGNORE INTO AiLists (ListType, AgendaType, System) VALUES
+('DarwinistEnjoysWarComms',    'TRAIT_AGENDA_ENJOYS_WAR', 			'Commemorations'),
 ('DarwinistEnjoysWarDiplomacy',    'TRAIT_AGENDA_ENJOYS_WAR', 			'DiplomaticActions'),
 ('DarwinistEnjoysWarPseudoYields', 'TRAIT_AGENDA_ENJOYS_WAR', 			'PseudoYields'),
 ('DarwinistEnjoysWarYields', 		'TRAIT_AGENDA_ENJOYS_WAR', 			'Yields'),
@@ -60,6 +63,8 @@ REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('DarwinistEnjoysWarYields', 'YIELD_RH_NUCLEAR', 			1, 120),
 ('DarwinistEnjoysWarYields', 'YIELD_RH_MILITARY_PRODUCTION', 1, 650),
 ('DarwinistEnjoysWarYields', 'YIELD_RH_MAYHEM', 			1, 850),
+
+('DarwinistEnjoysWarComms', 'COMMEMORATION_AUTOMATON',		  					1, 100), -- GDR
 
 ('DarwinistEnjoysWarDiplomacy', 'DIPLOACTION_DENOUNCE', 1, 0),
 ('DarwinistEnjoysWarDiplomacy', 'DIPLOACTION_DEMAND_TRIBUTE', 1, 0),

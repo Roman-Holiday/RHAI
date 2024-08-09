@@ -174,6 +174,8 @@ WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_JEBEL_BARKA
 
 
 
+
+
 /*
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 SELECT  'BUILDING_APADANA', 'RH_WONDER_MOD_L'

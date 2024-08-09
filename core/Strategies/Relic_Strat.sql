@@ -383,7 +383,7 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 --('YIELD_RH_CAMPUS', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.15),	
 
 
-('YIELD_RH_CITY_CENTRE', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.8),		
+('YIELD_RH_CITY_CENTRE', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.5),	-- pvs 0.8, 0.65	
 
 -- Military
 

@@ -50,7 +50,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 -- Todo Info Yields
 
 ('Atomic_Science_PseudoYields', 'PSEUDOYIELD_HAPPINESS', 	1, 30),
-('Atomic_Science_PseudoYields', 'PSEUDOYIELD_GPP_ENGINEER', 1, 115), -- pvs 95, 100, 110, 115, 130
+('Atomic_Science_PseudoYields', 'PSEUDOYIELD_GPP_ENGINEER', 1, 105), -- pvs 95, 100, 110, 115, 130, 115
 ('Atomic_Science_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST', 1, 425), -- pvs 105, 120, 130, 165, 200, 305, 350
 ('Atomic_Science_PseudoYields', 'PSEUDOYIELD_SPACE_RACE', 	1, 100),
 ('Atomic_Science_PseudoYields', 'PSEUDOYIELD_RESOURCE_LUXURY', 1, 25),

@@ -93,6 +93,7 @@ INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_CATHE
 
 INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_CATHERINE_DE_MEDICI', 'TRAIT_LEADER_ESPIONAGE'); 
 
+INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_CATHERINE_DE_MEDICI', 'TRAIT_LEADER_PURSUE_DIPLOMATIC_VICTORY'); -- Temp
 
 INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
 ('FranceUnits'),
@@ -105,7 +106,7 @@ INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 ('CatherinePseudoYields', 'FLYING_SQUADRON_TRAIT', 'PseudoYields');
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('FranceUnits', 'UNIT_FRENCH_GARDE_IMPERIALE', 1, 50), -- Very Strong, pvs 30
+('FranceUnits', 'UNIT_FRENCH_GARDE_IMPERIALE', 1, 60), -- Very Strong, pvs 30
 
 ('CatherineCivics', 'CIVIC_DIPLOMATIC_SERVICE', 1, 0),
 ('CatherineYields', 'YIELD_CULTURE', 1, 15),
@@ -252,7 +253,7 @@ REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('HaraldTechs', 'TECH_MINING', 1, 0),
 ('HaraldCivics', 'CIVIC_MYSTICISM', 1, 0),
 ('HaraldCivics', 'CIVIC_FOREIGN_TRADE', 1, 0),
-('HaraldUnits', 'UNIT_NORWEGIAN_LONGSHIP', 1, -10), -- pvs -5
+('HaraldUnits', 'UNIT_NORWEGIAN_LONGSHIP', 1, -5), -- pvs -5
 ('LastVikingKingNavalPreference', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS', 1, 72), -- barb ship spam
 ('LastVikingKingNavalPreference', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, -5),
 ('LastVikingKingNavalPreference', 'PSEUDOYIELD_CITY_DEFENCES', 1, -5),
@@ -326,7 +327,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('GermanyYields', 'YIELD_RH_MAUS_H', 1, 850), -- Hansa
 ('GermanyYields', 'YIELD_RH_TRADE',  1, 550), -- Hansa
 ('GermanyYields', 'YIELD_GOLD', 	 1, 100), -- Hansa
-('GermanyYields', 'YIELD_PRODUCTION', 	1, 40), -- Hansa
+('GermanyYields', 'YIELD_PRODUCTION', 	1, 60), -- Hansa
 ('GermanyYields', 'YIELD_RH_MAGNUS', 	1, 500),
 
 ('GermanyPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT', 1, 85),

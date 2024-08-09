@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mod id="2501be3e-9780-4e9f-9506-4ff71cf076cb" version="14">
   <Properties>
-    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.223 Discord Beta. Promotion Test[ENDCOLOR]</Name>
+    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.224 Discord Beta[ENDCOLOR]</Name>
     <Description>------------------------------------[NEWLINE]There's an AI System in the Game, says Shirk. ... it's called a [COLOR:ResScienceLabelCS]"Mayhem Level"[ENDCOLOR][NEWLINE]For Civ Chat, Feedback and Suggestions Use the RomanHoliday AI Discord! (Link on Steam Page).[NEWLINE]Enjoy! ;) </Description>
     <Teaser>Thanks for Supporting the Mod!! It's Big Time Now.</Teaser>
     <SupportsMultiplayer>1</SupportsMultiplayer>
@@ -133,6 +133,12 @@
 			</ConfigurationValueMatches>
 		</Criteria>
 
+
+		<Criteria id="GEDEMO_NAPOLEON">
+			<ModInUse>cf3588c2-f427-412e-b8c6-ca67f8a35a02</ModInUse>
+			<LeaderPlayable>Players:StandardPlayers::LEADER_GEDEMO_NAPOLEON,Players:Expansion1_Players::LEADER_GEDEMO_NAPOLEON,Players:Expansion2_Players::LEADER_GEDEMO_NAPOLEON</LeaderPlayable>
+		</Criteria>
+
 		<Criteria id="JFD_GERMANY">
 			<!--ModInUse>a0b4cdd6-16df-42ed-a8ce-0c5bdd6908c3</ModInUse-->
 			<LeaderPlayable>Players:StandardPlayers::LEADER_JFD_HITLER,Players:Expansion1_Players::LEADER_JFD_HITLER,Players:Expansion2_Players::LEADER_JFD_HITLER</LeaderPlayable>
@@ -253,24 +259,27 @@
 
 
 	<FrontEndActions>
+	
 		<UpdateText id="RH_TEXT">
 			<Properties>
 				<LoadOrder>580</LoadOrder>
 			</Properties>
 			<File>core/Other/RH_AI_Loc_Text.xml</File>
 		</UpdateText>
+		
 		<UpdateDatabase id="RH_SETUP">
 			<Properties>
 				<LoadOrder>590</LoadOrder>
 			</Properties>
 			<File>core/Other/Parameter_Setup.sql</File>
 		</UpdateDatabase>
+		
 	</FrontEndActions>
 
 
-
-
 	<InGameActions>
+
+	<!-- Start of Database -->
 
 		<UpdateDatabase id="RH_AI_GPP">
 			<Properties>
@@ -434,7 +443,6 @@
 			<File>core/Main/Decisions/Pillage_Aggressive.xml</File>
 			<File>core/Main/Decisions/Air.xml</File>
 
-
 		</UpdateDatabase>
 
 		<UpdateDatabase id="RH_AI_OPS">
@@ -442,7 +450,6 @@
 				<LoadOrder>620</LoadOrder>
 
 			</Properties>
-
 
 			<File>core/Ops/Ops2.sql</File>
 			<File>core/Ops/Ops3.sql</File>
@@ -486,8 +493,6 @@
 
 
 
-
-
 		<UpdateDatabase id="RH_AI_STRATEGIES">
 			<Properties>
 				<LoadOrder>640</LoadOrder>
@@ -528,8 +533,8 @@
 
 		<!--UpdateDatabase id="RH_AI_MC_TREES" criteria="Monopolies_Mode">
 			<Properties><LoadOrder>655</LoadOrder></Properties>
-      <File>core/Main/Decisions/MC_Trees.xml</File>
-	</UpdateDatabase-->
+		<File>core/Main/Decisions/MC_Trees.xml</File>
+		</UpdateDatabase-->
 
 		<UpdateDatabase id="RH_AI_HL_GAMEMODE" criteria="RH_Heroes_Mode">
 			<Properties>
@@ -552,7 +557,6 @@
 
 			</Properties>
 
-
 			<File>core/Leaders/Base/RH_Base_Africa.sql</File>
 			<File>core/Leaders/Base/RH_Base_America.sql</File>
 			<File>core/Leaders/Base/RH_Base_Asia.sql</File>
@@ -563,6 +567,13 @@
 		</UpdateDatabase>
 
 
+		<!-- Modded Leader Criteria -->
+		<UpdateDatabase id="RH_AI_NAPOLEON" criteria="GEDEMO_NAPOLEON">
+			<Properties>
+				<LoadOrder>665</LoadOrder>
+			</Properties>
+			<File>core/Leaders/Modded/Gedemo_Napolean.sql</File>
+		</UpdateDatabase>
 
 		<UpdateDatabase id="RH_AI_SOVIET" criteria="JFD_SOVIET_UNION">
 			<Properties>
@@ -583,6 +594,7 @@
 			<File>core/Leaders/Modded/Italy.sql</File>
 		</UpdateDatabase>
 
+		<!-- DLC Leader Criteria -->
 		<UpdateDatabase id="RH_AI_Poland" criteria="DLC_Poland">
 			<Properties>
 				<LoadOrder>700</LoadOrder>
@@ -781,6 +793,7 @@
 
 
 	<Files>
+	<!-- Main -->
 		<File>core/Strategies/Military_Strat.xml</File>
 		<File>core/Main/LAI_Main.sql</File>
 		<File>core/Strategies/Era_Strat.sql</File>
@@ -831,10 +844,13 @@
 		<File>core/Leaders/Base/RH_Base_West_Europe.sql</File>
 		<File>core/Leaders/Base/RH_Base_Asia.sql</File>
 
+		<!-- Modded Leaders -->
+		<File>core/Leaders/Modded/Gedemo_Napolean.sql</File>
 		<File>core/Leaders/Modded/Soviet.sql</File>
 		<File>core/Leaders/Modded/Germany.sql</File>
 		<File>core/Leaders/Modded/Italy.sql</File>
 
+	<!-- DLC -->
 	 <File>core/Leaders/DLC/Aztec.sql</File>
      <File>core/Leaders/DLC/Poland.sql</File>
      <File>core/Leaders/DLC/Australia.sql</File>
@@ -851,6 +867,8 @@
 	 <File>core/Leaders/DLC/New_Frontier_Pass.xml</File>
      <File>core/Leaders/DLC/JuliusCaesar.sql</File>
      <File>core/Leaders/DLC/Leader_Pass.sql</File>
+	 
+	 <!-- Main -->
       <File>core/Main/LAI_Main2.sql</File>
       <File>core/Main/LAI_Main3.sql</File>
       <File>core/Main/LAI_Main4.sql</File>
@@ -861,14 +879,15 @@
       <File>core/Main/Decisions/Late_Tree.xml</File>	
 	  <!--File>core/Main/Decisions/MC_Trees.xml</File-->
 	  <File>core/Main/Decisions/Air_Defense.xml</File>
+	  
+	  <!-- Gamemodes -->
 	  <File>core/Main/Other/Gamemode_Support/RH_Heroes_And_Legends.sql</File>
 	  <File>core/Main/Other/Gamemode_Support/RH_MC_Mode.sql</File>
-	  
 	  <File>core/Other/RH_Gamemodes/Early_Agg.sql</File>
 	  
+	  <!-- Ops -->
 	  
       <File>core/Ops/Settle.sql</File>
-      <!--File>core/Not_In_Use/DifRequire.sql</File-->
       <File>core/Other/Scale.sql</File>
       <File>core/Main/Decisions/Pillage.xml</File>
 	  <File>core/Main/Decisions/Pillage_Aggressive.xml</File>
@@ -883,10 +902,12 @@
       <File>core/Ops/Ops7.sql</File>
       <File>core/Ops/Ops8.sql</File>	  
 	  
+	  <!-- Other -->
       <File>core/Other/May.sql</File>
       <File>core/Main/Diplomacy/Diplomacy.xml</File>  
 	  <File>core/Main/Diplomacy/RH_New_Diplo_Strat1.sql</File>
 	  <File>core/Main/Diplomacy/RH_New_Diplo_Strat2.sql</File>	  
+	  <!--File>core/Not_In_Use/DifRequire.sql</File-->
 	  
       <File>core/Other/Strategics.sql</File>
       <File>core/Other/Various_Bugfix.sql</File>
@@ -906,6 +927,7 @@
 	  <File>core/Other/RH_AI_Loc_Text.xml</File>
 	  <File>core/Other/Misc.sql</File>
 
+		<!-- Experimental -->
 	  	<File>core/Experimental/ResearchChooser.lua</File>
 	  	<File>core/Experimental/TechTree.lua</File>
 		<File>core/Experimental/ToolTipHelper.lua</File>

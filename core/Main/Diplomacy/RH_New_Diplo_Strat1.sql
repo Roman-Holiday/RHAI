@@ -248,12 +248,12 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,							ModifierType, 										Subje
 					
 -- , MODIFIER_PLAYER_DIPLOMACY_RANDOM
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,		Value) VALUES		
-			('RH_AI_LIKE_FAR_AWAY_AI',					'MaxValue',					33), -- pvs 14, 17, 29, 35, 45, 40
-			('RH_AI_LIKE_FAR_AWAY_AI',					'InitialValue',				3),
-			('RH_AI_LIKE_FAR_AWAY_AI',					'IncrementValue',			3); -- pvs 2, 3, 4
+			('RH_AI_LIKE_FAR_AWAY_AI',					'MaxValue',					28), -- pvs 14, 17, 29, 35, 45, 40, 33
+			('RH_AI_LIKE_FAR_AWAY_AI',					'InitialValue',				1), -- pvs 3
+			('RH_AI_LIKE_FAR_AWAY_AI',					'IncrementValue',			2); -- pvs 2, 3, 4, 3
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value,							 Type) VALUES			
-			('RH_AI_LIKE_FAR_AWAY_AI',												'IncrementTurns',		4, 						'ScaleByGameSpeed'); -- pvs 4, 3
+			('RH_AI_LIKE_FAR_AWAY_AI',												'IncrementTurns',		5, 						'ScaleByGameSpeed'); -- pvs 4, 3, 4
 
 
 
@@ -364,7 +364,7 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,							ModifierType, 										Subje
 -- Or MODIFIER_PLAYER_DIPLOMACY_SIMPLE_MODIFIER
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,		Value) VALUES		
-			('RH_AI_DIPLOMACY_PEACE',					'MaxValue',												9), -- pvs 12, 14, 16, 20, 14, 10
+			('RH_AI_DIPLOMACY_PEACE',					'MaxValue',												8), -- pvs 12, 14, 16, 20, 14, 10, 9
 			('RH_AI_DIPLOMACY_PEACE',					'InitialValue',											0),
 			('RH_AI_DIPLOMACY_PEACE',					'IncrementValue',										1), -- pvs 1
 			('RH_AI_DIPLOMACY_PEACE',					'SimpleModifierDescription',			'LOC_TOOLTIP_SAMPLE_DIPLOMACY_PEACE');
