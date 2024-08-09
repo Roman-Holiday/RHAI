@@ -548,14 +548,14 @@
 			<Properties>
 				<LoadOrder>655</LoadOrder>
 			</Properties>
-			<File>core/Main/Other/Gamemode_Support/RH_Heroes_And_Legends.sql</File>
+			<File>core/Other/Gamemode_Support/RH_Heroes_And_Legends.sql</File>
 		</UpdateDatabase>
 
 		<UpdateDatabase id="RH_AI_MC_GAMEMODE" criteria="RH_Monopolies_Mode">
 			<Properties>
 				<LoadOrder>656</LoadOrder>
 			</Properties>
-			<File>core/Main/Other/Gamemode_Support/RH_MC_Mode.sql</File>
+			<File>core/Other/Gamemode_Support/RH_MC_Mode.sql</File>
 		</UpdateDatabase>
 
 		<UpdateDatabase id="RH_AI_TR_GAMEMODE" criteria="RH_Tree_Randomizer_Mode">
@@ -899,9 +899,9 @@
 	  
 	  <!-- Gamemodes -->
 	  <!-- DLC -->
-	  <File>core/Main/Other/Gamemode_Support/RH_Heroes_And_Legends.sql</File>
+	  <File>core/Other/Gamemode_Support/RH_Heroes_And_Legends.sql</File>
 
-	  <File>core/Main/Other/Gamemode_Support/RH_MC_Mode.sql</File>
+	  <File>core/Other/Gamemode_Support/RH_MC_Mode.sql</File>
 	  
 	  <!-- Slothoth's Tech Tree Shuffle Mode Fix -->
 	  <File>core/Other/Gamemode_Support/RH_Tree_Randomizer.sql</File>
