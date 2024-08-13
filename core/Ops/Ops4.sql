@@ -20,8 +20,8 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPe
 
 -- SIMPLE CITY ATTACK FORCE (NO WALLS)
 
-UPDATE AiOperationTeams SET InitialStrengthAdvantage = 1.0, OngoingStrengthAdvantage = 1.5 WHERE TeamName = 'Simple City Attack Force' AND OperationName = 'Attack Enemy City'; -- int pvs 0.8
-UPDATE AiOperationTeams SET InitialStrengthAdvantage = 0.5, OngoingStrengthAdvantage = 1.0 WHERE TeamName = 'Simple City Attack Force' AND OperationName = 'Wartime Attack Enemy City';
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = 0.4, OngoingStrengthAdvantage = 0.7 WHERE TeamName = 'Simple City Attack Force' AND OperationName = 'Attack Enemy City'; -- int pvs 0.8
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = -1, OngoingStrengthAdvantage = 0.5 WHERE TeamName = 'Simple City Attack Force' AND OperationName = 'Wartime Attack Enemy City';
 
 UPDATE OpTeamRequirements SET MinNumber = 5, MaxNumber = 12 WHERE TeamName = 'Simple City Attack Force' AND AiType = 'UNITAI_COMBAT'; -- Def 5, 16, increasing min from 4 to 5
 UPDATE OpTeamRequirements SET MinNumber = 2, MaxNumber = 8 WHERE TeamName = 'Simple City Attack Force' AND AiType = 'UNITTYPE_MELEE'; -- Def 2, no max -- pvs 2-4
@@ -128,7 +128,7 @@ UPDATE AiOperationTeams SET InitialStrengthAdvantage = -1, OngoingStrengthAdvant
 
 -- NAVAL SUPERIORITY
 
-UPDATE AiOperationTeams SET InitialStrengthAdvantage = -0.8, OngoingStrengthAdvantage = 0.6 WHERE TeamName = 'Naval Superiority Force' AND OperationName = 'Naval Superiority';
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = -2, OngoingStrengthAdvantage = 0.6 WHERE TeamName = 'Naval Superiority Force' AND OperationName = 'Naval Superiority';
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES 
 ('Naval Superiority Force', 'UNITTYPE_LAND_COMBAT', 0, 0), 
@@ -141,7 +141,7 @@ UPDATE OpTeamRequirements SET MinNumber = 1, MaxNumber = 5 WHERE TeamName = 'Nav
 UPDATE OpTeamRequirements SET MinNumber = 1, MaxNumber = 6 WHERE TeamName = 'Naval Superiority Force' AND AiType = 'UNITTYPE_RANGED';
 --UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 1 WHERE TeamName = 'Naval Superiority Force' AND AiType = 'UNITTYPE_CIVILIAN_LEADER';
 
-UPDATE AiOperationDefs SET MinOddsOfSuccess = 0.28, MustHaveUnits = 3, EnemyType = 'WAR' WHERE OperationName = 'Naval Superiority';
+UPDATE AiOperationDefs SET MinOddsOfSuccess = 0.25, MustHaveUnits = 3, EnemyType = 'WAR' WHERE OperationName = 'Naval Superiority';
 
 
 /*

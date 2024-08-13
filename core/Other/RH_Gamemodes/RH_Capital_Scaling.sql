@@ -18,7 +18,7 @@ INSERT INTO TraitModifiers	(TraitType,						ModifierId) VALUES
 
 
 INSERT INTO Modifiers
-		(ModifierId,					ModifierType,					OwnerRequirementSetId) VALUES	
+		(ModifierId,					ModifierType,					SubjectRequirementSetId) VALUES	
 		('MODIFIER_RH_AI_2_CAPITALS',	'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',		'RH_2_Capitals'),
 		('MODIFIER_RH_AI_3_CAPITALS',	'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',		'RH_3_Capitals'),
 		('MODIFIER_RH_AI_4_CAPITALS',	'MODIFIER_PLAYER_UNITS_GRANT_ABILITY',		'RH_4_Capitals'),

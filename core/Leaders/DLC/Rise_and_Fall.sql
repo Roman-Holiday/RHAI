@@ -484,7 +484,7 @@ INSERT OR IGNORE INTO TraitModifiers
 
 
 INSERT OR IGNORE INTO Modifiers
-		(ModifierId,					ModifierType,					OwnerRequirementSetId) VALUES	
+		(ModifierId,					ModifierType,					SubjectRequirementSetId) VALUES	
 		('MODIFIER_RH_AI_DIS_SPY_IND',	'MODIFIER_ALL_UNITS_ADJUST_SPYING_EFFICIENCY',		'PLAYER_IS_AI'),
 		('MODIFIER_RH_AI_DIS_SPY_MONGOLIA_SCIENCE',	'MODIFIER_ALL_UNITS_ADJUST_SPYING_EFFICIENCY',		'PLAYER_IS_AI');
 		
@@ -527,7 +527,7 @@ INSERT OR IGNORE INTO ModifierArguments
 
 
 INSERT OR IGNORE INTO Modifiers
-		(ModifierId,					ModifierType,					OwnerRequirementSetId) VALUES	
+		(ModifierId,					ModifierType,					SubjectRequirementSetId) VALUES	
 		('MODIFIER_RH_AI_EXT_DIPLO_SPY_MONGOLIA',				'MODIFIER_PLAYER_ADD_DIPLO_VISIBILITY',		'RH_MID_GAME_REQ_S');
 
 

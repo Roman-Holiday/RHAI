@@ -294,16 +294,15 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,							ModifierType, 										Subje
 					
 -- , MODIFIER_PLAYER_DIPLOMACY_RANDOM
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,		Value) VALUES		
-			('RH_AI_DISLIKE_NEARBY_TARGETS',					'MaxValue',					-7), 
+			('RH_AI_DISLIKE_NEARBY_TARGETS',					'MaxValue',					-10), 
 			('RH_AI_DISLIKE_NEARBY_TARGETS',					'InitialValue',				-2),
-			('RH_AI_DISLIKE_NEARBY_TARGETS',					'IncrementTurns',			9),
+			('RH_AI_DISLIKE_NEARBY_TARGETS',					'IncrementValue',			-1),
 			('RH_AI_DISLIKE_NEARBY_TARGETS',					'StatementKey',							'LOC_DIPLO_WARNING_EXIT_LEADER_CHANDRAGUPTA_ANY'),
 			('RH_AI_DISLIKE_NEARBY_TARGETS',					'SimpleModifierDescription',			'LOC_DIPLO_MODIFIER_CHANDRAGUPTA_NEIGHBOR');
 
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value,							 Type) VALUES			
-			('RH_AI_DISLIKE_NEARBY_TARGETS',												'IncrementValue',		-1, 						'ScaleByGameSpeed'); 
-
+			('RH_AI_DISLIKE_NEARBY_TARGETS',												'IncrementTurns',		8, 						'ScaleByGameSpeed'); 
 
 
 
@@ -329,13 +328,15 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,							ModifierType, 										Subje
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,		Value) VALUES		
 			('RH_AI_PLAYER_CLOSE_TO_VICTORY',					'MaxValue',					-30),
 			('RH_AI_PLAYER_CLOSE_TO_VICTORY',					'InitialValue',				-1),
-			('RH_AI_PLAYER_CLOSE_TO_VICTORY',					'IncrementTurns',			2),
+			('RH_AI_PLAYER_CLOSE_TO_VICTORY',					'IncrementValue',			-2),
 			('RH_AI_PLAYER_CLOSE_TO_VICTORY',					'SimpleModifierDescription',			'LOC_DIPLO_MODIFIER_CLOSE_TO_VICTORY');
 			
-					
+
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value,							 Type) VALUES			
-			('RH_AI_PLAYER_CLOSE_TO_VICTORY',												'IncrementValue',		-2, 						'ScaleByGameSpeed');
+			('RH_AI_PLAYER_CLOSE_TO_VICTORY',												'IncrementTurns',		2, 						'ScaleByGameSpeed');
 			
+
+					
 
 
 

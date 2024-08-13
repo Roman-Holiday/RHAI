@@ -378,12 +378,12 @@
 
 	<AiFavoredItems>
 		
-	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_FOOD" Value="-15"/> 
-	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_CULTURE" Value="-5"/> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_FOOD" Value="-20"/> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_CULTURE" Value="-10"/> 
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_GOLD" Value="15"/> 
-	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_SCIENCE" Value="30"/> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_SCIENCE" Value="15"/> 
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_PRODUCTION" Value="20"/> 
-	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_FAITH" Value="-15"/> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_FAITH" Value="-20"/> 
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_FACSISM" Value="810"/> <!-- pvs 150, 350, unit production -->
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_OLIGARCHY" Value="975"/> <!-- pvs 350 -->
 	
@@ -392,14 +392,17 @@
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_MONARCHY" Value="220"/> 
 	
 	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_AT_WAR" Value="950"/> <!-- pvs 550--> 
-	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_JUST_WAR" Value="500"/> <!-- pvs 0--> 
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_UNDER_ATTACK" Value="60"/>
+	
+	<Row ListType="STRATEGY_AT_WAR_YIELDS" Item="YIELD_RH_JUST_WAR" Value="600"/> <!-- pvs 0--> 
 	
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="5"/> 
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="15"/> <!-- pvs 5 -->
-	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="8"/> <!-- pvs 5 -->
-	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="9"/> <!-- pvs 5 -->
+	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="10"/> <!-- pvs 5, 8 -->
+	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="15"/> <!-- pvs 5, 9 -->
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_RESOURCE_LUXURY" Value="-15"/> 
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="-20"/> 
+	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="-80"/> 
 
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_GPP_GENERAL" Value="50"/> 
 
@@ -511,6 +514,17 @@
 	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_ADVANCED_FLIGHT" 	Favored="true"/>
 	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_BALLISTICS" 			Favored="true"/> <!-- Field Cannons -->
 	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_IRON_WORKING" 		Favored="true"/> <!-- Swordsman / for Crossbowmen -->
+		
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_BANKING" Favored="false" Value="-500"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_ECONOMICS" Favored="false" Value="-500"/>
+
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_ELECTRICITY" Favored="false" Value="-500"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_BUTTRESS" Favored="false" Value="-500"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_SANITATION" Favored="false" Value="-500"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_EDUCATION" Favored="false" Value="-500"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_MATHEMATICS" Favored="false" Value="-500"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_TECHS" Item="TECH_TELECOMMUNICATIONS" Favored="false" Value="-500"/>
+	
 	
 	<Row ListType="STRATEGY_UNDER_ATTACK_CIVICS" Item="CIVIC_DEFENSIVE_TACTICS" 			Favored="true"/>
 	<Row ListType="STRATEGY_UNDER_ATTACK_CIVICS" Item="CIVIC_CRAFTSMANSHIP" 				Favored="true"/> <!-- 50% Unit Production -->
@@ -531,7 +545,7 @@
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_CROSSBOWMAN"				 Value="95"/> <!-- pvs 18 -->
 	
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_FIELD_CANNON"			 Value="95"/>
-	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_FIGHTER"					 Value="15"/> 
+	<!--Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_FIGHTER"					 Value="15"/--> 
 	
 	<!-- Heavy Cav -->
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_KNIGHT"					 Value="40"/>
@@ -545,10 +559,10 @@
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_CATAPULT"				 Value="-99"/>  <!-- pvs -40 -->
 	
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_HEAVY_CAVALRY"		 Value="25"/>
-	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"				 Value="60"/> <!-- pvs 10, 45, 95 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"				 Value="85"/> <!-- pvs 10, 45, 95 -->
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_SIEGE"				 Value="-100"/> <!-- pvs -45, -95 --> <!-- May include bombers due to class changes, but unlikely -->
 	
-	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="5"/> 
+	<!--Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="5"/--> 
 	
 	<Row ListType="STRATEGY_UNDER_ATTACK_SAVINGS" Item="SAVING_UNITS" Value="-2"/>
 	<Row ListType="STRATEGY_UNDER_ATTACK_SAVINGS" Item="SAVING_PLOTS" Value="1"/>

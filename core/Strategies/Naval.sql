@@ -194,8 +194,12 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('RH_Naval_Def_UnitBuilds', 'PROMOTION_CLASS_NAVAL_RANGED', 					1, 40),
 ('RH_Naval_Def_UnitBuilds', 'PROMOTION_CLASS_NAVAL_RAIDER', 					1, 10),
 
+('RH_Naval_Def_Units', 				'UNIT_QUADRIREME', 							1, 40),
+('RH_Naval_Def_Units', 				'UNIT_FRIGATE', 							1, 15),
+('RH_Naval_Def_Units', 				'UNIT_PRIVATEER', 							0, -20), -- Can Coastal Raid while Frigate Cannot, less Useful for Defence
+
 ('RH_Naval_Def_Units', 				'UNIT_BATTLESHIP', 							1, 75),
-('RH_Naval_Def_Units', 				'UNIT_MISSILE_CRUISER', 					1, 95),
+('RH_Naval_Def_Units', 				'UNIT_MISSILE_CRUISER', 					1, 80),
 
 ('RH_Naval_Def_PseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 					1, 40);
 

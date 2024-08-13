@@ -68,7 +68,7 @@ INSERT OR IGNORE INTO TraitModifiers
 		('TRAIT_LEADER_MAJOR_CIV',		'RH_HIGH_DIFF_LATE_GAME_GW_THEME_FIX');
 
 INSERT OR IGNORE INTO Modifiers
-		(ModifierId,									ModifierType,								OwnerRequirementSetId) VALUES	
+		(ModifierId,									ModifierType,								SubjectRequirementSetId) VALUES	
 		('RH_HIGH_DIFF_LATE_GAME_GW_THEME_FIX',						'MODIFIER_PLAYER_ADJUST_AUTO_THEME_BUILDINGS_WITH_X_SLOTS',		'RH_AI_HAS_NATURAL_HISTORY_DEITY');
 		
 		--Arguments:Amount, AllowUniqueOverride (0)
@@ -90,7 +90,7 @@ INSERT OR IGNORE INTO TraitModifiers
 		('TRAIT_LEADER_MAJOR_CIV',		'RH_HIGH_DIFF_LATE_GAME_GW_THEME_FIX_2');
 
 INSERT OR IGNORE INTO Modifiers
-		(ModifierId,									ModifierType,								OwnerRequirementSetId) VALUES	
+		(ModifierId,									ModifierType,								SubjectRequirementSetId) VALUES	
 		('RH_HIGH_DIFF_LATE_GAME_GW_THEME_FIX_2',						'MODIFIER_PLAYER_ADJUST_AUTO_THEME_BUILDINGS_WITH_X_SLOTS',		'RH_AI_HAS_NATURAL_HISTORY_DEITY');
 		
 		--Arguments:UnitType, Amount, AllowUniqueOverride (0)
@@ -136,9 +136,6 @@ INSERT OR IGNORE INTO RequirementArguments
 
 -- Testing 8% per difficulty (to compensate for default AI 8% higher culture per difficulty, not well themeing great works or targeting specific civs) (smoother difficulty uses 20% per difficulty + lots of extra era scaling)
 
-INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId) VALUES
-('TRAIT_LEADER_MAJOR_CIV', 'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM');
-
 
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
@@ -170,22 +167,27 @@ SELECT 'BUILDING_CRISTO_REDENTOR', 'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S'
 WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_CRISTO_REDENTOR'); 
 
 
-INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	
-		('POLICY_ONLINE_COMMUNITIES', 		  		    'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM'); -- 50% Tourism to Civs with Trade Route
-
-
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 ('RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S', 'MODIFIER_PLAYER_ADJUST_TOURISM', 'PLAYER_IS_HIGH_DIFFICULTY_AI');
 
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Type, Value, Extra) VALUES
-('RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S', 'Amount', 'LinearScaleFromDefaultHandicap', 150, 45); -- 50, 10 - 80,10, 100, 10, 80,20, 80,35
+('RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S', 'Amount', 'LinearScaleFromDefaultHandicap', 0, 40); -- 50, 10 - 80,10, 100, 10, 80,20, 80,35
 
 
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
-('RH_HIGH_DIFFICULTY_SLIGHT_TOURISM', 'MODIFIER_PLAYER_ADJUST_TOURISM', 'PLAYER_IS_HIGH_DIFFICULTY_AI');
+
+INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	
+		('POLICY_ONLINE_COMMUNITIES', 		  		    'RH_HIGH_DIFFICULTY_INLINE_TOURISM'); -- 50% Tourism to Civs with Trade Route
+
+INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId) VALUES
+('TRAIT_LEADER_MAJOR_CIV', 'RH_HIGH_DIFFICULTY_INLINE_TOURISM');
+
+
+
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
+('RH_HIGH_DIFFICULTY_INLINE_TOURISM', 'MODIFIER_PLAYER_ADJUST_TOURISM', 'PLAYER_IS_HIGH_DIFFICULTY_AI');
 
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Type, Value, Extra) VALUES
-('RH_HIGH_DIFFICULTY_SLIGHT_TOURISM', 'Amount', 'LinearScaleFromDefaultHandicap', 15, 24); -- pvs 8, 0-15, 30-15
+('RH_HIGH_DIFFICULTY_INLINE_TOURISM', 'Amount', 'LinearScaleFromDefaultHandicap', 0, 8); -- pvs 8, 0-15, 30-15. Directly in Line with Difficulty
 
 
 -- Deity / Immortal Future Era Civic Tourism Finisher (Cultural Hegemony)
@@ -193,11 +195,11 @@ INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Type, Value, Extra) V
 INSERT OR IGNORE INTO TraitModifiers (TraitType, ModifierId) VALUES
 ('TRAIT_LEADER_MAJOR_CIV', 'RH_HEGEMONY_CIVIC_DEITY_TOUR');
 
-INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, OwnerRequirementSetId) VALUES
+INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
 ('RH_HEGEMONY_CIVIC_DEITY_TOUR', 'MODIFIER_PLAYER_ADJUST_TOURISM', 'RH_IMMORTAL_HEGEMONY_CIVIC');
 
 INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Value) VALUES
-('RH_HEGEMONY_CIVIC_DEITY_TOUR', 'Amount',  700); -- pvs 350
+('RH_HEGEMONY_CIVIC_DEITY_TOUR', 'Amount',  150); 
 
 
 --INSERT OR IGNORE INTO ModifierArguments (ModifierId, Name, Type, Value, Extra) VALUES
@@ -261,3 +263,6 @@ INSERT OR IGNORE INTO Requirements  (RequirementId, RequirementType)  VALUES
 INSERT OR IGNORE INTO RequirementArguments  (RequirementId,	Name, Value)  VALUES
 		('PLAYER_IS_AI_LATE_TECH','TechnologyType', 'TECH_NUCLEAR_FUSION'),
 		('PLAYER_IS_AI_SMART_MATERIALS','TechnologyType', 'TECH_SMART_MATERIALS');
+		
+		
+

@@ -83,7 +83,7 @@ INSERT OR IGNORE INTO RequirementArguments  (RequirementId,	Name, Value) VALUES
 
 
 INSERT INTO Modifiers
-		(ModifierId,					ModifierType,					OwnerRequirementSetId, RunOnce, Permanent) VALUES	
+		(ModifierId,					ModifierType,					SubjectRequirementSetId, RunOnce, Permanent) VALUES	
 		('MODIFIER_RH_AI_EXT_DIPLO_SPY',				'MODIFIER_PLAYER_ADD_DIPLO_VISIBILITY',		'PLAYER_IS_AI', 1, 1);
 
 
@@ -132,11 +132,11 @@ INSERT INTO UnitPromotionModifiers (UnitPromotionType, ModifierId) VALUES
 
 
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
-		('RH_DEF',				'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S');
+		('RH_DEF',				'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_AI_ANCIENT_ONLY_REQ_S');
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_DEF',		'YieldType'    , 'YIELD_RH_UNDER_ATTACK'),
-		('RH_DEF',						'Amount'   , 90); -- pvs 2 Culture lol, 5, 9, 30, 20, 30, 38
+		('RH_DEF',						'Amount'   , 500); -- pvs 2 Culture lol, 5, 9, 30, 20, 30, 38
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_WALLS', 'RH_DEF');
@@ -168,22 +168,22 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
-		('RH_DEF_W',				'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_WAR_REQ_S');
+		('RH_DEF_W',				'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_AI_ANCIENT_WAR_REQ_S');
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_DEF_W',	'YieldType'    , 'YIELD_RH_UNDER_ATTACK'),
-		('RH_DEF_W',						'Amount'   , 8);
+		('RH_DEF_W',						'Amount'   , 50);
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_CASTLE', 'RH_DEF_W');
 
 
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
-		('RH_DEF_LATE',				'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_WAR_REQ_S');
+		('RH_DEF_LATE',				'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_AI_ANCIENT_WAR_REQ_S');
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_DEF_LATE',	'YieldType'    , 'YIELD_RH_UNDER_ATTACK'),
-		('RH_DEF_LATE',						'Amount'   , 9);
+		('RH_DEF_LATE',						'Amount'   , 75);
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_STAR_FORT', 'RH_DEF_LATE');
@@ -288,7 +288,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 
 		('RH_URBAN_DEVELOPMENT_HALF_MOD',		'YieldType', 			'YIELD_RH_CITY_CENTRE'),
-		('RH_URBAN_DEVELOPMENT_HALF_MOD',								'Amount'   , 15); -- pvs 3, 4, 10, 12
+		('RH_URBAN_DEVELOPMENT_HALF_MOD',								'Amount'   , 12); -- pvs 3, 4, 10, 12, 15
 
 
 INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		

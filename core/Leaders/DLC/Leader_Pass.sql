@@ -471,12 +471,14 @@ INSERT INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_LUDWIG', 'TRAIT_
 
 
 INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
+('LudwigDiplo'),
 ('LudwigYields'),
 ('LudwigPseudoYields'),
 ('LudwigDistricts'),
 ('LudwigUnitBuilds');
 
 INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
+('LudwigDiplo',       'TRAIT_LEADER_LUDWIG', 'DiplomaticActions'),
 ('LudwigYields',       'TRAIT_LEADER_LUDWIG', 'Yields'),
 ('LudwigUnitBuilds', 'TRAIT_LEADER_LUDWIG', 'UnitPromotionClasses'),
 ('LudwigDistricts',  'TRAIT_LEADER_LUDWIG', 'Districts'),
@@ -490,6 +492,11 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('LudwigYields', 'YIELD_RH_WONDER',	  	  1, 3500), -- pvs 450, 1850
 ('LudwigYields', 'YIELD_RH_CULTURE_VICTORY_BASE',	  	  1, 100),
 ('LudwigYields', 'YIELD_SCIENCE',	  	  1, -15),
+
+('LudwigDiplo', 'DIPLOACTION_DIPLOMATIC_DELEGATION',	  	 	1, 100),
+('LudwigDiplo', 'DIPLOACTION_DEMAND_TRIBUTE',	  	 			 1, 0), 
+('LudwigDiplo', 'DIPLOACTION_DECLARE_SURPRISE_WAR',	  	 			 1, 100), 
+
 
 ('LudwigTechs', 'TECH_IRON_WORKING',	  	 			 1, 100), -- For Castles
 ('LudwigTechs', 'TECH_CONSTRUCTION',	  	  			1, 100),

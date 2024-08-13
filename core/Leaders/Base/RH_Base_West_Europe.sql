@@ -21,11 +21,16 @@ INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 ('PhilipDiplomacy',    'TRAIT_LEADER_EL_ESCORIAL', 'DiplomaticActions'),
 ('PhilipPseudoYields', 'TRAIT_LEADER_EL_ESCORIAL', 'PseudoYields');
 
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item,  Value) VALUES
+('PhilipYields', 'YIELD_SCIENCE',   -15),
+('PhilipYields', 'YIELD_CULTURE',   -15);
+
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 --('PhilipYields', 'YIELD_PRODUCTION',  1, 3),
 ('PhilipYields', 'YIELD_CULTURE',  1, 3),
 ('PhilipYields', 'YIELD_FAITH', 1, 15), -- pvs 8
---('PhilipYields', 'YIELD_GOLD',  1, 11),
+('PhilipYields', 'YIELD_GOLD',  1, 25),
 
 ('PhilipYields', 'YIELD_RH_COMMUNISM', 	1, 200),
 ('PhilipYields', 'YIELD_RH_FASCISM', 	1, 350),
@@ -42,11 +47,13 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('PhilipPseudoYields', 'PSEUDOYIELD_UNIT_RELIGIOUS', 1, 25),
 ('PhilipPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, -6),
 ('PhilipPseudoYields', 'PSEUDOYIELD_CITY_DEFENCES', 1, -3),
-('PhilipPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, 22),
-('PhilipPseudoYields', 'PSEUDOYIELD_CITY_POPULATION', 1, 20),
+('PhilipPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, 100),
+('PhilipPseudoYields', 'PSEUDOYIELD_CITY_POPULATION', 1, 100),
+
+('PhilipPseudoYields', 'PSEUDOYIELD_GPP_GENERAL', 1, 150),
 ('PhilipPseudoYields', 'PSEUDOYIELD_GPP_PROPHET', 1, 22),
 ('PhilipPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT', 1, 10), -- Trade Routes
-('PhilipPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 1, 32), -- Trade Routes + armadas
+('PhilipPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 1, 65), -- Trade Routes + armadas, 32
 ('PhilipPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT', 1, 7), -- pvs 4
 ('PhilipPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER', 1, 5),
 ('PhilipPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE', 1, 3),

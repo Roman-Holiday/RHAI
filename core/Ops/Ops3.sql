@@ -39,20 +39,22 @@ UPDATE AiOperationTeams SET InitialStrengthAdvantage = '-8' WHERE TeamName = 'Ai
 INSERT OR IGNORE INTO AiTeams (TeamName) VALUES
 ('RH Naval Settle Team');
 INSERT OR IGNORE INTO AiOperationTeams (TeamName,OperationName,InitialStrengthAdvantage,OngoingStrengthAdvantage, Condition) VALUES
-('RH Naval Settle Team',								'Settle New City',				-4,						0,			 'IsCoastalTarget');
+('RH Naval Settle Team',								'Settle New City',				-4,						-1,			 'IsCoastalTarget');
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber, ReconsiderWhilePreparing) VALUES
-('RH Naval Settle Team', 						'UNITAI_COMBAT',     1, 	3, 					0);
+('RH Naval Settle Team', 						'UNITAI_COMBAT',     1, 	5, 					0);
 
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
+('RH Naval Settle Team', 'UNITTYPE_LAND_COMBAT', 					1, 3),
+
 ('RH Naval Settle Team', 'UNITAI_SETTLE', 							1, 1),
 
-('RH Naval Settle Team', 'UNITTYPE_NAVAL', 							0, 3),
+('RH Naval Settle Team', 'UNITTYPE_NAVAL', 							0, 2),
 ('RH Naval Settle Team', 'UNITTYPE_AIR', 							0, 0),
 
-('RH Naval Settle Team', 'UNITTYPE_CIVILIAN_LEADER', 				0, 1), -- Bring Great General / Admiral
+('RH Naval Settle Team', 'UNITTYPE_CIVILIAN_LEADER', 				0, 1); -- Bring Great General / Admiral
 
-('RH Naval Settle Team', 'UNITTYPE_NAVAL', 							0, 2);
+
 
 
 

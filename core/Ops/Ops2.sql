@@ -23,10 +23,10 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 --UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion =  -1, MaxTargetDistInArea =  11, MaxTargetDistInWorld = 16, MinOddsOfSuccess = 0.48, MustHaveUnits = 7 WHERE OperationName = 'Attack Walled City'; -- 60%, 10
 --UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion =  -1, MaxTargetDistInArea =  11, MaxTargetDistInWorld = 16, MinOddsOfSuccess = 0.3, MustHaveUnits = 6 WHERE OperationName = 'Wartime Attack Walled City'; -- 40%, 6
 
-UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '10', MaxTargetDistInWorld = '10', MinOddsOfSuccess = '0.4', MustHaveUnits = '5' WHERE OperationName = 'Attack Enemy City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT';
-UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '10', MaxTargetDistInWorld = '12', MinOddsOfSuccess = '0.2', MustHaveUnits = '4' WHERE OperationName = 'Wartime Attack Enemy City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; 
-UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '14', MaxTargetDistInWorld = '15', MinOddsOfSuccess = '0.4', MustHaveUnits = '8' WHERE OperationName = 'Attack Walled City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; -- pvs 0.5 -- def must have units is 10 -- testing 8 from 7 for possibly larger attacks
-UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '14', MaxTargetDistInWorld = '15', MinOddsOfSuccess = '0.2', MustHaveUnits = '5' WHERE OperationName = 'Wartime Attack Walled City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; -- min units pvs 6, 5 -- Testing increasing back to 6 to see effect on attacks
+UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '11', MaxTargetDistInWorld = '12', MinOddsOfSuccess = '0.4', MustHaveUnits = '5' WHERE OperationName = 'Attack Enemy City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT';
+UPDATE AiOperationDefs SET Priority = '4', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '11', MaxTargetDistInWorld = '12', MinOddsOfSuccess = '0.2', MustHaveUnits = '4' WHERE OperationName = 'Wartime Attack Enemy City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; 
+UPDATE AiOperationDefs SET Priority = '4', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '14', MaxTargetDistInWorld = '16', MinOddsOfSuccess = '0.4', MustHaveUnits = '6' WHERE OperationName = 'Attack Walled City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; -- pvs 0.5 -- def must have units is 10 -- testing 8 from 7 for possibly larger attacks
+UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '14', MaxTargetDistInWorld = '16', MinOddsOfSuccess = '0.2', MustHaveUnits = '5' WHERE OperationName = 'Wartime Attack Walled City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; -- min units pvs 6, 5 -- Testing increasing back to 6 to see effect on attacks
 
 
 UPDATE AiOperationDefs SET Priority = '3', MinOddsOfSuccess = '0.33', MaxTargetDistInArea ='22' WHERE OperationName = 'Attack Barb Camp' AND TargetType = 'TARGET_BARBARIAN_CAMP';
@@ -38,6 +38,50 @@ UPDATE TriggeredBehaviorTrees SET Priority = '4' WHERE TriggerType = 'TRIGGER_TE
 UPDATE TriggeredBehaviorTrees SET Priority = '4' WHERE TriggerType = 'TRIGGER_CIVIC_UPGRADE' AND TreeName = 'Upgrade Units';
 
 UPDATE TriggeredBehaviorTrees SET Priority = 4 WHERE TriggerType = 'TRIGGER_RAILROAD' AND TreeName ='Build Railroad'; -- Def 2, pvs 3, testing 4
+
+
+/*
+INSERT INTO TriggeredBehaviorTrees (TriggerType, TreeName, AIEvent, Priority)
+VALUES ('RH_UPGRADE_TEST', 'Upgrade Units', 'AI_EVENT_GREAT_PERSON_GAINED', 3);
+
+INSERT INTO TriggeredBehaviorTrees (TriggerType, TreeName, AIEvent, Priority)
+VALUES ('RH_UPGRADE_TEST2', 'Upgrade Units', 'AI_EVENT_DESIRE_SETTLE', 3);
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item) VALUES
+('DefaultTriggeredTrees', 'RH_UPGRADE_TEST'),
+('DefaultTriggeredTrees', 'RH_UPGRADE_TEST2');
+*/
+
+/*
+-- Test
+INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
+('RHAtWarCityBuildsTest');
+INSERT OR REPLACE INTO AiLists (ListType, System) VALUES
+('RHAtWarCityBuildsTest', 'CityEvents');
+INSERT OR REPLACE INTO Strategy_Priorities (StrategyType, ListType) VALUES
+('STRATEGY_AT_WAR', 'RHAtWarCityBuildsTest');
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, StringVal) VALUES
+('RHAtWarCityBuildsTest', 'CITY_EVENT_DEFAULT', 'Upgrade Units');
+
+-- Under Attack
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, StringVal) VALUES
+('RHAtWarCityBuildsTest', 'CITY_UNDER_THREAT', 'Upgrade Units');
+
+
+-- Prepare Unit Upgrades
+INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
+('RHWarPrepareCityBuildsTest');
+INSERT OR REPLACE INTO AiLists (ListType, System) VALUES
+('RHWarPrepareCityBuildsTest', 'CityEvents');
+INSERT OR REPLACE INTO Strategy_Priorities (StrategyType, ListType) VALUES
+('STRATEGY_WAR_IF_STRONG', 'RHWarPrepareCityBuildsTest');
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, StringVal) VALUES
+('RHWarPrepareCityBuildsTest', 'CITY_EVENT_DEFAULT', 'Upgrade Units');
+*/
+
+
 
 
 --TriggeredBehaviorTrees

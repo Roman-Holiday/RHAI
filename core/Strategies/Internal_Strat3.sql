@@ -435,10 +435,27 @@ INSERT OR IGNORE INTO RequirementArguments  (RequirementId,	Name, Value) VALUES
 
 
 
+DELETE FROM StartBiasResources WHERE CivilizationType = 'CIVILIZATION_AMERICA';
+DELETE FROM StartBiasFeatures WHERE CivilizationType = 'CIVILIZATION_AMERICA';
+DELETE FROM StartBiasTerrains WHERE CivilizationType = 'CIVILIZATION_AMERICA';
+		
+INSERT INTO StartBiasTerrains (CivilizationType, TerrainType, Tier) VALUES
+ ('CIVILIZATION_AMERICA', 'TERRAIN_DESERT', 1),
+ ('CIVILIZATION_AMERICA', 'TERRAIN_DESERT_MOUNTAIN', 3),
+ ('CIVILIZATION_AMERICA', 'TERRAIN_DESERT_HILLS', 1);
+ 
+ 
 
 
 
+--UPDATE EnglishText 
+--SET Text = 'Forget the Swans today, you are going to need this Delegation Ursa and remember, be careful what you wish for ;)' 
+--WHERE Tag = 'LOC_DIPLO_DELEGATION_FROM_AI_LEADER_LUDWIG_ANY';
+	
 
+--	<Row Tag="LOC_DIPLO_DELEGATION_FROM_AI_LEADER_LUDWIG_ANY">
+--			<>I have sent to you one hundred swans- I have sent to you fifty sw- Excuse me, I have not tied them down well. I have sent you a swan.</Text>
+--		</Row>
 
 
 
