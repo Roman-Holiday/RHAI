@@ -263,6 +263,20 @@
 		<Criteria id="RH_WILDW_COMMUNITY_EXTENSION_ENABLED">
 			<ModInUse>3351473b-0746-417a-a618-2b66a04d8f3d</ModInUse>
 		</Criteria>
+
+	  	<Criteria id="BTT">
+			<ModInUse>23acd19c-377a-4da8-b8cb-87d3c7fc71af</ModInUse>
+		</Criteria>
+
+	  	<Criteria id="Expansion1_BTT">
+			<GameCoreInUse>Expansion1</GameCoreInUse>
+			<ModInUse>23acd19c-377a-4da8-b8cb-87d3c7fc71af</ModInUse>
+		</Criteria>
+		<Criteria id="Expansion2_BTT">
+			<GameCoreInUse>Expansion2</GameCoreInUse>
+			<ModInUse>23acd19c-377a-4da8-b8cb-87d3c7fc71af</ModInUse>
+		</Criteria>
+
 	</ActionCriteria>
 
 
@@ -773,22 +787,64 @@
 
 		<UpdateDatabase id="RH_AI_LUA_REFERENCE_TABLES">
 			<Properties>
-				<LoadOrder>15006</LoadOrder>				<!-- After all text and tech additions, as need to ref -->
+				<LoadOrder>1090</LoadOrder>				<!-- After all text and tech additions, as need to ref -->
 			</Properties>
 
-			<File>core/Experimental/lua_reference_tables.sql</File>
+			<File>core/UI/lua_reference_tables.sql</File>
 
 		</UpdateDatabase>
 
 	  	<ImportFiles id="LUA_Replacers">
       		<Properties>
-        		<LoadOrder>150000</LoadOrder>
+        		<LoadOrder>1090</LoadOrder>
       		</Properties>
-      		<File>core/Experimental/ResearchChooser.lua</File>
-      		<File>core/Experimental/TechTree.lua</File>
+
 			<File>core/UI/ToolTipHelper.lua</File>
-			<File>core/Experimental/CivilopediaPage_District.lua</File>
+			<File>core/UI/CivilopediaPage_District.lua</File>
+			<File>core/UI/TechTree_support.lua</File>
 	  	</ImportFiles>
+
+		<ReplaceUIScript id="ResearchChooserHide">
+			<Properties>
+				<LoadOrder>1100</LoadOrder>
+				<LuaContext>ResearchChooser</LuaContext>
+				<LuaReplace>core/UI/ResearchChooser_overrides.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+
+		<ReplaceUIScript id="ReplaceUI_TechTree_Base">
+			<Properties>
+				<LoadOrder>10950</LoadOrder>
+				<LuaContext>TechTree</LuaContext>
+				<LuaReplace>core/UI/TechTree_overrides.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+
+     <!-- Sloth's Better_tech_tree_compat -->
+		<ReplaceUIScript id="BTT_ReplaceUI_TechTree_Base" criteria="BTT">
+			<Properties>
+				<LoadOrder>11000</LoadOrder>
+				<LuaContext>TechTree</LuaContext>
+				<LuaReplace>core/UI/BTT_wrapper.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+
+		<ReplaceUIScript id="BTT_ReplaceUI_TechTree_Base" criteria="Expansion1_BTT">
+			<Properties>
+				<LoadOrder>11050</LoadOrder>
+				<LuaContext>TechTree</LuaContext>
+				<LuaReplace>core/UI/BTT_wrapper_XP1.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+
+		<ReplaceUIScript id="BTT_ReplaceUI_TechTree_Base" criteria="Expansion2_BTT">
+			<Properties>
+				<LoadOrder>11100</LoadOrder>
+				<LuaContext>TechTree</LuaContext>
+				<LuaReplace>core/UI/BTT_wrapper_XP2.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+		
 
 		<ReplaceUIScript id="ReplaceUI_ToolTip">
 			<Properties>
@@ -797,6 +853,7 @@
 				<LuaReplace>core/UI/ToolTip_Adjust.lua</LuaReplace>
 			</Properties>
 		</ReplaceUIScript>
+
 
 		<!-- Text -->
 
@@ -959,12 +1016,18 @@
 	  <File>core/Other/RH_AI_Loc_Text.xml</File>
 	  <File>core/Other/Misc.sql</File>
 
-		<!-- Experimental -->
-	  	<File>core/Experimental/ResearchChooser.lua</File>
-	  	<File>core/Experimental/TechTree.lua</File>
+		<!-- UI_hiders -->
+		<File>core/UI/ResearchChooser_overrides.lua</File>
 		<File>core/UI/ToolTipHelper.lua</File>
-		<File>core/Experimental/CivilopediaPage_District.lua</File>
-		<File>core/Experimental/lua_reference_tables.sql</File>
+		<File>core/UI/CivilopediaPage_District.lua</File>
+		<File>core/UI/lua_reference_tables.sql</File>
+		<File>core/UI/TechTree_support.lua</File>
+		<File>core/UI/TechTree_overrides.lua</File>
+		<File>core/UI/BTT_wrapper.lua</File>
+		<File>core/UI/BTT_wrapper_XP1.lua</File>
+		<File>core/UI/BTT_wrapper_XP2.lua</File>
+
+		<File>core/UI/ToolTipHelper.lua</File>
 		<File>core/UI/ToolTip_Adjust.lua</File>
 
 		<!-- Community Extension Support -->
