@@ -6,12 +6,12 @@
 
 -- CITY ATTACK FORCE (WALLED)
 
-UPDATE AiOperationTeams SET InitialStrengthAdvantage = 0.9, OngoingStrengthAdvantage = 1.3 WHERE TeamName = 'City Attack Force' AND OperationName = 'Attack Walled City'; -- int pvs 0.9, ongoing now 1.5 instead of 1.6 -- int 0.8 too low
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = -5, OngoingStrengthAdvantage = 0.7 WHERE TeamName = 'City Attack Force' AND OperationName = 'Attack Walled City'; -- int pvs 0.9, ongoing now 1.5 instead of 1.6 -- int 0.8 too low
 
 -- pvs 0.9, 1.5
 
 -- def 2, 4
-UPDATE AiOperationTeams SET InitialStrengthAdvantage = 0.1, OngoingStrengthAdvantage = 0.1 WHERE TeamName = 'City Attack Force' AND OperationName = 'Wartime Attack Walled City'; -- pvs 0.3, 0.5
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = -10, OngoingStrengthAdvantage = -0.5 WHERE TeamName = 'City Attack Force' AND OperationName = 'Wartime Attack Walled City'; -- pvs 0.3, 0.5
 -- def 1, 6
 
 -- pvs 0.3, 0.8
@@ -47,9 +47,9 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 
 -- NAVAL CITY ATTACK FORCE (UNWALLED)
 
-UPDATE AiOperationTeams SET InitialStrengthAdvantage = -7, OngoingStrengthAdvantage = 1.4 WHERE TeamName = 'City Naval Attack Force' AND OperationName = 'Attack Enemy City'; 
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = -7, OngoingStrengthAdvantage = 1.2 WHERE TeamName = 'City Naval Attack Force' AND OperationName = 'Attack Enemy City'; 
 -- def -5, 2
-UPDATE AiOperationTeams SET InitialStrengthAdvantage = -10, OngoingStrengthAdvantage = 0.2 WHERE TeamName = 'City Naval Attack Force' AND OperationName = 'Wartime Attack Enemy City';
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = -10, OngoingStrengthAdvantage = 0.1 WHERE TeamName = 'City Naval Attack Force' AND OperationName = 'Wartime Attack Enemy City';
 -- def -5, 2
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber, MinPercentage, MaxPercentage) VALUES
@@ -91,8 +91,8 @@ UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 7                      
 INSERT OR IGNORE INTO AiTeams (TeamName) VALUES
 ('Walled City Naval Attack Force');
 
-UPDATE  AiOperationTeams SET TeamName = 'Walled City Naval Attack Force', InitialStrengthAdvantage = -5, OngoingStrengthAdvantage = 1.5 WHERE OperationName = 'Attack Walled City'         AND Condition = 'IsCoastalTarget'; -- pvs -5, 1.6
-UPDATE  AiOperationTeams SET TeamName = 'Walled City Naval Attack Force', InitialStrengthAdvantage = -7, OngoingStrengthAdvantage = 0.5 WHERE OperationName = 'Wartime Attack Walled City' AND Condition = 'IsCoastalTarget'; -- pvs -6, 1.2
+UPDATE  AiOperationTeams SET TeamName = 'Walled City Naval Attack Force', InitialStrengthAdvantage = -5, OngoingStrengthAdvantage = 1.2 WHERE OperationName = 'Attack Walled City'         AND Condition = 'IsCoastalTarget'; -- pvs -5, 1.6
+UPDATE  AiOperationTeams SET TeamName = 'Walled City Naval Attack Force', InitialStrengthAdvantage = -10, OngoingStrengthAdvantage = 0.2 WHERE OperationName = 'Wartime Attack Walled City' AND Condition = 'IsCoastalTarget'; -- pvs -6, 1.2
 -- def -5, 3
 -- bugged with same name by default
 

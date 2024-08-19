@@ -630,11 +630,13 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientPseudoYields', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS',   1, 350), -- pvs 55
 ('AncientPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT',   1, -21), -- bringing back as Wu Zetian built 7-8 ships in ancient era
 ('AncientPseudoYields', 'PSEUDOYIELD_WONDER',   		1, -30),
+('AncientPseudoYields', 'PSEUDOYIELD_TOURISM',   		0, -50),
+
 ('AncientPseudoYields', 'PSEUDOYIELD_DISTRICT',   		1, -35), -- pvs -20, -15, 20, 35
 ('AncientPseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 		1, 100); -- To reduce chance AI puts farms on strategics and builds loads of workers before settlers etc, pvs -15
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
-('AncientPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',  -40); -- def -100, -75, -57, -53, -50
+('AncientPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',  -38); -- def -100, -75, -57, -53, -50
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
@@ -647,11 +649,11 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)
-SELECT 'AncientPseudoYields', PseudoYieldType, 0, -60
+SELECT 'AncientPseudoYields', PseudoYieldType, 0, -75
 FROM PseudoYields
 WHERE PseudoYieldType LIKE 'PSEUDOYIELD_GREATWORK_%'; 
 
-UPDATE AiFavoredItems SET Value = -80 WHERE ListType = 'AncientPseudoYields' AND Item = 'PSEUDOYIELD_GREATWORK_RELIC';
+UPDATE AiFavoredItems SET Value = -95 WHERE ListType = 'AncientPseudoYields' AND Item = 'PSEUDOYIELD_GREATWORK_RELIC';
 
 
 -- CLASSICAL
@@ -714,11 +716,12 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_PROPHET',    1, 100), -- pvs 4, 10, 20, 21, 55, 75, 100, 130, 145, 150
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 25),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',   1, 50), -- pvs 200
-('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',   1, 50), -- pvs 0
+('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',   1, 250), -- pvs 0, 50
 
 ('ClassicalPseudoYields', 'PSEUDOYIELD_WONDER',   		1, -8),
+('ClassicalPseudoYields', 'PSEUDOYIELD_TOURISM',   		0, -15),
+
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT',   1, 30),
-('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',   1, 30), -- Player can get them easily
 
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 40),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 40), -- pvs 12
@@ -752,7 +755,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item,Value) VALUES
-('ClassicalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',   -35);
+('ClassicalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',   -33);
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('Classical_Science_Districts', 		'DISTRICT_AQUEDUCT', 1, 25),
@@ -781,11 +784,11 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)
-SELECT 'ClassicalPseudoYields', PseudoYieldType, 1, -30
+SELECT 'ClassicalPseudoYields', PseudoYieldType, 0, -45
 FROM PseudoYields
 WHERE PseudoYieldType LIKE 'PSEUDOYIELD_GREATWORK_%'; 
 
-UPDATE AiFavoredItems SET Value = -60 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GREATWORK_RELIC';
+UPDATE AiFavoredItems SET Value = -75 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GREATWORK_RELIC';
 
 
 
@@ -857,6 +860,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_WRITER',   	1, 50),
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 50),
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',    1, 50), -- Player can get them easily
+('MedievalPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',    1, 75), -- Player can get them easily
 
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_PROPHET',   1, 100), -- pvs 85
 
@@ -871,7 +875,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 1, -1),
 ('MedievalPseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, -55),
 ('MedievalPseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 20), -- pvs 3, 25
-('MedievalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR', 1, -15); -- def 100, pvs 30
+('MedievalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR', 1, -12); -- def 100, pvs 30
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)
 SELECT 'MedievalPseudoYields', PseudoYieldType, 1, 5 -- pvs 0

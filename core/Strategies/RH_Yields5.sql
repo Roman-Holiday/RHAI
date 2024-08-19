@@ -162,7 +162,9 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 		('RH_END_OF_TECH_MOD_M',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),
 
 		('RH_END_OF_TECH_MOD_ML',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),	
-		('RH_END_OF_TECH_MOD_MML',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),			
+		('RH_END_OF_TECH_MOD_MML',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),	
+		('RH_END_OF_TECH_MOD_L_POP',				'MODIFIER_SINGLE_CITY_ADJUST_CITY_YIELD_PER_POPULATION',	'RH_AI_ANCIENT_ONLY_REQ_S'),
+		
 		('RH_END_OF_TECH_MOD_L',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),
 		('RH_END_OF_TECH_MOD_XS',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),
 		('RH_END_OF_TECH_MOD_XXS',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S'),	
@@ -178,6 +180,9 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_END_OF_TECH_MOD_L',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
 		('RH_END_OF_TECH_MOD_L',							'Amount'   , 800), -- pvs 750
 
+		('RH_END_OF_TECH_MOD_L_POP',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
+		('RH_END_OF_TECH_MOD_L_POP',		'Amount',				 70),
+
 		('RH_END_OF_TECH_MOD_ML',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
 		('RH_END_OF_TECH_MOD_ML',							'Amount'   , 700),
 
@@ -191,10 +196,10 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_END_OF_TECH_MOD_XXS',							'Amount'   , 16),
 
 		('RH_END_OF_TECH_MOD_XXXS',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
-		('RH_END_OF_TECH_MOD_XXXS',							'Amount'   , 1), -- pvs 3
+		('RH_END_OF_TECH_MOD_XXXS',							'Amount'   , 3), -- pvs 3, 1, 2
 
 		('RH_END_OF_TECH_MOD_XXXS_IMP',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
-		('RH_END_OF_TECH_MOD_XXXS_IMP',							'Amount'   , 3),
+		('RH_END_OF_TECH_MOD_XXXS_IMP',							'Amount'   , 1), -- pvs 3
 
 		('RH_END_OF_TECH_MOD_S',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
 		('RH_END_OF_TECH_MOD_S',							'Amount'   , 50),
@@ -205,8 +210,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_END_OF_TECH_MOD_M',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
 		('RH_END_OF_TECH_MOD_M',							'Amount'   , 200),
 
-		('RH_END_OF_TECH_MOD_NEGATIVE_XXS',		'YieldType', 	'YIELD_RH_END_OF_TECH'),
-		('RH_END_OF_TECH_MOD_NEGATIVE_XXS',						'Amount'   , -35),
+
 
 		('RH_END_OF_TECH_MOD_NEGATIVE_XS',		'YieldType', 	'YIELD_RH_END_OF_TECH'),
 		('RH_END_OF_TECH_MOD_NEGATIVE_XS',						'Amount'   , -100),
@@ -220,6 +224,26 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 
 	--	('RH_END_OF_TECH_MOD_NEGATIVE',		'YieldType', 	'YIELD_RH_END_OF_TECH'),
 		('RH_END_OF_TECH_MOD_NEGATIVE',						'Amount'   , -99); -- pvs 2500
+
+
+INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
+		('RH_END_OF_TECH_MOD_NEGATIVE_XXS',					'YieldType', 	'YIELD_RH_END_OF_TECH');
+
+INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,			Name,			Value,				 Type) VALUES			
+		('RH_END_OF_TECH_MOD_NEGATIVE_XXS',					'Amount',		-14, 			'ScaleByGameSpeed'); -- pvs -20, -16
+			
+
+-- Project Game Speed Test
+
+INSERT OR IGNORE INTO ProjectCompletionModifiers    (ProjectType, ModifierId)
+SELECT ProjectType, 'RH_END_OF_TECH_MOD_NEGATIVE_XXS' 
+FROM Projects;
+
+--INSERT OR IGNORE INTO ProjectModifiers (ProjectType,			ModifierId)
+--SELECT ProjectType, 'RH_END_OF_TECH_MOD_NEGATIVE_XXS'
+--WHERE EXISTS (SELECT * FROM Projects); 
+
+
 
 
 INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES	
@@ -236,7 +260,7 @@ INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
-('BUILDING_STONEHENGE',		 'RH_END_OF_TECH_MOD_NEGATIVE_XXS');
+('BUILDING_STONEHENGE',		 'RH_END_OF_TECH_MOD_NEGATIVE_XXS'); -- pvs -35, decreasing for project test
 
 
 -- Unique Districts
@@ -294,7 +318,7 @@ INSERT OR IGNORE INTO ImprovementModifiers (ImprovementType, ModifierId) VALUES
 INSERT OR IGNORE INTO ImprovementModifiers (ImprovementType, ModifierId) VALUES
 
 ('IMPROVEMENT_AIRSTRIP',					 'RH_END_OF_TECH_MOD_XXXS_IMP'),
-('IMPROVEMENT_MISSILE_SILO',				 'RH_END_OF_TECH_MOD_XXXS_IMP');
+('IMPROVEMENT_MISSILE_SILO',				 'RH_END_OF_TECH_MOD_XXXS');
 
 
 -- Ranged
@@ -400,11 +424,17 @@ INSERT OR IGNORE INTO TechnologyModifiers (TechnologyType, ModifierId)  VALUES
 
 
 
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+
+('BUILDING_COLOSSEUM',		 'RH_END_OF_TECH_MOD_L_POP'); -- Scale with Pop
+
 
 
 INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
-('DISTRICT_GOVERNMENT',						 'RH_END_OF_TECH_MOD_ML'),
+('DISTRICT_GOVERNMENT',						 'RH_END_OF_TECH_MOD_L_POP');
 
+
+/*
 ('DISTRICT_ACROPOLIS',						 'RH_END_OF_TECH_MOD_ML'),
 ('DISTRICT_HANSA',							 'RH_END_OF_TECH_MOD_ML'),
 ('DISTRICT_BATH',							 'RH_END_OF_TECH_MOD_ML'),
@@ -413,7 +443,7 @@ INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
 ('DISTRICT_OBSERVATORY',					 'RH_END_OF_TECH_MOD_L'),
 ('DISTRICT_OPPIDUM',						 'RH_END_OF_TECH_MOD_ML'),
 ('DISTRICT_THANH',							 'RH_END_OF_TECH_MOD_ML');
-
+*/
 
 
 
@@ -1948,10 +1978,10 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('RH_MILITARY_TRADITION',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
-			('RH_MILITARY_TRADITION',				'Amount',					110), -- pvs 3, 4, 7, 10, 12, 24, 45, 50, 75
+			('RH_MILITARY_TRADITION',				'Amount',					400), -- pvs 3, 4, 7, 10, 12, 24, 45, 50, 75, 110
 
 			('RH_MILITARY_TRADITION_M',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
-			('RH_MILITARY_TRADITION_M',				'Amount',					100); -- pvs 4, 10, 16, 45, 50, 60
+			('RH_MILITARY_TRADITION_M',				'Amount',					150); -- pvs 4, 10, 16, 45, 50, 60
 
 
 INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES
@@ -1965,6 +1995,13 @@ INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES
 
 		('POLICY_STRATEGOS', 		 	 		 'RH_MILITARY_TRADITION');
 
+
+INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
+('DISTRICT_ENCAMPMENT',						 'RH_MILITARY_TRADITION_M');
+
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+
+('BUILDING_TERRACOTTA_ARMY', 				'RH_MILITARY_TRADITION_M');
 
 
 
@@ -2276,6 +2313,7 @@ INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES
 
 -- Delete the following modifiers for the GOVERNMENT_AUTOCRACY, Temp until Fix to prevent AI ANARCHY
 
+/*
 DELETE FROM GovernmentModifiers
 WHERE GovernmentType = 'GOVERNMENT_AUTOCRACY'
 AND ModifierId IN (
@@ -2284,6 +2322,7 @@ AND ModifierId IN (
     'AUTOCRACY_GOLD', 'AUTOCRACY_PRODUCTION', 'AUTOCRACY_SCIENCE', 'AUTOCRACY_FAITH',
     'AUTOCRACY_WONDERS_ACCUMULATING'
 );
+*/
 
 UPDATE GlobalParameters SET Value = '-25' WHERE Name = 'GOVERNMENT_BASE_ANARCHY_TURNS';	 -- Def 2, Temp, 0
 
@@ -2332,7 +2371,7 @@ INSERT INTO Requirements     (RequirementId, 			RequirementType,					Inverse) VA
 
 
 INSERT OR IGNORE INTO RequirementArguments  (RequirementId,	Name, Value) VALUES
-('RH_NOT_FUTURE_TECH',							'TechnologyType', 			'FUTURE_TECH'); 
+('RH_NOT_FUTURE_TECH',							'TechnologyType', 			'TECH_POTTERY'); 
 
 
 

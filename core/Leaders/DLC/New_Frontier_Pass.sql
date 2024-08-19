@@ -345,7 +345,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('LadySixSkyPseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 1, 50), -- farms & plantations
 ('LadySixSkyPseudoYields', 'PSEUDOYIELD_ENVIRONMENT', 0, -30), -- Chopping for Farms
 ('LadySixSkyPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST', 1, 22),
-('LadySixSkyPseudoYields', 'PSEUDOYIELD_GPP_GENERAL', 1, 75), -- Turtle, pvs 25, 40
+('LadySixSkyPseudoYields', 'PSEUDOYIELD_GPP_GENERAL', 1, 650), -- Turtle, pvs 25, 40, 75
 ('LadySixSkyPseudoYields', 'PSEUDOYIELD_GPP_ENGINEER', 1, 10),
 
 ('LadySixSkyPseudoYields', 'PSEUDOYIELD_WONDER', 1, 20),
@@ -598,14 +598,9 @@ VALUES ('UNIT_BUILDER', 'ERA_ANCIENT', 1, 'DISTRICT_HIPPODROME', 2, 0, 1,  'DIFF
 
 
 
-
-
-
-
-
-
-
-
+INSERT OR IGNORE INTO	TraitModifiers	
+			(TraitType,					ModifierId) VALUES		
+			('TRAIT_LEADER_AMBIORIX',	'RH_SABBUM_TEST'); -- No Scouts
 
 
 -- Testing horses favoured = true (Scythia has favoured 1, val 12)

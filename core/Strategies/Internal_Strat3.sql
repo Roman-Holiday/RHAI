@@ -434,14 +434,17 @@ INSERT OR IGNORE INTO RequirementArguments  (RequirementId,	Name, Value) VALUES
 */
 
 
-
-
-
-
-
-
-
-
+/*
+DELETE FROM StartBiasResources WHERE CivilizationType = 'CIVILIZATION_AMERICA';
+DELETE FROM StartBiasFeatures WHERE CivilizationType = 'CIVILIZATION_AMERICA';
+DELETE FROM StartBiasTerrains WHERE CivilizationType = 'CIVILIZATION_AMERICA';
+		
+INSERT INTO StartBiasTerrains (CivilizationType, TerrainType, Tier) VALUES
+ ('CIVILIZATION_AMERICA', 'TERRAIN_DESERT', 1),
+ ('CIVILIZATION_AMERICA', 'TERRAIN_DESERT_MOUNTAIN', 3),
+ ('CIVILIZATION_AMERICA', 'TERRAIN_DESERT_HILLS', 1);
+*/
+ 
 
 
 -- Min Population Req

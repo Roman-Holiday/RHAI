@@ -16,10 +16,7 @@ INSERT INTO	ModifierArguments	(ModifierId,									Name,		Value) VALUES
 			('STANDARD_DIPLOMATIC_ALLY',					'MaxValue',												25), 
 			('STANDARD_DIPLOMATIC_ALLY',					'InitialValue',											5),
 			('STANDARD_DIPLOMATIC_ALLY',					'IncrementValue',										1),
-			
-			('STANDARD_DIPLOMATIC_ALLY',					'IncrementTurns',										3),			
-			
-			
+						
 			('STANDARD_DIPLOMATIC_ALLY',					'ReductionTurns',										2), -- Test
 			('STANDARD_DIPLOMATIC_ALLY',					'ReductionValue',										-1),						
 			
@@ -27,6 +24,9 @@ INSERT INTO	ModifierArguments	(ModifierId,									Name,		Value) VALUES
 			('STANDARD_DIPLOMATIC_ALLY',					'SimpleModifierDescription',			'LOC_DIPLO_MODIFIER_ALLY');
 			
 			
+			
+INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value,							 Type) VALUES			
+			('STANDARD_DIPLOMATIC_ALLY',												'IncrementTurns',		3, 						'ScaleByGameSpeed');
 			
 			
 			

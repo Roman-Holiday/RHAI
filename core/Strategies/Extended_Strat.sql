@@ -1052,3 +1052,183 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('RH_RL_EXPANSION_PseudoYields', 'PSEUDOYIELD_UNIT_RELIGIOUS', 						1, 100);
 
 
+
+
+-- RL Expansion Test
+
+
+INSERT OR IGNORE INTO Types (Type, Kind) VALUES
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',     				'KIND_VICTORY_STRATEGY');
+
+INSERT OR IGNORE INTO Strategies (StrategyType, VictoryType, NumConditionsNeeded) VALUES
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',    		NULL, 2);
+
+
+INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, ThresholdValue, Forbidden) VALUES
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      'Cities Under Threat', 					1, 1),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      'Major Civ Wars', 						1, 1);
+
+
+
+INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, ThresholdValue) VALUES
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Lags Military',	     40),
+
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     2),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     3),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     4),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     5);
+
+
+--INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, Disqualifier) VALUES
+--('RH_STRATEGY_UNDER_HEAVY_ATTACK',    		 				 'Is Not Major', 1);
+
+
+INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
+('RH_UNDER_HEAVY_ATTACK_Diplomacy'),
+('RH_UNDER_HEAVY_ATTACK_Civics'),
+('RH_UNDER_HEAVY_ATTACK_Techs'),
+('RH_UNDER_HEAVY_ATTACK_Buildings'),
+('RH_UNDER_HEAVY_ATTACK_Projects'),
+('RH_UNDER_HEAVY_ATTACK_Yields'),
+('RH_UNDER_HEAVY_ATTACK_PseudoYields'),
+('RH_UNDER_HEAVY_ATTACK_Operations'),
+('RH_UNDER_HEAVY_ATTACK_Settlement'),
+('RH_UNDER_HEAVY_ATTACK_Savings'),
+('RH_UNDER_HEAVY_ATTACK_Scouts'),
+('RH_UNDER_HEAVY_ATTACK_Units'),       
+('RH_UNDER_HEAVY_ATTACK_UnitBuilds'),  
+('RH_UNDER_HEAVY_ATTACK_Districts');   -- New Entry
+
+
+
+INSERT OR IGNORE INTO AiLists (ListType, System) VALUES
+('RH_UNDER_HEAVY_ATTACK_Diplomacy',   			'DiplomaticActions'),
+('RH_UNDER_HEAVY_ATTACK_Civics',   				'Civics'),
+('RH_UNDER_HEAVY_ATTACK_Techs',   				'Technologies'),
+('RH_UNDER_HEAVY_ATTACK_Buildings',   			'Buildings'),
+('RH_UNDER_HEAVY_ATTACK_Projects',   			'Projects'),
+('RH_UNDER_HEAVY_ATTACK_Yields',   				'Yields'),
+('RH_UNDER_HEAVY_ATTACK_PseudoYields',   		'PseudoYields'),
+('RH_UNDER_HEAVY_ATTACK_Operations', 			'AiOperationTypes'),
+('RH_UNDER_HEAVY_ATTACK_Settlement', 			'PlotEvaluations'),
+('RH_UNDER_HEAVY_ATTACK_Savings', 				'SavingTypes'),
+('RH_UNDER_HEAVY_ATTACK_Scouts', 				'AIScoutUses'),
+('RH_UNDER_HEAVY_ATTACK_Units',     			'Units'),       
+('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 			'UnitBuilds'),  
+('RH_UNDER_HEAVY_ATTACK_Districts', 			'Districts');   -- New Entry
+
+
+
+INSERT OR IGNORE INTO Strategy_Priorities (StrategyType, ListType) VALUES
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Diplomacy'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Civics'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Techs'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Buildings'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Projects'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Yields'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_PseudoYields'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Operations'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Settlement'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Savings'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Scouts'),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Units'),       
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_UnitBuilds'),  
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',   'RH_UNDER_HEAVY_ATTACK_Districts');   -- New Entry
+
+
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_MILITARY_PRODUCTION', 						1, 750), 
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_NUCLEAR', 									1, 50), 
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_UNDER_ATTACK', 								1, 950), 
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_AT_WAR', 									1, 150), 
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_PRODUCTION', 								1, 50);
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_SCIENCE', 								 -10),
+
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_CULTURE', 						 		 -40),
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_FOOD', 						 			 -50),
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_FAITH', 								 -25),
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_GOLD', 									 -10);
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item,  Favored,  Value) VALUES
+('RH_UNDER_HEAVY_ATTACK_Districts', 'DISTRICT_ENCAMPMENT', 1, 25),
+('RH_UNDER_HEAVY_ATTACK_Districts', 'DISTRICT_AERODROME', 1,  0);
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_ARCHER', 95), 
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_CROSSBOWMAN', 95),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_FIELD_CANNON', 95),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_KNIGHT',  15),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_TANK', 	15),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_ARTILLERY', -60),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_ROCKET_ARTILLERY', -50),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_TREBUCHET', -99),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_BOMBARD', -99),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_CATAPULT', -99);
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
+('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_HEAVY_CAVALRY', 5),
+('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_RANGED', 50),
+('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_SIEGE', -100),
+('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_AIR_BOMBER', 20);
+
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_BANKING', 0, -500),
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_COMPUTERS', 0, -500),
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_ECONOMICS', 0, -500),
+
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_ELECTRICITY', 0, -500),
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_ASTROLOGY', 0, -500),
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_BUTTRESS', 0, -500),
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_FLIGHT', 0, -500),
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_SANITATION', 0, -500),
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_EDUCATION', 0, -500),
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_MATHEMATICS', 0, -500),
+--('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_SATELLITES', 0, -500),
+
+('RH_UNDER_HEAVY_ATTACK_Techs', 'TECH_TELECOMMUNICATIONS', 0, -500);
+
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value)
+SELECT 'RH_UNDER_HEAVY_ATTACK_Yields', YieldType, 0, -95
+FROM Yields     
+WHERE YieldType LIKE 'RH_%'
+AND YieldType NOT IN (
+    'YIELD_RH_CHARIOT',
+    'YIELD_RH_MILITARY_PRODUCTION',
+    'YIELD_RH_MILITARY_ADV',
+    'YIELD_RH_NUCLEAR',
+    'YIELD_RH_UNDER_ATTACK',
+    'YIELD_RH_AT_WAR',
+    'YIELD_RH_PRODUCTION'
+);
+
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_DISTRICT', 						0, -75),
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_GOVERNOR', 						0, -75),
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_INFLUENCE', 					0, -35),
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 					0, -35);
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER', 						1, 25), 
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE', 						1, 15), 
+
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_GPP_PROPHET', 								0, -40), 
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 					0, -30), 
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_UNIT_RELIGIOUS', 							0, -30);
+
+

@@ -1068,6 +1068,68 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
 
 
 
+--------------------------------------------------------------------------------------------------------------------------
+-- RH Desert
+--------------------------------------------------------------------------------------------------------------------------
+
+INSERT INTO Types   (Type,	Kind)  VALUES	
+('TRAIT_LEADER_RH_DESERT',	'KIND_TRAIT');
+
+INSERT INTO Traits    (TraitType)  VALUES		
+('TRAIT_LEADER_RH_DESERT');
+
+
+INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
+/*('DesertAlliances'),
+('DesertDiplomacy'),
+('DesertUnitBuilds'),
+('DesertUnits'),
+('DesertDistricts'),
+('DesertTechs'),
+('DesertCivics'),
+('DesertYields'),
+('DesertPsuedos'),
+('DesertBuildings'),
+('DesertProjects'),
+('DesertOperations'),
+('DesertScoutUses'),
+('DesertCommemorations'),
+('DesertResolutions'),*/
+('DesertSettlementEvaluations'),
+('DesertSettlement');
+
+INSERT OR IGNORE INTO AiLists (ListType, LeaderType, System) VALUES
+/*('DesertAlliances',   'TRAIT_LEADER_RH_DESERT', 'Alliances'),
+('DesertDiplomacy',   'TRAIT_LEADER_RH_DESERT', 'DiplomaticActions'),
+('DesertUnitBuilds',   'TRAIT_LEADER_RH_DESERT', 'UnitPromotionClasses'),
+('DesertUnits', 'TRAIT_LEADER_RH_DESERT', 'Units'),
+('DesertDistricts', 'TRAIT_LEADER_RH_DESERT', 'Districts'),
+('DesertTechs',   'TRAIT_LEADER_RH_DESERT', 'Technologies'),
+('DesertCivics',   'TRAIT_LEADER_RH_DESERT', 'Civics'),
+('DesertYields',   'TRAIT_LEADER_RH_DESERT', 'Yields'),
+('DesertPsuedos',   'TRAIT_LEADER_RH_DESERT', 'PseudoYields'),
+('DesertBuildings',   'TRAIT_LEADER_RH_DESERT', 'Buildings'),
+('DesertProjects',   'TRAIT_LEADER_RH_DESERT', 'Projects'),
+('DesertOperations',   'TRAIT_LEADER_RH_DESERT', 'AiOperationTypes'),
+('DesertScoutUses',   'TRAIT_LEADER_RH_DESERT', 'AiScoutUses'),
+('DesertCommemorations',   'TRAIT_LEADER_RH_DESERT', 'Commemorations'),
+('DesertResolutions',   'TRAIT_LEADER_RH_DESERT', 'Resolutions'), */
+('DesertSettlementEvaluations',   'TRAIT_LEADER_RH_DESERT', 'SettlementPreferences'),
+('DesertSettlement',   'TRAIT_LEADER_RH_DESERT', 'PlotEvaluations');
+
+
+REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
+('DesertSettlement', 'Specific Feature', 			0, 15, 'FEATURE_OASIS', 'LOC_SETTLEMENT_RECOMMENDATION_FEATURES'); -- pvs 12
+
+
+INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
+('DesertSettlementEvaluations', 'SETTLEMENT_MIN_VALUE_NEEDED', 			 -25),
+('DesertSettlementEvaluations', 'SETTLEMENT_DECAY_AMOUNT', 				  3);
+
+
+
+
+
 
 -- Relic Trait
 

@@ -1420,9 +1420,9 @@ INSERT INTO TraitModifiers
 	--	('TRAIT_LEADER_MAJOR_CIV',		'MODIFIER_RH_AI_DIS_SPY_GOV');
 
 INSERT INTO Modifiers
-		(ModifierId,					ModifierType,					OwnerRequirementSetId) VALUES	
-		('MODIFIER_RH_AI_ENC_SPY_TECH',	'MODIFIER_ALL_UNITS_ADJUST_SPYING_EFFICIENCY',		'PLAYER_IS_AI'),
-		('MODIFIER_RH_AI_ENC_SPY_DAM',	'MODIFIER_ALL_UNITS_ADJUST_SPYING_EFFICIENCY',		'PLAYER_IS_AI');
+		(ModifierId,					ModifierType,					 SubjectRequirementSetId) VALUES	
+		('MODIFIER_RH_AI_ENC_SPY_TECH',	'MODIFIER_ALL_UNITS_ADJUST_SPYING_EFFICIENCY',		 'PLAYER_IS_AI'),
+		('MODIFIER_RH_AI_ENC_SPY_DAM',	'MODIFIER_ALL_UNITS_ADJUST_SPYING_EFFICIENCY',		 'PLAYER_IS_AI');
 	--	('MODIFIER_RH_AI_DIS_SPY_GOV',	'MODIFIER_ALL_UNITS_DISABLE_OPERATION',				'RH_HAS_URBANIZATION_REQ_S');
 		
 INSERT INTO ModifierArguments
@@ -1444,7 +1444,7 @@ INSERT INTO TraitModifiers
 
 
 INSERT INTO Modifiers
-		(ModifierId,					ModifierType,					OwnerRequirementSetId) VALUES	
+		(ModifierId,					ModifierType,					SubjectRequirementSetId) VALUES	
 		('MODIFIER_RH_AI_DIS_SPY_GOV',	'MODIFIER_ALL_UNITS_ADJUST_SPYING_EFFICIENCY',		'PLAYER_IS_AI');
 		
 INSERT INTO ModifierArguments
@@ -1460,7 +1460,7 @@ INSERT INTO TraitModifiers
 
 
 INSERT INTO Modifiers
-		(ModifierId,					ModifierType,					OwnerRequirementSetId) VALUES	
+		(ModifierId,					ModifierType,					SubjectRequirementSetId) VALUES	
 		('MODIFIER_RH_AI_DIS_SPY_FUNDS',	'MODIFIER_ALL_UNITS_ADJUST_SPYING_EFFICIENCY',		'PLAYER_IS_AI');
 		
 INSERT INTO ModifierArguments
@@ -1474,7 +1474,7 @@ INSERT INTO ModifierArguments
 -- Eleanor
 
 INSERT OR IGNORE INTO Modifiers
-		(ModifierId,					ModifierType,					OwnerRequirementSetId) VALUES	
+		(ModifierId,					ModifierType,					SubjectRequirementSetId) VALUES	
 		('MODIFIER_RH_AI_ELEANOR_PREFERENCE',	'MODIFIER_ALL_UNITS_ADJUST_SPYING_EFFICIENCY',		'PLAYER_IS_AI');
 		
 INSERT OR IGNORE INTO ModifierArguments
@@ -1489,12 +1489,12 @@ INSERT OR IGNORE INTO TraitModifiers
 		('TRAIT_LEADER_ELEANOR_LOYALTY',		'MODIFIER_RH_AI_ELEANOR_PREFERENCE');
 
 INSERT INTO Modifiers
-		(ModifierId,					ModifierType,					OwnerRequirementSetId) VALUES	
+		(ModifierId,					ModifierType,					SubjectRequirementSetId) VALUES	
 		('MODIFIER_RH_AI_ELN_GOV_ENC',	'MODIFIER_ALL_UNITS_ADJUST_SPYING_EFFICIENCY',		'PLAYER_IS_AI');
 		
 INSERT INTO ModifierArguments
 		(ModifierId,									Name,						Value) VALUES	
-		('MODIFIER_RH_AI_ELN_GOV_ENC',								'Amount',				100),
+		('MODIFIER_RH_AI_ELN_GOV_ENC',								'Amount',				101),
 		('MODIFIER_RH_AI_ELN_GOV_ENC',								'OperationType',		'UNITOPERATION_SPY_NEUTRALIZE_GOVERNOR');
 
 INSERT INTO TraitModifiers
@@ -1693,7 +1693,8 @@ INSERT INTO GovernorPromotionModifiers     (GovernorPromotionType,			ModifierId)
 INSERT OR IGNORE INTO	TraitModifiers	(TraitType,					ModifierId)  VALUES			
 		('TRAIT_AGENDA_YINDING',						'RH_COMP_P'),
 		('TRAIT_AGENDA_SAKOKU',							'RH_COMP_P1'),
-		('TRAIT_CIVILIZATION_FACES_OF_PEACE',			'RH_COMP_P'),
+		('TRAIT_CIVILIZATION_IMPROVEMENT_OPEN_AIR_MUSEUM',			'RH_COMP_P'),
+		('TRAIT_CIVILIZATION_IMPROVEMENT_OPEN_AIR_MUSEUM',			'RH_COMP_P2'),
 
 		('TRAIT_CIVILIZATION_BUILDING_PALGUM',			'RH_COMP_P1'),
 					
@@ -1702,7 +1703,8 @@ INSERT OR IGNORE INTO	TraitModifiers	(TraitType,					ModifierId)  VALUES
 
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES	
 		('RH_COMP_P1',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'PLAYER_IS_AI'),	
-		('RH_COMP_P',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'PLAYER_IS_AI');
+		('RH_COMP_P',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'PLAYER_IS_AI'),
+		('RH_COMP_P2',				'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE',	'PLAYER_IS_AI');
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 
@@ -1710,7 +1712,10 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_COMP_P1',							'Amount'   , 3),
 
 		('RH_COMP_P',		'YieldType', 		'YIELD_PRODUCTION'),
-		('RH_COMP_P',							'Amount'   , 6);
+		('RH_COMP_P',							'Amount'   , 6),
+
+		('RH_COMP_P2',		'YieldType', 		'YIELD_PRODUCTION'),
+		('RH_COMP_P2',							'Amount'   , 3);
 
 
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
@@ -1718,7 +1723,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_GOVN_UNDER_ATTACK',			'YieldType',			'YIELD_RH_UNDER_ATTACK'),
-		('RH_GOVN_UNDER_ATTACK',						'Amount'   , 8); 
+		('RH_GOVN_UNDER_ATTACK',						'Amount'   , 10); 
 
 INSERT INTO GovernorPromotionModifiers     (GovernorPromotionType,			ModifierId)   VALUES	
 		('GOVERNOR_PROMOTION_REDOUBT',					'RH_GOVN_UNDER_ATTACK'),

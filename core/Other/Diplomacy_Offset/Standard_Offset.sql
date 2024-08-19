@@ -1,9 +1,11 @@
 
 
-UPDATE ModifierArguments SET Value = 11 WHERE ModifierId = 'STANDARD_DIPLOMACY_RANDOM' AND Name = 'ReductionTurns'; 
+UPDATE ModifierArguments SET Value = 15 WHERE ModifierId = 'STANDARD_DIPLOMACY_RANDOM' AND Name = 'ReductionTurns'; -- pvs 12
+
+UPDATE ModifierArguments SET Type = 'ScaleByGameSpeed' WHERE ModifierId = 'STANDARD_DIPLOMACY_RANDOM' AND Name = 'ReductionTurns'; -- Test
 
 
-UPDATE ModifierArguments SET Value = -11 WHERE ModifierId = 'STANDARD_DIPLOMACY_RANDOM' AND Name = 'DifficultyOffset'; 
+UPDATE ModifierArguments SET Value = -9 WHERE ModifierId = 'STANDARD_DIPLOMACY_RANDOM' AND Name = 'DifficultyOffset'; 
 
 UPDATE ModifierArguments SET Extra = -1 WHERE ModifierId = 'STANDARD_DIPLOMACY_RANDOM' AND Name = 'DifficultyOffset'; 
 

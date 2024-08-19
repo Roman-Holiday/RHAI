@@ -284,6 +284,10 @@ WHERE PseudoYieldType LIKE 'PSEUDOYIELD_GREATWORK_%';
 
 INSERT OR REPLACE INTO CivilizationTraits(CivilizationType, TraitType) VALUES ('CIVILIZATION_MALI', 'TRAIT_LEADER_RH_TRADE');
 
+INSERT OR REPLACE INTO CivilizationTraits(CivilizationType, TraitType) VALUES ('CIVILIZATION_MALI', 'TRAIT_LEADER_RH_DESERT');
+
+
+
 
 INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
 ('MansaMusaDiplomacy'),
@@ -982,8 +986,10 @@ INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('KristinaYields', 'YIELD_RH_GW_SLOT', 				1, 375),
-('KristinaYields', 'YIELD_RH_DEMOCRACY', 			1, 200),
-('KristinaYields', 'YIELD_RH_MONARCHY', 			1, 200),
+('KristinaYields', 'YIELD_RH_DEMOCRACY', 			1, 750),
+('KristinaYields', 'YIELD_RH_MONARCHY', 			1, 950),
+('KristinaYields', 'YIELD_RH_THEOCRACY', 			0, -250),
+
 ('KristinaYields', 'YIELD_RH_DIPLO', 				1, 750), -- pvs 100
 ('KristinaYields', 'YIELD_RH_PRODUCTION', 			1, 40), -- Extra Points from Factories
 

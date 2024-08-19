@@ -416,6 +416,10 @@ UPDATE Yields SET DefaultValue = 0.7 WHERE YieldType = 'YIELD_GOLD'; -- pvs 0.75
 UPDATE Yields SET DefaultValue = 2.0 WHERE YieldType = 'YIELD_FAITH'; -- pvs 1.25, 1.6
 UPDATE Yields SET DefaultValue = 1.7 WHERE YieldType = 'YIELD_FOOD'; 
 
+UPDATE Yields SET DefaultValue = 1.4 WHERE YieldType = 'YIELD_RH_UNDER_ATTACK'; 
+UPDATE Yields SET DefaultValue = 1.2 WHERE YieldType = 'YIELD_RV_BASE'; 
+
+
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('DefaultYieldBias', 'YIELD_RH_JUST_WAR', 				0, -950), -- pvs -150, -120, -250, -160
@@ -446,7 +450,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('DefaultYieldBias', 'YIELD_RH_CHARIOT', 					0, -900),
-('DefaultYieldBias', 'YIELD_RH_UNDER_ATTACK', 				0, -410), -- pvs -250, -450
+('DefaultYieldBias', 'YIELD_RH_UNDER_ATTACK', 				0, -350), -- pvs -250, -450, 410
 ('DefaultYieldBias', 'YIELD_RH_AT_WAR', 					0, -650),
 ('DefaultYieldBias', 'YIELD_RH_NUCLEAR', 					1, 	5), -- pvs -50, -70
 ('DefaultYieldBias', 'YIELD_RH_CAV', 						0, -650),
@@ -465,11 +469,11 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 -- Religion
 
-('DefaultYieldBias', 'YIELD_RH_R_GODDESS', 				0, -95), -- pvs 10
+('DefaultYieldBias', 'YIELD_RH_R_GODDESS', 				0, -99), -- pvs 10
 ('DefaultYieldBias', 'YIELD_RH_SCRIPTURE', 				0, -75),
 
 ('DefaultYieldBias', 'YIELD_RH_CULTURE_VICTORY_BASE', 		0, -95),
-('DefaultYieldBias', 'YIELD_RH_STATUE_LIBERTY', 			0, -75),
+('DefaultYieldBias', 'YIELD_RH_STATUE_LIBERTY', 			0, -85),
 
 ('DefaultYieldBias', 'YIELD_RH_WONDER', 					0, -200),
 ('DefaultYieldBias', 'YIELD_RH_HAPPINESS_BUILDING', 		0, -750), -- pvs -95, -250, -400
@@ -544,7 +548,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
 -- Buildings / Infrastrucutre
 
 --('DefaultYieldBias', 'YIELD_RH_CAMPUS', 						1, 5),
-('DefaultYieldBias', 'YIELD_RH_MAUS_H', 					 -20),
+('DefaultYieldBias', 'YIELD_RH_MAUS_H', 					 -5),
 
 ('DefaultYieldBias', 'YIELD_RH_CITY_CENTRE', 				 -150);
 

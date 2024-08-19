@@ -36,7 +36,9 @@ INSERT OR REPLACE INTO AiFavoredItems(ListType, Item, Value) VALUES
 ('UnitPriorityBoosts', 'UNIT_CATAPULT', 4), -- pvs 7, 8, 10, 11 (11 too high), 5
 ('UnitPriorityBoosts', 'UNIT_GALLEY', -15),
 
-('UnitPriorityBoosts', 'UNIT_QUADRIREME', 50),
+('UnitPriorityBoosts', 'UNIT_QUADRIREME', 40),
+
+('UnitPriorityBoosts', 'UNIT_PRIVATEER', 45), -- -20 on defence
 
 ('UnitPriorityBoosts', 'UNIT_BUILDER', 900), -- Test, 95, 200
 
@@ -377,8 +379,8 @@ UPDATE GlobalParameters SET Value = '12' WHERE Name = 'AI_TURNS_BETWEEN_TRADES';
 --UPDATE ModifierArguments SET Extra = '11' WHERE ModifierId = 'HIGH_DIFFICULTY_UNIT_XP_SCALING'; -- Def 10, test
 
 
-UPDATE ModifierArguments SET Value = '250' WHERE ModifierId = 'MINOR_CIV_PRODUCTION_MILITARY' AND Name = 'Amount'; -- Def 200
-UPDATE ModifierArguments SET Value = '400' WHERE ModifierId = 'MINOR_CIV_PRODUCTION_WALLS' AND Name = 'Amount'; -- Def 200
+UPDATE ModifierArguments SET Value = 350 WHERE ModifierId = 'MINOR_CIV_PRODUCTION_MILITARY' AND Name = 'Amount'; -- Def 200
+UPDATE ModifierArguments SET Value = 500 WHERE ModifierId = 'MINOR_CIV_PRODUCTION_WALLS' AND Name = 'Amount'; -- Def 200
 
 UPDATE Victories SET CriticalPercentage=75 WHERE VictoryType='VICTORY_RELIGIOUS'; -- def 80
 UPDATE Victories SET CriticalPercentage=65 WHERE VictoryType='VICTORY_CULTURE'; -- def 75

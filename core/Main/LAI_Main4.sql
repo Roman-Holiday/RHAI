@@ -610,6 +610,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MajorFavorTechs', 'TECH_REFINING', 		1, 0), -- Oil
 ('MajorFavorTechs', 'TECH_COMBINED_ARMS', 	1, 0),
 
+('MajorFavorTechs', 'TECH_BUTTRESS', 	0, 0),
 ('MajorFavorTechs', 'TECH_TELECOMMUNICATIONS', 	0, 0),
 
 ('MajorFavorTechs', 'TECH_ADVANCED_FLIGHT', 	1, 0),

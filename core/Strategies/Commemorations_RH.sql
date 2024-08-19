@@ -437,7 +437,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 				
 		
 INSERT OR IGNORE INTO Modifiers
-		(ModifierId,									ModifierType,								OwnerRequirementSetId) VALUES	
+		(ModifierId,									ModifierType,								SubjectRequirementSetId) VALUES	
 		
 		('RH_INFRA_PURCHASE_TEMP',								'MODIFIER_PLAYER_GRANT_UNIT_IN_CAPITAL',		'PLAYER_IS_AI');
 		

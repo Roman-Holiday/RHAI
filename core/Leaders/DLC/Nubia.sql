@@ -3,17 +3,26 @@
 
 INSERT INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_AMANITORE', 'TRAIT_LEADER_DEFENSIVE');
 
+INSERT OR REPLACE INTO CivilizationTraits(CivilizationType, TraitType) VALUES ('CIVILIZATION_NUBIA', 'TRAIT_LEADER_RH_DESERT');
+
+
+
 INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
 ('AmanitoreYields'),
 ('AmanitoreImprovements'),
 ('AmanitorePseudoYields'),
-('AmanitoreUnits');
+('AmanitoreUnits'),
+('AmanitoreSettlement');
+
 
 INSERT OR IGNORE INTO AiLists (ListType, LeaderType, System) VALUES
 ('AmanitoreYields',       'TRAIT_LEADER_KANDAKE_OF_MEROE', 'Yields'),
 ('AmanitoreImprovements',       'TRAIT_LEADER_KANDAKE_OF_MEROE', 'Improvements'),
 ('AmanitorePseudoYields', 'TRAIT_LEADER_KANDAKE_OF_MEROE', 'PseudoYields'),
-('AmanitoreUnits',        'TRAIT_LEADER_KANDAKE_OF_MEROE', 'Units');
+('AmanitoreUnits',        'TRAIT_LEADER_KANDAKE_OF_MEROE', 'Units'),
+('AmanitoreSettlement',        'TRAIT_LEADER_KANDAKE_OF_MEROE', 'PlotEvaluations');
+
+
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AmanitoreUnits', 'UNIT_NUBIAN_PITATI', 1, 20),
@@ -54,6 +63,56 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AmanitoreImprovements', 'IMPROVEMENT_PYRAMID', 1, 50),
 ('AmanitoreImprovements', 'IMPROVEMENT_MINE', 1, 50);
 
+/*
+Civ Ability:
++30% Production toward Ranged units. 
+Ranged units gain +50% combat experience.
+ +1 Production for Mines over strategic resources,
+ and +2 Gold for Mines over bonus and luxury resources.
+*/
+
+
+
+REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
+('AmanitoreSettlement', 'Specific Resource', 0, 4, 'RESOURCE_COPPER', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
+('AmanitoreSettlement', 'Specific Resource', 0, 5, 'RESOURCE_DIAMONDS', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
+('AmanitoreSettlement', 'Specific Resource', 0, 5, 'RESOURCE_JADE', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
+('AmanitoreSettlement', 'Specific Resource', 0, 5, 'RESOURCE_MERCURY', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
+('AmanitoreSettlement', 'Specific Resource', 0, 5, 'RESOURCE_SALT', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
+('AmanitoreSettlement', 'Specific Resource', 0, 5, 'RESOURCE_SILVER', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
+('AmanitoreSettlement', 'Specific Resource', 0, 5, 'RESOURCE_ALUMINUM', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
+('AmanitoreSettlement', 'Specific Resource', 0, 5, 'RESOURCE_COAL', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
+('AmanitoreSettlement', 'Specific Resource', 0, 5, 'RESOURCE_IRON', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
+('AmanitoreSettlement', 'Specific Resource', 0, 5, 'RESOURCE_NITER', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
+('AmanitoreSettlement', 'Specific Resource', 0, 5, 'RESOURCE_URANIUM', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES');
+
+
+
+REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) -- Mod Support
+SELECT 
+    'AmanitoreSettlement' AS ListType,
+    'Specific Resource' AS Item,
+    0 AS Favored,
+    5 AS Value,
+    ResourceType AS StringVal,
+    'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES' AS TooltipString
+FROM 
+    Improvement_ValidResources
+WHERE 
+    ImprovementType = 'IMPROVEMENT_MINE'
+    AND ResourceType NOT IN (
+        SELECT StringVal 
+        FROM AiFavoredItems 
+        WHERE ListType = 'AmanitoreSettlement'
+    );
+
+
+
+
+
+
+
+
 -- 		<Row ListType="AmanitoreUnitBuilds" Item="PROMOTION_CLASS_RANGED" Value="1"/> lol
 
 UPDATE AiFavoredItems SET Value = 22 WHERE ListType = 'AmanitoreUnitBuilds' AND Item = 'PROMOTION_CLASS_RANGED'; -- pvs 20, 25 was too high, not enough melee units
@@ -64,13 +123,7 @@ UPDATE AiFavoredItems SET Value = 22 WHERE ListType = 'AmanitoreUnitBuilds' AND 
 -- Todo Strategic Resource / Mine Settle
 
 
-/*
-Civ Ability:
-+30% Production toward Ranged units. 
-Ranged units gain +50% combat experience.
- +1 Production for Mines over strategic resources,
- and +2 Gold for Mines over bonus and luxury resources.
-*/
+
 
 /*
 		<Row ListType="AmanitoreCivics" Item="CIVIC_CRAFTSMANSHIP" Favored="true"/>
