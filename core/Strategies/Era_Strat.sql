@@ -716,13 +716,12 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_PROPHET',    1, 100), -- pvs 4, 10, 20, 21, 55, 75, 100, 130, 145, 150
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 25),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',   1, 50), -- pvs 200
-('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',   1, 50), -- pvs 0
+('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',   1, 250), -- pvs 0, 50
 
 ('ClassicalPseudoYields', 'PSEUDOYIELD_WONDER',   		1, -8),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_TOURISM',   		0, -15),
 
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT',   1, 30),
-('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',   1, 30), -- Player can get them easily
 
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 40),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 40), -- pvs 12
@@ -861,6 +860,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_WRITER',   	1, 50),
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 50),
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',    1, 50), -- Player can get them easily
+('MedievalPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',    1, 75), -- Player can get them easily
 
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_PROPHET',   1, 100), -- pvs 85
 

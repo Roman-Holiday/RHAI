@@ -968,7 +968,7 @@
 		<Row BuildingType="BUILDING_GOV_SCIENCE" ModifierId="RH_GPP_SCI_POINTS"/>
 		<Row BuildingType="BUILDING_GOV_CULTURE" ModifierId="RH_GPP_ART_POINTS"/> <!-- pvs 0-->
 		
-		<Row BuildingType="BUILDING_COLOSSEUM" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
+		<Row BuildingType="BUILDING_COLOSSEUM" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
 		<Row BuildingType="BUILDING_QUEENS_BIBLIOTHEQUE" ModifierId="RH_GRANT_TWO_INFLUENCE"/> <!-- needs 2 if others used-->
 		<!--Row BuildingType="BUILDING_MAHABODHI_TEMPLE" ModifierId="RH_GRANT_ONE_INFLUENCE"/> <!-- Dp victory -->
 		<!--Row BuildingType="BUILDING_VENETIAN_ARSENAL" ModifierId="RH_GRANT_ONE_INFLUENCE"/--> <!-- pvs 2 -->
@@ -1361,15 +1361,15 @@
 
 
 	<TraitModifiers>
-		<Row>
+		<!--Row>
 			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
 			<ModifierId>TRAIT_RH_AI_GOV_PLACEMENT_CHANGES</ModifierId>
-		</Row>
+		</Row-->
 		
-		<Row>
+		<!--Row>
 			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
 			<ModifierId>TRAIT_RH_AI_SPR_PLACEMENT_CHANGES</ModifierId>
-		</Row>
+		</Row-->
 		
 		<!--Row>
 			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
@@ -1381,7 +1381,7 @@
 			<ModifierId>RH_AI_IND_GRASS_HILLS</ModifierId>
 		</Row-->
 		
-		<Row>
+		<!--Row>
 			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
 			<ModifierId>RH_AI_GOV_GRASS_MOUNTAIN</ModifierId>
 		</Row>
@@ -1389,7 +1389,7 @@
 		<Row>
 			<TraitType>TRAIT_LEADER_MAJOR_CIV</TraitType>
 			<ModifierId>RH_AI_GOV_PLAINS_MOUNTAIN</ModifierId>
-		</Row>
+		</Row-->
 		
 		<Row>
 			<TraitType>TRAIT_LEADER_LUDWIG</TraitType>

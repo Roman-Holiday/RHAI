@@ -68,12 +68,15 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('IndustrialPseudoYields', 'PSEUDOYIELD_GPP_PROPHET',   1, -15),
 ('IndustrialPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_GRIEVANCE', 1, -10),
 --('IndustrialPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 12),
-('IndustrialPseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, 15),
+('IndustrialPseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, 75),
 
 ('IndustrialPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 1, 30),
 ('IndustrialPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT', 1, -25), -- pvs 35, 45
 ('IndustrialPseudoYields', 'PSEUDOYIELD_GPP_ENGINEER', 1, 50), -- def 20, pvs 10
 ('IndustrialPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST', 1, 25), -- def 20, pvs 10
+
+('IndustrialPseudoYields', 'PSEUDOYIELD_GPP_GENERAL', 1, 50), -- Railroads
+
 ('IndustrialPseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 1, 20),
 ('IndustrialPseudoYields', 'PSEUDOYIELD_INFLUENCE', 1, 50), -- pvs 10
 ('IndustrialPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, 30),
@@ -193,7 +196,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ModernPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT', 1, 20), -- Much better at this time, pvs 60, 70, 75, 85
 ('ModernPseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 75),
 ('ModernPseudoYields', 'PSEUDOYIELD_INFLUENCE', 1, -10),
-('ModernPseudoYields', 'PSEUDOYIELD_HAPPINESS', 	1, 65),
+('ModernPseudoYields', 'PSEUDOYIELD_HAPPINESS', 	1, 250),
 ('ModernPseudoYields', 'PSEUDOYIELD_RESOURCE_LUXURY', 1, -15),
 
 ('ModernPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, 25), -- pvs 24

@@ -23,7 +23,7 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_NEUTRAL" DiplomaticActionType="DIPLOACTION_JOINT_WAR"/>
-			<Set Worth="-20" Cost="20" />  <!-- pvs 18 -->
+			<Set Worth="-25" Cost="25" />  <!-- pvs 18 -->
 		</Update>
 		
 		<Update>
@@ -49,17 +49,17 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_NEUTRAL" DiplomaticActionType="DIPLOACTION_THIRD_PARTY_WAR"/>
-			<Set Cost="65" Worth="-65" /> <!-- def 0, 0, pvs 20, 40,0 -->
+			<Set Cost="80" Worth="-80" /> <!-- def 0, 0, pvs 20, 40,0 -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_FRIENDLY" DiplomaticActionType="DIPLOACTION_THIRD_PARTY_WAR"/>
-			<Set Cost="15" /> <!-- def 0, 0 -->
+			<Set Cost="25" /> <!-- def 0, 0 -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DECLARED_FRIEND" DiplomaticActionType="DIPLOACTION_THIRD_PARTY_WAR"/>
-			<Set Cost="8" /> <!-- def 0, 0 -->
+			<Set Cost="10" /> <!-- def 0, 0 -->
 		</Update>
 		
 		<Update>
@@ -86,25 +86,25 @@
 		<!-- DIPLOACTION_DECLARE_SURPRISE_WAR -->
 		
 		
-		<Update>
+		<!--Update>
 			<Where StateType="DIPLO_STATE_FRIENDLY" DiplomaticActionType="DIPLOACTION_DECLARE_SURPRISE_WAR"/>
-			<Set Worth="20" /> <!-- Def 0-->
-		</Update>			
+			<Set Worth="10" /> <!-- Def 0-->
+		<!--/Update>			
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_NEUTRAL" DiplomaticActionType="DIPLOACTION_DECLARE_SURPRISE_WAR"/>
-			<Set Worth="50" /> <!-- Def 0-->
-		</Update>	
+			<Set Worth="40" /> <!-- Def 0-->
+		<!--/Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_UNFRIENDLY" DiplomaticActionType="DIPLOACTION_DECLARE_SURPRISE_WAR"/>
 			<Set Worth="50" /> <!-- Def 0-->
-		</Update>
+		<!--/Update>
 		
-		<Update>
+		<!--Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_SURPRISE_WAR"/>
 			<Set Worth="80" /> <!-- Def 0-->
-		</Update>			
+		<!--/Update-->			
 		
 		
 		

@@ -196,7 +196,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_END_OF_TECH_MOD_XXS',							'Amount'   , 16),
 
 		('RH_END_OF_TECH_MOD_XXXS',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
-		('RH_END_OF_TECH_MOD_XXXS',							'Amount'   , 2), -- pvs 3, 1
+		('RH_END_OF_TECH_MOD_XXXS',							'Amount'   , 3), -- pvs 3, 1, 2
 
 		('RH_END_OF_TECH_MOD_XXXS_IMP',		'YieldType', 		'YIELD_RH_END_OF_TECH'),
 		('RH_END_OF_TECH_MOD_XXXS_IMP',							'Amount'   , 1), -- pvs 3
@@ -230,7 +230,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_END_OF_TECH_MOD_NEGATIVE_XXS',					'YieldType', 	'YIELD_RH_END_OF_TECH');
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,			Name,			Value,				 Type) VALUES			
-		('RH_END_OF_TECH_MOD_NEGATIVE_XXS',					'Amount',		-16, 			'ScaleByGameSpeed'); -- pvs -20
+		('RH_END_OF_TECH_MOD_NEGATIVE_XXS',					'Amount',		-14, 			'ScaleByGameSpeed'); -- pvs -20, -16
 			
 
 -- Project Game Speed Test
@@ -1978,10 +1978,10 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('RH_MILITARY_TRADITION',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
-			('RH_MILITARY_TRADITION',				'Amount',					110), -- pvs 3, 4, 7, 10, 12, 24, 45, 50, 75
+			('RH_MILITARY_TRADITION',				'Amount',					400), -- pvs 3, 4, 7, 10, 12, 24, 45, 50, 75, 110
 
 			('RH_MILITARY_TRADITION_M',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
-			('RH_MILITARY_TRADITION_M',				'Amount',					100); -- pvs 4, 10, 16, 45, 50, 60
+			('RH_MILITARY_TRADITION_M',				'Amount',					150); -- pvs 4, 10, 16, 45, 50, 60
 
 
 INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES
@@ -1995,6 +1995,13 @@ INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES
 
 		('POLICY_STRATEGOS', 		 	 		 'RH_MILITARY_TRADITION');
 
+
+INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
+('DISTRICT_ENCAMPMENT',						 'RH_MILITARY_TRADITION_M');
+
+INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+
+('BUILDING_TERRACOTTA_ARMY', 				'RH_MILITARY_TRADITION_M');
 
 
 

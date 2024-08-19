@@ -146,7 +146,7 @@
 		</Replace>
 		
 		
-		<Update>
+		<!--Update>
 			<Where Tag="LOC_DIPLO_DELEGATION_FROM_AI_LEADER_LUDWIG_ANY" Language="en_US"/>
 			<Set Text="Forget the swans today, Ursa. Their time has passed. You'll need this Delegation—more than you can imagine. But tread carefully, and be careful what you wish for. The shadows of your desires have a way of becoming all too real. "/> 
 		</Update>
@@ -154,7 +154,7 @@
 		<Update>
 			<Where Tag="LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_KRISTINA_ANY" Language="en_US"/>
 			<Set Text="Sweden will do her part to push back the evils of the world. Art is one way to do this—getting rid of you is another. Ursa"/> 
-		</Update>		
+		</Update-->		
 		
 		
 		<!--Update>

@@ -1694,6 +1694,7 @@ INSERT OR IGNORE INTO	TraitModifiers	(TraitType,					ModifierId)  VALUES
 		('TRAIT_AGENDA_YINDING',						'RH_COMP_P'),
 		('TRAIT_AGENDA_SAKOKU',							'RH_COMP_P1'),
 		('TRAIT_CIVILIZATION_IMPROVEMENT_OPEN_AIR_MUSEUM',			'RH_COMP_P'),
+		('TRAIT_CIVILIZATION_IMPROVEMENT_OPEN_AIR_MUSEUM',			'RH_COMP_P2'),
 
 		('TRAIT_CIVILIZATION_BUILDING_PALGUM',			'RH_COMP_P1'),
 					
@@ -1702,7 +1703,8 @@ INSERT OR IGNORE INTO	TraitModifiers	(TraitType,					ModifierId)  VALUES
 
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES	
 		('RH_COMP_P1',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'PLAYER_IS_AI'),	
-		('RH_COMP_P',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'PLAYER_IS_AI');
+		('RH_COMP_P',				'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',	'PLAYER_IS_AI'),
+		('RH_COMP_P2',				'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE',	'PLAYER_IS_AI');
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 
@@ -1710,7 +1712,10 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_COMP_P1',							'Amount'   , 3),
 
 		('RH_COMP_P',		'YieldType', 		'YIELD_PRODUCTION'),
-		('RH_COMP_P',							'Amount'   , 6);
+		('RH_COMP_P',							'Amount'   , 6),
+
+		('RH_COMP_P2',		'YieldType', 		'YIELD_PRODUCTION'),
+		('RH_COMP_P2',							'Amount'   , 3);
 
 
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
