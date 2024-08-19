@@ -798,6 +798,7 @@
       		<Properties>
         		<LoadOrder>1090</LoadOrder>
       		</Properties>
+
 			<File>core/UI/ToolTipHelper.lua</File>
 			<File>core/UI/CivilopediaPage_District.lua</File>
 			<File>core/UI/TechTree_support.lua</File>
@@ -819,6 +820,7 @@
 			</Properties>
 		</ReplaceUIScript>
 
+     <!-- Sloth's Better_tech_tree_compat -->
 		<ReplaceUIScript id="BTT_ReplaceUI_TechTree_Base" criteria="BTT">
 			<Properties>
 				<LoadOrder>11000</LoadOrder>
@@ -843,6 +845,16 @@
 			</Properties>
 		</ReplaceUIScript>
 		
+
+		<ReplaceUIScript id="ReplaceUI_ToolTip">
+			<Properties>
+				<LoadOrder>10950</LoadOrder>
+				<LuaContext>PlotToolTip</LuaContext>
+				<LuaReplace>core/UI/ToolTip_Adjust.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+
+
 		<!-- Text -->
 
 		<UpdateText id="RH_TEXT_2">
@@ -1015,7 +1027,8 @@
 		<File>core/UI/BTT_wrapper_XP1.lua</File>
 		<File>core/UI/BTT_wrapper_XP2.lua</File>
 
-		<!-- Experimental -->
+		<File>core/UI/ToolTipHelper.lua</File>
+		<File>core/UI/ToolTip_Adjust.lua</File>
 
 		<!-- Community Extension Support -->
 		<File>core/Strategies/Community_Extension/Scripts/CongressAI.lua</File>
