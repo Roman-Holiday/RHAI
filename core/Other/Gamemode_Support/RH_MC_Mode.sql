@@ -10,7 +10,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('CultureVictoryWonders', 'BUILDING_BANK', 					1, 50),
 ('CultureVictoryWonders', 'BUILDING_STOCK_EXCHANGE', 		1, 100);
 
-UPDATE AiFavoredItems SET Value = 40 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MERCHANT'; -- def 35
+UPDATE AiFavoredItems SET Value = 50 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MERCHANT'; -- def 35
 UPDATE AiFavoredItems SET Value = 40 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_RESOURCE_LUXURY'; -- def 15
 
 

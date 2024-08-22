@@ -843,7 +843,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalDistricts', 'DISTRICT_THEATER',  		1, 0),-- New
 
 ('MedievalPseudoYields', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS',   1, 120), -- pvs 0
-('MedievalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, -10),
+('MedievalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, 15),
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 		 1, 25),
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, 25),
 ('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 9), -- pvs 13, 17, 15
@@ -1009,7 +1009,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('RenaissancePseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, 50), -- growth
 ('RenaissancePseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 150), -- pvs 15, build them all this era
-('RenaissancePseudoYields', 'PSEUDOYIELD_WONDER',   		1, 80),
+('RenaissancePseudoYields', 'PSEUDOYIELD_WONDER',   		1, 125), -- pvs 80
 
 ('RenaissancePseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 1, 30),
 --('RenaissancePseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR', 1, 5), -- pvs 10, 0

@@ -137,7 +137,7 @@ INSERT OR IGNORE INTO RequirementArguments
 -- Testing 8% per difficulty (to compensate for default AI 8% higher culture per difficulty, not well themeing great works or targeting specific civs) (smoother difficulty uses 20% per difficulty + lots of extra era scaling)
 
 
-
+/*
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
 SELECT 'BUILDING_BIOSPHERE', 'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S'
 WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_BIOSPHERE'); 
@@ -165,6 +165,7 @@ WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_HERMITAGE')
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
 SELECT 'BUILDING_CRISTO_REDENTOR', 'RH_HIGH_DIFFICULTY_SLIGHT_TOURISM_S'
 WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_CRISTO_REDENTOR'); 
+*/
 
 
 INSERT OR IGNORE INTO Modifiers (ModifierId, ModifierType, SubjectRequirementSetId) VALUES
