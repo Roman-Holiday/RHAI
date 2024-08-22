@@ -25,7 +25,7 @@ UPDATE PseudoYields SET DefaultValue = 3.2 WHERE PseudoYieldType = 'PSEUDOYIELD_
 UPDATE PseudoYields SET DefaultValue = 110.0 WHERE PseudoYieldType = 'PSEUDOYIELD_SPACE_RACE'; -- 100.0, pvs 120
 --UPDATE PseudoYields SET DefaultValue = 5 WHERE PseudoYieldType = 'PSEUDOYIELD_CIVIC'; -- 5
 UPDATE PseudoYields SET DefaultValue = 35 WHERE PseudoYieldType = 'PSEUDOYIELD_TECHNOLOGY'; -- 5, pvs 6, 11, 12, 28
-UPDATE PseudoYields SET DefaultValue = 0.82 WHERE PseudoYieldType = 'PSEUDOYIELD_TOURISM'; -- 1
+UPDATE PseudoYields SET DefaultValue = 0.75 WHERE PseudoYieldType = 'PSEUDOYIELD_TOURISM'; -- 1, 0.82
 UPDATE PseudoYields SET DefaultValue = 0.3 WHERE PseudoYieldType = 'PSEUDOYIELD_HAPPINESS'; -- 1, pvs 1.15, 1.1, 1.2
 UPDATE PseudoYields SET DefaultValue = 1.7 WHERE PseudoYieldType = 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS'; -- 0.5, 0.95, 1.05
 UPDATE PseudoYields SET DefaultValue = 0.7 WHERE PseudoYieldType = 'PSEUDOYIELD_ENVIRONMENT'; -- 0.5 ( was doing to many pointless carbon capture projects after the sea level has fully risen)
@@ -50,7 +50,7 @@ UPDATE PseudoYields SET DefaultValue = 18 WHERE PseudoYieldType = 'PSEUDOYIELD_G
 UPDATE PseudoYields SET DefaultValue = 18 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_LANDSCAPE'; -- 10 - 3/3 - Doubled with theme
 UPDATE PseudoYields SET DefaultValue = 18 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_RELIGIOUS'; -- 10 ART - 3/3 - Doubled with theme
 UPDATE PseudoYields SET DefaultValue = 18 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_ARTIFACT'; -- 10 3/3 - Doubled with theme
-UPDATE PseudoYields SET DefaultValue = 15 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_WRITING'; -- 10 - 2/4 Isn't themed, pvs 8.5, 12
+UPDATE PseudoYields SET DefaultValue = 8 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_WRITING'; -- 10 - 2/4 Isn't themed, pvs 8.5, 12
 
 UPDATE PseudoYields SET DefaultValue = 17 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_MUSIC'; -- 10 -4/4 Isn't themed
 UPDATE PseudoYields SET DefaultValue = 3 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_RELIC'; -- 10 Base output 4 culture, 8 Tourism
@@ -64,9 +64,10 @@ UPDATE PseudoYields SET DefaultValue = 19 WHERE PseudoYieldType = 'PSEUDOYIELD_G
 
 -- City
 
-UPDATE PseudoYields SET DefaultValue = 8100 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_BASE'; -- 450 pvs 820, 790, 1150
+
+UPDATE PseudoYields SET DefaultValue = 9850 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_BASE'; -- 450 pvs 820, 790, 1150
 UPDATE PseudoYields SET DefaultValue = 2 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_DEFENSES'; -- 200 --pvs 52, 57, 60, 35
-UPDATE PseudoYields SET DefaultValue = 2 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_DEFENDING_UNITS'; -- 80, pvs 95, 94, 91
+UPDATE PseudoYields SET DefaultValue = 3 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_DEFENDING_UNITS'; -- 80, pvs 95, 94, 91
 UPDATE PseudoYields SET DefaultValue = -450 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL'; -- 200 pvs -210, -240, -390
 UPDATE PseudoYields SET DefaultValue = 6 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_POPULATION'; -- 50-- pvs 8
 
