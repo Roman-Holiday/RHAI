@@ -294,6 +294,7 @@ SET ModifierId = 'RH_DIPLO_MOD_MXL'
 WHERE GovernmentType = 'GOVERNMENT_MONARCHY' AND ModifierId = 'RH_DIPLO_MOD_ML';
 
 
+
 INSERT OR IGNORE INTO ProjectCompletionModifiers    (ProjectType,		ModifierId)  VALUES	
 		('PROJECT_CARBON_RECAPTURE',	'RH_DIPLO_MOD_S'),  -- Reduces CO2 to potentially 0 and earns 30 diplo favor
 		('PROJECT_SEND_AID',			'RH_DIPLO_MOD_M'), -- +2 for winning -- pvs 10
