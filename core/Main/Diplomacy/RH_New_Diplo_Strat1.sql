@@ -523,6 +523,9 @@ UPDATE ModifierArguments SET Value =-18 WHERE ModifierId='AGENDA_MODIFIER_WARMON
 -- Def -8
 UPDATE ModifierArguments SET Value=-13 WHERE ModifierId='STANDARD_DIPLOMATIC_3RD_PARTY_DECLARED_SURPRISE_WAR_ON_FRIEND' AND Name='AmountPerIncident';
 
+UPDATE ModifierArguments SET Value=10 WHERE ModifierId='STANDARD_DIPLOMATIC_3RD_PARTY_DECLARED_SURPRISE_WAR_ON_FRIEND' AND Name='MaxEffectMagnitude'; -- Def 8
+
+
 -- Def -6
 UPDATE ModifierArguments SET Value=-9 WHERE ModifierId='STANDARD_DIPLOMATIC_3RD_PARTY_DENOUNCED_FRIEND' AND Name='AmountPerIncident';
 
