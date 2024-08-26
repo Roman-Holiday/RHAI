@@ -49,22 +49,22 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_NEUTRAL" DiplomaticActionType="DIPLOACTION_THIRD_PARTY_WAR"/>
-			<Set Cost="80" Worth="-80" /> <!-- def 0, 0, pvs 20, 40,0 -->
+			<Set Cost="90" Worth="-90" /> <!-- def 0, 0, pvs 20, 40,0 -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_FRIENDLY" DiplomaticActionType="DIPLOACTION_THIRD_PARTY_WAR"/>
-			<Set Cost="25" /> <!-- def 0, 0 -->
+			<Set Cost="45" /> <!-- def 0, 0 -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DECLARED_FRIEND" DiplomaticActionType="DIPLOACTION_THIRD_PARTY_WAR"/>
-			<Set Cost="10" /> <!-- def 0, 0 -->
+			<Set Cost="15" /> <!-- def 0, 0 -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_ALLIED" DiplomaticActionType="DIPLOACTION_THIRD_PARTY_WAR"/>
-			<Set Cost="8" /> <!-- def 0, 0 -->
+			<Set Cost="10" /> <!-- def 0, 0 -->
 		</Update>
 		
 		<Update>
@@ -145,34 +145,35 @@
 			<Set Worth="-50" Cost="50" /> 
 		</Update>	
 		
+		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_GOLDEN_AGE_WAR"/>
-			<Set Worth="40" Cost="-40" /> <!-- pvs 20, -20 -->
+			<Set Worth="90" Cost="-90" /> <!-- pvs 20, -20 -->
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_IDEOLOGICAL_WAR"/>
-			<Set Worth="35" Cost="-30" /> 
+			<Set Worth="80" Cost="-80" /> 
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_WAR_OF_RETRIBUTION"/> <!-- Broken Promise -->
-			<Set Worth="28" Cost="-28" /> <!-- pvs 5, -5 -->
+			<Set Worth="80" Cost="-80" /> <!-- pvs 5, -5 -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_COLONIAL_WAR"/> <!-- 2 Era Behind -->
-			<Set Worth="35" Cost="-30" /> 
+			<Set Worth="80" Cost="-80" /> 
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_RECONQUEST_WAR"/> 
-			<Set Worth="28" Cost="-28" /> 
+			<Set Worth="75" Cost="-75" /> 
 		</Update>		
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_FORMAL_WAR"/> <!-- Testing over Surprise War -->
-			<Set Worth="25" Cost="-25" /> 
+			<Set Worth="50" Cost="-50" /> 
 		</Update>	
 		
 		

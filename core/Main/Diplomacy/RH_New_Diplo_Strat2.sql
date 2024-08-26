@@ -39,7 +39,7 @@ UPDATE DiplomaticStateActions SET Cost 	= -90 WHERE StateType = 'DIPLO_STATE_DEC
 --UPDATE DiplomaticStateActions SET Cost 	= 45 WHERE StateType = 'DIPLO_STATE_ALLIED' and DiplomaticActionType = 'DIPLOACTION_ALLIANCE_MILITARY';
 
 UPDATE DiplomaticStateActions SET Cost 	= 100 WHERE StateType = 'DIPLO_STATE_ALLIED' and DiplomaticActionType = 'DIPLOACTION_RENEW_ALLIANCE';
-UPDATE DiplomaticStateActions SET Worth = -35 WHERE StateType = 'DIPLO_STATE_ALLIED' and DiplomaticActionType = 'DIPLOACTION_RENEW_ALLIANCE'; -- Test -- Worth="25" Cost="50" TeamOnly="true"/>, pvs +5
+UPDATE DiplomaticStateActions SET Worth = -90 WHERE StateType = 'DIPLO_STATE_ALLIED' and DiplomaticActionType = 'DIPLOACTION_RENEW_ALLIANCE'; -- Test -- Worth="25" Cost="50" TeamOnly="true"/>, pvs +5, -35
 
 
 UPDATE DiplomaticStateActions SET Worth = 100 WHERE StateType = 'DIPLO_STATE_DECLARED_FRIEND' and DiplomaticActionType = 'DIPLOACTION_ALLIANCE_RESEARCH';
