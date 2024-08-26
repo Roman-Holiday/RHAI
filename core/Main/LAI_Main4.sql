@@ -385,21 +385,26 @@ UPDATE DiplomaticStateActions SET Cost = -10000 WHERE DiplomaticActionType = 'DI
 UPDATE DiplomaticStateActions SET Worth = 50 WHERE StateType = 'DIPLO_STATE_ALLIED' AND DiplomaticActionType = 'DIPLOACTION_PROPOSE_TRADE';
 UPDATE DiplomaticStateActions SET Cost = -25 WHERE StateType = 'DIPLO_STATE_ALLIED' AND DiplomaticActionType = 'DIPLOACTION_PROPOSE_TRADE';
 
-UPDATE DiplomaticStateActions SET Worth = 40 WHERE (StateType = 'DIPLO_STATE_DECLARED_FRIEND' AND DiplomaticActionType = 'DIPLOACTION_PROPOSE_TRADE'); -- pvs 15, 20
+UPDATE DiplomaticStateActions SET Worth = 50 WHERE (StateType = 'DIPLO_STATE_DECLARED_FRIEND' AND DiplomaticActionType = 'DIPLOACTION_PROPOSE_TRADE'); -- pvs 15, 20, 40
 UPDATE DiplomaticStateActions SET Cost = -10 WHERE (StateType = 'DIPLO_STATE_DECLARED_FRIEND' AND DiplomaticActionType = 'DIPLOACTION_PROPOSE_TRADE'); -- pvs 0
 
-UPDATE DiplomaticStateActions SET Worth = 25 WHERE (StateType = 'DIPLO_STATE_FRIENDLY' AND DiplomaticActionType = 'DIPLOACTION_PROPOSE_TRADE'); -- pvs 8 test
+UPDATE DiplomaticStateActions SET Worth = 30 WHERE (StateType = 'DIPLO_STATE_FRIENDLY' AND DiplomaticActionType = 'DIPLOACTION_PROPOSE_TRADE'); -- pvs 8 test, 25
 --UPDATE DiplomaticStateActions SET Cost = 6 WHERE (StateType = 'DIPLO_STATE_FRIENDLY' AND DiplomaticActionType = 'DIPLOACTION_PROPOSE_TRADE');
 
 
-UPDATE DiplomaticStateActions SET Worth = 20 WHERE StateType = 'DIPLO_STATE_FRIENDLY' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS';
+
+
+UPDATE DiplomaticStateActions SET Worth = 50 WHERE StateType = 'DIPLO_STATE_DECLARED_FRIEND' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS'; -- pvs 20
+UPDATE DiplomaticStateActions SET Cost = 0 WHERE StateType = 'DIPLO_STATE_DECLARED_FRIEND' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS';
+
+UPDATE DiplomaticStateActions SET Worth = 30 WHERE StateType = 'DIPLO_STATE_FRIENDLY' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS'; -- pvs 10
 UPDATE DiplomaticStateActions SET Cost = 0 WHERE StateType = 'DIPLO_STATE_FRIENDLY' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS';
 
 UPDATE DiplomaticStateActions SET Worth = 0 WHERE StateType = 'DIPLO_STATE_NEUTRAL' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS';
-UPDATE DiplomaticStateActions SET Cost = 0 WHERE StateType = 'DIPLO_STATE_NEUTRAL' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS';
+UPDATE DiplomaticStateActions SET Cost = 3 WHERE StateType = 'DIPLO_STATE_NEUTRAL' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS'; -- <!-- pvs 0, 10, 10, 0 but can declare open borders on first meet -->
 
 UPDATE DiplomaticStateActions SET Worth = 0 WHERE StateType = 'DIPLO_STATE_UNFRIENDLY' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS';
-UPDATE DiplomaticStateActions SET Cost = 6 WHERE StateType = 'DIPLO_STATE_UNFRIENDLY' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS';
+UPDATE DiplomaticStateActions SET Cost = 5 WHERE StateType = 'DIPLO_STATE_UNFRIENDLY' AND DiplomaticActionType = 'DIPLOACTION_OPEN_BORDERS'; -- <!-- pvs 0, 10 -->
 
 
 

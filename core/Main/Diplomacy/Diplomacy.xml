@@ -148,7 +148,7 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_GOLDEN_AGE_WAR"/>
-			<Set Worth="90" Cost="-90" /> <!-- pvs 20, -20 -->
+			<Set Worth="95" Cost="-95" /> <!-- pvs 20, -20 -->
 		</Update>	
 		
 		<Update>
@@ -176,28 +176,25 @@
 			<Set Worth="50" Cost="-50" /> 
 		</Update>	
 		
+		<!-- New testing, may cause issues with wars --> 
+		<!--Update>
+			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_SURPRISE_WAR"/> 
+			<Set Cost="5" /> 
+		</Update-->			
 		
-		<!-- Open Borders -->
 		
-		<Update>
-			<Where StateType="DIPLO_STATE_DECLARED_FRIEND" DiplomaticActionType="DIPLOACTION_OPEN_BORDERS"/> 
-			<Set Worth="40" Cost="0" /> <!-- pvs 20, 0 -->
-		</Update>
+		<!-- Open Borders, already exists -->
+		
 
-		<Update>
-			<Where StateType="DIPLO_STATE_FRIENDLY" DiplomaticActionType="DIPLOACTION_OPEN_BORDERS"/> 
-			<Set Worth="30" Cost="0" /> <!-- pvs 10, 0 -->
-		</Update>
-
-		<Update>
+		<!--Update>
 			<Where StateType="DIPLO_STATE_NEUTRAL" DiplomaticActionType="DIPLOACTION_OPEN_BORDERS"/> 
-			<Set Worth="0" Cost="3" /> <!-- pvs 0, 10, 10, 0 but can declare open borders on first meet -->
+			<Set Worth="0" Cost="3" /> 
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_UNFRIENDLY" DiplomaticActionType="DIPLOACTION_OPEN_BORDERS"/> 
-			<Set Worth="0" Cost="5" /> <!-- pvs 0, 10 -->
-		</Update>		
+			<Set Worth="0" Cost="5" /> 
+		</Update-->		
 				
 		
 	</DiplomaticStateActions>
