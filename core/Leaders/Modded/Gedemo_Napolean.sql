@@ -95,11 +95,13 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('NapoleanImprovements', 'IMPROVEMENT_LUMBER_MILL',				        1, 40), -- Mass Production for Shipyards
-('NapoleanImprovements', 'IMPROVEMENT_FORT',		  			    		1, 30),
+('NapoleanImprovements', 'IMPROVEMENT_FORT',		  			    		1, 100),
 ('NapoleanImprovements', 'IMPROVEMENT_MINE',		 					    1, 40); -- Industrialisation?
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+
+('NapoleanDistricts', 'DISTRICT_ENCAMPMENT',		  		1, 0), 
 ('NapoleanDistricts', 'DISTRICT_NEIGHBORHOOD',		  		1, 20); -- Urban Growth
 
 
@@ -110,7 +112,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
-('NapoleanUnits', 'UNIT_MILITARY_ENGINEER',	1, 65),  -- Military engineers were crucial for Napoleon's campaigns, aiding in building fortifications and logistics
+('NapoleanUnits', 'UNIT_MILITARY_ENGINEER',	1, 75),  -- Military engineers were crucial for Napoleon's campaigns, aiding in building fortifications and logistics
 ('NapoleanUnits', 'UNIT_FRENCH_GARDE_IMPERIALE', 1, 250),  -- The Garde Impériale was an elite unit in Napoleon's army, symbolizing his military might and elite forces
 ('NapoleanUnits', 'UNIT_BOMBARD', 1, 175),  -- Cannons were a significant part of Napoleon's military strategy, revolutionizing siege warfare and battlefield tactics
 ('NapoleanUnits', 'UNIT_MUSKETMAN', 1, 125),  -- Infantry units were the backbone of Napoleon's army, especially those equipped with muskets. -- Garde Impériale now replaces the Line Infantry

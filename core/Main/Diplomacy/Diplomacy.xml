@@ -265,6 +265,11 @@
 		<Row ListType="Diplo_Def" Item="DIPLOACTION_ALLIANCE" Favored="true" />
 
 
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_OPEN_BORDERS" Favored="true" />
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_JOINT_WAR" Favored="true" />
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_PROPOSE_TRADE" Favored="true" />
+		<Row ListType="Diplo_Def" Item="DIPLOACTION_THIRD_PARTY_WAR" Favored="true" />		
+		
 		<!--Row Type="GOLDEN_AGE_WAR" Kind="KIND_WAR"/>
 		<Row Type="EMERGENCY_WAR" Kind="KIND_WAR"/>
 		<Row Type="WAR_OF_RETRIBUTION" Kind="KIND_WAR"/>

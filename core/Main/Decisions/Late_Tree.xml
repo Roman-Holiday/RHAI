@@ -212,9 +212,9 @@
 	
 
 	<!-- 31, second new air node -->
-	
-	<Row DefnId="0" NodeId="31" TreeName="Siege City Assault" DefaultData="3" />
-    <Row DefnId="1" NodeId="31" TreeName="Siege City Assault" DefaultData="1" />
+	<!-- Testing Swap -->
+	<Row DefnId="0" NodeId="31" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="1" NodeId="31" TreeName="Siege City Assault" DefaultData="3" />
     <Row DefnId="2" NodeId="31" TreeName="Siege City Assault" DefaultData="2" />
     <Row DefnId="3" NodeId="31" TreeName="Siege City Assault" DefaultData="UNITTYPE_AIR_SIEGE" />
 	
@@ -253,8 +253,8 @@
 	
 	
 	<!-- Air Assault -->
-    <Row DefnId="0" NodeId="40" TreeName="Siege City Assault" DefaultData="3" />
-    <Row DefnId="1" NodeId="40" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="0" NodeId="40" TreeName="Siege City Assault" DefaultData="1" />
+    <Row DefnId="1" NodeId="40" TreeName="Siege City Assault" DefaultData="3" />
     <Row DefnId="2" NodeId="40" TreeName="Siege City Assault" DefaultData="2" />
     <Row DefnId="3" NodeId="40" TreeName="Siege City Assault" DefaultData="UNITTYPE_AIR_SIEGE" />
 	

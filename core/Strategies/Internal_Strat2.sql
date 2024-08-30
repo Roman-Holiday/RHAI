@@ -791,6 +791,11 @@ INSERT OR IGNORE INTO District_Adjacencies (DistrictType, YieldChangeId) VALUES
 ('DISTRICT_CAMPUS', 					'Rh_Campus_Fissure'),
 ('DISTRICT_CAMPUS', 					'Rh_All_District_Volcano_Dis_Campus'),
 
+-- Theater Temp
+
+('DISTRICT_THEATER', 					'Rh_Main_District_to_Wonder_Culture'),
+('DISTRICT_THEATER', 					'Rh_District_Theater_Entertainment'),
+
 
 ('DISTRICT_HOLY_SITE', 					'Rh_Holy_Site_Grass_Mountain'),
 ('DISTRICT_HOLY_SITE', 					'Rh_Holy_Site_Plains_Mountain'),
@@ -964,6 +969,20 @@ INSERT OR IGNORE INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldC
 
 INSERT OR IGNORE INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, PrereqTech, AdjacentDistrict, AdjacentWonder) VALUES		
 ('Rh_District_Entertainment_Wonder', 					'LOC_DISTRICT_ENT_WONDER', 'YIELD_RH_PLACEMENT', 2, 1, 'TECHNOLOGY_RH_AI_MAIN', null, 1);
+
+
+INSERT OR IGNORE INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, PrereqTech, AdjacentDistrict, AdjacentWonder) VALUES		
+('Rh_Main_District_to_Wonder_Culture', 					'LOC_DISTRICT_WONDER_CULTURE', 'YIELD_RH_CULTURE_VICTORY_BASE', 80, 1, 'TECHNOLOGY_RH_AI_MAIN', null, 1);
+
+
+INSERT OR IGNORE INTO Adjacency_YieldChanges (ID, Description, YieldType, YieldChange, TilesRequired, PrereqTech, AdjacentDistrict) VALUES	
+
+('Rh_District_Theater_Entertainment', 		 'LOC_DISTRICT_RH_AI_ENTERTAINMENT_THEATER', 'YIELD_RH_CULTURE_VICTORY_BASE', 70, 1, 'TECHNOLOGY_RH_AI_MAIN', 'DISTRICT_ENTERTAINMENT_COMPLEX');
+
+
+
+
+
 
 
 

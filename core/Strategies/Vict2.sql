@@ -164,7 +164,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ReligionCivYieldBoost', 'YIELD_RH_SPREAD_RELIGION', 		1, 60), 
 ('ReligionCivYieldBoost', 'YIELD_RH_FAITH', 				0, -150), 
 
-('ReligionCivYieldBoost', 'YIELD_FAITH', 1, 150), -- pvs 5, 8, 10, 12, 17, 25, 30, 75
+('ReligionCivYieldBoost', 'YIELD_FAITH', 1, 850), -- pvs 5, 8, 10, 12, 17, 25, 30, 75, 150
 ('ReligionCivYieldBoost', 'YIELD_SCIENCE', 1, -10),
 ('ReligionCivYieldBoost', 'YIELD_GOLD', 	1, -5),
 
@@ -178,10 +178,10 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('ReligionCivDistricts',			 'DISTRICT_HOLY_SITE', 1, 100), 
 
-('ReligionCivPseudoBoost', 'PSEUDOYIELD_GPP_PROPHET', 1, 750), -- pvs 10, 15, 25, 40, 65, 75, 85
+('ReligionCivPseudoBoost', 'PSEUDOYIELD_GPP_PROPHET', 1, 850), -- pvs 10, 15, 25, 40, 65, 75, 85, 750
 --('ReligionCivPseudoBoost', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 1, 2),
-('ReligionCivPseudoBoost', 'PSEUDOYIELD_UNIT_RELIGIOUS', 1, 50), -- pvs 35
-('ReligionCivPseudoBoost', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 1, 50), -- pvs 8, 7
+('ReligionCivPseudoBoost', 'PSEUDOYIELD_UNIT_RELIGIOUS', 1, 100), -- pvs 35
+('ReligionCivPseudoBoost', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 1, 250), -- pvs 8, 7
 ('ReligionCivPseudoBoost', 'PSEUDOYIELD_GREATWORK_RELIC', 1, 10);
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES

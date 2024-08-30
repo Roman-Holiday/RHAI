@@ -636,7 +636,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientPseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 		1, 100); -- To reduce chance AI puts farms on strategics and builds loads of workers before settlers etc, pvs -15
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
-('AncientPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',  -38); -- def -100, -75, -57, -53, -50
+('AncientPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',  -30); -- def -100, -75, -57, -53, -50, -38
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
@@ -755,7 +755,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item,Value) VALUES
-('ClassicalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',   -33);
+('ClassicalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',   -30);
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('Classical_Science_Districts', 		'DISTRICT_AQUEDUCT', 1, 25),
@@ -832,7 +832,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalYields', 'YIELD_RH_MONARCHY',  		  1, 50),
 ('MedievalYields', 'YIELD_RH_MERCHANT_REPUBLIC',  1, 50),
 
-('MedievalYields', 'YIELD_RH_CITY_CENTRE',  1, 50), -- pvs 550, 100
+('MedievalYields', 'YIELD_RH_CITY_CENTRE',  1, 5), -- pvs 550, 100, 50
 ('MedievalYields', 'YIELD_RH_FOOD_EXT',  1, 150),
 
 --('MedievalDistricts', 'DISTRICT_AQUEDUCT',  1, 50),
@@ -981,7 +981,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('RenaissanceYields', 'YIELD_RH_MONARCHY',  		  1, 120), -- pvs 50
 ('RenaissanceYields', 'YIELD_RH_MERCHANT_REPUBLIC',   1, 120), -- pvs 50
 
-('RenaissanceYields', 'YIELD_RH_CITY_CENTRE',  1, 450), -- pvs 950
+('RenaissanceYields', 'YIELD_RH_CITY_CENTRE',  1, 350), -- pvs 950, 450
 ('RenaissanceYields', 'YIELD_RH_FOOD_EXT',  	1, 350), -- pvs 600
 
 --('RenaissanceDistricts', 'DISTRICT_AQUEDUCT',  1, 50),

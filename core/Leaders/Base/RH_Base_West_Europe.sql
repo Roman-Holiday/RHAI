@@ -28,22 +28,21 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item,  Value) VALUES
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 --('PhilipYields', 'YIELD_PRODUCTION',  1, 3),
-('PhilipYields', 'YIELD_CULTURE',  1, 3),
-('PhilipYields', 'YIELD_FAITH', 1, 15), -- pvs 8
+('PhilipYields', 'YIELD_FAITH', 1, 25), -- pvs 8
 ('PhilipYields', 'YIELD_GOLD',  1, 25),
 
 ('PhilipYields', 'YIELD_RH_COMMUNISM', 	1, 200),
 ('PhilipYields', 'YIELD_RH_FASCISM', 	1, 350),
 ('PhilipYields', 'YIELD_RH_SPREAD_RELIGION', 	1, 60),
 
-('PhilipYields', 'YIELD_RH_NAVAL', 	1, 400),
+('PhilipYields', 'YIELD_RH_NAVAL', 	1, 600),
 --('PhilipYields', 'YIELD_RH_TRADE', 		1, 850),
 
 ('PhilipCivics', 'CIVIC_MERCANTILISM', 1, 0),
 ('PhilipDiplomacy', 'DIPLOACTION_DECLARE_HOLY_WAR', 1, 70),
 ('PhilipDiplomacy', 'DIPLOACTION_KEEP_PROMISE_DONT_CONVERT', 0, 0), 
 ('PhilipPseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 1, 16), -- mission espically on foreign Continents
-('PhilipPseudoYields', 'PSEUDOYIELD_UNIT_TRADE', 1, 75), -- Huge bonus from trade routes
+('PhilipPseudoYields', 'PSEUDOYIELD_UNIT_TRADE', 1, 150), -- Huge bonus from trade routes
 ('PhilipPseudoYields', 'PSEUDOYIELD_UNIT_RELIGIOUS', 1, 25),
 ('PhilipPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, -6),
 ('PhilipPseudoYields', 'PSEUDOYIELD_CITY_DEFENCES', 1, -3),
@@ -51,9 +50,9 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('PhilipPseudoYields', 'PSEUDOYIELD_CITY_POPULATION', 1, 100),
 
 ('PhilipPseudoYields', 'PSEUDOYIELD_GPP_GENERAL', 1, 150),
-('PhilipPseudoYields', 'PSEUDOYIELD_GPP_PROPHET', 1, 22),
+('PhilipPseudoYields', 'PSEUDOYIELD_GPP_PROPHET', 1, 50),
 ('PhilipPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT', 1, 10), -- Trade Routes
-('PhilipPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 1, 65), -- Trade Routes + armadas, 32
+('PhilipPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 1, 80), -- Trade Routes + armadas, 32
 ('PhilipPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT', 1, 7), -- pvs 4
 ('PhilipPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER', 1, 5),
 ('PhilipPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE', 1, 3),
@@ -62,9 +61,9 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('PhilipPseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 1, 80);
 
-UPDATE AiFavoredItems SET Value = 30 WHERE ListType = 'PhilipForeignSettlement' AND Item = 'Foreign Continent'; -- def 60, pvs 26, 22, so good for trade
+UPDATE AiFavoredItems SET Value = 35 WHERE ListType = 'PhilipForeignSettlement' AND Item = 'Foreign Continent'; -- def 60, pvs 26, 22, 30 so good for trade, free builder
 
-UPDATE AiFavoredItems SET Value = 40 WHERE ListType = 'CounterReformerInquisitorPreference' AND Item = 'UNIT_INQUISITOR'; -- pvs 10, 20, 25
+UPDATE AiFavoredItems SET Value = 65 WHERE ListType = 'CounterReformerInquisitorPreference' AND Item = 'UNIT_INQUISITOR'; -- pvs 10, 20, 25, 40
 -- 1 extra charge and removes 100% of religion
 
 /*
@@ -369,6 +368,8 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 -- Victoria
 
 INSERT OR IGNORE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_VICTORIA', 'TRAIT_LEADER_EXPANSIONIST');
+
+INSERT OR REPLACE INTO CivilizationTraits(CivilizationType, TraitType) VALUES ('CIVILIZATION_ENGLAND', 'TRAIT_LEADER_RH_NAVAL_EXPLORATION');
 
 --INSERT INTO AgendaPreferredLeaders  (LeaderType,	AgendaType,		PercentageChance) VALUES		
 --			('LEADER_VICTORIA',				'AGENDA_EXPANSIONIST',		15),

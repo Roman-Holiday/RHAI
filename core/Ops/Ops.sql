@@ -6,7 +6,7 @@
 --------------------------------------------------------------------------------------------------------------------------
 
 -- OPS Base
-UPDATE AiFavoredItems SET Value = 3 WHERE ListType = 'BaseOperationsLimits' AND Item = 'OP_DEFENSE'; 
+UPDATE AiFavoredItems SET Value = 2 WHERE ListType = 'BaseOperationsLimits' AND Item = 'OP_DEFENSE'; 
 --UPDATE AiFavoredItems SET Value = 1 WHERE ListType = 'BaseOperationsLimits' AND Item = 'OP_SETTLE'; 
 UPDATE AiFavoredItems SET Value = 3 WHERE ListType = 'BaseOperationsLimits' AND Item = 'CITY_ASSAULT'; -- testing 3 again (+2 with strength) (think 3 for more commitment)
 UPDATE AiFavoredItems SET Value = 1 WHERE ListType = 'PerWarOperationsLimits' AND Item = 'CITY_ASSAULT'; -- testing 2
@@ -368,7 +368,7 @@ UPDATE GlobalParameters SET Value = '2200' WHERE Name = 'WAR_WEARINESS_DECAY_PEA
 -- def: 200
 UPDATE GlobalParameters SET Value=280 WHERE Name='WARMONGER_RAZE_PENALTY_PERCENT';
 -- def: 200
-UPDATE GlobalParameters SET Value=230 WHERE Name='WARMONGER_FINAL_MAJOR_CITY_MULTIPLIER'; -- pvs 240
+UPDATE GlobalParameters SET Value=220 WHERE Name='WARMONGER_FINAL_MAJOR_CITY_MULTIPLIER'; -- pvs 240
 -- def: 100
 UPDATE GlobalParameters SET Value=135 WHERE Name='WARMONGER_FINAL_MINOR_CITY_MULTIPLIER';
 

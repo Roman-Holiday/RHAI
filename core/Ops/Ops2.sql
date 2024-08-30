@@ -5,7 +5,7 @@
 -- Additional Ops Changes 2, OP Updates
 -----------------------------------------------
 
-UPDATE OpTeamRequirements SET MinNumber = '1', MaxNumber = '7' WHERE TeamName = 'Nuclear Attack' AND AiType = 'UNITTYPE_NUCLEAR'; -- MinNumber=1	MaxNumber= -- pvs 5 , UNIT_BOMBER, UNIT_BOMBER, UNIT_JET_BOMBER, UNIT_NUCLEAR_SUBMARINE
+UPDATE OpTeamRequirements SET MinNumber = '1', MaxNumber = '7' WHERE TeamName = 'Nuclear Attack' AND AiType = 'UNITTYPE_NUCLEAR'; -- MinNumber=1	MaxNumber= -- pvs 5 , UNIT_BOMBER, UNIT_JET_BOMBER, UNIT_NUCLEAR_SUBMARINE
 UPDATE OpTeamRequirements SET MinNumber = '0', MaxNumber = '6' WHERE TeamName = 'Nuclear Attack' AND AiType = 'UNITTYPE_NUCLEAR_ESCORT'; -- MinNumber=0	MaxNumber= -- pvs 6 -- Units for this not even defined (in base game file)
 --UPDATE OpTeamRequirements SET MinNumber = '0', MaxNumber = '2' WHERE TeamName = 'Nuclear Attack' AND AiType = 'UNITTYPE_AIR_SIEGE'; -- Test
 

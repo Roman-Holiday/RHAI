@@ -61,6 +61,15 @@ INSERT OR IGNORE INTO TechnologyModifiers (TechnologyType, ModifierId)  VALUES
 -- Synthetic Technocracy?
 
 
+UPDATE ModifierArguments 
+SET Value = 110 
+WHERE ModifierId = 'RH_NUCLEAR_MOD_M' AND Name ='Amount';
+
+UPDATE ModifierArguments 
+SET Value = 150 
+WHERE ModifierId = 'RH_NUCLEAR_MOD' AND Name ='Amount'; 
+ 
+
 INSERT OR IGNORE INTO ProjectCompletionModifiers    (ProjectType,		ModifierId)  VALUES	
 		('PROJECT_MANHATTAN_PROJECT',				'RH_NUCLEAR_MOD_XL'),  
 		('PROJECT_OPERATION_IVY',					'RH_NUCLEAR_MOD_MXL'), 

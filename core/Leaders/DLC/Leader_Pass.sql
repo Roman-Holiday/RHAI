@@ -38,7 +38,7 @@ REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('VictoriaAltYields', 'YIELD_RH_WONDER',	  	  1, 40),
 ('VictoriaAltYields', 'YIELD_RH_MAUS_H',	  	  1, 950),
 
-('VictoriaAltYields', 'YIELD_PRODUCTION', 1, 750), -- pvs 8, 40, 80, 120 Already has trait IndustrialRevolutionPreference (production Yield 20), however industrial zones are a huge priority
+('VictoriaAltYields', 'YIELD_PRODUCTION', 1, 950), -- pvs 8, 40, 80, 120 Already has trait IndustrialRevolutionPreference (production Yield 20), however industrial zones are a huge priority
 ('VictoriaAltYields', 'YIELD_SCIENCE', 1, 6),
 ('VictoriaAltPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 1, 3),
 ('VictoriaAltPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER', 1, 5),
@@ -47,7 +47,7 @@ REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('VictoriaAltPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT', 1, -15), -- unfavour commerical hubs
 ('VictoriaAltPseudoYields', 'PSEUDOYIELD_GPP_GENERAL', 1, -30), -- Less Encampments
 
-('VictoriaAltPseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 15), 
+('VictoriaAltPseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 150), -- Industrial Zone Rush, Plus Unique Dockyard
 
 ('VictoriaAltPseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 1, 30), -- Strategic Resources
 ('VictoriaAltPseudoYields', 'PSEUDOYIELD_ENVIRONMENT', 0, -20),
@@ -55,7 +55,7 @@ REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('VictoriaAltPseudoYields', 'PSEUDOYIELD_WONDER', 1, 30), -- Has more production
 
 ('VictoriaAltWonders', 'BUILDING_VENETIAN_ARSENAL', 1, 90),
-('VictoriaAltDistricts', 'DISTRICT_INDUSTRIAL_ZONE', 1, 500), -- pvs value 0, 90
+('VictoriaAltDistricts', 'DISTRICT_INDUSTRIAL_ZONE', 1, 950), -- pvs value 0, 90
 ('VictoriaAltDistricts', 'DISTRICT_DAM', 1, 0),
 ('VictoriaAltDistricts', 'DISTRICT_CANAL', 1, 15);
 
@@ -85,7 +85,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('VictoriaAltSettlement', 'Foreign Continent', 0, 6);
+('VictoriaAltSettlement', 'Foreign Continent', 0, 20); -- pvs 6
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
 ('VictoriaAltSettlement', 'Total Yield', 0, 1, 'YIELD_PRODUCTION', 'LOC_SETTLEMENT_RECOMMENDATION_TOTAL_YIELD'),

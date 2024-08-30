@@ -50,8 +50,8 @@ UPDATE OpTeamRequirements SET MinNumber = 2, MaxNumber = 8 WHERE TeamName = 'Cit
 UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 0 WHERE TeamName = 'City Defense' AND AiType = 'UNITAI_EXPLORE'; -- def min 0, no max lol, pvs max 0 -- pvs 1
 --UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 1, MaxPercentage = 0.25 WHERE TeamName = 'City Defense' AND AiType = 'UNITTYPE_NAVAL_RANGED'; 
 
-UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 4 WHERE TeamName = 'City Defense' AND AiType = 'UNITTYPE_AIR'; -- def max 0, pvs 4, 2, 3
-UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 1 WHERE TeamName = 'City Defense' AND AiType = 'UNITTYPE_AIR_SIEGE'; -- def max 0 -- reduced now to 0 to give more bombers to nuclear op, back to 1
+UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 1 WHERE TeamName = 'City Defense' AND AiType = 'UNITTYPE_AIR'; -- def max 0, pvs 4, 2, 3 -- May not use properly for defence operation, reducing to 1
+UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 0 WHERE TeamName = 'City Defense' AND AiType = 'UNITTYPE_AIR_SIEGE'; -- def max 0 -- reduced now to 0 to give more bombers to nuclear op, back to 1, was 1, now 0 again
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber, MinPercentage, MaxPercentage) VALUES
 ('City Defense', 'UNITTYPE_MELEE',  0, 5, 0, 1); -- (can be 2 as long as there are 4 units)
@@ -101,7 +101,7 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 ('City Naval Defense', 'UNITTYPE_NUCLEAR',   						0, 0), -- pvs 2, testing 0
 ('City Naval Defense', 'UNITTYPE_SIEGE',  							 0, 1),
 ('City Naval Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 					  0, 0),
-('City Naval Defense', 'UNITTYPE_AIR',     							0, 2),
+('City Naval Defense', 'UNITTYPE_AIR',     							0, 1),
 ('City Naval Defense', 'UNITTYPE_AIR_SIEGE',    					0, 0);
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPercentage) VALUES

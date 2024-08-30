@@ -293,6 +293,8 @@ INSERT OR REPLACE INTO LeaderTraits(LeaderType, TraitType) VALUES ('LEADER_JOAO_
 
 
 INSERT OR REPLACE INTO CivilizationTraits(CivilizationType, TraitType) VALUES ('CIVILIZATION_PORTUGAL', 'TRAIT_LEADER_RH_TRADE');
+INSERT OR REPLACE INTO CivilizationTraits(CivilizationType, TraitType) VALUES ('CIVILIZATION_PORTUGAL', 'TRAIT_LEADER_RH_NAVAL_EXPLORATION');
+
 
 INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
 ('JoaoWonders'),
@@ -303,6 +305,8 @@ INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
 ('JoaoUnitBuilds'),
 ('JoaoAlliances'),
 ('JoaoDiplomacy');
+
+
 
 INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 ('JoaoWonders',      'TRAIT_LEADER_JOAO_III', 'Buildings'),
@@ -338,7 +342,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 --('JoaoExplorationObsessed', 'PSEUDOYIELD_GPP_MERCHANT', 1, 10),
 ('JoaoExplorationObsessed', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, 32), -- pvs 22, 29
 ('JoaoExplorationObsessed', 'PSEUDOYIELD_UNIT_TRADE',  1, 90), -- traders
-('JoaoExplorationObsessed', 'PSEUDOYIELD_DIPLOMATIC_BONUS',  1, 2), -- at pvs -1 was a bit too unfriendly, +1 for open borders
+('JoaoExplorationObsessed', 'PSEUDOYIELD_DIPLOMATIC_BONUS',  1, 40), -- at pvs -1 was a bit too unfriendly, +1 for open borders, 2
 ('JoaoExplorationObsessed', 'PSEUDOYIELD_GPP_PROPHET',  1, 20), -- Exploration
 ('JoaoExplorationObsessed', 'PSEUDOYIELD_GPP_SCIENTIST',  1, 30), -- Unique Building
 
@@ -386,6 +390,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 -- Wiki: The Nau, just like the unit it INSERT OR IGNOREs, has a very short period of relevance, since its upgrade, the Ironclad, is unlocked with Steam Power, (same combat strength but 2 build charges)
 -- However starts with a free promotion
+
+UPDATE AiFavoredItems SET Value = 60 WHERE ListType = 'JoaoCoastalSettlements' AND Item = 'Coastal'; -- def 35, Needs for Trade Routes
 
 INSERT OR REPLACE INTO UnitAiInfos (UnitType, AiType) VALUES ('UNIT_PORTUGUESE_NAU', 'UNITAI_BUILD'); -- just in case
 
