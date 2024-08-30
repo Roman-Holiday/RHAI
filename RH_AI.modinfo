@@ -854,6 +854,15 @@
 			</Properties>
 		</ReplaceUIScript>
 
+		<!-- ReportScreen fixes -->
+		<ReplaceUIScript id="ReplaceUI_ReportScreen">
+			<Properties>
+				<LoadOrder>10950</LoadOrder>
+				<LuaContext>ReportScreen</LuaContext>
+				<LuaReplace>core/UI/ReportScreenWrapper.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+
 
 		<!-- Text -->
 
@@ -1029,6 +1038,9 @@
 
 		<File>core/UI/ToolTipHelper.lua</File>
 		<File>core/UI/ToolTip_Adjust.lua</File>
+
+		<!-- ReportScreen -->
+		<File>core/UI/ReportScreenWrapper.lua</File>
 
 		<!-- Community Extension Support -->
 		<File>core/Strategies/Community_Extension/Scripts/CongressAI.lua</File>
