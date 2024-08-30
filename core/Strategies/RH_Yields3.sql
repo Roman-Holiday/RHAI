@@ -130,6 +130,13 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_HAPPINESS_COMP_MOD',			'YieldType', 		'YIELD_RH_HAPPINESS_COMP'),
 		('RH_HAPPINESS_COMP_MOD',								'Amount'   , 30);
 
+
+
+INSERT OR IGNORE INTO ProjectCompletionModifiers    (ProjectType,		ModifierId)  VALUES	
+		('PROJECT_CARNIVAL',					'RH_HAPPINESS_COMP_MOD_XXS');  
+
+
+
 INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES		
 		('GOVERNMENT_CLASSICAL_REPUBLIC', 			'RH_HAPPINESS_COMP_MOD_XS'), -- pvs 30
 		('GOVERNMENT_DEMOCRACY', 					'RH_HAPPINESS_COMP_MOD_S'),
