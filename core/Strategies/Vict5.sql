@@ -1327,7 +1327,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_WORLD_RELIGION_CONDEM_MOD_XL',							'Amount'   , 110),
 
 		('RH_WORLD_RELIGION_CONDEM_MOD',		'YieldType', 			'YIELD_SCIENCE'),
-		('RH_WORLD_RELIGION_CONDEM_MOD',								'Amount'   , 9); -- pvs 40, 30, 22, 14, 10
+		('RH_WORLD_RELIGION_CONDEM_MOD',								'Amount'   , 5); -- pvs 40, 30, 22, 14, 10, 9
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES

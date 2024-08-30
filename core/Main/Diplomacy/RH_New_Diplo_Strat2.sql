@@ -13,7 +13,7 @@ DELETE FROM ModifierArguments WHERE ModifierId ='STANDARD_DIPLOMATIC_ALLY';
 
 
 INSERT INTO	ModifierArguments	(ModifierId,									Name,		Value) VALUES		
-			('STANDARD_DIPLOMATIC_ALLY',					'MaxValue',												25), 
+			('STANDARD_DIPLOMATIC_ALLY',					'MaxValue',												28), 
 			('STANDARD_DIPLOMATIC_ALLY',					'InitialValue',											5),
 			('STANDARD_DIPLOMATIC_ALLY',					'IncrementValue',										1),
 						

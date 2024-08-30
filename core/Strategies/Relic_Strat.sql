@@ -383,7 +383,7 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 --('YIELD_RH_CAMPUS', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.15),	
 
 
-('YIELD_RH_CITY_CENTRE', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.5),	-- pvs 0.8, 0.65	
+('YIELD_RH_CITY_CENTRE', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.4),	-- pvs 0.8, 0.65	
 
 -- Military
 
@@ -391,16 +391,16 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 
 -- Govs
 
-('YIELD_RH_DEMOCRACY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  1.5),
-('YIELD_RH_COMMUNISM', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  1.5),
-('YIELD_RH_FASCISM', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  1.5),
-('YIELD_RH_SYNTHETIC_TECHNOCRACY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  1.2), 
+('YIELD_RH_DEMOCRACY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  2.0),
+('YIELD_RH_COMMUNISM', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  2.0),
+('YIELD_RH_FASCISM', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  2.0),
+('YIELD_RH_SYNTHETIC_TECHNOCRACY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  1.6), 
 
-('YIELD_RH_CLASSICAL_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  1.2),
-('YIELD_RH_OLIGARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', 		'0',							  1.2),
+('YIELD_RH_CLASSICAL_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  1.6),
+('YIELD_RH_OLIGARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', 		'0',							  1.6),
 
-('YIELD_RH_MERCHANT_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			    1.5),
-('YIELD_RH_MONARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  			1.5),
+('YIELD_RH_MERCHANT_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			    1.2),
+('YIELD_RH_MONARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  			1.8),
 
 
 -- Policy Card
@@ -422,65 +422,59 @@ UPDATE Yields SET DefaultValue = 1.2 WHERE YieldType = 'YIELD_RV_BASE';
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('DefaultYieldBias', 'YIELD_RH_JUST_WAR', 				0, -950), -- pvs -150, -120, -250, -160
-('DefaultYieldBias', 'YIELD_RH_RELIC', 					0, -750),
-
-('DefaultYieldBias', 'YIELD_RH_SPREAD_RELIGION', 		0, -750), -- pvs -95, -150
-('DefaultYieldBias', 'YIELD_RH_DIPLO', 					0, -750),
-('DefaultYieldBias', 'YIELD_RH_LOYALTY', 				0, -750), -- pvs -190
-('DefaultYieldBias', 'YIELD_RH_EXPANSION', 				0, -250), 
-
-('DefaultYieldBias', 'YIELD_RH_MAGNUS', 				0, -220),
 
 ('DefaultYieldBias', 'YIELD_RH_DEMOCRACY', 				1, 200), -- pvs 120
 ('DefaultYieldBias', 'YIELD_RH_COMMUNISM', 				1, 120), -- pvs 90
 ('DefaultYieldBias', 'YIELD_RH_FASCISM', 				1, 230), -- pvs 140
-('DefaultYieldBias', 'YIELD_RH_SYNTHETIC_TECHNOCRACY', 	0, 50),
-('DefaultYieldBias', 'YIELD_RH_MERCHANT_REPUBLIC', 		0, -25), -- pvs -75
+('DefaultYieldBias', 'YIELD_RH_SYNTHETIC_TECHNOCRACY', 	1, 25),
+
 
 ('DefaultYieldBias', 'YIELD_RH_CLASSICAL_REPUBLIC', 	1, 30),
-('DefaultYieldBias', 'YIELD_RH_MONARCHY', 				1, 175), -- Pvs -50, 20
-('DefaultYieldBias', 'YIELD_RH_OLIGARCHY', 				1, -33); -- Pvs -50
+('DefaultYieldBias', 'YIELD_RH_MONARCHY', 				1, 350), -- Pvs -50, 20
+('DefaultYieldBias', 'YIELD_RH_OLIGARCHY', 				1, -25); -- Pvs -50
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item,  Value) VALUES
+('DefaultYieldBias', 'YIELD_RH_MERCHANT_REPUBLIC', 			 -50); -- pvs -75
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('DefaultYieldBias', 'YIELD_RH_GORGO', 								0, -950),
-('DefaultYieldBias', 'YIELD_RV_BASE', 					0, -950);
+('DefaultYieldBias', 'YIELD_RV_BASE', 							0, -950);
 
 
-INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('DefaultYieldBias', 'YIELD_RH_CHARIOT', 					0, -900),
-('DefaultYieldBias', 'YIELD_RH_UNDER_ATTACK', 				0, -350), -- pvs -250, -450, 410
-('DefaultYieldBias', 'YIELD_RH_AT_WAR', 					0, -650),
-('DefaultYieldBias', 'YIELD_RH_NUCLEAR', 					1, 	5), -- pvs -50, -70
-('DefaultYieldBias', 'YIELD_RH_CAV', 						0, -650),
-('DefaultYieldBias', 'YIELD_RH_MILITARY_ADV', 				0, -750),
-('DefaultYieldBias', 'YIELD_RH_MILITARY_PRODUCTION', 		0, -750),
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
+('DefaultYieldBias', 'YIELD_RH_CHARIOT', 					 -900),
+('DefaultYieldBias', 'YIELD_RH_UNDER_ATTACK', 				 -350), -- pvs -250, -450, 410
+('DefaultYieldBias', 'YIELD_RH_AT_WAR', 					 -650),
+('DefaultYieldBias', 'YIELD_RH_NUCLEAR', 					 	50), -- pvs -50, -70
+('DefaultYieldBias', 'YIELD_RH_CAV', 						 -750),
+('DefaultYieldBias', 'YIELD_RH_MILITARY_ADV', 				 -750),
+('DefaultYieldBias', 'YIELD_RH_MILITARY_PRODUCTION', 		 -750),
 
 -- Utility
-('DefaultYieldBias', 'YIELD_RH_SPY', 						0, -300),
-('DefaultYieldBias', 'YIELD_RH_LAGS_TECH', 					0, -750),
-('DefaultYieldBias', 'YIELD_RH_FOOD_EXT', 					0, -300), -- pvs -95
+('DefaultYieldBias', 'YIELD_RH_SPY', 						 -300),
+('DefaultYieldBias', 'YIELD_RH_LAGS_TECH', 					 -750),
+('DefaultYieldBias', 'YIELD_RH_FOOD_EXT', 					 -300), -- pvs -95
 
-('DefaultYieldBias', 'YIELD_RH_TRADE', 						0, -275),
-('DefaultYieldBias', 'YIELD_RH_MAYHEM', 					0, -750),
+('DefaultYieldBias', 'YIELD_RH_TRADE', 						 -275),
+('DefaultYieldBias', 'YIELD_RH_MAYHEM', 					 -750),
 
-('DefaultYieldBias', 'YIELD_RH_NAVAL', 						0, -250),
+('DefaultYieldBias', 'YIELD_RH_NAVAL', 						 -250),
 
 -- Religion
 
-('DefaultYieldBias', 'YIELD_RH_R_GODDESS', 				0, -99), -- pvs 10
-('DefaultYieldBias', 'YIELD_RH_SCRIPTURE', 				0, -75),
+('DefaultYieldBias', 'YIELD_RH_R_GODDESS', 					 -99), -- pvs 10
+('DefaultYieldBias', 'YIELD_RH_SCRIPTURE', 					 -99),
 
-('DefaultYieldBias', 'YIELD_RH_CULTURE_VICTORY_BASE', 		0, -95),
-('DefaultYieldBias', 'YIELD_RH_STATUE_LIBERTY', 			0, -85),
+('DefaultYieldBias', 'YIELD_RH_CULTURE_VICTORY_BASE', 		 -98),
+('DefaultYieldBias', 'YIELD_RH_STATUE_LIBERTY', 			 -85),
 
-('DefaultYieldBias', 'YIELD_RH_WONDER', 					0, -200),
-('DefaultYieldBias', 'YIELD_RH_HAPPINESS_BUILDING', 		0, -750), -- pvs -95, -250, -400
-('DefaultYieldBias', 'YIELD_RH_HAPPINESS_COMP', 			0, -750), -- pvs -400
-('DefaultYieldBias', 'YIELD_RH_GW_SLOT', 					0, -750),
+('DefaultYieldBias', 'YIELD_RH_WONDER', 					 -200),
+('DefaultYieldBias', 'YIELD_RH_HAPPINESS_BUILDING', 		 -750), -- pvs -95, -250, -400
+('DefaultYieldBias', 'YIELD_RH_HAPPINESS_COMP', 			 -750), -- pvs -400
+('DefaultYieldBias', 'YIELD_RH_GW_SLOT', 					 -750),
 
-('DefaultYieldBias', 'YIELD_RH_PRODUCTION', 				0, -90);
+('DefaultYieldBias', 'YIELD_RH_PRODUCTION', 				 -90);
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
 
@@ -495,7 +489,24 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
 
 -- District
 
+
 ('DefaultYieldBias', 'YIELD_RH_SCIENCE_VICTORY_BASE', 						 -750),
+
+('DefaultYieldBias', 'YIELD_RH_JUST_WAR', 				 -950), -- pvs -150, -120, -250, -160
+('DefaultYieldBias', 'YIELD_RH_RELIC', 					 -750),
+
+('DefaultYieldBias', 'YIELD_RH_SPREAD_RELIGION', 		 -750), -- pvs -95, -150
+('DefaultYieldBias', 'YIELD_RH_DIPLO', 					 -750),
+('DefaultYieldBias', 'YIELD_RH_LOYALTY', 				 -750), -- pvs -190
+('DefaultYieldBias', 'YIELD_RH_EXPANSION', 				 -250), 
+
+('DefaultYieldBias', 'YIELD_RH_MAGNUS', 				 -220),
+
+
+
+
+
+
 
 -- WC
 

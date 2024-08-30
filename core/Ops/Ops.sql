@@ -6,14 +6,18 @@
 --------------------------------------------------------------------------------------------------------------------------
 
 -- OPS Base
-UPDATE AiFavoredItems SET Value = 3 WHERE ListType = 'BaseOperationsLimits' AND Item = 'OP_DEFENSE'; 
+UPDATE AiFavoredItems SET Value = 2 WHERE ListType = 'BaseOperationsLimits' AND Item = 'OP_DEFENSE'; 
 --UPDATE AiFavoredItems SET Value = 1 WHERE ListType = 'BaseOperationsLimits' AND Item = 'OP_SETTLE'; 
 UPDATE AiFavoredItems SET Value = 3 WHERE ListType = 'BaseOperationsLimits' AND Item = 'CITY_ASSAULT'; -- testing 3 again (+2 with strength) (think 3 for more commitment)
 UPDATE AiFavoredItems SET Value = 1 WHERE ListType = 'PerWarOperationsLimits' AND Item = 'CITY_ASSAULT'; -- testing 2
 --UPDATE AiFavoredItems SET Value = 2 WHERE ListType = 'PerWarOperationsLimits' AND Item = 'NAVAL_SUPERIORITY'; 
 
---INSERT OR IGNORE INTO AiFavoredItems(ListType, Item, Value) VALUES
+INSERT OR IGNORE INTO AiFavoredItems(ListType, Item, Value) VALUES
 --('PerWarOperationsLimits', 'NAVAL_SUPERIORITY', 1); -- testing +1 for each war (base is 1)
+
+('PerWarOperationsLimits', 'OP_DEFENSE', 1); 
+
+
 
 
 /*

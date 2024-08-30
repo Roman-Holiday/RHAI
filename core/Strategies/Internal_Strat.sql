@@ -578,14 +578,14 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_GOV_MODIFIER_MERCHANT',					'YieldType', 'YIELD_GOLD'),
-		('RH_GOV_MODIFIER_MERCHANT',					'Amount'   , 15), -- pvs 13
+		('RH_GOV_MODIFIER_MERCHANT',					'Amount'   , 10), -- pvs 13, 15
 		('RH_GOV_MODIFIER_CLASSICAL',					'YieldType', 'YIELD_CULTURE'),
 		('RH_GOV_MODIFIER_CLASSICAL',					'Amount'   , 2), -- pvs 1
 		('RH_GOV_MODIFIER_THEOCRACY_REL',				'YieldType', 'YIELD_FAITH'),
-		('RH_GOV_MODIFIER_THEOCRACY_REL',				'Amount'   , 11), -- pvs 17, 22, 21
+		('RH_GOV_MODIFIER_THEOCRACY_REL',				'Amount'   , 9), -- pvs 17, 22, 21, 11
 		--('RH_GOV_MODIFIER_THEOCRACY_REL',				'Amount'   , 1),
-		('RH_GOV_MODIFIER_MONARCHY',					'YieldType', 'YIELD_GOLD'),
-		('RH_GOV_MODIFIER_MONARCHY',					'Amount'   , -1), -- pvs -1, -2, -3
+		('RH_GOV_MODIFIER_MONARCHY',					'YieldType', 'YIELD_SCIENCE'),
+		('RH_GOV_MODIFIER_MONARCHY',					'Amount'   , 1), -- pvs -1, -2, -3g
 		('RH_GOV_MODIFIER_CORPORATE_LIBERTARIANISM',	'YieldType', 'YIELD_FAITH'),
 		('RH_GOV_MODIFIER_CORPORATE_LIBERTARIANISM',	'Amount'   , 9),
 		('RH_GOV_MODIFIER_DIGITAL_DEMOCRACY',			'YieldType', 'YIELD_CULTURE'),

@@ -412,23 +412,23 @@
 	<Row ListType="STRATEGY_AT_WAR_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"		 Value="1"/>
 	<!--Row ListType="STRATEGY_AT_WAR_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="3"/-->
 		
-	<Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_RH_DEFENSE_HP" Value="2"/> <!-- Favored="true" -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_RH_DEFENSE_HP" Value="1"/> <!-- Favored="true" -->
 	<Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_SETTLE"  Value="-1"/>
 
 
 	<!--Row ListType="STRATEGY_UNDER_ATTACK_SPECIALISE" Item="BUILD_CITY_DEFENSES" Favored="true" Value="5"/-->
 
 	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_FOOD" Value="-70" Favored="false"/> 
-	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_CULTURE" Value="-65"/> <!-- pvs -10, -25 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_CULTURE" Value="-50"/> <!-- pvs -10, -25 -->
 	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_FAITH" Value="-50"/>  <!-- pvs -15, -35 -->
 	<!--Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_GOLD" Value="5"/--> 
-	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_SCIENCE" Value="-15"/> 	
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_SCIENCE" Value="-10"/> 	
 	
 	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_PRODUCTION" Value="3"/> 
 	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_UNDER_ATTACK" Value="950"/> 
-	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_AT_WAR" Value="45"/> 
-	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_FACSISM" Value="450"/> <!-- pvs 150 --> <!-- Includes Corporate Lib -->
-	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_MONARCHY" Value="250"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_AT_WAR" Value="150"/> 
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_FACSISM" Value="650"/> <!-- pvs 150 --> <!-- Includes Corporate Lib -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_MONARCHY" Value="450"/> 
 	
 	<Row ListType="STRATEGY_UNDER_ATTACK_YIELDS" Item="YIELD_RH_OLIGARCHY" Value="750"/> 
 	
@@ -470,7 +470,7 @@
 	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="25"/> 
 	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_NUCLEAR_WEAPON" Value="-50"/> 
 	
-	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_DISTRICT" Value="-85"/> <!-- pvs -35, -55 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_DISTRICT" Value="-35"/> <!-- pvs -35, -55 -->
 	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="-90"/> 
 	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_RESOURCE_LUXURY" Value="-55"/> 
 	<Row ListType="STRATEGY_UNDER_ATTACK_PSEUDOS" Item="PSEUDOYIELD_HAPPINESS" Value="-80"/> 
@@ -558,7 +558,7 @@
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_BOMBARD"					 Value="-99"/>  
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_CATAPULT"				 Value="-99"/>  <!-- pvs -40 -->
 	
-	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_HEAVY_CAVALRY"		 Value="25"/>
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_HEAVY_CAVALRY"		 Value="30"/>
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"				 Value="85"/> <!-- pvs 10, 45, 95 -->
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_SIEGE"				 Value="-100"/> <!-- pvs -45, -95 --> <!-- May include bombers due to class changes, but unlikely -->
 	

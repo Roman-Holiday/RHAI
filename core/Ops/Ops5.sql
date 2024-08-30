@@ -26,7 +26,7 @@ UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 0 WHERE TeamName = 'Cit
 UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 2 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_CIVILIAN_LEADER'; -- testing 2
 --UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 0 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITAI_SETTLE'; -- Is unitai correct? Could be be just UNIT_SETTLER
 UPDATE OpTeamRequirements SET MinNumber = 2, MaxNumber = 6 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_SIEGE_ALL'; -- def max 1 lol -- pvs 4 -- testing 2-6 (needs min 2 to build 2)
-UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 3 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_AIR_SIEGE'; -- def min 0, max 1
+UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 2 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_AIR_SIEGE'; -- def min 0, max 1
 UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 2 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_SIEGE_SUPPORT'; -- def 0-2, pvs 4 (too much)
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName,AiType,MinNumber,MaxNumber) VALUES
@@ -114,7 +114,7 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName,AiType,MinNumber,MaxNumber,Mi
 ('Walled City Naval Attack Force', 'UNITTYPE_MELEE',           2, 6, 				0, 1),
 ('Walled City Naval Attack Force', 'UNITTYPE_AIR',             0, 3, 				0, 1),
 ('Walled City Naval Attack Force', 'UNITTYPE_NUCLEAR',         0, 3, 				0, 0.5),
-('Walled City Naval Attack Force', 'UNITTYPE_AIR_SIEGE',       0, 3, 				0, 1),
+('Walled City Naval Attack Force', 'UNITTYPE_AIR_SIEGE',       0, 2, 				0, 1),
 ('Walled City Naval Attack Force', 'UNITTYPE_RANGED',          2, 9, 				0, 0.75),
 ('Walled City Naval Attack Force', 'UNITTYPE_SIEGE_SUPPORT',   0, 2, 				0, 0.25);
 

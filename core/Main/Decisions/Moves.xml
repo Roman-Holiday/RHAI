@@ -16,19 +16,20 @@
     <Row AllowedMoveType="Support Formation" Value="6" isHomeland="true" isTactical="true" /> <!-- Moved above attack camps, hp and attack low priority to encourage further -- Firaxis: Support units not in use by an operation should try to move close to allied military -->
 
     <Row AllowedMoveType="Attack High Priority" Value="7" IsTactical="true" />
-    <Row AllowedMoveType="Air Deploy" Value="8" isTactical="true" />
-	<!-- higher Priority -->
-    <Row AllowedMoveType="Charge Heal" Value="9" isHomeland="true"/> <!-- charge heal units - atm just the Guru -->
-    <Row AllowedMoveType="Coastal Raid" Value="10" IsTactical="true" />
-	
-	<Row AllowedMoveType="Attack District" Value="11" IsTactical="true" /> <!-- Moving from 18 to potentially improve siege op, now from 15-->
-	
-	<Row AllowedMoveType="Pillage District" Value="12" IsTactical="true" />	
-	<Row AllowedMoveType="Pillage Improvement" Value="13" IsTactical="true" />	
-	
-	<Row AllowedMoveType="Attack Medium Priority" Value="14" IsTactical="true" />
 
-    <Row AllowedMoveType="Air Rebase" Value="15" isTactical="true" />
+    <Row AllowedMoveType="Air Rebase" Value="8" isTactical="true" /> <!-- New, Test -->	
+    <Row AllowedMoveType="Air Deploy" Value="9" isTactical="true" />	<!-- Test below rebase -->
+	
+	<!-- higher Priority -->
+    <Row AllowedMoveType="Charge Heal" Value="10" isHomeland="true"/> <!-- charge heal units - atm just the Guru -->
+    <Row AllowedMoveType="Coastal Raid" Value="11" IsTactical="true" />
+	
+	<Row AllowedMoveType="Attack District" Value="12" IsTactical="true" /> <!-- Moving from 18 to potentially improve siege op, now from 15-->
+	
+	<Row AllowedMoveType="Pillage District" Value="13" IsTactical="true" />	
+	<Row AllowedMoveType="Pillage Improvement" Value="14" IsTactical="true" />	
+	
+	<Row AllowedMoveType="Attack Medium Priority" Value="15" IsTactical="true" />
 
 	<Row AllowedMoveType="Move to Safety" Value="16" IsHomeland="true" IsTactical="true" />
 
@@ -62,34 +63,36 @@
   
   <AiFavoredItems>
 	<Delete ListType="Default Tactical"/>
+
+	<Row ListType="Default Tactical" Item="Promotion"  Value="1"/ > <!-- testing higher, testing even high, was 4th, Favored="true" -->
 	
-	<Row ListType="Default Tactical" Item="Make Military Formation" Value="1"/ > <!-- testing above ahp, promotion,  Favored="true", pvs 0 -->
+	<Row ListType="Default Tactical" Item="Make Military Formation" Value="5"/ > <!-- testing above ahp, promotion,  Favored="true", pvs 0 -->
 	
-	<Row ListType="Default Tactical" Item="Promotion"  Value="2"/ > <!-- testing higher, testing even high, was 4th, Favored="true" -->
 	<Row ListType="Default Tactical" Item="Leader Formation" Value="10"/ > <!-- testing above ahp -->
 	<Row ListType="Default Tactical" Item="Support Formation" Value="20"/ > <!-- testing above ahp -->
 	
 	<Row ListType="Default Tactical" Item="Attack High Priority" Value="50"/ >
 	<Row ListType="Default Tactical" Item="Gather Goody Hut" Value="60"/ >
 	<Row ListType="Default Tactical" Item="Air Assault" Value="65"/ >
-	<Row ListType="Default Tactical" Item="Air Deploy" Value="70" />
-	<Row ListType="Default Tactical" Item="Coastal Raid" Value="80" />
+
+	<Row ListType="Default Tactical" Item="Air Rebase" Value="70" />	
+	<Row ListType="Default Tactical" Item="Air Deploy" Value="80" />	
 	
-	<Row ListType="Default Tactical" Item="Pillage District" Value="85" /> <!-- Testing Above Medium Priority -->
-	<Row ListType="Default Tactical" Item="Pillage Improvement" Value="95" /> <!-- testing above move to safety for hp --> <!-- Testing Above Medium Priority -->
+	<Row ListType="Default Tactical" Item="Coastal Raid" Value="90" />
 	
-	<Row ListType="Default Tactical" Item="Attack District" Value="100" /> 
+	<Row ListType="Default Tactical" Item="Pillage District" Value="100" /> <!-- Testing Above Medium Priority -->
+	<Row ListType="Default Tactical" Item="Pillage Improvement" Value="110" /> <!-- testing above move to safety for hp --> <!-- Testing Above Medium Priority -->
+	
+	<Row ListType="Default Tactical" Item="Attack District" Value="120" /> 
 			
-	<Row ListType="Default Tactical" Item="Attack Medium Priority" Value="105" />
+	<Row ListType="Default Tactical" Item="Attack Medium Priority" Value="130" />
 
-	<Row ListType="Default Tactical" Item="Air Rebase" Value="110" />
+	<Row ListType="Default Tactical" Item="Attack Camps" Value="135" />
 
-	<Row ListType="Default Tactical" Item="Attack Camps" Value="120" />
+	<Row ListType="Default Tactical" Item="Move to Safety" Value="140" /> <!-- similar to bar -->
 
-	<Row ListType="Default Tactical" Item="Move to Safety" Value="130" /> <!-- similar to bar -->
-
-	<Row ListType="Default Tactical" Item="Attack Civilians" Value="140" />	
-	<Row ListType="Default Tactical" Item="Plunder Trader" Value="150" />
+	<Row ListType="Default Tactical" Item="Attack Civilians" Value="150" />	
+	<Row ListType="Default Tactical" Item="Plunder Trader" Value="165" />
 
 	<Row ListType="Default Tactical" Item="Attack Low Priority" Value="160" /> <!-- Testing Above Heal -->
 	<Row ListType="Default Tactical" Item="Chase Target" Value="170" />  <!-- Testing Above Heal -->

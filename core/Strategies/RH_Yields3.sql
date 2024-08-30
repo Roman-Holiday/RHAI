@@ -256,7 +256,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_MILITARY_PRODUCTION_MOD_S',							'Amount'   , 5), -- pvs 3
 
 		('RH_MILITARY_PRODUCTION_MOD_M',		'YieldType', 		'YIELD_RH_MILITARY_PRODUCTION'),
-		('RH_MILITARY_PRODUCTION_MOD_M',							'Amount'   , 15), -- pvs 9
+		('RH_MILITARY_PRODUCTION_MOD_M',							'Amount'   , 25), -- pvs 9
 
 		('RH_MILITARY_PRODUCTION_MOD',		'YieldType', 		'YIELD_RH_MILITARY_PRODUCTION'),
 		('RH_MILITARY_PRODUCTION_MOD',							'Amount'   , 40); -- pvs 20
@@ -267,8 +267,8 @@ INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType',
 
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
-('BUILDING_BARRACKS', 				'RH_MILITARY_PRODUCTION_MOD_S'),
-('BUILDING_STABLE', 				'RH_MILITARY_PRODUCTION_MOD_S');
+('BUILDING_BARRACKS', 				'RH_MILITARY_PRODUCTION_MOD_M'), -- pvs 5
+('BUILDING_STABLE', 				'RH_MILITARY_PRODUCTION_MOD_M');
 
 
 -- Unique Encampment Replacements

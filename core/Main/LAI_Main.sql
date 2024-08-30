@@ -7,7 +7,7 @@
 --------------------------------------------------------------------------------------------------------------------------
 
 UPDATE PseudoYields SET DefaultValue = 90 WHERE PseudoYieldType = 'PSEUDOYIELD_IMPROVEMENT'; --  3.0 -- pvs 10, 16, 18, 40
-UPDATE PseudoYields SET DefaultValue = 9 WHERE PseudoYieldType = 'PSEUDOYIELD_INFLUENCE'; -- 0.5 -- pvs 11, 10, 4, 5, 7
+UPDATE PseudoYields SET DefaultValue = 10 WHERE PseudoYieldType = 'PSEUDOYIELD_INFLUENCE'; -- 0.5 -- pvs 11, 10, 4, 5, 7
 UPDATE PseudoYields SET DefaultValue = 3.8 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_ARCHAEOLOGIST'; --  4.0
 UPDATE PseudoYields SET DefaultValue = 1.6 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_COMBAT'; -- 1.0 -- pvs 1.15, 1.14, 1.13, 1.12
 UPDATE PseudoYields SET DefaultValue = 3.5 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_NAVAL_COMBAT'; -- 1.0 previously 1.27, 1.3, 1.4, 1.45, 1.6, 1.75, 1.85, 1.95, 2.05, 2.3, 2.2, 2.5, 3.1
@@ -20,7 +20,7 @@ UPDATE PseudoYields SET DefaultValue = 78.0 WHERE PseudoYieldType = 'PSEUDOYIELD
 UPDATE PseudoYields SET DefaultValue = 14 WHERE PseudoYieldType = 'PSEUDOYIELD_DISTRICT'; -- 8.0, pvs 7, 8, 9, 11.5, 12.5, 15, 20, 25, 15, 14, 10
 UPDATE PseudoYields SET DefaultValue = 0.95 WHERE PseudoYieldType = 'PSEUDOYIELD_WONDER'; -- 2.0 -- pvs 0.49
 --UPDATE PseudoYields SET DefaultValue = 0.25 WHERE PseudoYieldType = 'PSEUDOYIELD_DIPLOMATIC_BONUS'; --  was +0.01 to balance other diplo modifiers (pvs +0.02)
-UPDATE PseudoYields SET DefaultValue = 14.0 WHERE PseudoYieldType = 'PSEUDOYIELD_NUCLEAR_WEAPON'; -- 25.0 - Pvs 39, 52, 50, 47, 46, 45, 33, 20 (test)
+UPDATE PseudoYields SET DefaultValue = 7.0 WHERE PseudoYieldType = 'PSEUDOYIELD_NUCLEAR_WEAPON'; -- 25.0 - Pvs 39, 52, 50, 47, 46, 45, 33, 20 (test)
 UPDATE PseudoYields SET DefaultValue = 3.2 WHERE PseudoYieldType = 'PSEUDOYIELD_RESOURCE_LUXURY'; -- 1.5 -- 100 In Monopolies mode lol, pvs 7, testing 8 (sets a floor for selling them off) -- pvs 42
 UPDATE PseudoYields SET DefaultValue = 110.0 WHERE PseudoYieldType = 'PSEUDOYIELD_SPACE_RACE'; -- 100.0, pvs 120
 --UPDATE PseudoYields SET DefaultValue = 5 WHERE PseudoYieldType = 'PSEUDOYIELD_CIVIC'; -- 5

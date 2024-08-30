@@ -95,7 +95,7 @@ FROM Types WHERE Type = 'BUILDING_STATUE_LIBERTY';
 -- PEDRO / BRAZIL
 
 DELETE FROM AiFavoredItems WHERE ListType = 'GreatPersonObsessedGreatPeople' AND Item = 'PSEUDOYIELD_GPP_PROPHET'; -- Credit: Infixo: don't be obsessed with him - there is only one!
-UPDATE AiFavoredItems SET Value = 38 WHERE ListType = 'GreatPersonObsessedGreatPeople'; -- def. 50
+UPDATE AiFavoredItems SET Value = 75 WHERE ListType = 'GreatPersonObsessedGreatPeople'; -- def. 50, 38
 
 REPLACE INTO AiListTypes (ListType) VALUES
 ('PedroDistricts'),
@@ -115,9 +115,11 @@ REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('PedroDistricts', 'DISTRICT_STREET_CARNIVAL', 1, 0),
 ('PedroDistricts', 'DISTRICT_WATER_STREET_CARNIVAL', 1, 0),
-('PedroDistricts', 'PROJECT_CARNIVAL', 1, 200),
 
 ('PedroYields', 'YIELD_RH_MAUS_H', 1, 850),
+('PedroYields', 'YIELD_RH_HAPPINESS_BUILDING', 1, 650),
+
+('PedroProjects', 'PROJECT_CARNIVAL', 1, 50),
 
 ('PedroCivics', 'CIVIC_NATURAL_HISTORY', 1, 0),
 ('PedroPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, -35), -- Less aggressive
