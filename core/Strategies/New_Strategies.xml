@@ -968,6 +968,9 @@
 		<Row BuildingType="BUILDING_GOV_SCIENCE" ModifierId="RH_GPP_SCI_POINTS"/>
 		<Row BuildingType="BUILDING_GOV_CULTURE" ModifierId="RH_GPP_ART_POINTS"/> <!-- pvs 0-->
 		
+		<Row BuildingType="BUILDING_ORACLE" ModifierId="RH_GPP_SCI_POINTS"/>
+		<Row BuildingType="BUILDING_ORACLE" ModifierId="RH_GPP_ART_POINTS"/>
+		
 		<Row BuildingType="BUILDING_COLOSSEUM" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
 		<Row BuildingType="BUILDING_QUEENS_BIBLIOTHEQUE" ModifierId="RH_GRANT_TWO_INFLUENCE"/> <!-- needs 2 if others used-->
 		<!--Row BuildingType="BUILDING_MAHABODHI_TEMPLE" ModifierId="RH_GRANT_ONE_INFLUENCE"/> <!-- Dp victory -->

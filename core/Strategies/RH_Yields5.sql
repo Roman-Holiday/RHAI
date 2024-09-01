@@ -1978,10 +1978,10 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('RH_MILITARY_TRADITION',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
-			('RH_MILITARY_TRADITION',				'Amount',					400), -- pvs 3, 4, 7, 10, 12, 24, 45, 50, 75, 110
+			('RH_MILITARY_TRADITION',				'Amount',					950), -- pvs 3, 4, 7, 10, 12, 24, 45, 50, 75, 110, 400
 
 			('RH_MILITARY_TRADITION_M',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
-			('RH_MILITARY_TRADITION_M',				'Amount',					150); -- pvs 4, 10, 16, 45, 50, 60
+			('RH_MILITARY_TRADITION_M',				'Amount',					700); -- pvs 4, 10, 16, 45, 50, 60, 150
 
 
 INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES

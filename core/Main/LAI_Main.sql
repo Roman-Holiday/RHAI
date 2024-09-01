@@ -21,7 +21,7 @@ UPDATE PseudoYields SET DefaultValue = 14 WHERE PseudoYieldType = 'PSEUDOYIELD_D
 UPDATE PseudoYields SET DefaultValue = 0.95 WHERE PseudoYieldType = 'PSEUDOYIELD_WONDER'; -- 2.0 -- pvs 0.49
 --UPDATE PseudoYields SET DefaultValue = 0.25 WHERE PseudoYieldType = 'PSEUDOYIELD_DIPLOMATIC_BONUS'; --  was +0.01 to balance other diplo modifiers (pvs +0.02)
 UPDATE PseudoYields SET DefaultValue = 7.0 WHERE PseudoYieldType = 'PSEUDOYIELD_NUCLEAR_WEAPON'; -- 25.0 - Pvs 39, 52, 50, 47, 46, 45, 33, 20 (test)
-UPDATE PseudoYields SET DefaultValue = 3.2 WHERE PseudoYieldType = 'PSEUDOYIELD_RESOURCE_LUXURY'; -- 1.5 -- 100 In Monopolies mode lol, pvs 7, testing 8 (sets a floor for selling them off) -- pvs 42
+UPDATE PseudoYields SET DefaultValue = 1.8 WHERE PseudoYieldType = 'PSEUDOYIELD_RESOURCE_LUXURY'; -- 1.5 -- 100 In Monopolies mode lol, pvs 7, testing 8 (sets a floor for selling them off) -- pvs 42
 UPDATE PseudoYields SET DefaultValue = 110.0 WHERE PseudoYieldType = 'PSEUDOYIELD_SPACE_RACE'; -- 100.0, pvs 120
 --UPDATE PseudoYields SET DefaultValue = 5 WHERE PseudoYieldType = 'PSEUDOYIELD_CIVIC'; -- 5
 UPDATE PseudoYields SET DefaultValue = 35 WHERE PseudoYieldType = 'PSEUDOYIELD_TECHNOLOGY'; -- 5, pvs 6, 11, 12, 28
@@ -65,7 +65,7 @@ UPDATE PseudoYields SET DefaultValue = 19 WHERE PseudoYieldType = 'PSEUDOYIELD_G
 -- City
 
 
-UPDATE PseudoYields SET DefaultValue = 9850 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_BASE'; -- 450 pvs 820, 790, 1150
+UPDATE PseudoYields SET DefaultValue = 999550 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_BASE'; -- 450 pvs 820, 790, 1150
 UPDATE PseudoYields SET DefaultValue = 2 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_DEFENSES'; -- 200 --pvs 52, 57, 60, 35
 UPDATE PseudoYields SET DefaultValue = 3 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_DEFENDING_UNITS'; -- 80, pvs 95, 94, 91
 UPDATE PseudoYields SET DefaultValue = -450 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL'; -- 200 pvs -210, -240, -390
@@ -79,7 +79,7 @@ UPDATE PseudoYields SET DefaultValue = 6 WHERE PseudoYieldType = 'PSEUDOYIELD_CI
 UPDATE PseudoYields SET DefaultValue =  0.8 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ADMIRAL'; -- 		def 0.5 (for all gpp) -- pvs 0.5
 UPDATE PseudoYields SET DefaultValue =  0.7 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ARTIST'; -- 		0.5
 UPDATE PseudoYields SET DefaultValue =  0.95 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ENGINEER'; -- 	0.5 -- pvs 0.7, 0.8 AI doesn't focus enough
-UPDATE PseudoYields SET DefaultValue =  12.5 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_GENERAL'; -- 		0.5 -- 0.45, 0.5, 0.55, 0.6, 0.7, 1.05, 2.4, 3.2
+UPDATE PseudoYields SET DefaultValue =  6 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_GENERAL'; -- 		0.5 -- 0.45, 0.5, 0.55, 0.6, 0.7, 1.05, 2.4, 3.2
 UPDATE PseudoYields SET DefaultValue =  0.75 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MERCHANT'; -- 		0.5 -- pvs 0.6, 0.7, 0.85, running to many projects, 0.8
 UPDATE PseudoYields SET DefaultValue =  0.65 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MUSICIAN'; -- 		0.5
 UPDATE PseudoYields SET DefaultValue =  2.0 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_PROPHET'; -- 		0.5, 0.6, 0.8, 0.85, 1, 4

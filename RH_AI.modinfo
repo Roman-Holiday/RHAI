@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mod id="2501be3e-9780-4e9f-9506-4ff71cf076cb" version="14">
   <Properties>
-    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.235 Discord Beta[ENDCOLOR]</Name>
+    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.24 Patreon Beta[ENDCOLOR]</Name>
     <Description>------------------------------------[NEWLINE]There's an AI System in the Game, says Shirk. ... it's called a [COLOR:ResScienceLabelCS]"Mayhem Level"[ENDCOLOR][NEWLINE]For Civ Chat, Feedback and Suggestions Use the RomanHoliday AI Discord! (Link on Steam Page).[NEWLINE]Enjoy! ;) </Description>
     <Teaser>Thanks for Supporting the Mod!! It's Big Time Now.</Teaser>
     <SupportsMultiplayer>1</SupportsMultiplayer>
@@ -202,6 +202,30 @@
 		<Criteria id="DLCAztec">
 			<LeaderPlayable>Players:StandardPlayers::LEADER_MONTEZUMA,Players:Expansion1_Players::LEADER_MONTEZUMA,Players:Expansion2_Players::LEADER_MONTEZUMA</LeaderPlayable>
 		</Criteria>
+
+
+		<Criteria id="RH_ONLINE_SPEED">
+
+			<ConfigurationValueMatches>
+				<ConfigurationId>GAME_SPEED_TYPE</ConfigurationId>
+				<Group>Game</Group>
+				<Value>GAMESPEED_ONLINE</Value>
+			</ConfigurationValueMatches>
+
+		</Criteria>
+
+		<Criteria id="RH_QUICK_SPEED">
+
+			<ConfigurationValueMatches>
+				<ConfigurationId>GAME_SPEED_TYPE</ConfigurationId>
+				<Group>Game</Group>
+				<Value>GAMESPEED_QUICK</Value>
+			</ConfigurationValueMatches>
+
+		</Criteria>
+
+
+
 
 
 		<Criteria id="STANDARD_DIPLO_OFFSET">
@@ -625,7 +649,10 @@
 			<File>core/Leaders/Modded/Italy.sql</File>
 		</UpdateDatabase>
 
+
+
 		<!-- DLC Leader Criteria -->
+		
 		<UpdateDatabase id="RH_AI_Poland" criteria="DLC_Poland">
 			<Properties>
 				<LoadOrder>700</LoadOrder>
@@ -722,6 +749,7 @@
 			<File>core/Other/Mod_Support/Monopolies_Plus_Tycoons_Investors_Support.sql</File>
 		</UpdateDatabase>
 
+
 		<!-- Deity ++ -->
 
 		<UpdateDatabase id="RH_AI_DEITY_PLUS_SUPPORT" criteria="DEITY_PLUS_SUPPORT">
@@ -754,11 +782,32 @@
 			<File>core/Other/Deity_Plus_No_Starting_Units.sql</File>
 		</UpdateDatabase>
 
+
+		<!-- Game Speed Support -->
+		
+		
+		<UpdateDatabase id="RH_AI_ONLINE_SPEED" criteria="RH_ONLINE_SPEED">
+			<Properties>
+				<LoadOrder>820</LoadOrder>
+			</Properties>
+			<File>core/Other/Game_Speed_Support/RH_Online_Speed.sql</File>
+		</UpdateDatabase>
+
+		<UpdateDatabase id="RH_AI_QUICK_SPEED" criteria="RH_QUICK_SPEED">
+			<Properties>
+				<LoadOrder>821</LoadOrder>
+			</Properties>
+			<File>core/Other/Game_Speed_Support/RH_Quick_Speed.sql</File>
+		</UpdateDatabase>		
+
+
+
+
 		<!-- RH Gamemodes -->
 
 		<UpdateDatabase id="RH_AI_ROM_ENABLED" criteria="RH_AI_REVIVAL_OF_MESOPOTAMIA_GAMEMODE_ENABLED">
 			<Properties>
-				<LoadOrder>817</LoadOrder>
+				<LoadOrder>825</LoadOrder>
 			</Properties>
 			<File>core/Other/RH_Gamemodes/RH_ROM.sql</File>
 			<File>core/Other/RH_Gamemodes/RH_ROM.xml</File>
@@ -766,7 +815,7 @@
 
 		<UpdateDatabase id="RH_AI_EXTRA_STRATEGICS" criteria="RH_AI_EXTRA_STRATEGICS_ENABLED">
 			<Properties>
-				<LoadOrder>818</LoadOrder>
+				<LoadOrder>830</LoadOrder>
 			</Properties>
 			<File>core/Other/RH_Gamemodes/Extra_Strategics/RH_Extra_Strategics.sql</File>
 		</UpdateDatabase>
@@ -1024,6 +1073,10 @@
 	  <File>core/Other/RH_Gamemodes/Extra_Strategics/RH_Extra_Strategics.sql</File>
 	  <File>core/Other/RH_AI_Loc_Text.xml</File>
 	  <File>core/Other/Misc.sql</File>
+
+	  <!-- Game Speed Support -->
+	  <File>core/Other/Game_Speed_Support/RH_Online_Speed.sql</File>
+	  <File>core/Other/Game_Speed_Support/RH_Quick_Speed.sql</File>
 
 		<!-- UI_hiders -->
 		<File>core/UI/ResearchChooser_overrides.lua</File>
