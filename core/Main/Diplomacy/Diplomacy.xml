@@ -137,7 +137,7 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_NEUTRAL" DiplomaticActionType="DIPLOACTION_DECLARE_FRIENDSHIP"/>
-			<Set Worth="-40" Cost="40" /> <!-- Often Declared at -20, 20 -->
+			<Set Worth="-44" Cost="44" /> <!-- Often Declared at -20, 20, sometimes declared at -40, 40 -->
 		</Update>
 		
 		<Update>

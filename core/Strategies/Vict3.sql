@@ -393,3 +393,90 @@ FROM Types WHERE Type = 'BUILDING_GREAT_BATH';
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)
 SELECT 'ReligiousVictoryWonders', 'BUILDING_MEENAKSHI_TEMPLE', 1, 0 -- not very good but might as well add it for fun -- Guru 30% discount
 FROM Types WHERE Type = 'BUILDING_MEENAKSHI_TEMPLE';
+
+
+
+
+
+
+-- Work Ethic Test
+
+-- Insert into RequirementSets
+INSERT OR IGNORE INTO RequirementSets (RequirementSetId, RequirementSetType) VALUES
+    ('RH_HOLY_SITE_PROD_ADJ_2', 'REQUIREMENTSET_TEST_ALL');
+
+-- Insert into RequirementSetRequirements for the new Requirement Set
+INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
+    ('RH_HOLY_SITE_PROD_ADJ_2', 'RH_PLAYER_AT_ANCIENT_ERA'),
+    ('RH_HOLY_SITE_PROD_ADJ_2', 'RH_PLAYER_NOT_MEDIEVAL_ERA'),
+    ('RH_HOLY_SITE_PROD_ADJ_2', 'RH_AI_HIGH_HS_PROD_ADJ_2'),
+    ('RH_HOLY_SITE_PROD_ADJ_2', 'REQUIRES_PLAYER_IS_AI');
+
+INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType) VALUES
+    ('RH_AI_HIGH_HS_PROD_ADJ_2', 'REQUIREMENT_CITY_HAS_HIGH_ADJACENCY_DISTRICT');
+
+INSERT OR IGNORE INTO RequirementArguments (RequirementId, Name, Value) VALUES
+    ('RH_AI_HIGH_HS_PROD_ADJ_2', 'DistrictType', 'DISTRICT_HOLY_SITE'),
+    ('RH_AI_HIGH_HS_PROD_ADJ_2', 'YieldType', 'YIELD_PRODUCTION'),
+    ('RH_AI_HIGH_HS_PROD_ADJ_2', 'Amount', '1');
+
+
+-- RH Work Ethic Insert
+
+INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
+		('RH_WORK_ETHIC_ENC_MOD',					'MODIFIER_PLAYER_CAPITAL_CITY_ADJUST_CITY_YIELD_CHANGE',		'RH_HOLY_SITE_PROD_ADJ_2');
+
+INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
+
+		('RH_WORK_ETHIC_ENC_MOD',			'YieldType', 		'YIELD_PRODUCTION'),
+		('RH_WORK_ETHIC_ENC_MOD',								'Amount'   , 950);
+
+INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
+('DISTRICT_HOLY_SITE',						 'RH_WORK_ETHIC_ENC_MOD'),
+('DISTRICT_LAVRA',							 'RH_WORK_ETHIC_ENC_MOD');
+
+
+
+
+
+------------------------------------------------------
+-- Religion Founded Req
+
+/*
+-- TraitModifiers table for RH_FOUNDED_RELIGION
+INSERT OR IGNORE INTO	TraitModifiers	
+			(TraitType, ModifierId) 
+VALUES
+			('TRAIT_LEADER_MAJOR_CIV', 'RH_FOUNDED_RELIGION');
+
+-- Modifiers table for RH_FOUNDED_RELIGION
+INSERT OR IGNORE INTO	Modifiers	
+			(ModifierId, ModifierType, SubjectRequirementSetId)
+VALUES		
+			('RH_FOUNDED_RELIGION', 'MODIFIER_PLAYER_UNIT_BUILD_DISABLED', 'RH_FOUNDED_RELIGION_REQ_S');
+
+-- ModifierArguments table for RH_FOUNDED_RELIGION
+INSERT OR IGNORE INTO	ModifierArguments	
+			(ModifierId, Name, Value)
+VALUES		
+			('RH_FOUNDED_RELIGION', 'UnitType', 'UNIT_SCOUT');
+
+-- RequirementSets table for RH_FOUNDED_RELIGION
+INSERT OR IGNORE INTO RequirementSets 
+		(RequirementSetId, RequirementSetType)
+VALUES
+		('RH_FOUNDED_RELIGION_REQ_S', 'REQUIREMENTSET_TEST_ALL');
+
+-- RequirementSetRequirements table for RH_FOUNDED_RELIGION
+INSERT OR IGNORE INTO RequirementSetRequirements 
+		(RequirementSetId, RequirementId)
+VALUES
+		('RH_FOUNDED_RELIGION_REQ_S', 'RH_FOUNDED_RELIGION_REQ');
+
+-- Requirements table for RH_FOUNDED_RELIGION
+INSERT OR IGNORE INTO Requirements
+		(RequirementId, RequirementType)
+VALUES
+		('RH_FOUNDED_RELIGION_REQ', 'REQUIREMENT_PLAYER_IS_RELIGION_FOUNDER');
+
+*/

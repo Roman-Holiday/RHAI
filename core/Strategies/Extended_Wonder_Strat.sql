@@ -340,3 +340,7 @@ INSERT INTO RequirementSetRequirements (RequirementSetId, RequirementId) VALUES
 
 
 -- Chicken Itza
+
+
+
+-- Oracle

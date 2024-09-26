@@ -454,6 +454,11 @@ INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType',
 (278, 'WC_RES_MERCENARY_COMPANIES', 2, 'RH_AT_WAR_MOD'); -- 50% Decrease
 
 
+INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
+(732, 'WC_RES_WORLD_RELIGION', 1, 'RH_AT_WAR_MOD_M'); -- +10 Strength
+
+
+
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_TERRACOTTA_ARMY', 				'RH_AT_WAR_MOD'); -- Level Up Units
@@ -475,10 +480,10 @@ INSERT OR IGNORE INTO ProjectCompletionModifiers    (ProjectType,		ModifierId)  
 
 INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	
 -- Units
-		('POLICY_AGOGE', 		 	 		 'RH_AT_WAR_MOD_M'),
-		('POLICY_FEUDAL_CONTRACT', 		 	 'RH_AT_WAR_MOD_M'),
-		('POLICY_GRANDE_ARMEE', 		 	 'RH_AT_WAR_MOD_M'),
-		('POLICY_MILITARY_FIRST', 		 	 'RH_AT_WAR_MOD_M'),	
+		('POLICY_AGOGE', 		 	 		 'RH_AT_WAR_MOD_XL'),
+		('POLICY_FEUDAL_CONTRACT', 		 	 'RH_AT_WAR_MOD_MXL'),
+		('POLICY_GRANDE_ARMEE', 		 	 'RH_AT_WAR_MOD_MXL'),
+		('POLICY_MILITARY_FIRST', 		 	 'RH_AT_WAR_MOD_MXL'),	
 		
 		('POLICY_STRATEGIC_AIR_FORCE', 		 'RH_AT_WAR_MOD'),	-- +50% Production toward all air units and toward Carriers.
 
@@ -720,10 +725,10 @@ INSERT OR IGNORE INTO CivicModifiers (CivicType, ModifierId)  VALUES
 	
 INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	
 -- Units
-		('POLICY_AGOGE', 		 	 		 'RH_UNDER_ATTACK_MOD_ML'), -- pvs L
-		('POLICY_FEUDAL_CONTRACT', 		 	 'RH_UNDER_ATTACK_MOD_ML'),
-		('POLICY_GRANDE_ARMEE', 		 	 'RH_UNDER_ATTACK_MOD_ML'), -- pvs S
-		('POLICY_MILITARY_FIRST', 		 	 'RH_UNDER_ATTACK_MOD_ML'),		
+		('POLICY_AGOGE', 		 	 		 'RH_UNDER_ATTACK_MOD_XL'), -- pvs L
+		('POLICY_FEUDAL_CONTRACT', 		 	 'RH_UNDER_ATTACK_MOD_MXL'),
+		('POLICY_GRANDE_ARMEE', 		 	 'RH_UNDER_ATTACK_MOD_MXL'), -- pvs S
+		('POLICY_MILITARY_FIRST', 		 	 'RH_UNDER_ATTACK_MOD_MXL'),		
 
 -- Cav / Naval
 

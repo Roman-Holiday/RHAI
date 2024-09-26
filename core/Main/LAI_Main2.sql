@@ -638,7 +638,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MoneyGrubberPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER', 			1, -5), -- Save Money lol
 
 ('MoneyGrubberPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT', 				1, 75), -- pvs 20
-('MoneyGrubberPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 				1, 5), -- pvs 10
+('MoneyGrubberPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 				1, 20), -- pvs 10, 5
 ('MoneyGrubberPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 			1, 	-2);
 
 UPDATE AiFavoredItems SET Value = '1', Favored = '1' WHERE ListType = 'DefaultCityBuilds' AND Item = 'CITY_EVENT_IMPROVEMENT'; -- DefaultValue=0	 Favored=1
@@ -684,9 +684,9 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('RHExpansionYields', 'YIELD_RH_EXPANSION', 1, 250),
 
-('RHExpansionOperations', 'ATTACK_BARBARIANS', 1, 1), -- test
+('RHExpansionOperations', 'ATTACK_BARBARIANS', 1, 1); -- test
 
-('RHExpansionOperations', 'OP_SETTLE', 1, 2);
+--('RHExpansionOperations', 'OP_SETTLE', 1, 1);
 
 
 REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES

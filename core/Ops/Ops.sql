@@ -7,7 +7,7 @@
 
 -- OPS Base
 UPDATE AiFavoredItems SET Value = 2 WHERE ListType = 'BaseOperationsLimits' AND Item = 'OP_DEFENSE'; 
---UPDATE AiFavoredItems SET Value = 1 WHERE ListType = 'BaseOperationsLimits' AND Item = 'OP_SETTLE'; 
+UPDATE AiFavoredItems SET Value = 1 WHERE ListType = 'BaseOperationsLimits' AND Item = 'OP_SETTLE'; -- High diff settle, 2
 UPDATE AiFavoredItems SET Value = 3 WHERE ListType = 'BaseOperationsLimits' AND Item = 'CITY_ASSAULT'; -- testing 3 again (+2 with strength) (think 3 for more commitment)
 UPDATE AiFavoredItems SET Value = 1 WHERE ListType = 'PerWarOperationsLimits' AND Item = 'CITY_ASSAULT'; -- testing 2
 --UPDATE AiFavoredItems SET Value = 2 WHERE ListType = 'PerWarOperationsLimits' AND Item = 'NAVAL_SUPERIORITY'; 
@@ -176,6 +176,22 @@ INSERT OR REPLACE INTO UnitAiInfos (UnitType, AiType) VALUES
 ('UNIT_JET_BOMBER', 'UNITTYPE_SIEGE'); 
 
 -- UNITTYPE_SIEGE_ALL - core + UNIT_BATTERING_RAM, UNIT_SIEGE_TOWER, UNIT_ANTIAIR_GUN, UNIT_MOBILE_SAM, UNIT_SUPPLY_CONVOY
+
+-- Explore Additions
+
+INSERT OR REPLACE INTO UnitAiInfos (UnitType, AiType) VALUES
+('UNIT_QUADRIREME', 'UNITAI_EXPLORE'), 
+
+('UNIT_PRIVATEER', 'UNITAI_EXPLORE'), 
+
+--('UNIT_ENGLISH_SEADOG', 'UNITAI_EXPLORE'), 
+
+('UNIT_GERMAN_UBOAT', 'UNITAI_EXPLORE');
+
+
+
+
+
 
 
 -- New Unit Type AntiAir Support
@@ -395,9 +411,13 @@ UPDATE Victories SET CriticalPercentage=85 WHERE VictoryType='VICTORY_DIPLOMATIC
 
 -- Less supply convoys and drones lol
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES -- testing adding unfavored
-('UnitPriorityBoosts', 'UNIT_SUPPLY_CONVOY', 0, -70), -- pvs -75
-('UnitPriorityBoosts', 'UNIT_OBSERVATION_BALLOON', 0, -75),
-('UnitPriorityBoosts', 'UNIT_DRONE', 0, -75);
+('UnitPriorityBoosts', 'UNIT_SUPPLY_CONVOY', 0, -25), -- pvs -75, -70
+('UnitPriorityBoosts', 'UNIT_OBSERVATION_BALLOON', 0, -45), -- -75
+('UnitPriorityBoosts', 'UNIT_DRONE', 0, -60); -- -75
+
+-- Todo Per Era, much less in Info
+
+
 
 UPDATE AiFavoredItems SET Value = 150 WHERE ListType = 'DefaultScoutUse' AND Item = 'DEFAULT_LAND_SCOUTS'; 
 UPDATE AiFavoredItems SET Value = 150 WHERE ListType = 'DefaultScoutUse' AND Item = 'LAND_SCOUTS_PER_PRIMARY_REGION'; 

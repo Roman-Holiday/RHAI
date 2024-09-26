@@ -45,7 +45,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('ENC_POLICY_EARLY_ENC_FAITH',	'YieldType'    , 'YIELD_RH_ANCIENT'),
 		('ENC_POLICY_EARLY_ENC_FAITH',	'Amount'       , 6), -- pvs 10, 7
 		('ENC_POLICY_EARLY_ENC_BARBS',	'YieldType'    , 'YIELD_RH_ANCIENT'),
-		('ENC_POLICY_EARLY_ENC_BARBS',	'Amount'       , 12), -- pvs 4, 6
+		('ENC_POLICY_EARLY_ENC_BARBS',	'Amount'       , 9), -- pvs 4, 6, 12
 
 		('RH_ANCIENT_MOD_XL',		'YieldType', 		'YIELD_RH_ANCIENT'),
 		('RH_ANCIENT_MOD_XL',							'Amount'   , 500),
@@ -94,7 +94,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 
 
 INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	
-	('POLICY_SURVEY',      		  					'RH_ANCIENT_MOD_XXS'),
+	--('POLICY_SURVEY',      		  					'RH_ANCIENT_MOD_XXS'),
 
 	('POLICY_GOD_KING',      		  					'ENC_POLICY_EARLY_ENC_FAITH'),
 	('POLICY_DISCIPLINE',      		  					'ENC_POLICY_EARLY_ENC_BARBS');
@@ -733,7 +733,7 @@ INSERT INTO CivicModifiers (CivicType, ModifierId) VALUES
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(682, 'WC_RES_BORDER_CONTROL', 1, 'RH_EXPANSION_MOD'); -- CB
+(682, 'WC_RES_BORDER_CONTROL', 1, 'RH_EXPANSION_MOD_S'); -- CB, pvs 37
 
 
 INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
@@ -741,7 +741,7 @@ INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
 
 
 INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	
-		('POLICY_AGOGE', 		  		   				 'RH_EXPANSION_MOD_L'), -- pvs 20, were not equiping, pvs Normal
+		('POLICY_AGOGE', 		  		   				 'RH_EXPANSION_MOD_XL'), -- pvs 20, were not equiping, pvs Normal
 		('POLICY_STRATEGOS', 		  		   			 'RH_EXPANSION_MOD_S'), -- 2 Great General Points
 		('POLICY_MANEUVER', 		  					 'RH_EXPANSION_MOD_S'), 	
 
@@ -1284,13 +1284,13 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_CITY_CENTRE_MOD_XXS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_XXS',							'Amount'   , 1), -- Pvs 3 Total
+		('RH_CITY_CENTRE_MOD_XXS',							'Amount'   , 0.1), -- Pvs 3 Total, 0.3
 
 		('RH_CITY_CENTRE_MOD_XS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
 		('RH_CITY_CENTRE_MOD_XS',							'Amount'   , 1), -- Pvs 4 Total
 
 		('RH_CITY_CENTRE_MOD_MS',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
-		('RH_CITY_CENTRE_MOD_MS',							'Amount'   , 1), -- pvs 9, 7, 5, 4 Total, 
+		('RH_CITY_CENTRE_MOD_MS',							'Amount'   , 0.35), -- pvs 9, 7, 5, 4 Total, 1
 
 		('RH_CITY_CENTRE_MOD_S',		'YieldType', 		'YIELD_RH_CITY_CENTRE'),
 		('RH_CITY_CENTRE_MOD_S',							'Amount'   , 2), -- pvs 9, 12 Total
@@ -1311,13 +1311,15 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_MONUMENT', 		'RH_CITY_CENTRE_MOD'),
 
-('BUILDING_WATER_MILL', 	'RH_CITY_CENTRE_MOD_MS'),
+--('BUILDING_WATER_MILL', 	'RH_CITY_CENTRE_MOD_XXS'), -- Too many
 ('BUILDING_GRANARY', 		 'RH_CITY_CENTRE_MOD_MS'),
 
 ('BUILDING_STAR_FORT', 		 'RH_CITY_CENTRE_MOD_XS'),
+('BUILDING_CASTLE', 		 'RH_CITY_CENTRE_MOD_MS'),
+('BUILDING_WALLS', 			 'RH_CITY_CENTRE_MOD_XS'),
 
 ('BUILDING_SEWER', 			'RH_CITY_CENTRE_MOD_S'),
-('BUILDING_FLOOD_BARRIER', 	'RH_CITY_CENTRE_MOD_L');
+('BUILDING_FLOOD_BARRIER', 	'RH_CITY_CENTRE_MOD_XL');
 
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
@@ -1358,7 +1360,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_MAYHEM_MOD_XL',		'YieldType', 		'YIELD_RH_MAYHEM'),
-		('RH_MAYHEM_MOD_XL',							'Amount'   , 550), 
+		('RH_MAYHEM_MOD_XL',							'Amount'   , 950), -- pvs 550
 
 		('RH_MAYHEM_MOD_MXL',		'YieldType', 		'YIELD_RH_MAYHEM'),
 		('RH_MAYHEM_MOD_MXL',							'Amount'   , 220), 
@@ -1434,12 +1436,12 @@ INSERT INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEff
 
 
 INSERT INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(359, 'WC_RES_SOVEREIGNTY', 2, 		'RH_MAYHEM_MOD_S');	-- Ban City State Bonus
+(359, 'WC_RES_SOVEREIGNTY', 2, 		'RH_MAYHEM_MOD');	-- Ban City State Bonus, pvs S
 
 
 
 INSERT INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(733, 'WC_RES_WORLD_RELIGION', 1, 'RH_MAYHEM_MOD_ML');
+(733, 'WC_RES_WORLD_RELIGION', 1, 'RH_MAYHEM_MOD_MXL'); -- pvs 110
 
 
 
@@ -1456,7 +1458,7 @@ INSERT INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEff
 
 -- Embargo
 INSERT INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(429, 'WC_RES_TRADE_TREATY', 2, 'RH_MAYHEM_MOD_XL'); -- Ban International Routes
+(429, 'WC_RES_TRADE_TREATY', 2, 'RH_MAYHEM_MOD_XL'); -- Ban International Routes, pvs 550
 
 
 
@@ -2256,10 +2258,10 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_END_OF_TECH_MOD_GOV3',						'Amount'   , 200),
 		('RH_END_OF_TECH_MOD_GOV4',						'Amount'   , 300);
 
-
+/*
 INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES	
 
-	--		('GOVERNMENT_AUTOCRACY', 						'RH_END_OF_TECH_MOD_GOV1'),
+			('GOVERNMENT_AUTOCRACY', 						'RH_END_OF_TECH_MOD_GOV1'),
 			('GOVERNMENT_OLIGARCHY', 						'RH_END_OF_TECH_MOD_GOV1'),
 			('GOVERNMENT_CLASSICAL_REPUBLIC', 				'RH_END_OF_TECH_MOD_GOV1'),
 
@@ -2274,7 +2276,7 @@ INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES
 			('GOVERNMENT_CORPORATE_LIBERTARIANISM', 		'RH_END_OF_TECH_MOD_GOV4'),
 			('GOVERNMENT_DIGITAL_DEMOCRACY', 				'RH_END_OF_TECH_MOD_GOV4'),
 			('GOVERNMENT_SYNTHETIC_TECHNOCRACY', 			'RH_END_OF_TECH_MOD_GOV4');
-
+*/
 
 
 INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
@@ -2286,8 +2288,8 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 		
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 
-		('RH_END_OF_TECH_MOD_GOV_DT_1',						'Amount'   , 2),
-		('RH_END_OF_TECH_MOD_GOV_DT_2',						'Amount'   , 80),
+		('RH_END_OF_TECH_MOD_GOV_DT_1',						'Amount'   , 4), -- pvs 8, AI avoids Monarchy
+		('RH_END_OF_TECH_MOD_GOV_DT_2',						'Amount'   , 85),
 		('RH_END_OF_TECH_MOD_GOV_DT_3',						'Amount'   , 90),
 		('RH_END_OF_TECH_MOD_GOV_DT_4',						'Amount'   , 95);
 
@@ -2339,7 +2341,7 @@ UPDATE GlobalParameters SET Value = '-8' WHERE Name = 'THRESHOLD_SHIFT_PER_ANARC
 --UPDATE MODIFIERS WHERE ModifierId ='AUTOCRACY_CAPITAL' and ModifierType ='MODIFIER_PLAYER_CITIES_ADJUST_CITY_ALL_YIELDS_CHANGE' SET SubjectRequirementSetId = 'RH_BUILDING_IS_PALACE';
 
 
-
+/*
 SELECT ModifierId, ModifierType, SubjectRequirementSetId
 FROM MODIFIERS
 WHERE ModifierId IN (
@@ -2371,7 +2373,7 @@ INSERT INTO Requirements     (RequirementId, 			RequirementType,					Inverse) VA
 
 
 INSERT OR IGNORE INTO RequirementArguments  (RequirementId,	Name, Value) VALUES
-('RH_NOT_FUTURE_TECH',							'TechnologyType', 			'TECH_POTTERY'); 
+('RH_NOT_FUTURE_TECH',							'TechnologyType', 			'TECH_FUTURE_TECH'); 
 
 
 
@@ -2408,7 +2410,7 @@ INSERT OR IGNORE INTO RequirementSetRequirements (RequirementSetId, RequirementI
     ('RH_BUILDING_IS_CHANCERY', 'REQUIRES_CITY_HAS_CHANCERY'),
     ('RH_BUILDING_IS_CHANCERY', 'RH_NOT_FUTURE_TECH');
 
-
+*/
 
 
 /*

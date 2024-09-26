@@ -24,7 +24,7 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 --UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion =  -1, MaxTargetDistInArea =  11, MaxTargetDistInWorld = 16, MinOddsOfSuccess = 0.3, MustHaveUnits = 6 WHERE OperationName = 'Wartime Attack Walled City'; -- 40%, 6
 
 UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '11', MaxTargetDistInWorld = '12', MinOddsOfSuccess = '0.4', MustHaveUnits = '5' WHERE OperationName = 'Attack Enemy City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT';
-UPDATE AiOperationDefs SET Priority = '4', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '11', MaxTargetDistInWorld = '12', MinOddsOfSuccess = '0.2', MustHaveUnits = '4' WHERE OperationName = 'Wartime Attack Enemy City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; 
+UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '11', MaxTargetDistInWorld = '12', MinOddsOfSuccess = '0.2', MustHaveUnits = '4' WHERE OperationName = 'Wartime Attack Enemy City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; 
 UPDATE AiOperationDefs SET Priority = '4', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '14', MaxTargetDistInWorld = '16', MinOddsOfSuccess = '0.4', MustHaveUnits = '6' WHERE OperationName = 'Attack Walled City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; -- pvs 0.5 -- def must have units is 10 -- testing 8 from 7 for possibly larger attacks
 UPDATE AiOperationDefs SET Priority = '3', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '14', MaxTargetDistInWorld = '16', MinOddsOfSuccess = '0.2', MustHaveUnits = '5' WHERE OperationName = 'Wartime Attack Walled City' AND TargetType = 'TARGET_ENEMY_COMBAT_DISTRICT'; -- min units pvs 6, 5 -- Testing increasing back to 6 to see effect on attacks
 
@@ -102,13 +102,6 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, StringVal) VALUES
 
 -- 4 area pvs 15, world 18, now 17
 -- 4 testing 0.31 instead of 0.3
-
-UPDATE OpTeamRequirements SET MinNumber = '1', MaxNumber = '1' WHERE TeamName = 'Settle City Team' AND AiType = 'UNITAI_SETTLE'; -- MinNumber=1	MaxNumber=1
-UPDATE OpTeamRequirements SET MinNumber = '1', MaxNumber = '3' WHERE TeamName = 'Settle City Team' AND AiType = 'UNITAI_COMBAT'; -- MinNumber=1	MaxNumber=, max pvs 3, 2
-
-INSERT INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
-('Settle City Team', 'UNITTYPE_SIEGE_ALL', 					 0, 0), 
-('Settle City Team', 'UNITTYPE_SIEGE', 					 0, 0);
 
 
 UPDATE AiOperationDefs SET Priority = '4', MaxTargetDistInRegion = '-1', MaxTargetDistInArea = '45' WHERE OperationName = 'Aid Ally' AND TargetType = 'TARGET_ALLY_SUPPORT'; -- Priority = 3	MaxTargetDistInRegion = -1	MaxTargetDistInArea = 45	MinOddsOfSuccess = 0	MustHaveUnits = -1

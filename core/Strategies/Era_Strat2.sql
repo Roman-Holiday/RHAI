@@ -92,6 +92,8 @@ WHERE PseudoYieldType LIKE 'PSEUDOYIELD_GREATWORK_%';
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+('Industrial_Science_PseudoYields', 'PSEUDOYIELD_WONDER',   1, 75), -- New, Press Advantage
+
 ('Industrial_Science_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 60),
 ('Industrial_Science_PseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',   1, 40);
 

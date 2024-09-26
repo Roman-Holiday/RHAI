@@ -122,7 +122,7 @@ UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 7 WHERE TeamName = 'Cit
 
 -- Settle City Team
 
-UPDATE AiOperationTeams SET InitialStrengthAdvantage = -1, OngoingStrengthAdvantage = 0.1 WHERE TeamName = 'Settle City Team' AND OperationName = 'Settle New City';
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = -5, OngoingStrengthAdvantage = -5 WHERE TeamName = 'Settle City Team' AND OperationName = 'Settle New City'; -- pvs -1, 0.1
 
 
 

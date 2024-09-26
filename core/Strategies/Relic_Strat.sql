@@ -383,7 +383,7 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 --('YIELD_RH_CAMPUS', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.15),	
 
 
-('YIELD_RH_CITY_CENTRE', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.4),	-- pvs 0.8, 0.65	
+('YIELD_RH_CITY_CENTRE', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  	  0.3),	-- pvs 0.8, 0.65, 0.4	
 
 -- Military
 
@@ -409,9 +409,9 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 ('YIELD_RV_BASE', 				'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				0.3);	
 
 
-UPDATE Yields SET DefaultValue = 2 WHERE YieldType = 'YIELD_PRODUCTION'; -- pvs 1.65
-UPDATE Yields SET DefaultValue = 2.4 WHERE YieldType = 'YIELD_SCIENCE'; 
-UPDATE Yields SET DefaultValue = 2.4 WHERE YieldType = 'YIELD_CULTURE'; -- pvs 1.35, 1.7
+UPDATE Yields SET DefaultValue = 2.2 WHERE YieldType = 'YIELD_PRODUCTION'; -- pvs 1.65
+UPDATE Yields SET DefaultValue = 2.2 WHERE YieldType = 'YIELD_SCIENCE'; 
+UPDATE Yields SET DefaultValue = 2.2 WHERE YieldType = 'YIELD_CULTURE'; -- pvs 1.35, 1.7
 UPDATE Yields SET DefaultValue = 0.7 WHERE YieldType = 'YIELD_GOLD'; -- pvs 0.75
 UPDATE Yields SET DefaultValue = 2.0 WHERE YieldType = 'YIELD_FAITH'; -- pvs 1.25, 1.6
 UPDATE Yields SET DefaultValue = 1.7 WHERE YieldType = 'YIELD_FOOD'; 
@@ -429,7 +429,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('DefaultYieldBias', 'YIELD_RH_SYNTHETIC_TECHNOCRACY', 	1, 25),
 
 
-('DefaultYieldBias', 'YIELD_RH_CLASSICAL_REPUBLIC', 	1, 30),
+('DefaultYieldBias', 'YIELD_RH_CLASSICAL_REPUBLIC', 	1, 75),
 ('DefaultYieldBias', 'YIELD_RH_MONARCHY', 				1, 350), -- Pvs -50, 20
 ('DefaultYieldBias', 'YIELD_RH_OLIGARCHY', 				1, -25); -- Pvs -50
 
@@ -442,66 +442,59 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('DefaultYieldBias', 'YIELD_RV_BASE', 							0, -950);
 
 
-INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
-('DefaultYieldBias', 'YIELD_RH_CHARIOT', 					 -900),
-('DefaultYieldBias', 'YIELD_RH_UNDER_ATTACK', 				 -350), -- pvs -250, -450, 410
-('DefaultYieldBias', 'YIELD_RH_AT_WAR', 					 -650),
-('DefaultYieldBias', 'YIELD_RH_NUCLEAR', 					 	50), -- pvs -50, -70
-('DefaultYieldBias', 'YIELD_RH_CAV', 						 -750),
-('DefaultYieldBias', 'YIELD_RH_MILITARY_ADV', 				 -750),
-('DefaultYieldBias', 'YIELD_RH_MILITARY_PRODUCTION', 		 -750),
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value, Favored) VALUES
+('DefaultYieldBias', 'YIELD_RH_CHARIOT', 					-900, 0),
+('DefaultYieldBias', 'YIELD_RH_UNDER_ATTACK', 				-350, 0), -- pvs -250, -450, 410
+('DefaultYieldBias', 'YIELD_RH_AT_WAR', 					-650, 0),
+('DefaultYieldBias', 'YIELD_RH_NUCLEAR', 					 50, 0), -- pvs -50, -70
+('DefaultYieldBias', 'YIELD_RH_CAV', 						-750, 0),
+('DefaultYieldBias', 'YIELD_RH_MILITARY_ADV', 				-750, 0),
+('DefaultYieldBias', 'YIELD_RH_MILITARY_PRODUCTION', 		-750, 0),
 
 -- Utility
-('DefaultYieldBias', 'YIELD_RH_SPY', 						 -300),
-('DefaultYieldBias', 'YIELD_RH_LAGS_TECH', 					 -750),
-('DefaultYieldBias', 'YIELD_RH_FOOD_EXT', 					 -300), -- pvs -95
+('DefaultYieldBias', 'YIELD_RH_SPY', 						-300, 0),
+('DefaultYieldBias', 'YIELD_RH_LAGS_TECH', 					-750, 0),
+('DefaultYieldBias', 'YIELD_RH_FOOD_EXT', 					-300, 0), -- pvs -95
 
-('DefaultYieldBias', 'YIELD_RH_TRADE', 						 -275),
-('DefaultYieldBias', 'YIELD_RH_MAYHEM', 					 -750),
+('DefaultYieldBias', 'YIELD_RH_TRADE', 						-275, 0),
+('DefaultYieldBias', 'YIELD_RH_MAYHEM', 					-750, 0),
 
-('DefaultYieldBias', 'YIELD_RH_NAVAL', 						 -250),
+('DefaultYieldBias', 'YIELD_RH_NAVAL', 						-250, 0),
 
 -- Religion
+('DefaultYieldBias', 'YIELD_RH_R_GODDESS', 					-99, 0), -- pvs 10
+('DefaultYieldBias', 'YIELD_RH_SCRIPTURE', 					-99, 0),
 
-('DefaultYieldBias', 'YIELD_RH_R_GODDESS', 					 -99), -- pvs 10
-('DefaultYieldBias', 'YIELD_RH_SCRIPTURE', 					 -99),
+('DefaultYieldBias', 'YIELD_RH_CULTURE_VICTORY_BASE', 		-98, 0),
+('DefaultYieldBias', 'YIELD_RH_STATUE_LIBERTY', 			-85, 0),
 
-('DefaultYieldBias', 'YIELD_RH_CULTURE_VICTORY_BASE', 		 -98),
-('DefaultYieldBias', 'YIELD_RH_STATUE_LIBERTY', 			 -85),
+('DefaultYieldBias', 'YIELD_RH_WONDER', 					-200, 0),
+('DefaultYieldBias', 'YIELD_RH_HAPPINESS_BUILDING', 		-750, 0), -- pvs -95, -250, -400
+('DefaultYieldBias', 'YIELD_RH_HAPPINESS_COMP', 			-750, 0), -- pvs -400
+('DefaultYieldBias', 'YIELD_RH_GW_SLOT', 					-750, 0),
 
-('DefaultYieldBias', 'YIELD_RH_WONDER', 					 -200),
-('DefaultYieldBias', 'YIELD_RH_HAPPINESS_BUILDING', 		 -750), -- pvs -95, -250, -400
-('DefaultYieldBias', 'YIELD_RH_HAPPINESS_COMP', 			 -750), -- pvs -400
-('DefaultYieldBias', 'YIELD_RH_GW_SLOT', 					 -750),
+('DefaultYieldBias', 'YIELD_RH_PRODUCTION', 				-95, 0);
 
-('DefaultYieldBias', 'YIELD_RH_PRODUCTION', 				 -90);
 
-INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value, Favored) VALUES
 
-('DefaultYieldBias', 'YIELD_RH_ANCIENT', 					 -650),
-('DefaultYieldBias', 'YIELD_RH_PLACEMENT', 					 25), -- pvs 25
-('DefaultYieldBias', 'YIELD_RH_FAITH', 						 5), -- pvs 5
-('DefaultYieldBias', 'YIELD_RH_END_OF_TECH', 				 30), -- pvs 75
+('DefaultYieldBias', 'YIELD_RH_ANCIENT', 					-650, 0),
+('DefaultYieldBias', 'YIELD_RH_PLACEMENT', 				 	25, 0), -- pvs 25
+('DefaultYieldBias', 'YIELD_RH_FAITH', 					 	5, 0), -- pvs 5
+('DefaultYieldBias', 'YIELD_RH_END_OF_TECH', 			 	30, 0), -- pvs 75
 
 -- Civic
-
-('DefaultYieldBias', 'YIELD_RH_NUCLEAR_PROGRAM', 			 50),
+('DefaultYieldBias', 'YIELD_RH_NUCLEAR_PROGRAM', 			25, 0),
 
 -- District
+('DefaultYieldBias', 'YIELD_RH_SCIENCE_VICTORY_BASE', 	   -750, 0),
+('DefaultYieldBias', 'YIELD_RH_JUST_WAR', 				  -950, 0), -- pvs -150, -120, -250, -160
+('DefaultYieldBias', 'YIELD_RH_RELIC', 					  -750, 0),
 
-
-('DefaultYieldBias', 'YIELD_RH_SCIENCE_VICTORY_BASE', 						 -750),
-
-('DefaultYieldBias', 'YIELD_RH_JUST_WAR', 				 -950), -- pvs -150, -120, -250, -160
-('DefaultYieldBias', 'YIELD_RH_RELIC', 					 -750),
-
-('DefaultYieldBias', 'YIELD_RH_SPREAD_RELIGION', 		 -750), -- pvs -95, -150
-('DefaultYieldBias', 'YIELD_RH_DIPLO', 					 -750),
-('DefaultYieldBias', 'YIELD_RH_LOYALTY', 				 -750), -- pvs -190
-('DefaultYieldBias', 'YIELD_RH_EXPANSION', 				 -250), 
-
-('DefaultYieldBias', 'YIELD_RH_MAGNUS', 				 -220),
-
+('DefaultYieldBias', 'YIELD_RH_SPREAD_RELIGION', 		  -750, 0), -- pvs -95, -150
+('DefaultYieldBias', 'YIELD_RH_DIPLO', 					  -750, 0),
+('DefaultYieldBias', 'YIELD_RH_LOYALTY', 				  -750, 0), -- pvs -190
+('DefaultYieldBias', 'YIELD_RH_EXPANSION', 				  -250, 0), 
 
 
 
@@ -559,14 +552,48 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
 -- Buildings / Infrastrucutre
 
 --('DefaultYieldBias', 'YIELD_RH_CAMPUS', 						1, 5),
-('DefaultYieldBias', 'YIELD_RH_MAUS_H', 					 -5),
+('DefaultYieldBias', 'YIELD_RH_MAGNUS', 					  -220, 0),
+('DefaultYieldBias', 'YIELD_RH_MAUS_H', 					  -5, 0),
 
-('DefaultYieldBias', 'YIELD_RH_CITY_CENTRE', 				 -150);
-
-
-
+('DefaultYieldBias', 'YIELD_RH_CITY_CENTRE', 			  -300, 0);
 
 -- Pillage Yield
 
 
 -- Great Work Slots Russia - Cathedral
+
+
+/*
+	<AiBuildSpecializations>
+		<Row SpecializationType="BUILD_FOR_FOOD" BuildingYield="YIELD_FOOD" IncludePopulation="true" PrioritizationYield="YIELD_FOOD"/>
+		<Row SpecializationType="BUILD_FOR_PRODUCTION" BuildingYield="YIELD_PRODUCTION" PrioritizationYield="YIELD_PRODUCTION"/>
+		<Row SpecializationType="BUILD_FOR_GOLD" BuildingYield="YIELD_GOLD" PrioritizationYield="YIELD_GOLD"/>
+		<Row SpecializationType="BUILD_FOR_SCIENCE" BuildingYield="YIELD_SCIENCE" PrioritizationYield="YIELD_SCIENCE"/>
+		<Row SpecializationType="BUILD_FOR_CULTURE" BuildingYield="YIELD_CULTURE" PrioritizationYield="YIELD_CULTURE"/>
+		<Row SpecializationType="BUILD_FOR_FAITH" BuildingYield="YIELD_FAITH" PrioritizationYield="YIELD_FAITH"/>
+		<Row SpecializationType="BUILD_CITY_DEFENSES" IncludeDefense="true" PrioritizationYield="YIELD_PRODUCTION"/>
+		<Row SpecializationType="BUILD_MILITARY_UNITS" IncludeMilitaryUnits="true" PrioritizationYield="YIELD_PRODUCTION"/>
+		<Row SpecializationType="BUILD_TRADE_UNITS" IncludeTradeUnits="true" PrioritizationYield="YIELD_GOLD"/>
+	</AiBuildSpecializations>
+*/
+
+
+-- Test
+
+UPDATE AiBuildSpecializations 
+SET PrioritizationYield = 'YIELD_RH_MILITARY_PRODUCTION' 
+WHERE SpecializationType = 'BUILD_MILITARY_UNITS';
+
+UPDATE AiBuildSpecializations 
+SET PrioritizationYield = 'YIELD_RH_UNDER_ATTACK' 
+WHERE SpecializationType = 'BUILD_CITY_DEFENSES';
+
+UPDATE AiBuildSpecializations 
+SET PrioritizationYield = 'YIELD_RV_BASE' 
+WHERE SpecializationType = 'BUILD_FOR_FAITH';
+
+
+
+
+
+--UPDATE AiBuildSpecializations WHERE SpecializationType = 'BUILD_FOR_SCIENCE' SET PrioritizationYield = 'YIELD_SV_BASE';

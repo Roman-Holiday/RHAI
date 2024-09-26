@@ -114,7 +114,13 @@
 		<Row StrategyType="STRATEGY_DEITY" ConditionFunction="Is Not Major" Disqualifier="true"/>
 		
 		<Row StrategyType="STRATEGY_UNDER_ATTACK" ConditionFunction="Cities Under Threat" ThresholdValue="1" Forbidden="true" />
+		
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ConditionFunction="Has Tech Lead" ThresholdValue="10" Forbidden="true" />
+			
 		<Row StrategyType="STRATEGY_AT_WAR" ConditionFunction="Major Civ Wars" ThresholdValue="1" Forbidden="true" />
+
+		<Row StrategyType="STRATEGY_AT_WAR" ConditionFunction="Leads Military" ThresholdValue="20" Forbidden="true" />
+		<Row StrategyType="STRATEGY_AT_WAR" ConditionFunction="Leads Score" ThresholdValue="20" Forbidden="true" />
 
 
 		<!--Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" ConditionFunction="Cities Under Threat" ThresholdValue="2" />
@@ -559,7 +565,7 @@
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_CATAPULT"				 Value="-99"/>  <!-- pvs -40 -->
 	
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_HEAVY_CAVALRY"		 Value="30"/>
-	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"				 Value="85"/> <!-- pvs 10, 45, 95 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"				 Value="75"/> <!-- pvs 10, 45, 95, 85 -->
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_SIEGE"				 Value="-100"/> <!-- pvs -45, -95 --> <!-- May include bombers due to class changes, but unlikely -->
 	
 	<!--Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="5"/--> 
@@ -957,7 +963,7 @@
 		<Row BuildingType="BUILDING_GOV_WIDE" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
 		<Row BuildingType="BUILDING_GOV_CONQUEST" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
 		
-		<Row BuildingType="BUILDING_GOV_FAITH" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
+		<!--Row BuildingType="BUILDING_GOV_FAITH" ModifierId="RH_GRANT_ONE_INFLUENCE"/-->
 		<Row BuildingType="BUILDING_GOV_CITYSTATES" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
 		<Row BuildingType="BUILDING_GOV_SPIES" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
 		
@@ -972,6 +978,9 @@
 		<Row BuildingType="BUILDING_ORACLE" ModifierId="RH_GPP_ART_POINTS"/>
 		
 		<Row BuildingType="BUILDING_COLOSSEUM" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
+		<Row BuildingType="BUILDING_COLOSSEUM" ModifierId="RH_GPP_SCI_POINTS"/>		
+		<Row BuildingType="BUILDING_COLOSSEUM" ModifierId="RH_GPP_ART_POINTS"/>		
+		
 		<Row BuildingType="BUILDING_QUEENS_BIBLIOTHEQUE" ModifierId="RH_GRANT_TWO_INFLUENCE"/> <!-- needs 2 if others used-->
 		<!--Row BuildingType="BUILDING_MAHABODHI_TEMPLE" ModifierId="RH_GRANT_ONE_INFLUENCE"/> <!-- Dp victory -->
 		<!--Row BuildingType="BUILDING_VENETIAN_ARSENAL" ModifierId="RH_GRANT_ONE_INFLUENCE"/--> <!-- pvs 2 -->
@@ -1137,13 +1146,13 @@
 		<Row>
 			<ModifierId>RH_GPP_ART_POINTS</ModifierId>
 			<Name>Amount</Name>
-			<Value>4</Value> <!-- pvs 14, AI goes for it anyway -->
+			<Value>6</Value> <!-- pvs 14, 4 AI goes for it anyway -->
 		</Row>
 	
 		<Row>
 			<ModifierId>RH_GRANT_TWO_INFLUENCE</ModifierId>
 			<Name>Amount</Name>
-			<Value>9</Value>
+			<Value>15</Value> <!-- pvs 9 -->
 		</Row>
 		
 		<Row>

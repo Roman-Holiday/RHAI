@@ -945,8 +945,8 @@ INSERT OR IGNORE INTO ModifierArguments      (ModifierId, 		Name, 					Value)  V
 		('AI_BEL_DIS',						'YieldType', 'YIELD_FAITH'),
 		('AI_BEL_DIS',						'Amount'   , -900),
 	
-		('AI_WORK_ETHIC_FAITH_MODIFIER',	'YieldType', 'YIELD_RH_R_GODDESS'),
-		('AI_WORK_ETHIC_FAITH_MODIFIER',	'Amount'   , 500); -- pvs 8, 35, 100
+		('AI_WORK_ETHIC_FAITH_MODIFIER',	'YieldType', 'YIELD_PRODUCTION'),
+		('AI_WORK_ETHIC_FAITH_MODIFIER',	'Amount'   , 750); -- pvs 8, 35, 100, 500 rvg yield
 
 
 --INSERT OR IGNORE INTO ModifierArguments      (ModifierId, 		Name, 					Value)  VALUES 
@@ -976,13 +976,13 @@ INSERT OR IGNORE INTO Modifiers   (ModifierId, ModifierType, SubjectRequirementS
 		('ENC_POLICY_EARLY_RH',	'MODIFIER_PLAYER_CITIES_ADJUST_CITY_YIELD_CHANGE',	'RH_AI_ANCIENT_ONLY_REQ_S');
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
-		('ENC_POLICY_EARLY_RH',	'YieldType'    , 'YIELD_GOLD'),
-		('ENC_POLICY_EARLY_RH',	'Amount'       , 2);
+		('ENC_POLICY_EARLY_RH',	'YieldType'    , 'YIELD_PRODUCTION'),
+		('ENC_POLICY_EARLY_RH',	'Amount'       , 750);
 
 
 INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	
 		('POLICY_COLONIZATION',      		  				'ENC_POLICY_EARLY_RH'), -- 50% production towards settlers
-		('POLICY_LIMES',      		  						'ENC_POLICY_EARLY_RH'), -- 100% production towards walls
+	--	('POLICY_LIMES',      		  						'ENC_POLICY_EARLY_RH'), -- 100% production towards walls
 		('POLICY_AGOGE',      		  					    'ENC_POLICY_EARLY_RH'), --50% production towards ranged and melee
 		('POLICY_FEUDAL_CONTRACT',      		  		 	'ENC_POLICY_EARLY_RH'), --50% production towards ranged and melee (medieval / renaissance)
 		('POLICY_GOV_CLASSICAL_REPUBLIC',      		  		 'ENC_POLICY_EARLY_RH'), -- Extra Boost
