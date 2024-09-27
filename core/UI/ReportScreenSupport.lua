@@ -1,4 +1,3 @@
-include('ReportScreen')
 rhai_tags = GameInfo.RHAITags
 function GetWorkedTileYieldData( pCity, pCulture )
 
@@ -14,7 +13,6 @@ function GetWorkedTileYieldData( pCity, pCulture )
 	};
 	local cityPlots  = Map.GetCityPlots():GetPurchasedPlots(pCity);
 	local pCitizens	 = pCity:GetCitizens();
-	print('Getting plot worked yields')
 	for _, plotID in ipairs(cityPlots) do
 		local plot	 = Map.GetPlotByIndex(plotID);
 		local x		 = plot:GetX();
