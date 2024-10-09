@@ -630,8 +630,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 235), -- pvs 11, 15, 27, 50, 100, 130, 150, 250, 215 -- disabled at archery
 ('AncientPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 40), -- pvs 8, 9, 19, 30, 35
 
-('AncientPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 30), -- pvs 32, 31, 30, 29
-('AncientPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 16), -- pvs 25, 21, 17
+('AncientPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 26), -- pvs 32, 31, 30, 29, 30
+('AncientPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 8), -- pvs 25, 21, 17, 16
 
 ('AncientPseudoYields', 'PSEUDOYIELD_RESOURCE_LUXURY', 1, -85),
 ('AncientPseudoYields', 'PSEUDOYIELD_HAPPINESS', 0, -75),
@@ -734,8 +734,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 40),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 40), -- pvs 12
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 30), -- For expansion -- pvs 14
-('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 20), -- pvs 22, 19, 21
-('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 11), -- pvs 19, 17, 15, 13
+('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 18), -- pvs 22, 19, 21, 20
+('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 7), -- pvs 19, 17, 15, 13, 11
 ('ClassicalPseudoYields', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS',   1, 300), -- pvs 40, 110
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, -2), -- pvs 3
 ('ClassicalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, -20), -- pvs 0
@@ -837,7 +837,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalYields', 'YIELD_RH_HAPPINESS_BUILDING',   0, -95),
 
 ('MedievalYields', 'YIELD_RH_SCIENCE_VICTORY_BASE', 	   1, 800), -- temp, 200, 350
-('MedievalYields', 'YIELD_RH_MONARCHY',  		  1, 50),
+('MedievalYields', 'YIELD_RH_MONARCHY',  		  1, 950), -- pvs 50
 ('MedievalYields', 'YIELD_RH_MERCHANT_REPUBLIC',  1, 50),
 
 ('MedievalYields', 'YIELD_RH_CITY_CENTRE',  1, 50), -- pvs 550, 100
@@ -854,8 +854,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, 90),
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 		 1, 25),
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, 25),
-('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 9), -- pvs 13, 17, 15
-('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 8), -- pvs 13, 12, 10
+('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 8), -- pvs 13, 17, 15, 9
+('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 5), -- pvs 13, 12, 10, 8
 ('MedievalPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT', 1, 5),
 ('MedievalPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, 80), -- pvs 10, 35, 40 (AI wasn't build enough ships) -- not any ships in this era
 ('MedievalPseudoYields', 'PSEUDOYIELD_WONDER',   		1, 100), -- pvs 65
@@ -989,8 +989,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('RenaissanceYields', 'YIELD_RH_OLIGARCHY',  		0, -500), -- pvs -950 (picking autocracy temp until tier 2)
 ('RenaissanceYields', 'YIELD_RH_CLASSICAL_REPUBLIC',  0, -500),
 
-('RenaissanceYields', 'YIELD_RH_MONARCHY',  		  1, 120), -- pvs 50
-('RenaissanceYields', 'YIELD_RH_MERCHANT_REPUBLIC',   1, 120), -- pvs 50
+('RenaissanceYields', 'YIELD_RH_MONARCHY',  		  1, 850), -- pvs 50, 120
+('RenaissanceYields', 'YIELD_RH_MERCHANT_REPUBLIC',   1, 850), -- pvs 50, 120
 
 ('RenaissanceYields', 'YIELD_RH_CITY_CENTRE',  1, 450), -- pvs 950
 ('RenaissanceYields', 'YIELD_RH_FOOD_EXT',  	1, 350), -- pvs 600
@@ -1004,7 +1004,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('RenaissancePseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, 500),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 5), -- pvs 21, 14, 10
-('RenaissancePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 5), -- 14, 10, 9
+('RenaissancePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 3), -- 14, 10, 9, 5
 ('RenaissancePseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 		1, 15),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, -7),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 5),

@@ -1143,11 +1143,13 @@ INSERT OR IGNORE INTO Strategy_Priorities (StrategyType, ListType) VALUES
 
 
 
-
 REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
 ('RH_UNDER_HEAVY_ATTACK_Settlement', 'Nearest Friendly City', 	0, -8, NULL, 					'LOC_SETTLEMENT_RECOMMENDATION_NEAREST_CITY'),
 ('RH_UNDER_HEAVY_ATTACK_Settlement', 'Resource Class', 			0, 5, 'RESOURCECLASS_STRATEGIC', 'LOC_SETTLEMENT_RECOMMENDATION_STRATEGIC_RESOURCES');
 
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+('RH_UNDER_HEAVY_ATTACK_Operations', 'OP_RH_DEFENSE_HP', 						1, 1); -- 3 in Total
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
@@ -1250,6 +1252,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_GPP_GENERAL', 								1, 150), 
 ('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST', 							1, 25), 
+
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS', 					0, -75), 
 
 ('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 					0, -50), 
 ('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_UNIT_RELIGIOUS', 							0, -40);

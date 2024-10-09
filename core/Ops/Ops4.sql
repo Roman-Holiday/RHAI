@@ -92,14 +92,16 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPe
 UPDATE AiOperationTeams SET InitialStrengthAdvantage = -7 WHERE TeamName = 'City Naval Defense' AND OperationName = 'City Defense'; -- def -5
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
-('City Naval Defense', 'UNITTYPE_NAVAL',  			1, 8);
+('City Naval Defense', 'UNITTYPE_NAVAL',  			2, 8); -- pvs 1
 
-UPDATE OpTeamRequirements SET MinPercentage = 0.5 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_NAVAL'; -- For planes / siege unit, pvs 0.75
+UPDATE OpTeamRequirements SET MinPercentage = 0.6 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_NAVAL'; -- For planes / siege unit, pvs 0.75, 0.5
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
-('City Naval Defense', 'UNITAI_COMBAT',   							2, 11),
+('City Naval Defense', 'UNITAI_COMBAT',   							2, 10),
 ('City Naval Defense', 'UNITTYPE_NUCLEAR',   						0, 0), -- pvs 2, testing 0
-('City Naval Defense', 'UNITTYPE_SIEGE',  							 0, 1),
+('City Naval Defense', 'UNITTYPE_SIEGE',  							 0, 0), -- pvs max 1, attack vs siege not worth the benefit
+('City Naval Defense', 'UNITTYPE_SIEGE_SUPPORT',  					 0, 0),
+
 ('City Naval Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 					  0, 0),
 ('City Naval Defense', 'UNITTYPE_AIR',     							0, 2),
 ('City Naval Defense', 'UNITTYPE_AIR_SIEGE',    					0, 0);
@@ -109,7 +111,7 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPe
 ('City Naval Defense', 'UNITTYPE_CIVILIAN_LEADER',	 0, 0.25);
 
 
-UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 7 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_MELEE'; 
+UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 4 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_MELEE'; 
 
 
 /*
