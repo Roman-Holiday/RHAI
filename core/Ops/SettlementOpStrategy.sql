@@ -95,6 +95,7 @@ REQUIREMENT_PLOT_DISTRICT_IS_DEFENDED
 
 -- Yield Insertion Test
 
+
 INSERT INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange)
 VALUES 
     ('RESOURCE_ALUMINUM', 'YIELD_RH_END_OF_TECH', 	35),
