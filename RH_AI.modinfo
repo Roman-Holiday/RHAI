@@ -801,7 +801,7 @@
 
 			<File>core/UI/ToolTipHelper.lua</File>
 			<File>core/UI/CivilopediaPage_District.lua</File>
-			<File>core/UI/TechTree_support.lua</File>
+			<File>core/UI/ReportScreenSupport.lua</File>
 	  	</ImportFiles>
 
 		<ReplaceUIScript id="ResearchChooserHide">
@@ -859,7 +859,23 @@
 			<Properties>
 				<LoadOrder>10950</LoadOrder>
 				<LuaContext>ReportScreen</LuaContext>
-				<LuaReplace>core/UI/ReportScreenWrapper.lua</LuaReplace>
+				<LuaReplace>core/UI/ReportScreen_overrides.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+
+		<ReplaceUIScript id="ReplaceUI_ReportScreen" criteria="Expansion1">
+			<Properties>
+				<LoadOrder>10950</LoadOrder>
+				<LuaContext>ReportScreen</LuaContext>
+				<LuaReplace>core/UI/ReportScreen_overrides_XP1.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+
+		<ReplaceUIScript id="ReplaceUI_ReportScreen" criteria="Expansion2">
+			<Properties>
+				<LoadOrder>10950</LoadOrder>
+				<LuaContext>ReportScreen</LuaContext>
+				<LuaReplace>core/UI/ReportScreen_overrides_XP2.lua</LuaReplace>
 			</Properties>
 		</ReplaceUIScript>
 
@@ -1040,7 +1056,10 @@
 		<File>core/UI/ToolTip_Adjust.lua</File>
 
 		<!-- ReportScreen -->
-		<File>core/UI/ReportScreenWrapper.lua</File>
+		<File>core/UI/ReportScreenSupport.lua</File>
+		<File>core/UI/ReportScreen_overrides.lua</File>
+		<File>core/UI/ReportScreen_overrides_XP1.lua</File>
+		<File>core/UI/ReportScreen_overrides_XP2.lua</File>
 
 		<!-- Community Extension Support -->
 		<File>core/Strategies/Community_Extension/Scripts/CongressAI.lua</File>
