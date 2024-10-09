@@ -86,6 +86,7 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPe
 
 -- CITY NAVAL DEFENCE
 
+-- TODO: Needs second op once quads are available
 
 -- City Naval Defense
 
@@ -102,16 +103,23 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 ('City Naval Defense', 'UNITTYPE_SIEGE',  							 0, 0), -- pvs max 1, attack vs siege not worth the benefit
 ('City Naval Defense', 'UNITTYPE_SIEGE_SUPPORT',  					 0, 0),
 
-('City Naval Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 					  0, 0),
+('City Naval Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 					 0, 0),
 ('City Naval Defense', 'UNITTYPE_AIR',     							0, 2),
 ('City Naval Defense', 'UNITTYPE_AIR_SIEGE',    					0, 0);
+
+-- Naval Ranged
+INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber, MinPercentage, MaxPercentage) VALUES
+('City Naval Defense', 'UNITTYPE_NAVAL_MELEE',					0, 			3,			0,				 0.34),
+('City Naval Defense', 'UNITTYPE_NAVAL_RANGED',				    1, 			8,			0.5, 			  1); 
+
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPercentage) VALUES
 ('City Naval Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 	0, 0),
 ('City Naval Defense', 'UNITTYPE_CIVILIAN_LEADER',	 0, 0.25);
 
-
-UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 4 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_MELEE'; 
+-- Max Melee
+UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 3 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_MELEE'; 
+UPDATE OpTeamRequirements SET MaxPercentage = 0.5 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_MELEE'; 
 
 
 /*

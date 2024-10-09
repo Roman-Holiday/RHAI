@@ -23,12 +23,18 @@ UPDATE AiFavoredItems SET Value = 120 WHERE ListType = 'GreatPersonObsessedGreat
 
 -- Era
 
+UPDATE AiFavoredItems SET Value = 5 WHERE ListType = 'AncientPseudoYields' AND Item = 'PSEUDOYIELD_DISTRICT'; -- std -35
+
 UPDATE AiFavoredItems SET Value = 550 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MERCHANT'; -- std 30, pvs 300, 400
 UPDATE AiFavoredItems SET Value = 350 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_GENERAL'; -- std 250
+UPDATE AiFavoredItems SET Value = 300 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- std 15
+
+UPDATE AiFavoredItems SET Value = 5 WHERE ListType   = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_DISTRICT'; -- std -5
 
 UPDATE AiFavoredItems SET Value = 300 WHERE ListType = 'MedievalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- std 50
 UPDATE AiFavoredItems SET Value = 550 WHERE ListType = 'MedievalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MERCHANT'; -- std 20, Player can get them easily, 250
 UPDATE AiFavoredItems SET Value = 250 WHERE ListType = 'MedievalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_GENERAL'; -- std 75
+UPDATE AiFavoredItems SET Value = 100 WHERE ListType = 'MedievalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- std 50
 
 UPDATE AiFavoredItems SET Value = 450 WHERE ListType = 'RenaissancePseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- std 50, Player can get them easily, 350
 UPDATE AiFavoredItems SET Value = 350 WHERE ListType = 'RenaissancePseudoYields' AND Item = 'PSEUDOYIELD_GPP_MERCHANT'; -- std 20, Player can get them easily

@@ -730,6 +730,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalPseudoYields', 'PSEUDOYIELD_TOURISM',   		0, -15),
 
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT',   1, 30),
+('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_WRITER',   1, 15),
 
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 40),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 40), -- pvs 12
