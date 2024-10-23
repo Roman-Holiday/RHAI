@@ -67,14 +67,6 @@ UPDATE AiFavoredItems SET Value = 5 WHERE ListType = 'StandardSettlePlot' AND To
 --UPDATE AiFavoredItems SET Value = 2 WHERE ListType = 'StandardSettlePlot' AND Favored = 'false' AND Item = 'Cultural Pressure'; -- def 1
 
 
---UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_VALUE_MULTIPLIER'; -- Test, pvs 3, 3 may be too many early on
-
-UPDATE AiFavoredItems SET Value = 7 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- Test, pvs 9, 7
-UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, def 3
-
---UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, pvs 3
---UPDATE AiFavoredItems SET Value = -4 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- Test, pvs -3
-
 --     <!-- HACK NOTE: If the specific feature is a natural wonder, that value will apply to all natural wonders. When we break them out individually, we'll fix this, but this is our starting point - AWG -->
 
 --INSERT OR IGNORE INTO AiFavoredItems (ListType, Favored, Value, Item, StringVal, TooltipString)
@@ -100,6 +92,8 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 --     <Row ListType="AvoidDarkAges" Item="PSEUDOYIELD_GOLDENAGE_POINT" Value="500"/>
 
+---------------------------------------------------------------------------------------------------------------------
+
 /*
 
 CREDIT CYPRYAN:
@@ -120,7 +114,59 @@ CREDIT CYPRYAN:
 		<Row ListType="ExpansionistCitySettlement" Item="SETTLEMENT_DECAY_AMOUNT" Value="3"/>
 		<Row ListType="ExpansionistCitySettlement" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="50"/>
 		<Row ListType="ExpansionistCitySettlement" Item="SETTLEMENT_CITY_VALUE_MULTIPLIER" Value="1"/>
+		
+		-- Naval
+		<Row ListType="NavalSettlementBoost" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="100"/>
+		<Row ListType="NavalSettlementBoost" Item="SETTLEMENT_CITY_VALUE_MULTIPLIER" Value="2"/>
+		
+		-- Medieval
+		<Row ListType="MedievalSettlements" Item="SETTLEMENT_MIN_VALUE_NEEDED" Value="-10"/>
+		<Row ListType="MedievalSettlements" Item="SETTLEMENT_DECAY_TURNS" Value="-3"/>
+		<Row ListType="MedievalSettlements" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="50"/>
+		
+		-- Expansion
+		<Row ListType="ExpansionSettlementBoost" Item="SETTLEMENT_MIN_VALUE_NEEDED" Value="-15"/>
+		<Row ListType="ExpansionSettlementBoost" Item="SETTLEMENT_DECAY_TURNS" Value="-3"/>
+		<Row ListType="ExpansionSettlementBoost" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="50"/>
+		<Row ListType="ExpansionSettlementBoost" Item="SETTLEMENT_CITY_VALUE_MULTIPLIER" Value="1"/>		
 */
+
+
+
+-- Plot Eval Changes
+
+
+UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_VALUE_MULTIPLIER'; 
+UPDATE AiFavoredItems SET Value = 150 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; 
+
+UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; 
+UPDATE AiFavoredItems SET Value = 18 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; 
+
+
+
+
+-- SETTLEMENT_MIN_VALUE_NEEDED Addon
+
+UPDATE AiFavoredItems SET Value = -11 WHERE ListType = 'ExpansionSettlementBoost' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- def 15
+UPDATE AiFavoredItems SET Value = -8 WHERE ListType = 'MedievalSettlements' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- def 10
+
+
+
+--UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, def 3
+
+
+
+--UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_VALUE_MULTIPLIER'; -- Test, pvs 3, 3 may be too many early on
+
+--UPDATE AiFavoredItems SET Value = 7 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- Test, pvs 9, 7
+--UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, def 3
+
+--UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, pvs 3
+--UPDATE AiFavoredItems SET Value = -4 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- Test, pvs -3
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
 
 
 --DELETE FROM AiFavoredItems WHERE ListType = 'StandardSettlePlot';

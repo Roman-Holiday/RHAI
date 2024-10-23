@@ -30,7 +30,7 @@ UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 1 WHERE TeamName = 'Cit
 UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 2 WHERE TeamName = 'City Attack Force' AND AiType = 'UNITTYPE_SIEGE_SUPPORT'; -- def 0-2, pvs 4 (too much)
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName,AiType,MinNumber,MaxNumber) VALUES
-('City Attack Force', 'UNITTYPE_ANTIAIR_SUPPORT',      0, 0); -- only antiair guns
+('City Attack Force', 'UNITTYPE_ANTIAIR_SUPPORT',      0, 0); -- only antiair guns, reenabling max of 1 instead of 0, may weaken cities defence -- ruins city defensive even at 1
 --('City Attack Force', 'UNITAI_SETTLE',        0, 0),
 --('City Attack Force', 'UNITTYPE_NUCLEAR',      0, 0);
 

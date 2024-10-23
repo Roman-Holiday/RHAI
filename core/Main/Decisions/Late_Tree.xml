@@ -134,7 +134,7 @@
     <Row DefnId="0" NodeId="12" TreeName="Siege City Assault" DefaultData="True" />
     <Row DefnId="1" NodeId="12" TreeName="Siege City Assault" DefaultData="False" />
 	
-    <Row DefnId="1" NodeId="13" TreeName="Siege City Assault" DefaultData="UNITTYPE_MELEE" />
+    <Row DefnId="1" NodeId="13" TreeName="Siege City Assault" DefaultData="UNITTYPE_RH_MELEE_LAND_PROMO_CLASS" />
     <Row DefnId="2" NodeId="13" TreeName="Siege City Assault" />
     <Row DefnId="3" NodeId="13" TreeName="Siege City Assault" DefaultData="UNITTYPE_SIEGE_SUPPORT" />
     <Row DefnId="4" NodeId="13" TreeName="Siege City Assault" />

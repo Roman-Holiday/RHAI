@@ -1144,14 +1144,14 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_DIPLOVICTORY_BUFF_MOD_XL',							'Amount'   , 110),
 
 		('RH_DIPLOVICTORY_BUFF_MOD',		'YieldType', 			'YIELD_CULTURE'),
-		('RH_DIPLOVICTORY_BUFF_MOD',								'Amount'   , 200); -- Needs to be higher as otherwise typically just downvote at 6 diplo victory points, pvs 115, 150, 175, 250, 400
+		('RH_DIPLOVICTORY_BUFF_MOD',								'Amount'   , 400); -- Needs to be higher as otherwise typically just downvote at 6 diplo victory points, pvs 115, 150, 175, 250, 400
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
 (2, 'WC_RES_DIPLOVICTORY', 1, 'RH_DIPLOVICTORY_BUFF_MOD'); -- +2
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(2, 'WC_RES_DIPLOVICTORY', 1, 'RH_SOVEREIGNTY_INFLUENCE'); -- +1 Infl, temp
+(998, 'WC_RES_DIPLOVICTORY', 1, 'RH_SOVEREIGNTY_INFLUENCE'); -- +1 Infl, temp
 
 
 -- DIPLOVICTORY_DEBUFF Mod
@@ -1180,8 +1180,20 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_DIPLOVICTORY_DEBUFF_MOD',								'Amount'   , 3); -- pvs 50, 40, 35, 20, 15, 5, 10, 15
 
 
+--INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
+--(7, 'WC_RES_DIPLOVICTORY', 2, 'RH_DIPLOVICTORY_DEBUFF_MOD'); -- -2
+
+
+INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		
+			('RH_DIPLOVICTORY_DEBUFF_MOD_GENERAL',	'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS', 'RH_AI_ANCIENT_ONLY_REQ_S');
+
+INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
+			('RH_DIPLOVICTORY_DEBUFF_MOD_GENERAL',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
+			('RH_DIPLOVICTORY_DEBUFF_MOD_GENERAL',				'Amount',					350); 
+
+
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(7, 'WC_RES_DIPLOVICTORY', 2, 'RH_DIPLOVICTORY_DEBUFF_MOD'); -- -2
+(7, 'WC_RES_DIPLOVICTORY', 2, 'RH_DIPLOVICTORY_DEBUFF_MOD_GENERAL'); -- Minus 2
 
 
 
@@ -1309,11 +1321,26 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_PROPHET'),	
-			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4',				'Amount',					350); -- pvs 150, 250
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4',				'Amount',					950); -- pvs 150, 250, 350
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
 (633, 'WC_RES_WORLD_RELIGION', 1, 'RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4'); -- 10 Strength
+
+
+	-- Great General
+
+INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL',	'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS', 'RH_WORK_ETHIC_PUSH_REQ_S_2'); -- Req Holy 2
+
+INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL',				'Amount',					950); -- pvs 150, 250, 350
+
+
+INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
+(634, 'WC_RES_WORLD_RELIGION', 1, 'RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL'); -- 10 Strength
+
 
 
 

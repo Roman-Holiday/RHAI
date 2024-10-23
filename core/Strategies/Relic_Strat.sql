@@ -400,7 +400,7 @@ INSERT OR IGNORE INTO Yields     (YieldType, Name, IconString, OccupiedCityChang
 ('YIELD_RH_OLIGARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', 		'0',							  1.6),
 
 ('YIELD_RH_MERCHANT_REPUBLIC', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			    1.2),
-('YIELD_RH_MONARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  			1.8),
+('YIELD_RH_MONARCHY', 'LOC_YIELD_RH_AI', '[ICON_GOLD]', '0', 				  			  			2.1), -- pvs 1.8
 
 
 -- Policy Card

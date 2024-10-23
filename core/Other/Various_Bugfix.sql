@@ -81,6 +81,8 @@ INSERT OR IGNORE INTO RequirementArguments
 -- SAM -- Guidance Systems
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+('BUILDING_FACTORY', 						'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'),
+
 ('BUILDING_COAL_POWER_PLANT', 				'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'),
 ('BUILDING_FOSSIL_FUEL_POWER_PLANT', 		'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'),
 ('BUILDING_POWER_PLANT', 					'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF');
@@ -92,15 +94,17 @@ INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_MUSEUM_ARTIFACT', 			'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'), -- New
 ('BUILDING_MUSEUM_ART', 				'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'), -- New
 
-('BUILDING_BROADCAST_CENTER', 			'RH_FREE_AI_AIR_DEFENCE_GUIDANCE_SYSTEMS_HIGH_DIFF'),
+('BUILDING_BROADCAST_CENTER', 			'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'),
 ('BUILDING_FILM_STUDIO', 				'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'),
 
 ('BUILDING_ESTADIO_DO_MARACANA', 			'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'),
-('BUILDING_AIRPORT', 						'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'),
-('BUILDING_HANGAR', 						'RH_FREE_AI_AIR_DEFENCE_GUIDANCE_SYSTEMS_HIGH_DIFF');
+('BUILDING_AIRPORT', 						'RH_FREE_AI_AIR_DEFENCE_GUIDANCE_SYSTEMS_HIGH_DIFF'),
+('BUILDING_HANGAR', 						'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF');
 
 INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
---('DISTRICT_CITY_CENTER', 				'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'),
+('DISTRICT_CITY_CENTER', 				'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'), -- Reenabling
+
+('DISTRICT_SPACEPORT', 				'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF'), -- New
 
 ('DISTRICT_AERODROME', 				'RH_FREE_AI_AIR_DEFENCE_ADVANCED_BALLISTICS_HIGH_DIFF');
 
@@ -123,6 +127,7 @@ INSERT OR IGNORE INTO ProjectCompletionModifiers    (ProjectType,		ModifierId)  
 -- Gold Sim
 
 INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+('BUILDING_FACTORY', 						'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'),
 
 ('BUILDING_COAL_POWER_PLANT', 				'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'),
 ('BUILDING_FOSSIL_FUEL_POWER_PLANT', 		'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'),
@@ -135,15 +140,17 @@ INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_MUSEUM_ARTIFACT', 				'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'), -- New
 ('BUILDING_MUSEUM_ART', 				'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'), -- New
 
-('BUILDING_BROADCAST_CENTER', 			'RH_AI_GOLD_SIM_ANTI_AIR_GUIDANCE_SYSTEMS'),
+('BUILDING_BROADCAST_CENTER', 			'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'),
 ('BUILDING_FILM_STUDIO', 				'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'),
 
 ('BUILDING_ESTADIO_DO_MARACANA', 			'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'),
-('BUILDING_AIRPORT', 						'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'),
-('BUILDING_HANGAR', 						'RH_AI_GOLD_SIM_ANTI_AIR_GUIDANCE_SYSTEMS');
+('BUILDING_AIRPORT', 						'RH_AI_GOLD_SIM_ANTI_AIR_GUIDANCE_SYSTEMS'),
+('BUILDING_HANGAR', 						'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS');
 
 INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
---('DISTRICT_CITY_CENTER', 				'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'),
+('DISTRICT_CITY_CENTER', 				'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'),
+
+('DISTRICT_SPACEPORT', 				'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS'), -- New
 
 ('DISTRICT_AERODROME', 				'RH_AI_GOLD_SIM_ANTI_AIR_ADVANCED_BALLISTICS');
 
@@ -1017,3 +1024,87 @@ INSERT OR IGNORE INTO RequirementSetRequirements
 	
 
 		
+
+-- Aircraft Carrier Test
+
+
+
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+('BUILDING_SEAPORT', 				'RH_AI_GOLD_SIM_CARRIER_COMBINED_ARMS'),
+
+('BUILDING_SEAPORT', 				'RH_FREE_AI_CARRIER_COMBINED_ARMS_HIGH_DIFF');
+
+
+
+---------------------
+-- Gold Sim
+
+
+INSERT OR IGNORE INTO Modifiers
+    (ModifierId,                                ModifierType,        RunOnce, Permanent,                         OwnerRequirementSetId) VALUES    
+    ('RH_AI_GOLD_SIM_CARRIER_COMBINED_ARMS',     'MODIFIER_PLAYER_MULTIPLY_TREASURY', 1, 1,      'RH_AI_HAS_COMBINED_ARMS_HIGH_DIFF');
+
+
+-- Arguments: Amount (-value to deduct)
+
+INSERT OR IGNORE INTO ModifierArguments
+    (ModifierId,                                Name,                         Value) VALUES    
+    --
+    ('RH_AI_GOLD_SIM_CARRIER_COMBINED_ARMS',    'Amount',                     -50); 
+
+
+
+
+
+------------------------------------------
+
+
+-- Step 1: Insert the single modifier to grant an Aircraft Carrier
+
+INSERT OR IGNORE INTO Modifiers
+    (ModifierId,                                ModifierType,                             OwnerRequirementSetId) VALUES    
+    ('RH_FREE_AI_CARRIER_COMBINED_ARMS_HIGH_DIFF',            'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY',        'RH_AI_HAS_COMBINED_ARMS_HIGH_DIFF');
+    
+-- Step 2: Define the unit and amount for the Aircraft Carrier
+
+INSERT OR IGNORE INTO ModifierArguments
+    (ModifierId,                                Name,                         Value) VALUES    
+    --
+    ('RH_FREE_AI_CARRIER_COMBINED_ARMS_HIGH_DIFF',            'UnitType',                 'UNIT_AIRCRAFT_CARRIER'),
+    ('RH_FREE_AI_CARRIER_COMBINED_ARMS_HIGH_DIFF',            'Amount',                   1),
+    ('RH_FREE_AI_CARRIER_COMBINED_ARMS_HIGH_DIFF',            'AllowUniqueOverride',       0),
+    ('RH_FREE_AI_CARRIER_COMBINED_ARMS_HIGH_DIFF',            'RunOnce',                   1); -- True
+
+-- Step 3: Define the requirements for TECH_COMBINED_ARMS
+
+INSERT OR IGNORE INTO RequirementSets
+    (RequirementSetId,                                RequirementSetType) VALUES    
+    --
+    ('RH_AI_HAS_COMBINED_ARMS_HIGH_DIFF',              'REQUIREMENTSET_TEST_ALL');
+    
+INSERT OR IGNORE INTO RequirementSetRequirements
+    (RequirementSetId,                                RequirementId) VALUES    
+    --
+    ('RH_AI_HAS_COMBINED_ARMS_HIGH_DIFF',              'RH_REQUIRES_OWN_CITY'),
+    ('RH_AI_HAS_COMBINED_ARMS_HIGH_DIFF',              'RH_REQUIRES_HAS_TECH_COMBINED_ARMS'),
+    ('RH_AI_HAS_COMBINED_ARMS_HIGH_DIFF',              'REQUIRES_PLAYER_IS_AI'),
+    ('RH_AI_HAS_COMBINED_ARMS_HIGH_DIFF',              'REQUIRES_PLAYER_EMPEROR_RH');
+
+-- Step 4: Define the technology requirement for Combined Arms
+
+INSERT OR IGNORE INTO Requirements
+    (RequirementId,                                RequirementType) VALUES    
+    ('RH_REQUIRES_HAS_TECH_COMBINED_ARMS',            'REQUIREMENT_PLAYER_HAS_TECHNOLOGY');
+
+INSERT OR IGNORE INTO RequirementArguments
+    (RequirementId,                                Name,                        Value) VALUES    
+    ('RH_REQUIRES_HAS_TECH_COMBINED_ARMS',            'TechnologyType',           'TECH_COMBINED_ARMS');
+
+-- Step 5: Define the difficulty requirement (Emperor and above)
+
+INSERT OR IGNORE INTO Requirements (RequirementId, RequirementType, Inverse) VALUES
+    ('REQUIRES_PLAYER_EMPEROR_RH',                  'REQUIREMENT_PLAYER_HANDICAP_AT_OR_ABOVE', 0);
+
+INSERT OR IGNORE INTO RequirementArguments
+    (RequirementId,                                Name,                        Value) VALUES    
+    ('REQUIRES_PLAYER_EMPEROR_RH',                  'Handicap',                  'DIFFICULTY_EMPEROR');

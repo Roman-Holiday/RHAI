@@ -147,33 +147,39 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_GOLDEN_AGE_WAR"/>
-			<Set Worth="40" Cost="-40" /> <!-- pvs 20, -20 -->
+			<Set Worth="50" Cost="-50" /> <!-- pvs 20, -20 -->
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_IDEOLOGICAL_WAR"/>
-			<Set Worth="35" Cost="-30" /> 
+			<Set Worth="45" Cost="-45" /> 
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_WAR_OF_RETRIBUTION"/> <!-- Broken Promise -->
-			<Set Worth="28" Cost="-28" /> <!-- pvs 5, -5 -->
+			<Set Worth="40" Cost="-40" /> <!-- pvs 5, -5 -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_COLONIAL_WAR"/> <!-- 2 Era Behind -->
-			<Set Worth="35" Cost="-30" /> 
+			<Set Worth="40" Cost="-40" /> 
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_RECONQUEST_WAR"/> 
-			<Set Worth="28" Cost="-28" /> 
+			<Set Worth="40" Cost="-40" /> 
 		</Update>		
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_FORMAL_WAR"/> <!-- Testing over Surprise War -->
-			<Set Worth="25" Cost="-25" /> 
+			<Set Worth="35" Cost="-35" /> 
 		</Update>	
+		
+		<Update>
+			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_HOLY_WAR"/> <!-- Testing over Surprise War -->
+			<Set Worth="45" Cost="-45" /> 
+		</Update>			
+		
 		
 		
 		<!-- Open Borders -->
@@ -294,10 +300,10 @@
 	
 	
 	
-		<Update>
+		<!--Update>
 			<Set RequireTransitionMin="-10"></Set> 
-			<Where BaseState="DIPLO_STATE_DENOUNCED" TransitionState="DIPLO_STATE_WAR"></Where>
-		</Update>	
+			<Where BaseState="DIPLO_STATE_DENOUNCED" TransitionState="DIPLO_STATE_WAR"></Where> <!-- May have reduced wars? -->
+		<!--/Update-->	
 	
 		<Update>
 			<Set RequireTransitionMin="-20" AllowTransitionMax="5"></Set> <!-- Def 15, Slightly Slower -->

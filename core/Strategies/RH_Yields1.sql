@@ -443,15 +443,15 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_AT_WAR_MOD_SM',							'Amount'   , 30), -- pvs 20
 
 		('RH_AT_WAR_MOD_M',		'YieldType', 		'YIELD_RH_AT_WAR'),
-		('RH_AT_WAR_MOD_M',							'Amount'   , 125), -- pvs 75
+		('RH_AT_WAR_MOD_M',							'Amount'   , 250), -- pvs 75, 125
 
 		('RH_AT_WAR_MOD',		'YieldType', 		'YIELD_RH_AT_WAR'),
-		('RH_AT_WAR_MOD',							'Amount'   , 35);
+		('RH_AT_WAR_MOD',							'Amount'   , 200); -- pvs 35
 		
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(278, 'WC_RES_MERCENARY_COMPANIES', 2, 'RH_AT_WAR_MOD'); -- 50% Decrease
+(278, 'WC_RES_MERCENARY_COMPANIES', 2, 'RH_AT_WAR_MOD_20'); -- 50% Decrease
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -523,23 +523,23 @@ INSERT OR IGNORE INTO TechnologyModifiers (TechnologyType, ModifierId)  VALUES
 			('TECH_STIRRUPS', 				'RH_AT_WAR_MOD_M'), -- Knights
 			('TECH_MILITARY_ENGINEERING', 	'RH_AT_WAR_MOD'), -- Trebuchet
 			
-			('TECH_GUNPOWDER', 				'RH_AT_WAR_MOD'),			
-			('TECH_METAL_CASTING', 			'RH_AT_WAR_MOD_M'),			
+			('TECH_GUNPOWDER', 				'RH_AT_WAR_MOD_L'),			
+			('TECH_METAL_CASTING', 			'RH_AT_WAR_MOD_L'),			
 			('TECH_PRINTING', 				'RH_AT_WAR_MOD'),
 
 			('TECH_MILITARY_SCIENCE', 				'RH_AT_WAR_MOD'), -- Line infantry, Cav
 
 			('TECH_INDUSTRIALIZATION', 				'RH_AT_WAR_MOD_SM'),
 			
-			('TECH_REPLACEABLE_PARTS', 				'RH_AT_WAR_MOD_20'),
-			('TECH_BALLISTICS', 					'RH_AT_WAR_MOD_20'),
+			('TECH_REPLACEABLE_PARTS', 				'RH_AT_WAR_MOD_L'),
+			('TECH_BALLISTICS', 					'RH_AT_WAR_MOD_L'),
 
-			('TECH_COMBUSTION', 					'RH_AT_WAR_MOD_M'),
+			('TECH_COMBUSTION', 					'RH_AT_WAR_MOD_L'),
 			('TECH_COMBINED_ARMS', 					'RH_AT_WAR_MOD'),
 			('TECH_ADVANCED_FLIGHT', 				'RH_AT_WAR_MOD_XL'),	
 
 			('TECH_RIFLING', 						'RH_AT_WAR_MOD_SM'), -- Leads to TECH_REFINING and Steel
-			('TECH_STEEL', 							'RH_AT_WAR_MOD'),
+			('TECH_STEEL', 							'RH_AT_WAR_MOD_L'),
 			
 			('TECH_REFINING', 						'RH_AT_WAR_MOD_M'),-- Oil
 			('TECH_RADIO', 							'RH_AT_WAR_MOD_M'),	-- Aluminium		
@@ -687,7 +687,9 @@ INSERT INTO TechnologyModifiers (TechnologyType, ModifierId)  VALUES
 			('TECH_REFINING', 				'RH_UNDER_ATTACK_MOD_MXL'), -- Oil, Battleships
 			('TECH_COMBUSTION', 			'RH_UNDER_ATTACK_MOD_MXL'), -- Tanks
 			
-			('TECH_ADVANCED_BALLISTICS', 	'RH_UNDER_ATTACK_MOD_MXL');	-- Machine Gun and Anti-Air
+			('TECH_REPLACEABLE_PARTS', 		'RH_UNDER_ATTACK_MOD_MXL'),	-- For Machine Gun and Anti-Air			
+			
+			('TECH_ADVANCED_BALLISTICS', 	'RH_UNDER_ATTACK_MOD_XL');	-- Machine Gun and Anti-Air
 						
 
 INSERT OR IGNORE INTO GovernmentModifiers (GovernmentType, ModifierId)  VALUES

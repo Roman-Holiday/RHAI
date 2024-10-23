@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mod id="2501be3e-9780-4e9f-9506-4ff71cf076cb" version="14">
   <Properties>
-    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.25 Discord Beta[ENDCOLOR]</Name>
+    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.33 Patreon Beta[ENDCOLOR]</Name>
     <Description>------------------------------------[NEWLINE]There's an AI System in the Game, says Shirk. ... it's called a [COLOR:ResScienceLabelCS]"Mayhem Level"[ENDCOLOR][NEWLINE]For Civ Chat, Feedback and Suggestions Use the RomanHoliday AI Discord! (Link on Steam Page).[NEWLINE]Enjoy! ;) </Description>
     <Teaser>Thanks for Supporting the Mod!! It's Big Time Now.</Teaser>
     <SupportsMultiplayer>1</SupportsMultiplayer>
@@ -226,7 +226,7 @@
 
 
 
-
+		<!-- Options Criteria -->
 
 		<Criteria id="STANDARD_DIPLO_OFFSET">
 			<ConfigurationValueMatches>
@@ -283,7 +283,17 @@
 				<Value>1</Value>
 			</ConfigurationValueMatches>
 		</Criteria>
-
+		
+		<Criteria id="RH_AI_EXTRA_VISION">
+			<ConfigurationValueMatches>
+				<ConfigurationId>RH_AI_CONFIG_TACTICAL_KNOWLEDGE</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>		
+		
+		
+		
 		<Criteria id="RH_WILDW_COMMUNITY_EXTENSION_ENABLED">
 			<ModInUse>3351473b-0746-417a-a618-2b66a04d8f3d</ModInUse>
 		</Criteria>
@@ -474,6 +484,19 @@
 			</Properties>
 			<File>core/Other/RH_Gamemodes/Early_Agg.sql</File>
 		</UpdateDatabase>
+
+
+		<!-- Extra Vision -->
+		<UpdateDatabase id="RH_AI_EXTRA_VISION_MODE" criteria="RH_AI_EXTRA_VISION">
+			<Properties>
+				<LoadOrder>609</LoadOrder>
+			</Properties>
+			<File>core/Other/Vision_Changes/RH_Extra_Military_Sight.sql</File>
+		</UpdateDatabase>
+
+
+
+
 
 
 		<UpdateDatabase id="RH_AI_MAIN_2">
@@ -1038,9 +1061,6 @@
 	  <!-- Slothoth's Tech Tree Shuffle Mode Fix -->
 	  <File>core/Other/Gamemode_Support/RH_Tree_Randomizer.sql</File>
 	  
-	  <!-- RH -->
-	  <File>core/Other/RH_Gamemodes/Early_Agg.sql</File>
-	  
 	  <!-- Ops -->
 	  
       <File>core/Ops/Settle.sql</File>
@@ -1075,12 +1095,20 @@
       <File>core/Strategies/New_Strategies.xml</File>
 	  <File>core/Other/Mod_Support/Monopolies_Plus_Tycoons_Investors_Support.sql</File>
 	  <File>core/Other/Parameter_Setup.sql</File>
+	  
+	  <!-- Options -->
 	  <File>core/Other/Diplomacy_Offset/Standard_Offset.sql</File>
 	  <File>core/Other/Diplomacy_Offset/Lower_Offset.sql</File>
 	  <File>core/Other/Diplomacy_Offset/Lowest_Offset.sql</File>
+	  
+	  <File>core/Other/RH_Gamemodes/Early_Agg.sql</File>
+	  <File>core/Other/Vision_Changes/RH_Extra_Military_Sight.sql</File>
+	  
 	  <File>core/Other/RH_Gamemodes/RH_ROM.sql</File>
 	  <File>core/Other/RH_Gamemodes/RH_ROM.xml</File>
 	  <File>core/Other/RH_Gamemodes/Extra_Strategics/RH_Extra_Strategics.sql</File>
+	  
+	  
 	  <File>core/Other/RH_AI_Loc_Text.xml</File>
 	  <File>core/Other/Misc.sql</File>
 

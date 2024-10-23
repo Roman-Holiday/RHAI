@@ -90,10 +90,21 @@ INSERT OR REPLACE INTO AiFavoredItems(ListType, Item, Value) VALUES
 ('UnitPriorityBoosts', 'UNIT_SPEC_OPS', -9), -- pvs -10
 ('UnitPriorityBoosts', 'UNIT_HELICOPTER', -16); -- pvs -10, 9
 
+-- Support Units 1
+
 INSERT OR REPLACE INTO AiFavoredItems(ListType, Item, Value) VALUES
 ('UnitPriorityBoosts', 'UNIT_SIEGE_TOWER', 2), -- pvs 8 AI is terrible at using them
 ('UnitPriorityBoosts', 'UNIT_MEDIC', -75); -- pvs -6, -17, -65
 --('UnitPriorityBoosts', 'UNIT_BATTERING_RAM', 2);
+
+-- Support Units 2
+-- Less supply convoys and drones lol
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES -- testing adding unfavored
+('UnitPriorityBoosts', 'UNIT_SUPPLY_CONVOY',					  -35), -- pvs -75, -70
+('UnitPriorityBoosts', 'UNIT_OBSERVATION_BALLOON', 				 -40), -- -75, -45
+('UnitPriorityBoosts', 'UNIT_DRONE', 							 -60); -- -75
+
+-- Todo Per Era, much less in Info
 
 
 -- UU's
@@ -214,6 +225,15 @@ INSERT INTO UnitAiInfos (UnitType, AiType) VALUES
 ('UNIT_GIANT_DEATH_ROBOT', 'UNITTYPE_RH_GDR');
 
 
+INSERT INTO UnitAiTypes(AiType) VALUES ('UNITTYPE_RH_CARRIER');
+
+INSERT INTO UnitAiInfos (UnitType, AiType) VALUES
+('UNIT_AIRCRAFT_CARRIER', 'UNITTYPE_RH_CARRIER');
+
+
+
+
+
 -- test
 
 /*
@@ -268,6 +288,21 @@ INSERT INTO UnitAiInfos (UnitType, AiType) VALUES
 ('UNIT_ROCKET_ARTILLERY', 'UNITTYPE_BOMBARD');
 
 
+
+-- Melee for Combining -- PROMOTION_CLASS_MELEE -- DOMAIN_LAND -- FORMATION_CLASS_LAND_COMBAT 
+
+
+INSERT OR IGNORE INTO UnitAiTypes(AiType) VALUES ('UNITTYPE_RH_MELEE_LAND_PROMO_CLASS');
+
+
+REPLACE INTO UnitAiInfos (UnitType, AiType)
+SELECT UnitType, 'UNITTYPE_RH_MELEE_LAND_PROMO_CLASS'
+FROM Units
+WHERE Domain = 'DOMAIN_LAND' AND PromotionClass = 'PROMOTION_CLASS_MELEE';
+
+
+
+
 --INSERT OR IGNORE INTO UnitAiInfos (UnitType, AiType) VALUES
 --('UNIT_BYZANTINE_TAGMA', 'UNITTYPE_SIEGE_ALL');
 
@@ -286,11 +321,14 @@ WHERE AiType = 'UNITTYPE_SIEGE_ALL';
 -- 		<Row AiType="UNITTYPE_SIEGE_SUPPORT" Priority="true"/> ??
 
 
-DELETE FROM UnitAiInfos WHERE AiType = 'UNITTYPE_SIEGE_SUPPORT' AND UnitType = 'UNIT_OBSERVATION_BALLOON'; -- temp to boost priority
+-- 10.10.24 -- Test renable balloon and supply convoy
+
+DELETE FROM UnitAiInfos WHERE AiType = 'UNITTYPE_SIEGE_SUPPORT' AND UnitType = 'UNIT_OBSERVATION_BALLOON'; -- temp to boost priority -- test renable
 DELETE FROM UnitAiInfos WHERE AiType = 'UNITTYPE_SIEGE_SUPPORT' AND UnitType = 'UNIT_DRONE';
 DELETE FROM UnitAiInfos WHERE AiType = 'UNITTYPE_SIEGE_SUPPORT' AND UnitType = 'UNIT_MILITARY_ENGINEER';
-DELETE FROM UnitAiInfos WHERE AiType = 'UNITTYPE_SIEGE_SUPPORT' AND UnitType = 'UNIT_SUPPLY_CONVOY'; -- AI is spaming them
+--DELETE FROM UnitAiInfos WHERE AiType = 'UNITTYPE_SIEGE_SUPPORT' AND UnitType = 'UNIT_SUPPLY_CONVOY'; -- AI is spaming them, -- now reenabled alongside the medic which was already enabled
 --DELETE FROM UnitAiInfos WHERE AiType = 'UNITTYPE_SIEGE_SUPPORT' AND UnitType = 'UNIT_MEDIC';
+
 
 
 DELETE FROM UnitAiInfos WHERE AiType = 'UNITTYPE_SIEGE_ALL' AND UnitType = 'UNIT_SUPPLY_CONVOY';
@@ -409,13 +447,7 @@ UPDATE Victories SET CriticalPercentage=85 WHERE VictoryType='VICTORY_DIPLOMATIC
 
 --UPDATE Units SET Maintenance = '2' WHERE UnitType = 'UNIT_MILITARY_ENGINEER'; -- Def = 2
 
--- Less supply convoys and drones lol
-INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES -- testing adding unfavored
-('UnitPriorityBoosts', 'UNIT_SUPPLY_CONVOY', 0, -25), -- pvs -75, -70
-('UnitPriorityBoosts', 'UNIT_OBSERVATION_BALLOON', 0, -45), -- -75
-('UnitPriorityBoosts', 'UNIT_DRONE', 0, -60); -- -75
 
--- Todo Per Era, much less in Info
 
 
 

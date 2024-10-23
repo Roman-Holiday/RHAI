@@ -568,7 +568,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal,
 ('AncientSettlement', 'Coastal', 					0, 11, NULL, 						'LOC_SETTLEMENT_RECOMMENDATION_COAST'), -- pvs 2, 10, 17, 11+added 5
 
 ('AncientSettlement', 'Specific Resource', 0, 2, 			'RESOURCE_HORSES', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
-('AncientSettlement', 'Specific Resource', 0, 4, 			'RESOURCE_IRON', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES');
+('AncientSettlement', 'Specific Resource', 0, 5, 			'RESOURCE_IRON', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES');
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientOperations', 'OP_RH_EARLY_SETTLE', 		 1, 1),		
@@ -673,7 +673,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal,
 ('ClassicalSettlement', 'Coastal', 					0, 5, NULL, 						'LOC_SETTLEMENT_RECOMMENDATION_COAST'),
 
 ('ClassicalSettlement', 'New Resources', 			0, 3,			 NULL, 				'LOC_SETTLEMENT_RECOMMENDATION_NEW_RESOURCES'), 
-('ClassicalSettlement', 'Specific Resource', 		0, 2, 			'RESOURCE_IRON', 	'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'); 
+('ClassicalSettlement', 'Specific Resource', 		0, 7, 			'RESOURCE_IRON', 	'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'); -- pvs 2 Man at Arms
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalOperations', 'OP_RH_EARLY_SETTLE', 		   	1, 1),
@@ -811,7 +811,10 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal,
 ('MedievalSettlement', 'New Resources', 		0, 2,			 NULL, 				'LOC_SETTLEMENT_RECOMMENDATION_NEW_RESOURCES'),
 ('MedievalSettlement', 'Foreign Continent', 	0, 2, 				NULL, 					'LOC_SETTLEMENT_RECOMMENDATION_FOREIGN_CONTINENT'), 
 ('MedievalSettlement', 'Coastal', 			    0, 3, 				NULL, 					'LOC_SETTLEMENT_RECOMMENDATION_COAST'), -- exploration
-('MedievalSettlement', 'Specific Resource',     0, 30, 			'RESOURCE_NITER', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'); -- Medieval
+
+('MedievalSettlement', 'Specific Resource',     0, 3, 			'RESOURCE_IRON', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), -- Man at Arms
+
+('MedievalSettlement', 'Specific Resource',     0, 25, 			'RESOURCE_NITER', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'); -- Medieval
 
 /*
 		<Row ListType="MedievalSettlements" Item="SETTLEMENT_MIN_VALUE_NEEDED" Value="-10"/>

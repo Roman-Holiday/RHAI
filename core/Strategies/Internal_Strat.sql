@@ -946,7 +946,7 @@ INSERT OR IGNORE INTO ModifierArguments      (ModifierId, 		Name, 					Value)  V
 		('AI_BEL_DIS',						'Amount'   , -900),
 	
 		('AI_WORK_ETHIC_FAITH_MODIFIER',	'YieldType', 'YIELD_PRODUCTION'),
-		('AI_WORK_ETHIC_FAITH_MODIFIER',	'Amount'   , 750); -- pvs 8, 35, 100, 500 rvg yield
+		('AI_WORK_ETHIC_FAITH_MODIFIER',	'Amount'   , 2500); -- pvs 8, 35, 100, 500 rvg yield, 750
 
 
 --INSERT OR IGNORE INTO ModifierArguments      (ModifierId, 		Name, 					Value)  VALUES 
@@ -1698,6 +1698,9 @@ INSERT OR IGNORE INTO	TraitModifiers	(TraitType,					ModifierId)  VALUES
 
 		('TRAIT_CIVILIZATION_BUILDING_PALGUM',			'RH_COMP_P1'),
 					
+		('TRAIT_LEADER_TOKUGAWA',						'RH_COMP_P2'),
+		('TRAIT_CIVILIZATION_DISTRICT_HANSA',			'RH_COMP_P2'),		
+					
 --		('TRAIT_CIVILIZATION_DISTRICT_HIPPODROME',		'RH_COMP'),		
 		('TRAIT_CIVILIZATION_DISTRICT_HIPPODROME',		'RH_COMP_P');
 
@@ -1729,6 +1732,14 @@ INSERT INTO GovernorPromotionModifiers     (GovernorPromotionType,			ModifierId)
 		('GOVERNOR_PROMOTION_REDOUBT',					'RH_GOVN_UNDER_ATTACK'),
 		('GOVERNOR_PROMOTION_GARRISON_COMMANDER',		'RH_GOVN_UNDER_ATTACK'), -- Units defending within the city's territory get +5 Combat Strength. Your other cities within 9 tiles gain +4 Loyalty per turn towards your civilization.
 		('GOVERNOR_PROMOTION_EMBRASURE',				'RH_GOVN_UNDER_ATTACK'); -- City gains an additional Ranged Strike per turn. Military units trained in this city start with a free promotion that do not already start with a free promotion.
+
+
+UPDATE ModifierArguments
+SET Value = 4
+WHERE ModifierId = 'RH_COMP_P2' 
+AND Name = 'Amount'
+AND Value = 3;
+
 
 
 -- 			<SubjectRequirementSetId>CITY_HAS_RENAISSANCE_WALLS</SubjectRequirementSetId>
@@ -1815,7 +1826,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_SPY_CULT',			'GreatPersonClassType',			'GREAT_PERSON_CLASS_WRITER'),
-		('RH_SPY_CULT',						'Amount'   , 105); -- pvs 80
+		('RH_SPY_CULT',						'Amount'   , 500); -- pvs 80
 
 INSERT INTO UnitPromotionModifiers (UnitPromotionType, ModifierId) VALUES
 ('PROMOTION_SPY_CAT_BURGLAR', 		'RH_SPY_CULT'); -- Great Work Heist
@@ -1826,10 +1837,18 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_SPY_SCI',			'GreatPersonClassType',			'GREAT_PERSON_CLASS_SCIENTIST'),
-		('RH_SPY_SCI',						'Amount'   , 250); -- pvs 80
+		('RH_SPY_SCI',						'Amount'   , 750); -- pvs 80
 
 INSERT INTO UnitPromotionModifiers (UnitPromotionType, ModifierId) VALUES
 ('PROMOTION_SPY_TECHNOLOGIST', 		'RH_SPY_SCI'); -- Tech Boost
+
+
+INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSetId) VALUES		
+		('RH_SPY_SCI_LATE',				'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS',	'RH_AI_ANCIENT_ONLY_REQ_S');
+
+INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
+		('RH_SPY_SCI_LATE',			'GreatPersonClassType',			'GREAT_PERSON_CLASS_SCIENTIST'),
+		('RH_SPY_SCI_LATE',						'Amount'   , 500);
 
 
 
@@ -1838,14 +1857,14 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_SPY_G',			'YieldType',			'YIELD_RH_PLACEMENT'),
-		('RH_SPY_G',						'Amount'   , 20); -- pvs 15
+		('RH_SPY_G',						'Amount'   , 250); -- pvs 15
 
 INSERT INTO UnitPromotionModifiers (UnitPromotionType, ModifierId) VALUES
-('PROMOTION_SPY_ACE_DRIVER', 			'RH_SPY_G'),
-('PROMOTION_SPY_ROCKET_SCIENTIST', 		'RH_SPY_SCI'), -- Disrupt Rocketry, RH_END_OF_TECH_MOD_XL
+('PROMOTION_SPY_ACE_DRIVER', 			'RH_SPY_SCI'),
+('PROMOTION_SPY_ROCKET_SCIENTIST', 		'RH_SPY_SCI_LATE'), -- Disrupt Rocketry, RH_END_OF_TECH_MOD_XL
 
-('PROMOTION_SPY_GUERILLA_LEADER', 		'RH_AT_WAR_MOD_XL'), -- Recruit Partisans lol
-('PROMOTION_SPY_SATCHEL_CHARGES', 		'RH_SPY_G'),
+('PROMOTION_SPY_GUERILLA_LEADER', 		'RH_AT_WAR_MOD_L'), -- Recruit Partisans lol
+--('PROMOTION_SPY_SATCHEL_CHARGES', 		'RH_SPY_G'), -- Breach Dam
 ('PROMOTION_SPY_DEMOLITIONS', 			'RH_SPY_G'), -- Production Sabatage
 
 ('PROMOTION_SPY_DISGUISE', 				'RH_AT_WAR_MOD_XL'),		

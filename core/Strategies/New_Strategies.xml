@@ -214,6 +214,9 @@
 		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_TACTICS"/>
 		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_OPERATIONS"/>
 		
+		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_SETTLEMENT_VALUE"/>
+		
+
 
 		<!--Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" ListType="UNDER_HEAVY_SIEGE_OPERATIONS"/>
 		<Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" ListType="UNDER_HEAVY_SIEGE_PSEUDOS"/-->
@@ -299,6 +302,7 @@
 		<Row ListType="DEITY_SCOUT_USES" />
 		<Row ListType="DEITY_YIELDS" />
 		<Row ListType="DEITY_OPERATIONS" />
+		<Row ListType="DEITY_SETTLEMENT_VALUE" />		
 		
 		<!-- Not used -->
 		
@@ -379,6 +383,10 @@
 		
 		<Row ListType="DEITY_OPERATIONS" System="AiOperationTypes"/>
 		<Row ListType="DEITY_TACTICS" System="Tactics"/> 
+		
+		<Row ListType="DEITY_SETTLEMENT_VALUE" System="SettlementPreferences"/> 
+		
+
 
 	</AiLists>
 
@@ -885,6 +893,8 @@
 	
 	<!--Row ListType="DEITY_SPECIALISE" Item="BUILD_CITY_DEFENSES" Favored="true" Value="10"/-->
 	
+	
+	<Row ListType="DEITY_SETTLEMENT_VALUE" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="100"/>	<!-- Extra on High Diff, pvs 50 -->
 	
 	<Row ListType="DEITY_SCOUT_USES" Item="DEFAULT_LAND_SCOUTS" Value="100"/>
 	<Row ListType="DEITY_SCOUT_USES" Item="LAND_SCOUTS_PER_SECONDARY_REGION" Value="50"/>
