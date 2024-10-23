@@ -30,11 +30,11 @@ REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipS
 --('StandardSettlePlot', 'Specific Resource', 		0, 3, 'RESOURCE_NITER',  'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), -- def 2
 ('StandardSettlePlot', 'Specific Resource', 		0, 1, 'RESOURCE_COAL', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), -- Naval gets 3 -- pvs 2
 ('StandardSettlePlot', 'Specific Resource', 		0, 4, 'RESOURCE_OIL', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), 
-('StandardSettlePlot', 'Specific Resource', 		0, 6, 'RESOURCE_ALUMINUM', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), -- pvs 7
-('StandardSettlePlot', 'Specific Resource', 		0, 9, 'RESOURCE_URANIUM', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), 
+('StandardSettlePlot', 'Specific Resource', 		0, 10, 'RESOURCE_ALUMINUM', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), -- pvs 7
+('StandardSettlePlot', 'Specific Resource', 		0, 11, 'RESOURCE_URANIUM', 'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), 
 --('StandardSettlePlot', 'Specific Feature', 			0, -9, 'FEATURE_ICE', 'LOC_SETTLEMENT_RECOMMENDATION_FEATURES'),
 --('StandardSettlePlot', 'Specific Feature', 			0, 1, 'FEATURE_DEAD_SEA', 'LOC_SETTLEMENT_RECOMMENDATION_FEATURES'), -- 6
-('StandardSettlePlot', 'Specific Feature', 			0, 2, 'FEATURE_VOLCANO', 'LOC_SETTLEMENT_RECOMMENDATION_FEATURES');
+('StandardSettlePlot', 'Specific Feature', 			0, 1, 'FEATURE_VOLCANO', 'LOC_SETTLEMENT_RECOMMENDATION_FEATURES');
 --('StandardSettlePlot', 'Foreign Continent', 		0, -4, NULL, 'LOC_SETTLEMENT_RECOMMENDATION_FOREIGN_CONTINENT'); -- Def -2 -- (RST favoured)
 --('StandardSettlePlot', 'Nearest Friendly City', 	0, -9, NULL, 'LOC_SETTLEMENT_RECOMMENDATION_NEAREST_CITY'); -- -10, be careful - expansion gives +3, naval +2/4
 --('StandardSettlePlot', 'Fresh Water', 				0, 25, NULL, 'LOC_SETTLEMENT_RECOMMENDATION_FRESH_WATER'), -- def. 20 -- pvs 22, 23
@@ -54,26 +54,18 @@ UPDATE AiFavoredItems SET Value = 5 WHERE ListType = 'StandardSettlePlot' AND To
 
 UPDATE AiFavoredItems SET Value = -8 WHERE ListType = 'StandardSettlePlot' AND TooltipString = 'LOC_SETTLEMENT_RECOMMENDATION_NEAREST_CITY' AND Item = 'Nearest Friendly City'; -- pvs -8, -7
 
-UPDATE AiFavoredItems SET Value = 30 WHERE ListType = 'StandardSettlePlot' AND TooltipString = 'LOC_SETTLEMENT_RECOMMENDATION_COAST' AND Item = 'Coastal'; -- pvs 14, 16, 18, 21, 23, 25
+UPDATE AiFavoredItems SET Value = 34 WHERE ListType = 'StandardSettlePlot' AND TooltipString = 'LOC_SETTLEMENT_RECOMMENDATION_COAST' AND Item = 'Coastal'; -- pvs 14, 16, 18, 21, 23, 25, 30
 UPDATE AiFavoredItems SET Value = 40 WHERE ListType = 'StandardSettlePlot' AND TooltipString = 'LOC_SETTLEMENT_RECOMMENDATION_FRESH_WATER' AND Item = 'Fresh Water'; -- pvs 30, 32, 35, 37
 
 UPDATE AiFavoredItems SET Value = -3 WHERE ListType = 'StandardSettlePlot' AND TooltipString = 'LOC_SETTLEMENT_RECOMMENDATION_FOREIGN_CONTINENT' AND Item = 'Foreign Continent'; 
 
 
-UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'StandardSettlePlot' AND TooltipString = 'LOC_SETTLEMENT_RECOMMENDATION_FEATURES' AND Item = 'Specific Feature' AND StringVal ='FEATURE_DEAD_SEA';
+UPDATE AiFavoredItems SET Value = 5 WHERE ListType = 'StandardSettlePlot' AND TooltipString = 'LOC_SETTLEMENT_RECOMMENDATION_FEATURES' AND Item = 'Specific Feature' AND StringVal ='FEATURE_DEAD_SEA';
 
 
 
 --UPDATE AiFavoredItems SET Value = 2 WHERE ListType = 'StandardSettlePlot' AND Favored = 'false' AND Item = 'Cultural Pressure'; -- def 1
 
-
---UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_VALUE_MULTIPLIER'; -- Test, pvs 3, 3 may be too many early on
-
-UPDATE AiFavoredItems SET Value = 7 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- Test, pvs 9
-UPDATE AiFavoredItems SET Value = 5 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, def 3
-
-UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, pvs 3
-UPDATE AiFavoredItems SET Value = -4 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- Test, pvs -3
 
 --     <!-- HACK NOTE: If the specific feature is a natural wonder, that value will apply to all natural wonders. When we break them out individually, we'll fix this, but this is our starting point - AWG -->
 
@@ -100,6 +92,8 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 --     <Row ListType="AvoidDarkAges" Item="PSEUDOYIELD_GOLDENAGE_POINT" Value="500"/>
 
+---------------------------------------------------------------------------------------------------------------------
+
 /*
 
 CREDIT CYPRYAN:
@@ -120,7 +114,59 @@ CREDIT CYPRYAN:
 		<Row ListType="ExpansionistCitySettlement" Item="SETTLEMENT_DECAY_AMOUNT" Value="3"/>
 		<Row ListType="ExpansionistCitySettlement" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="50"/>
 		<Row ListType="ExpansionistCitySettlement" Item="SETTLEMENT_CITY_VALUE_MULTIPLIER" Value="1"/>
+		
+		-- Naval
+		<Row ListType="NavalSettlementBoost" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="100"/>
+		<Row ListType="NavalSettlementBoost" Item="SETTLEMENT_CITY_VALUE_MULTIPLIER" Value="2"/>
+		
+		-- Medieval
+		<Row ListType="MedievalSettlements" Item="SETTLEMENT_MIN_VALUE_NEEDED" Value="-10"/>
+		<Row ListType="MedievalSettlements" Item="SETTLEMENT_DECAY_TURNS" Value="-3"/>
+		<Row ListType="MedievalSettlements" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="50"/>
+		
+		-- Expansion
+		<Row ListType="ExpansionSettlementBoost" Item="SETTLEMENT_MIN_VALUE_NEEDED" Value="-15"/>
+		<Row ListType="ExpansionSettlementBoost" Item="SETTLEMENT_DECAY_TURNS" Value="-3"/>
+		<Row ListType="ExpansionSettlementBoost" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="50"/>
+		<Row ListType="ExpansionSettlementBoost" Item="SETTLEMENT_CITY_VALUE_MULTIPLIER" Value="1"/>		
 */
+
+
+
+-- Plot Eval Changes
+
+
+UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_VALUE_MULTIPLIER'; 
+UPDATE AiFavoredItems SET Value = 150 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; 
+
+UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; 
+UPDATE AiFavoredItems SET Value = 18 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; 
+
+
+
+
+-- SETTLEMENT_MIN_VALUE_NEEDED Addon
+
+UPDATE AiFavoredItems SET Value = -11 WHERE ListType = 'ExpansionSettlementBoost' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- def 15
+UPDATE AiFavoredItems SET Value = -8 WHERE ListType = 'MedievalSettlements' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- def 10
+
+
+
+--UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, def 3
+
+
+
+--UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_VALUE_MULTIPLIER'; -- Test, pvs 3, 3 may be too many early on
+
+--UPDATE AiFavoredItems SET Value = 7 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- Test, pvs 9, 7
+--UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, def 3
+
+--UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, pvs 3
+--UPDATE AiFavoredItems SET Value = -4 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; -- Test, pvs -3
+
+
+-----------------------------------------------------------------------------------------------------------------------
+
 
 
 --DELETE FROM AiFavoredItems WHERE ListType = 'StandardSettlePlot';
@@ -143,3 +189,47 @@ UPDATE PlotEvalConditions SET PoorValue = -5, GoodValue = 10 WHERE ConditionType
 		<Row ListType="StandardSettlePlot" Item="Cultural Pressure" Favored="false" Value="1"/>
 		<Row ListType="StandardSettlePlot" Item="Cultural Pressure" Favored="true" Value="-6"/>
 */
+
+
+
+
+UPDATE OpTeamRequirements SET MinNumber = '1', MaxNumber = '1' WHERE TeamName = 'Settle City Team' AND AiType = 'UNITAI_SETTLE'; -- MinNumber=1	MaxNumber=1
+UPDATE OpTeamRequirements SET MinNumber = '0', MaxNumber = '3' WHERE TeamName = 'Settle City Team' AND AiType = 'UNITAI_COMBAT'; -- MinNumber=1	MaxNumber=, max pvs 3, 2. Test min 2 units, max 4
+
+
+INSERT INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
+('Settle City Team', 'UNITTYPE_LAND_COMBAT', 					 1, 3), -- Can use Scouts
+
+('Settle City Team', 'UNITTYPE_SIEGE_SUPPORT', 					 0, 0), 
+('Settle City Team', 'UNITTYPE_SIEGE', 							 0, 0);
+
+
+----------------------------------------------------------------------------
+
+
+-- Settle Test
+
+
+-- New Settle Naval Team Test
+INSERT OR IGNORE INTO AiTeams (TeamName) VALUES
+('RH Naval Settle Team');
+INSERT OR IGNORE INTO AiOperationTeams (TeamName,OperationName,InitialStrengthAdvantage,OngoingStrengthAdvantage, Condition) VALUES
+('RH Naval Settle Team',								'Settle New City',				-4,						-1,			 'IsCoastalTarget');
+INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber, ReconsiderWhilePreparing) VALUES
+('RH Naval Settle Team', 						'UNITAI_COMBAT',     1, 	5, 					0);
+
+
+INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
+('RH Naval Settle Team', 'UNITTYPE_LAND_COMBAT', 					1, 3),
+
+('RH Naval Settle Team', 'UNITAI_SETTLE', 							1, 1),
+
+('RH Naval Settle Team', 'UNITTYPE_NAVAL', 							0, 2),
+('RH Naval Settle Team', 'UNITTYPE_AIR', 							0, 0),
+
+('RH Naval Settle Team', 'UNITTYPE_CIVILIAN_LEADER', 				0, 1); -- Bring Great General / Admiral
+
+
+
+
+--UPDATE OpTeamRequirements SET ReconsiderWhilePreparing = 0 WHERE TeamName = 'Settle City Team' AND AiType = 'UNITAI_COMBAT'; -- def 0, test for second time

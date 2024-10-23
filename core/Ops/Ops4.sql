@@ -31,7 +31,9 @@ UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 6 WHERE TeamName = 'Sim
 UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 2 WHERE TeamName = 'Simple City Attack Force' AND AiType = 'UNITTYPE_CIVILIAN_LEADER'; -- Already set -- def max 1
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName,AiType,MinNumber,MaxNumber) VALUES
-('Simple City Attack Force', 'UNITAI_SETTLE',        0, 0),
+('Simple City Attack Force', 'UNITAI_SETTLE',        		0, 0),
+('Simple City Attack Force', 'UNITTYPE_RH_CARRIER',         0, 0),
+
 ('Simple City Attack Force', 'UNITTYPE_CAVALRY',        0, 7), -- max 4, 5
 ('Simple City Attack Force', 'UNITTYPE_SIEGE_ALL',        0, 4); -- Siege (not Siege all) def 3 --
 
@@ -60,8 +62,13 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 ('City Defense', 'UNITTYPE_RANGED', 							  1, 7), 
 ('City Defense', 'UNITTYPE_NUCLEAR', 							  0, 0),
 ('City Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 					  0, 1), -- test 0
-('City Defense', 'UNITTYPE_SIEGE',  						      0, 1),
-('City Defense', 'UNITTYPE_SIEGE_ALL',  						  0, 1), -- testing
+('City Defense', 'UNITTYPE_SIEGE',  						      0, 2), -- for bombers, gdrs
+('City Defense', 'UNITTYPE_SIEGE_ALL',  						  0, 2), -- testing
+('City Defense', 'UNITTYPE_BOMBARD',  						  	  0, 0), -- no Siege Equipment
+
+('City Defense', 'UNITTYPE_RH_CARRIER',         				0, 0),
+
+
 ('City Defense', 'UNITTYPE_NAVAL_MELEE',						  0, 0),
 ('City Defense', 'UNITTYPE_NAVAL_RANGED',						  0, 1), -- Doesn't exist?
 ('City Defense', 'UNITTYPE_CAVALRY',							  0, 3);
@@ -70,7 +77,7 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPercentage) VALUES
 ('City Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 	0, 0.3),
 ('City Defense', 'UNITTYPE_NAVAL_MELEE', 		0, 0),
-('City Defense', 'UNITTYPE_NAVAL', 				0, 0.3),
+('City Defense', 'UNITTYPE_NAVAL', 				0, 0.34),
 ('City Defense', 'UNITTYPE_CIVILIAN_LEADER',	 0, 0.25);
 
 
@@ -86,30 +93,42 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPe
 
 -- CITY NAVAL DEFENCE
 
+-- TODO: Needs second op once quads are available
 
 -- City Naval Defense
 
 UPDATE AiOperationTeams SET InitialStrengthAdvantage = -7 WHERE TeamName = 'City Naval Defense' AND OperationName = 'City Defense'; -- def -5
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
-('City Naval Defense', 'UNITTYPE_NAVAL',  			1, 8);
+('City Naval Defense', 'UNITTYPE_NAVAL',  			2, 8); -- pvs 1
 
-UPDATE OpTeamRequirements SET MinPercentage = 0.5 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_NAVAL'; -- For planes / siege unit, pvs 0.75
+UPDATE OpTeamRequirements SET MinPercentage = 0.6 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_NAVAL'; -- For planes / siege unit, pvs 0.75, 0.5
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES
-('City Naval Defense', 'UNITAI_COMBAT',   							2, 11),
+('City Naval Defense', 'UNITAI_COMBAT',   							2, 10),
 ('City Naval Defense', 'UNITTYPE_NUCLEAR',   						0, 0), -- pvs 2, testing 0
-('City Naval Defense', 'UNITTYPE_SIEGE',  							 0, 1),
-('City Naval Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 					  0, 0),
+('City Naval Defense', 'UNITTYPE_SIEGE',  							 0, 1), -- for bombers
+('City Naval Defense', 'UNITTYPE_SIEGE_SUPPORT',  					 0, 0),
+
+('City Naval Defense', 	'UNITTYPE_BOMBARD',  					     0, 0), -- no Siege Equipment
+
+('City Naval Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 					 0, 0),
 ('City Naval Defense', 'UNITTYPE_AIR',     							0, 2),
 ('City Naval Defense', 'UNITTYPE_AIR_SIEGE',    					0, 0);
+
+-- Naval Ranged
+INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber, MinPercentage, MaxPercentage) VALUES
+('City Naval Defense', 'UNITTYPE_NAVAL_MELEE',					0, 			3,			0,				 0.34),
+('City Naval Defense', 'UNITTYPE_NAVAL_RANGED',				    1, 			8,			0.5, 			  1); 
+
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinPercentage, MaxPercentage) VALUES
 ('City Naval Defense', 'UNITTYPE_ANTIAIR_SUPPORT', 	0, 0),
 ('City Naval Defense', 'UNITTYPE_CIVILIAN_LEADER',	 0, 0.25);
 
-
-UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 7 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_MELEE'; 
+-- Max Melee
+UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 3 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_MELEE'; 
+UPDATE OpTeamRequirements SET MaxPercentage = 0.5 WHERE TeamName = 'City Naval Defense' AND AiType = 'UNITTYPE_MELEE'; 
 
 
 /*
@@ -122,7 +141,7 @@ UPDATE OpTeamRequirements SET MinNumber = 0, MaxNumber = 7 WHERE TeamName = 'Cit
 
 -- Settle City Team
 
-UPDATE AiOperationTeams SET InitialStrengthAdvantage = -1, OngoingStrengthAdvantage = 0.1 WHERE TeamName = 'Settle City Team' AND OperationName = 'Settle New City';
+UPDATE AiOperationTeams SET InitialStrengthAdvantage = -5, OngoingStrengthAdvantage = -5 WHERE TeamName = 'Settle City Team' AND OperationName = 'Settle New City'; -- pvs -1, 0.1
 
 
 
@@ -132,7 +151,10 @@ UPDATE AiOperationTeams SET InitialStrengthAdvantage = -2, OngoingStrengthAdvant
 
 INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber) VALUES 
 ('Naval Superiority Force', 'UNITTYPE_LAND_COMBAT', 0, 0), 
-('Naval Superiority Force', 'UNITTYPE_AIR',         0, 0), 
+('Naval Superiority Force', 'UNITTYPE_AIR',         0, 0),
+
+('Naval Superiority Force', 'UNITTYPE_RH_CARRIER',    0, 0),
+
 ('Naval Superiority Force', 'UNITTYPE_NUCLEAR',   0, 0),
 ('Naval Superiority Force', 'UNITTYPE_AIR_SIEGE',   0, 0); 
 
@@ -172,6 +194,9 @@ INSERT OR IGNORE INTO OpTeamRequirements (TeamName, AiType, MinNumber, MaxNumber
 ('Naval Sup Melee Force', 'UNITTYPE_RANGED',      0, 4),
 ('Naval Sup Melee Force', 'UNITTYPE_CIVILIAN_LEADER',  0, 1),
 ('Naval Sup Melee Force', 'UNITTYPE_NUCLEAR',  0, 0),
+
+('Naval Sup Melee Force', 'UNITTYPE_RH_CARRIER',    0, 0),
+
 ('Naval Sup Melee Force', 'UNITTYPE_AIR',         0, 0), 
 ('Naval Sup Melee Force', 'UNITTYPE_AIR_SIEGE',   0, 0),
 ('Naval Sup Melee Force', 'UNITTYPE_LAND_COMBAT', 0, 0); 

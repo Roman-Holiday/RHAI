@@ -119,6 +119,89 @@ VALUES
 
 
 
+------------------------------------------------------
+-- Scout Strat
+
+-- Update RequirementSets table
+INSERT OR IGNORE INTO RequirementSets 
+		(RequirementSetId, RequirementSetType)
+VALUES
+		('RH_AT_WAR_REQ_S', 'REQUIREMENTSET_TEST_ALL');
+
+-- Update RequirementSetRequirements table
+INSERT OR IGNORE INTO RequirementSetRequirements 
+		(RequirementSetId, RequirementId)
+VALUES
+		('RH_AT_WAR_REQ_S', 'REQUIRES_PLAYER_IS_AT_WAR'),
+		('RH_AT_WAR_REQ_S', 'REQUIRES_PLAYER_IS_AI');
+
+
+
+-- TraitModifiers table for RH_NO_SCOUT_WAR
+INSERT OR IGNORE INTO	TraitModifiers	
+			(TraitType, ModifierId) 
+VALUES
+			('TRAIT_LEADER_MAJOR_CIV', 'RH_NO_SCOUT_WAR');
+
+-- Modifiers table for RH_NO_SCOUT_WAR
+INSERT OR IGNORE INTO	Modifiers	
+			(ModifierId, ModifierType, SubjectRequirementSetId)
+VALUES		
+			('RH_NO_SCOUT_WAR', 'MODIFIER_PLAYER_UNIT_BUILD_DISABLED', 'RH_AT_WAR_REQ_S');
+
+-- ModifierArguments table for RH_NO_SCOUT_WAR
+INSERT OR IGNORE INTO	ModifierArguments	
+			(ModifierId, Name, Value)
+VALUES		
+			('RH_NO_SCOUT_WAR', 'UnitType', 'UNIT_SCOUT');
+
+
+-------------------------------------
+
+-- Disable Scout after TECH_ARCHERY is researched
+
+INSERT OR IGNORE INTO	TraitModifiers	
+			(TraitType,					ModifierId)
+VALUES		('TRAIT_LEADER_MAJOR_CIV',	'RH_NO_SCOUT_LATE');
+
+-- Modifiers table to disable the Scout after researching Archery
+INSERT OR IGNORE INTO	Modifiers	
+			(ModifierId, ModifierType, SubjectRequirementSetId)
+VALUES		
+			('RH_NO_SCOUT_LATE', 'MODIFIER_PLAYER_UNIT_BUILD_DISABLED', 'RH_HAS_TECH_ARCHERY_REQ_S');
+
+-- ModifierArguments table for the Scout unit
+INSERT OR IGNORE INTO	ModifierArguments	
+			(ModifierId, Name, Value)
+VALUES		
+			('RH_NO_SCOUT_LATE', 'UnitType', 'UNIT_SCOUT');
+
+-- RequirementSets table for Archery
+INSERT OR IGNORE INTO RequirementSets 
+		(RequirementSetId, RequirementSetType)
+VALUES
+		('RH_HAS_TECH_ARCHERY_REQ_S', 'REQUIREMENTSET_TEST_ALL');
+
+-- RequirementSetRequirements table for Archery
+INSERT OR IGNORE INTO RequirementSetRequirements 
+		(RequirementSetId, RequirementId)
+VALUES
+		('RH_HAS_TECH_ARCHERY_REQ_S', 'RH_ARCHERY_REQ'),
+		('RH_HAS_TECH_ARCHERY_REQ_S', 'REQUIRES_PLAYER_IS_AI');
+
+-- Requirements table for Archery
+INSERT OR IGNORE INTO Requirements
+		(RequirementId, RequirementType)
+VALUES
+		('RH_ARCHERY_REQ', 'REQUIREMENT_PLAYER_HAS_TECHNOLOGY');
+
+-- RequirementArguments table to specify Archery technology
+INSERT OR IGNORE INTO RequirementArguments
+		(RequirementId, Name, Value)
+VALUES
+		('RH_ARCHERY_REQ', 'TechnologyType', 'TECH_ARCHERY');
+
+
 --------------------------------------------------------------------------------------------------------------------------
 -- Disable Farms on Hills (for AI) -- Production is far better for AI
 
@@ -453,7 +536,7 @@ VALUES
 
 UPDATE AiFavoredItems SET Value = 1 WHERE ListType = 'DefaultSavings' AND Item = 'SAVING_GREAT_PEOPLE';
 UPDATE AiFavoredItems SET Value = 3 WHERE ListType = 'DefaultSavings' AND Item = 'SAVING_PLOTS';
-UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultSavings' AND Item = 'SAVING_UNITS';
+UPDATE AiFavoredItems SET Value = 3 WHERE ListType = 'DefaultSavings' AND Item = 'SAVING_UNITS'; -- pvs 4, may affect upgrades
 UPDATE AiFavoredItems SET Value = 2 WHERE ListType = 'DefaultSavings' AND Item = 'SAVING_SLUSH_FUND';
 
 -- pvs 1, 3, 3, 4
@@ -624,7 +707,7 @@ VALUES		('AI_ARMY_UPGRADE_RESOURCE_DISCOUNT',	'MODIFIER_PLAYER_ADJUST_UNIT_UPGRA
 
 REPLACE INTO ModifierArguments
 			(ModifierId, Name, Value)
-VALUES		('AI_ARMY_UPGRADE_RESOURCE_DISCOUNT', 'Amount', 35);
+VALUES		('AI_ARMY_UPGRADE_RESOURCE_DISCOUNT', 'Amount', 90); -- pvs 35
 
 
 
@@ -639,7 +722,7 @@ VALUES		('RH_AI_ARMY_UPGRADE_ENCOURAGE',	'MODIFIER_PLAYER_ADJUST_UNIT_UPGRADE_DI
 
 REPLACE INTO ModifierArguments
 			(ModifierId, Name, Value)
-VALUES		('RH_AI_ARMY_UPGRADE_ENCOURAGE', 'Amount', 95); -- pvs 50, 80, 95
+VALUES		('RH_AI_ARMY_UPGRADE_ENCOURAGE', 'Amount', 97); -- pvs 50, 80, 95
 
 
 

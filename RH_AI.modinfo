@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mod id="2501be3e-9780-4e9f-9506-4ff71cf076cb" version="14">
   <Properties>
-    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.235 Discord Beta[ENDCOLOR]</Name>
+    <Name>[COLOR:ResScienceLabelCS]RomanHoliday's AI Rework v4.33 Patreon Beta[ENDCOLOR]</Name>
     <Description>------------------------------------[NEWLINE]There's an AI System in the Game, says Shirk. ... it's called a [COLOR:ResScienceLabelCS]"Mayhem Level"[ENDCOLOR][NEWLINE]For Civ Chat, Feedback and Suggestions Use the RomanHoliday AI Discord! (Link on Steam Page).[NEWLINE]Enjoy! ;) </Description>
     <Teaser>Thanks for Supporting the Mod!! It's Big Time Now.</Teaser>
     <SupportsMultiplayer>1</SupportsMultiplayer>
@@ -204,6 +204,30 @@
 		</Criteria>
 
 
+		<Criteria id="RH_ONLINE_SPEED">
+
+			<ConfigurationValueMatches>
+				<ConfigurationId>GAME_SPEED_TYPE</ConfigurationId>
+				<Group>Game</Group>
+				<Value>GAMESPEED_ONLINE</Value>
+			</ConfigurationValueMatches>
+
+		</Criteria>
+
+		<Criteria id="RH_QUICK_SPEED">
+
+			<ConfigurationValueMatches>
+				<ConfigurationId>GAME_SPEED_TYPE</ConfigurationId>
+				<Group>Game</Group>
+				<Value>GAMESPEED_QUICK</Value>
+			</ConfigurationValueMatches>
+
+		</Criteria>
+
+
+
+		<!-- Options Criteria -->
+
 		<Criteria id="STANDARD_DIPLO_OFFSET">
 			<ConfigurationValueMatches>
 				<ConfigurationId>RH_AI_SETTINGS</ConfigurationId>
@@ -259,7 +283,17 @@
 				<Value>1</Value>
 			</ConfigurationValueMatches>
 		</Criteria>
-
+		
+		<Criteria id="RH_AI_EXTRA_VISION">
+			<ConfigurationValueMatches>
+				<ConfigurationId>RH_AI_CONFIG_TACTICAL_KNOWLEDGE</ConfigurationId>
+				<Group>Game</Group>
+				<Value>1</Value>
+			</ConfigurationValueMatches>
+		</Criteria>		
+		
+		
+		
 		<Criteria id="RH_WILDW_COMMUNITY_EXTENSION_ENABLED">
 			<ModInUse>3351473b-0746-417a-a618-2b66a04d8f3d</ModInUse>
 		</Criteria>
@@ -452,6 +486,19 @@
 		</UpdateDatabase>
 
 
+		<!-- Extra Vision -->
+		<UpdateDatabase id="RH_AI_EXTRA_VISION_MODE" criteria="RH_AI_EXTRA_VISION">
+			<Properties>
+				<LoadOrder>609</LoadOrder>
+			</Properties>
+			<File>core/Other/Vision_Changes/RH_Extra_Military_Sight.sql</File>
+		</UpdateDatabase>
+
+
+
+
+
+
 		<UpdateDatabase id="RH_AI_MAIN_2">
 			<Properties>
 				<LoadOrder>610</LoadOrder>
@@ -482,6 +529,7 @@
 			<File>core/Ops/Ops8.sql</File>
 
 			<File>core/Ops/Settle.sql</File>
+			<File>core/Ops/SettlementOpStrategy.sql</File>
 
 		</UpdateDatabase>
 
@@ -625,7 +673,10 @@
 			<File>core/Leaders/Modded/Italy.sql</File>
 		</UpdateDatabase>
 
+
+
 		<!-- DLC Leader Criteria -->
+		
 		<UpdateDatabase id="RH_AI_Poland" criteria="DLC_Poland">
 			<Properties>
 				<LoadOrder>700</LoadOrder>
@@ -722,6 +773,7 @@
 			<File>core/Other/Mod_Support/Monopolies_Plus_Tycoons_Investors_Support.sql</File>
 		</UpdateDatabase>
 
+
 		<!-- Deity ++ -->
 
 		<UpdateDatabase id="RH_AI_DEITY_PLUS_SUPPORT" criteria="DEITY_PLUS_SUPPORT">
@@ -754,11 +806,32 @@
 			<File>core/Other/Deity_Plus_No_Starting_Units.sql</File>
 		</UpdateDatabase>
 
+
+		<!-- Game Speed Support -->
+		
+		
+		<UpdateDatabase id="RH_AI_ONLINE_SPEED" criteria="RH_ONLINE_SPEED">
+			<Properties>
+				<LoadOrder>820</LoadOrder>
+			</Properties>
+			<File>core/Other/Game_Speed_Support/RH_Online_Speed.sql</File>
+		</UpdateDatabase>
+
+		<UpdateDatabase id="RH_AI_QUICK_SPEED" criteria="RH_QUICK_SPEED">
+			<Properties>
+				<LoadOrder>821</LoadOrder>
+			</Properties>
+			<File>core/Other/Game_Speed_Support/RH_Quick_Speed.sql</File>
+		</UpdateDatabase>		
+
+
+
+
 		<!-- RH Gamemodes -->
 
 		<UpdateDatabase id="RH_AI_ROM_ENABLED" criteria="RH_AI_REVIVAL_OF_MESOPOTAMIA_GAMEMODE_ENABLED">
 			<Properties>
-				<LoadOrder>817</LoadOrder>
+				<LoadOrder>825</LoadOrder>
 			</Properties>
 			<File>core/Other/RH_Gamemodes/RH_ROM.sql</File>
 			<File>core/Other/RH_Gamemodes/RH_ROM.xml</File>
@@ -766,7 +839,7 @@
 
 		<UpdateDatabase id="RH_AI_EXTRA_STRATEGICS" criteria="RH_AI_EXTRA_STRATEGICS_ENABLED">
 			<Properties>
-				<LoadOrder>818</LoadOrder>
+				<LoadOrder>830</LoadOrder>
 			</Properties>
 			<File>core/Other/RH_Gamemodes/Extra_Strategics/RH_Extra_Strategics.sql</File>
 		</UpdateDatabase>
@@ -876,6 +949,14 @@
 				<LoadOrder>10950</LoadOrder>
 				<LuaContext>ReportScreen</LuaContext>
 				<LuaReplace>core/UI/ReportScreen_overrides_XP2.lua</LuaReplace>
+			</Properties>
+		</ReplaceUIScript>
+
+		<ReplaceUIScript id="ReplaceUI_PlotYield">
+			<Properties>
+				<LoadOrder>11100</LoadOrder>
+				<LuaContext>PlotInfo</LuaContext>
+				<LuaReplace>core/UI/PlotInfo_overrides.lua</LuaReplace>
 			</Properties>
 		</ReplaceUIScript>
 
@@ -996,9 +1077,6 @@
 	  <!-- Slothoth's Tech Tree Shuffle Mode Fix -->
 	  <File>core/Other/Gamemode_Support/RH_Tree_Randomizer.sql</File>
 	  
-	  <!-- RH -->
-	  <File>core/Other/RH_Gamemodes/Early_Agg.sql</File>
-	  
 	  <!-- Ops -->
 	  
       <File>core/Ops/Settle.sql</File>
@@ -1015,6 +1093,7 @@
       <File>core/Ops/Ops6.sql</File>
       <File>core/Ops/Ops7.sql</File>
       <File>core/Ops/Ops8.sql</File>	  
+	  <File>core/Ops/SettlementOpStrategy.sql</File>
 	  
 	  <!-- Other -->
       <File>core/Other/May.sql</File>
@@ -1032,14 +1111,26 @@
       <File>core/Strategies/New_Strategies.xml</File>
 	  <File>core/Other/Mod_Support/Monopolies_Plus_Tycoons_Investors_Support.sql</File>
 	  <File>core/Other/Parameter_Setup.sql</File>
+	  
+	  <!-- Options -->
 	  <File>core/Other/Diplomacy_Offset/Standard_Offset.sql</File>
 	  <File>core/Other/Diplomacy_Offset/Lower_Offset.sql</File>
 	  <File>core/Other/Diplomacy_Offset/Lowest_Offset.sql</File>
+	  
+	  <File>core/Other/RH_Gamemodes/Early_Agg.sql</File>
+	  <File>core/Other/Vision_Changes/RH_Extra_Military_Sight.sql</File>
+	  
 	  <File>core/Other/RH_Gamemodes/RH_ROM.sql</File>
 	  <File>core/Other/RH_Gamemodes/RH_ROM.xml</File>
 	  <File>core/Other/RH_Gamemodes/Extra_Strategics/RH_Extra_Strategics.sql</File>
+	  
+	  
 	  <File>core/Other/RH_AI_Loc_Text.xml</File>
 	  <File>core/Other/Misc.sql</File>
+
+	  <!-- Game Speed Support -->
+	  <File>core/Other/Game_Speed_Support/RH_Online_Speed.sql</File>
+	  <File>core/Other/Game_Speed_Support/RH_Quick_Speed.sql</File>
 
 		<!-- UI_hiders -->
 		<File>core/UI/ResearchChooser_overrides.lua</File>
@@ -1054,6 +1145,7 @@
 
 		<File>core/UI/ToolTipHelper.lua</File>
 		<File>core/UI/ToolTip_Adjust.lua</File>
+		<File>core/UI/PlotInfo_overrides.lua</File>
 
 		<!-- ReportScreen -->
 		<File>core/UI/ReportScreenSupport.lua</File>

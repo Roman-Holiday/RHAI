@@ -114,7 +114,13 @@
 		<Row StrategyType="STRATEGY_DEITY" ConditionFunction="Is Not Major" Disqualifier="true"/>
 		
 		<Row StrategyType="STRATEGY_UNDER_ATTACK" ConditionFunction="Cities Under Threat" ThresholdValue="1" Forbidden="true" />
+		
+		<Row StrategyType="STRATEGY_UNDER_ATTACK" ConditionFunction="Has Tech Lead" ThresholdValue="10" Forbidden="true" />
+			
 		<Row StrategyType="STRATEGY_AT_WAR" ConditionFunction="Major Civ Wars" ThresholdValue="1" Forbidden="true" />
+
+		<Row StrategyType="STRATEGY_AT_WAR" ConditionFunction="Leads Military" ThresholdValue="20" Forbidden="true" />
+		<Row StrategyType="STRATEGY_AT_WAR" ConditionFunction="Leads Score" ThresholdValue="20" Forbidden="true" />
 
 
 		<!--Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" ConditionFunction="Cities Under Threat" ThresholdValue="2" />
@@ -208,6 +214,9 @@
 		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_TACTICS"/>
 		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_OPERATIONS"/>
 		
+		<Row StrategyType="STRATEGY_DEITY" ListType="DEITY_SETTLEMENT_VALUE"/>
+		
+
 
 		<!--Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" ListType="UNDER_HEAVY_SIEGE_OPERATIONS"/>
 		<Row StrategyType="STRATEGY_UNDER_HEAVY_SIEGE" ListType="UNDER_HEAVY_SIEGE_PSEUDOS"/-->
@@ -293,6 +302,7 @@
 		<Row ListType="DEITY_SCOUT_USES" />
 		<Row ListType="DEITY_YIELDS" />
 		<Row ListType="DEITY_OPERATIONS" />
+		<Row ListType="DEITY_SETTLEMENT_VALUE" />		
 		
 		<!-- Not used -->
 		
@@ -373,6 +383,10 @@
 		
 		<Row ListType="DEITY_OPERATIONS" System="AiOperationTypes"/>
 		<Row ListType="DEITY_TACTICS" System="Tactics"/> 
+		
+		<Row ListType="DEITY_SETTLEMENT_VALUE" System="SettlementPreferences"/> 
+		
+
 
 	</AiLists>
 
@@ -399,7 +413,7 @@
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="5"/> 
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="15"/> <!-- pvs 5 -->
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="10"/> <!-- pvs 5, 8 -->
-	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="15"/> <!-- pvs 5, 9 -->
+	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="16"/> <!-- pvs 5, 9 -->
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_RESOURCE_LUXURY" Value="-15"/> 
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_IMPROVEMENT" Value="-20"/> 
 	<Row ListType="STRATEGY_AT_WAR_PSEUDOS" Item="PSEUDOYIELD_WONDER" Value="-80"/> 
@@ -412,7 +426,7 @@
 	<Row ListType="STRATEGY_AT_WAR_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"		 Value="1"/>
 	<!--Row ListType="STRATEGY_AT_WAR_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="3"/-->
 		
-	<Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_RH_DEFENSE_HP" Value="1"/> <!-- Favored="true" -->
+	<!--Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_RH_DEFENSE_HP" Value="1"/--> <!-- Favored="true" -->
 	<Row ListType="STRATEGY_UNDER_ATTACK_OPERATIONS" Item="OP_SETTLE"  Value="-1"/>
 
 
@@ -559,7 +573,7 @@
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNITS" Item="UNIT_CATAPULT"				 Value="-99"/>  <!-- pvs -40 -->
 	
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_HEAVY_CAVALRY"		 Value="30"/>
-	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"				 Value="85"/> <!-- pvs 10, 45, 95 -->
+	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_RANGED"				 Value="75"/> <!-- pvs 10, 45, 95, 85 -->
 	<Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_SIEGE"				 Value="-100"/> <!-- pvs -45, -95 --> <!-- May include bombers due to class changes, but unlikely -->
 	
 	<!--Row ListType="STRATEGY_UNDER_ATTACK_UNIT_BUILDS" Item="PROMOTION_CLASS_AIR_FIGHTER" Value="5"/--> 
@@ -880,6 +894,8 @@
 	<!--Row ListType="DEITY_SPECIALISE" Item="BUILD_CITY_DEFENSES" Favored="true" Value="10"/-->
 	
 	
+	<Row ListType="DEITY_SETTLEMENT_VALUE" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="100"/>	<!-- Extra on High Diff, pvs 50 -->
+	
 	<Row ListType="DEITY_SCOUT_USES" Item="DEFAULT_LAND_SCOUTS" Value="100"/>
 	<Row ListType="DEITY_SCOUT_USES" Item="LAND_SCOUTS_PER_SECONDARY_REGION" Value="50"/>
 	<Row ListType="DEITY_SCOUT_USES" Item="DEFAULT_NAVAL_SCOUTS" 			Value="100"/>
@@ -957,7 +973,7 @@
 		<Row BuildingType="BUILDING_GOV_WIDE" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
 		<Row BuildingType="BUILDING_GOV_CONQUEST" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
 		
-		<Row BuildingType="BUILDING_GOV_FAITH" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
+		<!--Row BuildingType="BUILDING_GOV_FAITH" ModifierId="RH_GRANT_ONE_INFLUENCE"/-->
 		<Row BuildingType="BUILDING_GOV_CITYSTATES" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
 		<Row BuildingType="BUILDING_GOV_SPIES" ModifierId="RH_GRANT_ONE_INFLUENCE"/>
 		
@@ -968,7 +984,13 @@
 		<Row BuildingType="BUILDING_GOV_SCIENCE" ModifierId="RH_GPP_SCI_POINTS"/>
 		<Row BuildingType="BUILDING_GOV_CULTURE" ModifierId="RH_GPP_ART_POINTS"/> <!-- pvs 0-->
 		
+		<Row BuildingType="BUILDING_ORACLE" ModifierId="RH_GPP_SCI_POINTS"/>
+		<Row BuildingType="BUILDING_ORACLE" ModifierId="RH_GPP_ART_POINTS"/>
+		
 		<Row BuildingType="BUILDING_COLOSSEUM" ModifierId="RH_GRANT_TWO_INFLUENCE"/>
+		<Row BuildingType="BUILDING_COLOSSEUM" ModifierId="RH_GPP_SCI_POINTS"/>		
+		<Row BuildingType="BUILDING_COLOSSEUM" ModifierId="RH_GPP_ART_POINTS"/>		
+		
 		<Row BuildingType="BUILDING_QUEENS_BIBLIOTHEQUE" ModifierId="RH_GRANT_TWO_INFLUENCE"/> <!-- needs 2 if others used-->
 		<!--Row BuildingType="BUILDING_MAHABODHI_TEMPLE" ModifierId="RH_GRANT_ONE_INFLUENCE"/> <!-- Dp victory -->
 		<!--Row BuildingType="BUILDING_VENETIAN_ARSENAL" ModifierId="RH_GRANT_ONE_INFLUENCE"/--> <!-- pvs 2 -->
@@ -1134,13 +1156,13 @@
 		<Row>
 			<ModifierId>RH_GPP_ART_POINTS</ModifierId>
 			<Name>Amount</Name>
-			<Value>4</Value> <!-- pvs 14, AI goes for it anyway -->
+			<Value>6</Value> <!-- pvs 14, 4 AI goes for it anyway -->
 		</Row>
 	
 		<Row>
 			<ModifierId>RH_GRANT_TWO_INFLUENCE</ModifierId>
 			<Name>Amount</Name>
-			<Value>9</Value>
+			<Value>15</Value> <!-- pvs 9 -->
 		</Row>
 		
 		<Row>

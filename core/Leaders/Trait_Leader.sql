@@ -66,6 +66,8 @@ INSERT OR IGNORE INTO AiLists (ListType, LeaderType, System) VALUES
 		<Row ListType="ExpansionistCitySettlement" Item="SETTLEMENT_DECAY_AMOUNT" Value="3"/>
 		<Row ListType="ExpansionistCitySettlement" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="50"/>
 		<Row ListType="ExpansionistCitySettlement" Item="SETTLEMENT_CITY_VALUE_MULTIPLIER" Value="1"/>
+		
+
 */
 
 
@@ -1119,7 +1121,11 @@ INSERT OR IGNORE INTO AiLists (ListType, LeaderType, System) VALUES
 
 
 REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
-('DesertSettlement', 'Specific Feature', 			0, 15, 'FEATURE_OASIS', 'LOC_SETTLEMENT_RECOMMENDATION_FEATURES'); -- pvs 12
+('DesertSettlement', 'Specific Feature', 			0, 35, 'FEATURE_OASIS', 'LOC_SETTLEMENT_RECOMMENDATION_FEATURES'), -- pvs 12
+('DesertSettlement', 'Specific Feature', 			0, 25, 'FEATURE_FLOODPLAINS', 'LOC_SETTLEMENT_RECOMMENDATION_FEATURES'); -- Desert Only
+
+
+
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES

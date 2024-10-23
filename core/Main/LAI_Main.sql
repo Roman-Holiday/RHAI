@@ -7,9 +7,9 @@
 --------------------------------------------------------------------------------------------------------------------------
 
 UPDATE PseudoYields SET DefaultValue = 90 WHERE PseudoYieldType = 'PSEUDOYIELD_IMPROVEMENT'; --  3.0 -- pvs 10, 16, 18, 40
-UPDATE PseudoYields SET DefaultValue = 10 WHERE PseudoYieldType = 'PSEUDOYIELD_INFLUENCE'; -- 0.5 -- pvs 11, 10, 4, 5, 7
+UPDATE PseudoYields SET DefaultValue = 14 WHERE PseudoYieldType = 'PSEUDOYIELD_INFLUENCE'; -- 0.5 -- pvs 11, 10, 4, 5, 7, 10
 UPDATE PseudoYields SET DefaultValue = 3.8 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_ARCHAEOLOGIST'; --  4.0
-UPDATE PseudoYields SET DefaultValue = 1.6 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_COMBAT'; -- 1.0 -- pvs 1.15, 1.14, 1.13, 1.12
+UPDATE PseudoYields SET DefaultValue = 1.5 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_COMBAT'; -- 1.0 -- pvs 1.15, 1.14, 1.13, 1.12
 UPDATE PseudoYields SET DefaultValue = 3.5 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_NAVAL_COMBAT'; -- 1.0 previously 1.27, 1.3, 1.4, 1.45, 1.6, 1.75, 1.85, 1.95, 2.05, 2.3, 2.2, 2.5, 3.1
 UPDATE PseudoYields SET DefaultValue = 11.0 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_AIR_COMBAT'; -- 4.0 previously 5, 5.5, 4.9, 5.2, 5.5, 6.4, 7.5 (ai not building enough planes at lower)
 UPDATE PseudoYields SET DefaultValue = 0.85 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_EXPLORER'; -- 1.0
@@ -17,11 +17,11 @@ UPDATE PseudoYields SET DefaultValue = 1.7 WHERE PseudoYieldType = 'PSEUDOYIELD_
 UPDATE PseudoYields SET DefaultValue = 0.76 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_RELIGIOUS'; -- 1.0, pvs 0.73
 UPDATE PseudoYields SET DefaultValue = 11 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_TRADE'; -- 1.0, 6.5
 UPDATE PseudoYields SET DefaultValue = 78.0 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_SPY'; -- 20.0 -- pvs 21, 31, 36
-UPDATE PseudoYields SET DefaultValue = 14 WHERE PseudoYieldType = 'PSEUDOYIELD_DISTRICT'; -- 8.0, pvs 7, 8, 9, 11.5, 12.5, 15, 20, 25, 15, 14, 10
+UPDATE PseudoYields SET DefaultValue = 30 WHERE PseudoYieldType = 'PSEUDOYIELD_DISTRICT'; -- 8.0, pvs 7, 8, 9, 11.5, 12.5, 15, 20, 25, 15, 14, 10
 UPDATE PseudoYields SET DefaultValue = 0.95 WHERE PseudoYieldType = 'PSEUDOYIELD_WONDER'; -- 2.0 -- pvs 0.49
 --UPDATE PseudoYields SET DefaultValue = 0.25 WHERE PseudoYieldType = 'PSEUDOYIELD_DIPLOMATIC_BONUS'; --  was +0.01 to balance other diplo modifiers (pvs +0.02)
-UPDATE PseudoYields SET DefaultValue = 7.0 WHERE PseudoYieldType = 'PSEUDOYIELD_NUCLEAR_WEAPON'; -- 25.0 - Pvs 39, 52, 50, 47, 46, 45, 33, 20 (test)
-UPDATE PseudoYields SET DefaultValue = 3.2 WHERE PseudoYieldType = 'PSEUDOYIELD_RESOURCE_LUXURY'; -- 1.5 -- 100 In Monopolies mode lol, pvs 7, testing 8 (sets a floor for selling them off) -- pvs 42
+UPDATE PseudoYields SET DefaultValue = 0.7 WHERE PseudoYieldType = 'PSEUDOYIELD_NUCLEAR_WEAPON'; -- 25.0 - Pvs 39, 52, 50, 47, 46, 45, 33, 20 (test)
+UPDATE PseudoYields SET DefaultValue = 1.0 WHERE PseudoYieldType = 'PSEUDOYIELD_RESOURCE_LUXURY'; -- 1.5 -- 100 In Monopolies mode lol, pvs 7, testing 8 (sets a floor for selling them off) -- pvs 42, 1.8
 UPDATE PseudoYields SET DefaultValue = 110.0 WHERE PseudoYieldType = 'PSEUDOYIELD_SPACE_RACE'; -- 100.0, pvs 120
 --UPDATE PseudoYields SET DefaultValue = 5 WHERE PseudoYieldType = 'PSEUDOYIELD_CIVIC'; -- 5
 UPDATE PseudoYields SET DefaultValue = 35 WHERE PseudoYieldType = 'PSEUDOYIELD_TECHNOLOGY'; -- 5, pvs 6, 11, 12, 28
@@ -45,17 +45,17 @@ UPDATE PseudoYields SET DefaultValue = -0.38 WHERE PseudoYieldType = 'PSEUDOYIEL
 		<Row PseudoYieldType="PSEUDOYIELD_GOVERNOR" DefaultValue="2"/>
 */
 
-UPDATE PseudoYields SET DefaultValue = 18 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_SCULPTURE'; -- 10 - 3/3 - Doubled with theme
-UPDATE PseudoYields SET DefaultValue = 18 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_PORTRAIT'; -- 10 - 3/3 - Doubled with theme
-UPDATE PseudoYields SET DefaultValue = 18 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_LANDSCAPE'; -- 10 - 3/3 - Doubled with theme
-UPDATE PseudoYields SET DefaultValue = 18 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_RELIGIOUS'; -- 10 ART - 3/3 - Doubled with theme
-UPDATE PseudoYields SET DefaultValue = 18 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_ARTIFACT'; -- 10 3/3 - Doubled with theme
-UPDATE PseudoYields SET DefaultValue = 8 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_WRITING'; -- 10 - 2/4 Isn't themed, pvs 8.5, 12
+UPDATE PseudoYields SET DefaultValue = 7 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_SCULPTURE'; -- 10 - 3/3 - Doubled with theme
+UPDATE PseudoYields SET DefaultValue = 7 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_PORTRAIT'; -- 10 - 3/3 - Doubled with theme
+UPDATE PseudoYields SET DefaultValue = 7 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_LANDSCAPE'; -- 10 - 3/3 - Doubled with theme
+UPDATE PseudoYields SET DefaultValue = 7 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_RELIGIOUS'; -- 10 ART - 3/3 - Doubled with theme
+UPDATE PseudoYields SET DefaultValue = 7 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_ARTIFACT'; -- 10 3/3 - Doubled with theme
+UPDATE PseudoYields SET DefaultValue = 6 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_WRITING'; -- 10 - 2/4 Isn't themed, pvs 8.5, 12
 
-UPDATE PseudoYields SET DefaultValue = 17 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_MUSIC'; -- 10 -4/4 Isn't themed
-UPDATE PseudoYields SET DefaultValue = 3 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_RELIC'; -- 10 Base output 4 culture, 8 Tourism
+UPDATE PseudoYields SET DefaultValue = 7 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_MUSIC'; -- 10 -4/4 Isn't themed
+UPDATE PseudoYields SET DefaultValue = 1 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_RELIC'; -- 10 Base output 4 culture, 8 Tourism
 
-UPDATE PseudoYields SET DefaultValue = 19 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_PRODUCT';
+UPDATE PseudoYields SET DefaultValue = 8 WHERE PseudoYieldType = 'PSEUDOYIELD_GREATWORK_PRODUCT';
 
 -- (multiplier to the sum of the sqrt of each city population. Value increases the priority accordingly)
 
@@ -65,7 +65,7 @@ UPDATE PseudoYields SET DefaultValue = 19 WHERE PseudoYieldType = 'PSEUDOYIELD_G
 -- City
 
 
-UPDATE PseudoYields SET DefaultValue = 9850 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_BASE'; -- 450 pvs 820, 790, 1150
+UPDATE PseudoYields SET DefaultValue = 999550 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_BASE'; -- 450 pvs 820, 790, 1150
 UPDATE PseudoYields SET DefaultValue = 2 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_DEFENSES'; -- 200 --pvs 52, 57, 60, 35
 UPDATE PseudoYields SET DefaultValue = 3 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_DEFENDING_UNITS'; -- 80, pvs 95, 94, 91
 UPDATE PseudoYields SET DefaultValue = -450 WHERE PseudoYieldType = 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL'; -- 200 pvs -210, -240, -390
@@ -77,21 +77,21 @@ UPDATE PseudoYields SET DefaultValue = 6 WHERE PseudoYieldType = 'PSEUDOYIELD_CI
 -- GPP Bias
 
 UPDATE PseudoYields SET DefaultValue =  0.8 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ADMIRAL'; -- 		def 0.5 (for all gpp) -- pvs 0.5
-UPDATE PseudoYields SET DefaultValue =  0.7 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ARTIST'; -- 		0.5
-UPDATE PseudoYields SET DefaultValue =  0.95 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ENGINEER'; -- 	0.5 -- pvs 0.7, 0.8 AI doesn't focus enough
-UPDATE PseudoYields SET DefaultValue =  12.5 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_GENERAL'; -- 		0.5 -- 0.45, 0.5, 0.55, 0.6, 0.7, 1.05, 2.4, 3.2
+UPDATE PseudoYields SET DefaultValue =  0.8 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ARTIST'; -- 		0.5
+UPDATE PseudoYields SET DefaultValue =  1.05 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ENGINEER'; -- 	0.5 -- pvs 0.7, 0.8 AI doesn't focus enough
+UPDATE PseudoYields SET DefaultValue =  6 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_GENERAL'; -- 		0.5 -- 0.45, 0.5, 0.55, 0.6, 0.7, 1.05, 2.4, 3.2
 UPDATE PseudoYields SET DefaultValue =  0.75 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MERCHANT'; -- 		0.5 -- pvs 0.6, 0.7, 0.85, running to many projects, 0.8
-UPDATE PseudoYields SET DefaultValue =  0.65 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MUSICIAN'; -- 		0.5
+UPDATE PseudoYields SET DefaultValue =  0.7 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MUSICIAN'; -- 		0.5
 UPDATE PseudoYields SET DefaultValue =  2.0 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_PROPHET'; -- 		0.5, 0.6, 0.8, 0.85, 1, 4
-UPDATE PseudoYields SET DefaultValue =  0.95 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_SCIENTIST'; -- 	0.5, 0.8, 0.9	
-UPDATE PseudoYields SET DefaultValue =  0.75 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_WRITER'; -- 		0.5, 0.7
+UPDATE PseudoYields SET DefaultValue =  1.7 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_SCIENTIST'; -- 	0.5, 0.8, 0.9, 0.95, 2	
+UPDATE PseudoYields SET DefaultValue =  1.2 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_WRITER'; -- 		0.5, 0.7
 
 -- Yield Bias
 
-UPDATE AiFavoredItems SET Value = 37 AND Favored=1 WHERE ListType = 'DefaultYieldBias' AND Item = 'YIELD_PRODUCTION'; -- def 25, 27
-UPDATE AiFavoredItems SET Value = 50 AND Favored=1 WHERE ListType = 'DefaultYieldBias' AND Item = 'YIELD_SCIENCE'; -- def 10, pvs 16, 14, 15, 17, 30
-UPDATE AiFavoredItems SET Value = 15 AND Favored=1 WHERE ListType = 'DefaultYieldBias' AND Item = 'YIELD_CULTURE'; -- def 10, 11
-UPDATE AiFavoredItems SET Value = 15 WHERE ListType = 'DefaultYieldBias' AND Item = 'YIELD_GOLD';  -- def 20, pvs 12
+UPDATE AiFavoredItems SET Value = 75 AND Favored=1 WHERE ListType = 'DefaultYieldBias' AND Item = 'YIELD_PRODUCTION'; -- def 25, 27
+UPDATE AiFavoredItems SET Value = 100 AND Favored=1 WHERE ListType = 'DefaultYieldBias' AND Item = 'YIELD_SCIENCE'; -- def 10, pvs 16, 14, 15, 17, 30
+UPDATE AiFavoredItems SET Value = 50 AND Favored=1 WHERE ListType = 'DefaultYieldBias' AND Item = 'YIELD_CULTURE'; -- def 10, 11
+UPDATE AiFavoredItems SET Value = 10 WHERE ListType = 'DefaultYieldBias' AND Item = 'YIELD_GOLD';  -- def 20, pvs 12
 UPDATE AiFavoredItems SET Value = -30 WHERE ListType = 'DefaultYieldBias' AND Item = 'YIELD_FAITH'; -- def -25, pvs -20, -22, -20
 
 -- Yield Food Doesn't exist in Default Yield Bias

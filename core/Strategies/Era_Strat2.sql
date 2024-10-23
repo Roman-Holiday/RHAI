@@ -40,8 +40,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('IndustrialYields', 'YIELD_RH_CITY_CENTRE',  1, 750),
 
-('IndustrialYields', 'YIELD_RH_MONARCHY',  		  	 1, 175), -- pvs 60
-('IndustrialYields', 'YIELD_RH_MERCHANT_REPUBLIC',   1, 185),
+('IndustrialYields', 'YIELD_RH_MONARCHY',  		  	 1, 950), -- pvs 60, 125
+('IndustrialYields', 'YIELD_RH_MERCHANT_REPUBLIC',   1, 750),
 
 ('IndustrialYields', 'YIELD_RH_TRADE_TREATY_BAN',  1, 75),
 
@@ -92,6 +92,8 @@ WHERE PseudoYieldType LIKE 'PSEUDOYIELD_GREATWORK_%';
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+('Industrial_Science_PseudoYields', 'PSEUDOYIELD_WONDER',   1, 75), -- New, Press Advantage
+
 ('Industrial_Science_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 60),
 ('Industrial_Science_PseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',   1, 40);
 

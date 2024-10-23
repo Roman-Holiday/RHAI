@@ -1054,29 +1054,35 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 
 
--- RL Expansion Test
+-- RL Under Heavy Attack Test
 
+-- Tested and Working
 
 INSERT OR IGNORE INTO Types (Type, Kind) VALUES
 ('RH_STRATEGY_UNDER_HEAVY_ATTACK',     				'KIND_VICTORY_STRATEGY');
 
 INSERT OR IGNORE INTO Strategies (StrategyType, VictoryType, NumConditionsNeeded) VALUES
-('RH_STRATEGY_UNDER_HEAVY_ATTACK',    		NULL, 2);
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',    		NULL, 1);
 
 
 INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, ThresholdValue, Forbidden) VALUES
 ('RH_STRATEGY_UNDER_HEAVY_ATTACK',      'Cities Under Threat', 					1, 1),
-('RH_STRATEGY_UNDER_HEAVY_ATTACK',      'Major Civ Wars', 						1, 1);
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      'Major Civ Wars', 						1, 1),
+
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      'Has Tech Lead', 						15, 1), -- Don't if in Lead
+
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      'Leads Score', 							10, 1);
+
 
 
 
 INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, ThresholdValue) VALUES
-('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Lags Military',	     40),
+('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Lags Military',	     45);
 
-('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     2),
-('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     3),
-('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     4),
-('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     5);
+--('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     2),
+--('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     3),
+--('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     4),
+--('RH_STRATEGY_UNDER_HEAVY_ATTACK',      				'Cities Under Threat',	     5);
 
 
 --INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, Disqualifier) VALUES
@@ -1137,46 +1143,60 @@ INSERT OR IGNORE INTO Strategy_Priorities (StrategyType, ListType) VALUES
 
 
 
+REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
+('RH_UNDER_HEAVY_ATTACK_Settlement', 'Nearest Friendly City', 	0, -8, NULL, 					'LOC_SETTLEMENT_RECOMMENDATION_NEAREST_CITY'),
+('RH_UNDER_HEAVY_ATTACK_Settlement', 'Resource Class', 			0, 5, 'RESOURCECLASS_STRATEGIC', 'LOC_SETTLEMENT_RECOMMENDATION_STRATEGIC_RESOURCES');
+
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_MILITARY_PRODUCTION', 						1, 750), 
+('RH_UNDER_HEAVY_ATTACK_Operations', 'OP_RH_DEFENSE_HP', 						1, 1); -- 3 in Total
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_MILITARY_PRODUCTION', 						1, 850), 
 ('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_NUCLEAR', 									1, 50), 
-('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_UNDER_ATTACK', 								1, 950), 
-('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_AT_WAR', 									1, 150), 
-('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_PRODUCTION', 								1, 50);
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_UNDER_ATTACK', 								1, 990), 
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_AT_WAR', 									1, 300), 
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_RH_PRODUCTION', 								1, 35);
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
 ('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_SCIENCE', 								 -10),
 
 ('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_CULTURE', 						 		 -40),
-('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_FOOD', 						 			 -50),
-('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_FAITH', 								 -25),
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_FOOD', 						 			 -75),
+('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_FAITH', 								 -35),
 ('RH_UNDER_HEAVY_ATTACK_Yields', 'YIELD_GOLD', 									 -10);
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item,  Favored,  Value) VALUES
-('RH_UNDER_HEAVY_ATTACK_Districts', 'DISTRICT_ENCAMPMENT', 1, 25),
+('RH_UNDER_HEAVY_ATTACK_Districts', 'DISTRICT_ENCAMPMENT', 1, 50),
 ('RH_UNDER_HEAVY_ATTACK_Districts', 'DISTRICT_AERODROME', 1,  0);
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
+
 ('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_ARCHER', 95), 
 ('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_CROSSBOWMAN', 95),
 ('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_FIELD_CANNON', 95),
 ('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_KNIGHT',  15),
-('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_TANK', 	15),
-('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_ARTILLERY', -60),
-('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_ROCKET_ARTILLERY', -50),
-('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_TREBUCHET', -99),
-('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_BOMBARD', -99),
-('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_CATAPULT', -99);
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_TANK', 	15);
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value, Favored) VALUES
+
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_SETTLER',			 -100, 0), 
+
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_ARTILLERY', -75, 		  0),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_ROCKET_ARTILLERY', -75, 0),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_TREBUCHET', -100, 	  0),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_BOMBARD', -100, 		  0),
+('RH_UNDER_HEAVY_ATTACK_Units', 'UNIT_CATAPULT', -100, 		  0);
 
 
-INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
-('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_HEAVY_CAVALRY', 5),
-('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_RANGED', 50),
-('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_SIEGE', -100),
-('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_AIR_BOMBER', 20);
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value, Favored) VALUES
+('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_HEAVY_CAVALRY', 20, 1),
+('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_RANGED', 75,       1),
+('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_SIEGE', -100,      0),
+('RH_UNDER_HEAVY_ATTACK_UnitBuilds', 'PROMOTION_CLASS_AIR_BOMBER', 20,   1);
 
 
 
@@ -1213,22 +1233,29 @@ AND YieldType NOT IN (
 );
 
 
-
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_DISTRICT', 						0, -75),
 ('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_GOVERNOR', 						0, -75),
-('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_INFLUENCE', 					0, -35),
-('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 					0, -35);
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_INFLUENCE', 					0, -40),
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 					0, -40);
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
-('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER', 						1, 25), 
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER', 						1, 27), 
 ('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE', 						1, 15), 
 
-('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_GPP_PROPHET', 								0, -40), 
-('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 					0, -30), 
-('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_UNIT_RELIGIOUS', 							0, -30);
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 								0, -100), 
+
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_GPP_PROPHET', 								0, -75), 
+
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_GPP_GENERAL', 								1, 150), 
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST', 							1, 25), 
+
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS', 					0, -75), 
+
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 					0, -50), 
+('RH_UNDER_HEAVY_ATTACK_PseudoYields', 'PSEUDOYIELD_UNIT_RELIGIOUS', 							0, -40);
 
 

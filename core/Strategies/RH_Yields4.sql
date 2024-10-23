@@ -69,8 +69,17 @@ INSERT OR IGNORE INTO ProjectCompletionModifiers    (ProjectType,		ModifierId)  
 
 
 
+UPDATE ModifierArguments 
+SET Value = 50 
+WHERE ModifierId = 'RH_NUCLEAR_MOD_M' AND Name ='Amount'; -- pvs 110, 65
 
+UPDATE ModifierArguments 
+SET Value = 145 
+WHERE ModifierId = 'RH_NUCLEAR_MOD' AND Name ='Amount'; -- pvs 150, 135
 
+UPDATE ModifierArguments 
+SET Value = 850 
+WHERE ModifierId = 'RH_NUCLEAR_MOD_MXL' AND Name ='Amount'; -- pvs 150, 800
 
 
 			

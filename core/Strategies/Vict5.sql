@@ -521,7 +521,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_MERCENARY_COMPANIES_DOUBLE_MOD_XL',							'Amount'   , 110),
 
 		('RH_MERCENARY_COMPANIES_DOUBLE_MOD',		'YieldType', 			'YIELD_CULTURE'),
-		('RH_MERCENARY_COMPANIES_DOUBLE_MOD',								'Amount'   , 2900); -- pvs 80, 300, 310, 410, 610, 800, 950, 5000, 4000, 3500, 3150
+		('RH_MERCENARY_COMPANIES_DOUBLE_MOD',								'Amount'   , 2500); -- pvs 80, 300, 310, 410, 610, 800, 950, 5000, 4000, 3500, 3150, 2900
 
 
 
@@ -573,7 +573,7 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('WC_RES_RH_MERC_COMAPNIES_B_GENERAL',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
-			('WC_RES_RH_MERC_COMAPNIES_B_GENERAL',				'Amount',					150); -- pvs 25, 75
+			('WC_RES_RH_MERC_COMAPNIES_B_GENERAL',				'Amount',					450); -- pvs 25, 75, 150
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -587,7 +587,7 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('WC_RES_RH_MERC_COMAPNIES_B_GENERAL_HIGH_FAITH',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
-			('WC_RES_RH_MERC_COMAPNIES_B_GENERAL_HIGH_FAITH',				'Amount',					1000); -- pvs 350
+			('WC_RES_RH_MERC_COMAPNIES_B_GENERAL_HIGH_FAITH',				'Amount',					2000); -- pvs 350, 1500
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -791,7 +791,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_ESPIONAGE_PACT_DOUBLE_MOD_XL',							'Amount'   , 110),
 
 		('RH_ESPIONAGE_PACT_DOUBLE_MOD',		'YieldType', 			'YIELD_CULTURE'),
-		('RH_ESPIONAGE_PACT_DOUBLE_MOD',								'Amount'   , 110); -- pvs 85, 105
+		('RH_ESPIONAGE_PACT_DOUBLE_MOD',								'Amount'   , 350); -- pvs 85, 105, 110
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -823,11 +823,24 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_ESPIONAGE_PACT_BAN_MOD_XL',							'Amount'   , 110),
 
 		('RH_ESPIONAGE_PACT_BAN_MOD',		'YieldType', 			'YIELD_SCIENCE'),
-		('RH_ESPIONAGE_PACT_BAN_MOD',								'Amount'   , 45); -- pvs 75, 65
+		('RH_ESPIONAGE_PACT_BAN_MOD',								'Amount'   , 35); -- pvs 75, 65, 45
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
 (197, 'WC_RES_ESPIONAGE_PACT', 2, 'RH_ESPIONAGE_PACT_BAN_MOD'); -- Ban
+
+
+
+INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		
+			('WC_RES_RH_ESPIONAGE_SCIENTIST',	'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS', 'RH_AI_ANCIENT_ONLY_REQ_S');
+
+INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
+			('WC_RES_RH_ESPIONAGE_SCIENTIST',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_SCIENTIST'),	
+			('WC_RES_RH_ESPIONAGE_SCIENTIST',				'Amount',					100); 
+
+
+INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
+(889, 'WC_RES_PUBLIC_RELATIONS', 2, 'WC_RES_RH_ESPIONAGE_SCIENTIST'); -- Ban Spy
 
 
 
@@ -947,7 +960,7 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 		('RH_SOVEREIGNTY_INFLUENCE',			'MODIFIER_PLAYER_GRANT_INFLUENCE_TOKEN',	'RH_AI_ANCIENT_ONLY_REQ_S');
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
-		('RH_SOVEREIGNTY_INFLUENCE',							'Amount'   , 2); -- pvs 1
+		('RH_SOVEREIGNTY_INFLUENCE',							'Amount'   , 4); -- pvs 1, 2, 5
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
 (152, 'WC_RES_SOVEREIGNTY', 1, 'RH_SOVEREIGNTY_INFLUENCE'); -- 100% Trade
@@ -1013,8 +1026,8 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_SOVEREIGNTY_BAN_MOD_XL',		'YieldType', 		'YIELD_RH_SOVEREIGNTY_BAN'),
 		('RH_SOVEREIGNTY_BAN_MOD_XL',							'Amount'   , 110),
 
-		('RH_SOVEREIGNTY_BAN_MOD',		'YieldType', 			'YIELD_PRODUCTION'),
-		('RH_SOVEREIGNTY_BAN_MOD',								'Amount'   , 320); -- pvs 50, 55, 90, 150, 450, 850 (no effect but id could be been bugged), 350, 95, 90, 95, 105, 115, 100, 200, 150, 200, 270, 300, 340
+		('RH_SOVEREIGNTY_BAN_MOD',		'YieldType', 			'YIELD_FAITH'),
+		('RH_SOVEREIGNTY_BAN_MOD',								'Amount'   , 450); -- pvs 50, 55, 90, 150, 450, 850 (no effect but id could be been bugged), 350, 95, 90, 95, 105, 115, 100, 200, 150, 200, 270, 300, 340, 320 production, 950
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -1131,14 +1144,14 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_DIPLOVICTORY_BUFF_MOD_XL',							'Amount'   , 110),
 
 		('RH_DIPLOVICTORY_BUFF_MOD',		'YieldType', 			'YIELD_CULTURE'),
-		('RH_DIPLOVICTORY_BUFF_MOD',								'Amount'   , 200); -- Needs to be higher as otherwise typically just downvote at 6 diplo victory points, pvs 115, 150, 175, 250, 400
+		('RH_DIPLOVICTORY_BUFF_MOD',								'Amount'   , 400); -- Needs to be higher as otherwise typically just downvote at 6 diplo victory points, pvs 115, 150, 175, 250, 400
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
 (2, 'WC_RES_DIPLOVICTORY', 1, 'RH_DIPLOVICTORY_BUFF_MOD'); -- +2
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(2, 'WC_RES_DIPLOVICTORY', 1, 'RH_SOVEREIGNTY_INFLUENCE'); -- +1 Infl, temp
+(998, 'WC_RES_DIPLOVICTORY', 1, 'RH_SOVEREIGNTY_INFLUENCE'); -- +1 Infl, temp
 
 
 -- DIPLOVICTORY_DEBUFF Mod
@@ -1167,8 +1180,20 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_DIPLOVICTORY_DEBUFF_MOD',								'Amount'   , 3); -- pvs 50, 40, 35, 20, 15, 5, 10, 15
 
 
+--INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
+--(7, 'WC_RES_DIPLOVICTORY', 2, 'RH_DIPLOVICTORY_DEBUFF_MOD'); -- -2
+
+
+INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		
+			('RH_DIPLOVICTORY_DEBUFF_MOD_GENERAL',	'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS', 'RH_AI_ANCIENT_ONLY_REQ_S');
+
+INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
+			('RH_DIPLOVICTORY_DEBUFF_MOD_GENERAL',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),	
+			('RH_DIPLOVICTORY_DEBUFF_MOD_GENERAL',				'Amount',					350); 
+
+
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(7, 'WC_RES_DIPLOVICTORY', 2, 'RH_DIPLOVICTORY_DEBUFF_MOD'); -- -2
+(7, 'WC_RES_DIPLOVICTORY', 2, 'RH_DIPLOVICTORY_DEBUFF_MOD_GENERAL'); -- Minus 2
 
 
 
@@ -1269,8 +1294,8 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_WORLD_RELIGION_BUFF_MOD_XL',		'YieldType', 		'YIELD_RH_WORLD_RELIGION_BUFF'),
 		('RH_WORLD_RELIGION_BUFF_MOD_XL',							'Amount'   , 110),
 
-		('RH_WORLD_RELIGION_BUFF_MOD',		'YieldType', 			'YIELD_FAITH'),
-		('RH_WORLD_RELIGION_BUFF_MOD',								'Amount'   , 93); -- pvs 40, 45, 60, 62, 82, 90
+		('RH_WORLD_RELIGION_BUFF_MOD',		'YieldType', 			'YIELD_RV_BASE'),
+		('RH_WORLD_RELIGION_BUFF_MOD',								'Amount'   , 1400); -- pvs 40, 45, 60, 62, 82, 90, 93 Faith, 400 rv
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -1296,11 +1321,26 @@ INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirem
 
 INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
 			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_PROPHET'),	
-			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4',				'Amount',					350); -- pvs 150, 250
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4',				'Amount',					950); -- pvs 150, 250, 350
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
 (633, 'WC_RES_WORLD_RELIGION', 1, 'RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_4'); -- 10 Strength
+
+
+	-- Great General
+
+INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL',	'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS', 'RH_WORK_ETHIC_PUSH_REQ_S_2'); -- Req Holy 2
+
+INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL',				'GreatPersonClassType',		        'GREAT_PERSON_CLASS_GENERAL'),
+			('RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL',				'Amount',					950); -- pvs 150, 250, 350
+
+
+INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
+(634, 'WC_RES_WORLD_RELIGION', 1, 'RH_WORLD_RELIGION_BUFF_MOD_HIGH_FAITH_2_GENERAL'); -- 10 Strength
+
 
 
 
@@ -1327,7 +1367,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_WORLD_RELIGION_CONDEM_MOD_XL',							'Amount'   , 110),
 
 		('RH_WORLD_RELIGION_CONDEM_MOD',		'YieldType', 			'YIELD_SCIENCE'),
-		('RH_WORLD_RELIGION_CONDEM_MOD',								'Amount'   , 5); -- pvs 40, 30, 22, 14, 10, 9
+		('RH_WORLD_RELIGION_CONDEM_MOD',								'Amount'   , 4); -- pvs 40, 30, 22, 14, 10, 9, 5
 
 
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
@@ -1511,7 +1551,16 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
 (22, 'WC_RES_TRADE_TREATY', 1, 'RH_TRADE_TREATY_BUFF_MOD'); -- Money
 
+INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		
+			('RH_TRADE_TREATY_BUFF_MERCHANT',	'MODIFIER_PLAYER_ADJUST_GREAT_PERSON_POINTS', 'RH_AI_ANCIENT_ONLY_REQ_S');
 
+INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VALUES	
+			('RH_TRADE_TREATY_BUFF_MERCHANT',				'GreatPersonClassType',		        'PSEUDOYIELD_GPP_MERCHANT'),	
+			('RH_TRADE_TREATY_BUFF_MERCHANT',				'Amount',					50); -- pvs 10, 35, Engineer, 45, 50
+
+
+INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
+(422, 'WC_RES_TRADE_TREATY', 1, 'RH_TRADE_TREATY_BUFF_MERCHANT'); -- Money
 
 
 -- TRADE_TREATY_BAN Mod
@@ -1537,7 +1586,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_TRADE_TREATY_BAN_MOD_XL',							'Amount'   , 110),
 
 		('RH_TRADE_TREATY_BAN_MOD',		'YieldType', 			'YIELD_PRODUCTION'),
-		('RH_TRADE_TREATY_BAN_MOD',								'Amount'   , 68); -- pvs 60
+		('RH_TRADE_TREATY_BAN_MOD',								'Amount'   , 10); -- pvs 60, 68
 
 
 INSERT OR IGNORE INTO	Modifiers	(ModifierId,				ModifierType, 			SubjectRequirementSetId) VALUES		
@@ -1550,14 +1599,15 @@ INSERT OR IGNORE INTO	ModifierArguments	(ModifierId,									Name,				Value) VAL
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
 (927, 'WC_RES_TRADE_TREATY', 2, 'RH_TRADE_TREATY_BAN_INDUSTRIAL'); -- Ban International Routes
 
-
+INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
+(928, 'WC_RES_TRADE_TREATY', 2, 'RH_TRADE_TREATY_BAN_MOD'); -- Ban International Routes
 
 
 INSERT OR IGNORE INTO CongressAiChanges (ResolutionType, PseudoYieldType, Value) VALUES
 ('WC_RES_MERCENARY_COMPANIES',  		'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 			10), 
-('WC_RES_MERCENARY_COMPANIES',  		'PSEUDOYIELD_UNIT_COMBAT', 		 			25),
-('WC_RES_MERCENARY_COMPANIES',  		'PSEUDOYIELD_STANDING_ARMY_NUMBER', 		 9),
-('WC_RES_MERCENARY_COMPANIES',  		'PSEUDOYIELD_STANDING_ARMY_VALUE', 			 4),
+('WC_RES_MERCENARY_COMPANIES',  		'PSEUDOYIELD_UNIT_COMBAT', 		 			15),
+('WC_RES_MERCENARY_COMPANIES',  		'PSEUDOYIELD_STANDING_ARMY_NUMBER', 		 5),
+--('WC_RES_MERCENARY_COMPANIES',  		'PSEUDOYIELD_STANDING_ARMY_VALUE', 			 4),
 ('WC_RES_MERCENARY_COMPANIES',  		'PSEUDOYIELD_CITY_BASE', 				 	 25),
 ('WC_RES_MERCENARY_COMPANIES',  		'PSEUDOYIELD_CITY_DEFENSES', 				 -15),
 ('WC_RES_MERCENARY_COMPANIES',  		'PSEUDOYIELD_CITY_DEFENDING_UNITS', 	 	-2),

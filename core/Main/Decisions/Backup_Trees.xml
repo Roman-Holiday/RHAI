@@ -305,17 +305,17 @@ Credit for Behaviour Trees Ideas: Simple City Defence and Naval Superiority to I
 	<!--Row DefnId="0" NodeId="4" TreeName="Settle City Op" DefaultData="-1.5" />
     <Row DefnId="1" NodeId="4" TreeName="Settle City Op" DefaultData="-3" /-->
 	
-	<!-- CT -->
-	<Update>
+	<!-- CT --> <!-- Disabling for now, actually made them less decisive in settling lol -->
+	<!--Update>
 		<Where DefnId="0" NodeId="4" TreeName="Settle City Op" /> 
 		<Set DefaultData="-1" />
-	</Update>
+	</Update-->
 	
 	<!-- Limiter 2 -->
-	<Update>
+	<!--Update>
 		<Where DefnId="1" NodeId="4" TreeName="Settle City Op" /> 
 		<Set DefaultData="-2.5" />
-	</Update>
+	</Update-->
 	
 	
 	

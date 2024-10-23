@@ -49,9 +49,9 @@ For Reference:
 	<Row ListType="ScienceVictoryYields" Item="YIELD_SCIENCE" Value="50"/>
 */
 
-UPDATE AiFavoredItems SET Value = 150 WHERE ListType = 'ScienceVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_SCIENTIST'; -- pvs 35, 38, 46, 55, 75, 85, 100, 105
-UPDATE AiFavoredItems SET Value = 200 WHERE ListType = 'ScienceVictoryYields' AND Item = 'YIELD_SCIENCE'; -- def 50, pvs 42, 45, 65
-UPDATE AiFavoredItems SET Value = 500 WHERE ListType = 'ScienceVictoryPseudoYields' AND Item = 'PSEUDOYIELD_TECHNOLOGY'; -- def 25, pvs 30, 100
+UPDATE AiFavoredItems SET Value = 350 WHERE ListType = 'ScienceVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_SCIENTIST'; -- pvs 35, 38, 46, 55, 75, 85, 100, 105
+UPDATE AiFavoredItems SET Value = 400 WHERE ListType = 'ScienceVictoryYields' AND Item = 'YIELD_SCIENCE'; -- def 50, pvs 42, 45, 65
+UPDATE AiFavoredItems SET Value = 600 WHERE ListType = 'ScienceVictoryPseudoYields' AND Item = 'PSEUDOYIELD_TECHNOLOGY'; -- def 25, pvs 30, 100
 --UPDATE AiFavoredItems SET Value = 100 WHERE ListType = 'ScienceVictoryPseudoYields' AND Item = 'PSEUDOYIELD_SPACE_RACE'; -- def 100
 
 --UPDATE StrategyConditions SET ThresholdValue = 35 WHERE StrategyType="VICTORY_STRATEGY_SCIENCE_VICTORY" AND ConditionFunction = 'Lags Military'; -- Def 33

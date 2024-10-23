@@ -713,7 +713,8 @@ INSERT OR REPLACE INTO AiListTypes (ListType) VALUES
 ('LadyTrieuYields'),
 ('LadyTrieuUnitBuilds'),
 ('LadyTrieuSettlement'),
-('LadyTrieuDiplomacy');
+('LadyTrieuDiplomacy'),
+('LadyTrieuImprovements');
 
 INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 ('LadyTrieuWonders',      'TRAIT_LEADER_TRIEU', 'Buildings'),
@@ -724,7 +725,9 @@ INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 ('LadyTrieuYields',		  'TRAIT_LEADER_TRIEU', 'Yields'),
 ('LadyTrieuUnitBuilds',   'TRAIT_LEADER_TRIEU', 'UnitPromotionClasses'),
 ('LadyTrieuSettlement',   'TRAIT_LEADER_TRIEU', 'PlotEvaluations'),
-('LadyTrieuDiplomacy',    'TRAIT_LEADER_TRIEU', 'DiplomaticActions');
+('LadyTrieuDiplomacy',    'TRAIT_LEADER_TRIEU', 'DiplomaticActions'),
+('LadyTrieuImprovements',    'TRAIT_LEADER_TRIEU', 'DiplomaticActions');
+
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('LadyTrieuYields', 'YIELD_PRODUCTION', 1, -5),
@@ -735,8 +738,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('LadyTrieuTechs',   'TECH_BRONZE_WORKING', 1, 0), 
 ('LadyTrieuCivics', 'CIVIC_DEFENSIVE_TACTICS', 1, 0), 
 ('LadyTrieuDistricts', 'DISTRICT_THANH', 1, 30), 
-('LadyTrieuPseudoYields', 'PSEUDOYIELD_ENVIRONMENT', 1, 950), -- pvs 80, 100, 175, 200
-('LadyTrieuPseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 0, -95), -- pvs -70, -75
+('LadyTrieuPseudoYields', 'PSEUDOYIELD_ENVIRONMENT', 1, 9500), -- pvs 80, 100, 175, 200, 950
+('LadyTrieuPseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 0, -99), -- pvs -70, -75, -95
 ('LadyTrieuPseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 40),
 ('LadyTrieuPseudoYields', 'PSEUDOYIELD_WONDER', 1, -25),
 ('LadyTrieuPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 1, 2),
@@ -746,6 +749,13 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('LadyTrieuUnitBuilds', 'PROMOTION_CLASS_RANGED', 1, 6), -- Defensive trait
 ('LadyTrieuUnitBuilds', 'PROMOTION_CLASS_ANTI_CAVALRY', 1, 6),
 ('LadyTrieuDiplomacy', 'DIPLOACTION_ALLIANCE', 1, 0);
+
+
+INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+('LadyTrieuImprovements', 'IMPROVEMENT_MINE', 		0, -100), 
+('LadyTrieuImprovements', 'IMPROVEMENT_LUMBER_MILL', 1, 100);
+
+
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
 ('LadyTrieuSettlement', 'Coastal', 			0, -1, 		 NULL, 			'LOC_SETTLEMENT_RECOMMENDATION_COAST'), -- coastal def +11 from base

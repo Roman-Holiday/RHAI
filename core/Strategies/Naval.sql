@@ -28,21 +28,27 @@ INSERT OR IGNORE INTO Strategy_Priorities (StrategyType, ListType) VALUES
 ('STRATEGY_NAVAL', 'NavalYields'),
 ('STRATEGY_NAVAL', 'NavalWonders');
 
-UPDATE GlobalParameters SET Value = '18' WHERE Name = 'AI_ISLAND_COAST_PERCENTAGE';	 -- Def 20, pvs 22, 15, 16
+--UPDATE GlobalParameters SET Value = '18' WHERE Name = 'AI_ISLAND_COAST_PERCENTAGE';	 -- Def 20, pvs 22, 15, 16, 18
 
 UPDATE AiFavoredItems SET Value = -16 WHERE ListType = 'NavalUnitPreferences' AND Item = 'PSEUDOYIELD_UNIT_COMBAT'; -- def. -90 
 UPDATE AiFavoredItems SET Value = 140 WHERE ListType = 'NavalUnitPreferences' AND Item = 'PSEUDOYIELD_UNIT_NAVAL_COMBAT'; -- pvs 41, 47, 42, 50, 55, 66, 74, 80, 90, 120, 140 def. 150 (140 was too high in the late game)
 
-UPDATE AiFavoredItems SET Value = 13 WHERE ListType = 'NavalSettlementPreferences' AND Item = 'Coastal'; -- def. 10 (base 13)
+UPDATE AiFavoredItems SET Value = 20 WHERE ListType = 'NavalSettlementPreferences' AND Item = 'Coastal'; -- def. 10 (base 13), 13
 --UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'NavalSettlementPreferences' AND Item = 'Nearest Friendly City'; -- def. 4 
-UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'NavalSettlementPreferences' AND Item = 'Foreign Continent'; -- def. 4 (favoured = true)
+UPDATE AiFavoredItems SET Value = 10 WHERE ListType = 'NavalSettlementPreferences' AND Item = 'Foreign Continent'; -- def. 4 (favoured = true), pvs 4
 UPDATE AiFavoredItems SET Value = -3 WHERE ListType = 'NavalSettlementPreferences' AND Item = 'Specific Resource' AND StringVal = 'RESOURCE_HORSES'; -- def. -3 -- RST -1
 UPDATE AiFavoredItems SET Value = -2 WHERE ListType = 'NavalSettlementPreferences' AND Item = 'Specific Resource' AND StringVal = 'RESOURCE_IRON'; -- def. -5 -- RST -2
 
+
+--UPDATE AiFavoredItems SET Value = 125 WHERE ListType = 'NavalSettlementBoost' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; -- Def 100, pvs 75
+
+
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal) VALUES
-('NavalSettlementPreferences', 'Fresh Water', 0, -4, NULL), -- pvs -5
-('NavalSettlementPreferences', 'Specific Resource', 0, 2, 'RESOURCE_COAL'), -- pvs 3
-('NavalSettlementPreferences', 'Specific Resource', 0, 3, 'RESOURCE_OIL'); -- needed
+('NavalSettlementPreferences', 'Fresh Water', 0, -3, NULL), -- pvs -5
+
+('NavalSettlementPreferences', 'Specific Resource', 0, 5, 'RESOURCE_NITER'), -- pvs 0, Frigates use 20 upfront 
+('NavalSettlementPreferences', 'Specific Resource', 0, 5, 'RESOURCE_COAL'), -- pvs 3, 2
+('NavalSettlementPreferences', 'Specific Resource', 0, 5, 'RESOURCE_OIL'); -- needed
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('NavalCivics', 'CIVIC_DEFENSIVE_TACTICS', 1, 0); -- MH

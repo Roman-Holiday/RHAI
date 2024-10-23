@@ -55,7 +55,7 @@
 		<!-- Extra Strategics -->
 
 		<Replace Tag="RULESET_RH_AI_EXTRA_STRATEGICS_NAME" Language="en_US">
-			<Text>Rh: Extra Late Game Strategic Resources</Text>
+			<Text>RH - Extra Late Game Strategic Resources</Text>
 		</Replace>
 		<Replace Tag="RULESET_RH_AI_EXTRA_STRATEGICS_DESCRIPTION" Language="en_US">
 			<Text>The AI gains 10 Oil and Aluminium Per Turn at Combined Arms, 10 Uranium at Nuclear Fission Regardless of Improved Resources</Text>
@@ -65,7 +65,7 @@
 		<!-- Reduced Starting Units -->
 
 		<Replace Tag="RULESET_RH_AI_REDUCED_STARTING_UNITS_NAME" Language="en_US">
-			<Text>Rh: Reduced Starting Warriors</Text>
+			<Text>RH - Reduced Starting Warriors</Text>
 		</Replace>
 		<Replace Tag="RULESET_RH_AI_REDUCED_STARTING_UNITS_DESCRIPTION" Language="en_US">
 			<Text>Reduces the AI's starting warriors by ~40% and provides up to 3 delayed builders (depending on difficulty) as compensation. Deity++ Starting Unit Options Compatible.</Text>
@@ -75,10 +75,20 @@
 		<!-- Reduced Early Agg -->
 
 		<Replace Tag="RULESET_RH_AI_REDUCED_EARLY_AGGRESSIVENESS_NAME" Language="en_US">
-			<Text>Rh: Reduced Early Aggressiveness</Text>
+			<Text>RH - Reduced Early Aggressiveness</Text>
 		</Replace>
 		<Replace Tag="RULESET_RH_AI_REDUCED_EARLY_AGGRESSIVENESS_DESCRIPTION" Language="en_US">
 			<Text>Increases the AI's hesistancy to attack cities in the Ancient and Classical eras</Text>
+		</Replace>
+
+
+		<!-- Reduced Early Agg -->
+
+		<Replace Tag="RULESET_RH_AI_EXTRA_TACTICAL_KNOWLEDGE_NAME" Language="en_US">
+			<Text>RH - Extra Tactical Knowledge</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_EXTRA_TACTICAL_KNOWLEDGE_DESCRIPTION" Language="en_US">
+			<Text>Grants AI military units +1 sight (not civilian, religious or recon) for an additional edge in combat</Text>
 		</Replace>
 
 

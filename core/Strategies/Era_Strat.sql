@@ -91,7 +91,7 @@ INSERT OR IGNORE INTO Strategies (StrategyType, VictoryType, NumConditionsNeeded
 ('STRATEGY_INFO_CHANGES_SCIENCE',       				NULL, 2),
 ('STRATEGY_ATOMIC_CHANGES',      						NULL, 1),
 ('STRATEGY_INFORMATION_CHANGES', 						NULL, 1),
-('STRATEGY_HIGH_DIFF_SETTLEMENT', 						NULL, 2);
+('STRATEGY_HIGH_DIFF_SETTLEMENT', 						NULL, 1);
 
 -- not for city states
 INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, Disqualifier) VALUES
@@ -109,7 +109,7 @@ INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, Disqu
 ('STRATEGY_HIGH_DIFF_SETTLEMENT', 						'Is Not Major', 1);
 
 INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, ThresholdValue, Disqualifier) VALUES
-('STRATEGY_HIGH_DIFF_SETTLEMENT',               'Handicap at or below',			 6,             1);
+('STRATEGY_HIGH_DIFF_SETTLEMENT',               'Handicap at or below',			 5,             1);
 
 INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, ThresholdValue, Forbidden) VALUES
 ('STRATEGY_CLASSICAL_CHANGES_SCIENCE',      'Has Great Works', 4, 1),
@@ -164,7 +164,7 @@ INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, Strin
 ('STRATEGY_ATOMIC_CHANGES',     						 'Is Atomic',      		NULL, 0), 
 ('STRATEGY_INFORMATION_CHANGES', 						'Is Information', 		NULL, 1), -- testing 1 to remain on
 
-('STRATEGY_HIGH_DIFF_SETTLEMENT',      				  'Cities Under Threat',		 NULL, 1),
+--('STRATEGY_HIGH_DIFF_SETTLEMENT',      				  'Cities Under Threat',		 NULL, 1),
 ('STRATEGY_HIGH_DIFF_SETTLEMENT',     					'Has Settle Spot',      NULL, 0); -- Needs checking
 
 INSERT OR IGNORE INTO StrategyConditions (StrategyType, ConditionFunction, StringValue) VALUES
@@ -473,6 +473,14 @@ INSERT OR IGNORE INTO Strategy_Priorities (StrategyType, ListType) VALUES
 ('STRATEGY_HIGH_DIFF_SETTLEMENT', 		'HIGH_DIFF_S_PseudoYields');
 
 
+INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
+('RenaissanceDiplo');
+INSERT OR IGNORE INTO AiLists (ListType, System) VALUES
+('RenaissanceDiplo', 'DiplomaticActions');
+INSERT OR IGNORE INTO Strategy_Priorities (StrategyType, ListType) VALUES
+('STRATEGY_RENAISSANCE_CHANGES', 'RenaissanceDiplo');
+
+
 
 
 
@@ -560,7 +568,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal,
 ('AncientSettlement', 'Coastal', 					0, 11, NULL, 						'LOC_SETTLEMENT_RECOMMENDATION_COAST'), -- pvs 2, 10, 17, 11+added 5
 
 ('AncientSettlement', 'Specific Resource', 0, 2, 			'RESOURCE_HORSES', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'),
-('AncientSettlement', 'Specific Resource', 0, 4, 			'RESOURCE_IRON', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES');
+('AncientSettlement', 'Specific Resource', 0, 5, 			'RESOURCE_IRON', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES');
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientOperations', 'OP_RH_EARLY_SETTLE', 		 1, 1),		
@@ -619,11 +627,11 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS',   1, 250), -- pvs 5, 8, 15
 ('AncientPseudoYields', 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL',   1, 50), -- pvs -45
 ('AncientPseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 55), -- pvs 6, 7, 10
-('AncientPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 215), -- pvs 11, 15, 27, 50, 100, 130, 150, 250
+('AncientPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 235), -- pvs 11, 15, 27, 50, 100, 130, 150, 250, 215 -- disabled at archery
 ('AncientPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 40), -- pvs 8, 9, 19, 30, 35
 
-('AncientPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 30), -- pvs 32, 31, 30, 29
-('AncientPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 16), -- pvs 25, 21, 17
+('AncientPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 26), -- pvs 32, 31, 30, 29, 30
+('AncientPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 8), -- pvs 25, 21, 17, 16
 
 ('AncientPseudoYields', 'PSEUDOYIELD_RESOURCE_LUXURY', 1, -85),
 ('AncientPseudoYields', 'PSEUDOYIELD_HAPPINESS', 0, -75),
@@ -636,7 +644,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientPseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 		1, 100); -- To reduce chance AI puts farms on strategics and builds loads of workers before settlers etc, pvs -15
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Value) VALUES
-('AncientPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',  -38); -- def -100, -75, -57, -53, -50
+('AncientPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',  -5); -- def -100, -75, -57, -53, -50
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
@@ -665,7 +673,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal,
 ('ClassicalSettlement', 'Coastal', 					0, 5, NULL, 						'LOC_SETTLEMENT_RECOMMENDATION_COAST'),
 
 ('ClassicalSettlement', 'New Resources', 			0, 3,			 NULL, 				'LOC_SETTLEMENT_RECOMMENDATION_NEW_RESOURCES'), 
-('ClassicalSettlement', 'Specific Resource', 		0, 2, 			'RESOURCE_IRON', 	'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'); 
+('ClassicalSettlement', 'Specific Resource', 		0, 7, 			'RESOURCE_IRON', 	'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'); -- pvs 2 Man at Arms
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalOperations', 'OP_RH_EARLY_SETTLE', 		   	1, 1),
@@ -714,22 +722,23 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalDistricts', 'DISTRICT_CAMPUS',						1, 0), -- Test
 
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_PROPHET',    1, 100), -- pvs 4, 10, 20, 21, 55, 75, 100, 130, 145, 150
-('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 25),
+('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 100), -- pvs 25
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',   1, 50), -- pvs 200
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',   1, 250), -- pvs 0, 50
 
-('ClassicalPseudoYields', 'PSEUDOYIELD_WONDER',   		1, -8),
+('ClassicalPseudoYields', 'PSEUDOYIELD_WONDER',   		1, 20), -- pvs -8
 ('ClassicalPseudoYields', 'PSEUDOYIELD_TOURISM',   		0, -15),
 
 ('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_MERCHANT',   1, 30),
+('ClassicalPseudoYields', 'PSEUDOYIELD_GPP_WRITER',   1, 15),
 
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 40),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 40), -- pvs 12
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 30), -- For expansion -- pvs 14
-('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 20), -- pvs 22, 19, 21
-('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 11), -- pvs 19, 17, 15, 13
+('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 18), -- pvs 22, 19, 21, 20
+('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 7), -- pvs 19, 17, 15, 13, 11
 ('ClassicalPseudoYields', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS',   1, 300), -- pvs 40, 110
---('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, -10), -- pvs 3
+('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, -2), -- pvs 3
 ('ClassicalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, -20), -- pvs 0
 ('ClassicalPseudoYields', 'PSEUDOYIELD_HAPPINESS', 0, -70),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 		  1, 125), -- pvs 15, 3, 10
@@ -755,7 +764,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item,Value) VALUES
-('ClassicalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',   -33);
+('ClassicalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR',   -5);
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('Classical_Science_Districts', 		'DISTRICT_AQUEDUCT', 1, 25),
@@ -769,7 +778,7 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('Classical_Science_Projects', 'PROJECT_ENHANCE_DISTRICT_CAMPUS',         1, 0);
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('Classical_Science_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 100), -- pvs 60
+('Classical_Science_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 125), -- pvs 60
 ('Classical_Science_PseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',   1, 150); -- pvs 0, 150 higher for mh
 
 
@@ -802,7 +811,10 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal,
 ('MedievalSettlement', 'New Resources', 		0, 2,			 NULL, 				'LOC_SETTLEMENT_RECOMMENDATION_NEW_RESOURCES'),
 ('MedievalSettlement', 'Foreign Continent', 	0, 2, 				NULL, 					'LOC_SETTLEMENT_RECOMMENDATION_FOREIGN_CONTINENT'), 
 ('MedievalSettlement', 'Coastal', 			    0, 3, 				NULL, 					'LOC_SETTLEMENT_RECOMMENDATION_COAST'), -- exploration
-('MedievalSettlement', 'Specific Resource',     0, 30, 			'RESOURCE_NITER', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'); -- Medieval
+
+('MedievalSettlement', 'Specific Resource',     0, 3, 			'RESOURCE_IRON', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'), -- Man at Arms
+
+('MedievalSettlement', 'Specific Resource',     0, 25, 			'RESOURCE_NITER', 			'LOC_SETTLEMENT_RECOMMENDATION_RESOURCES'); -- Medieval
 
 /*
 		<Row ListType="MedievalSettlements" Item="SETTLEMENT_MIN_VALUE_NEEDED" Value="-10"/>
@@ -828,8 +840,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalYields', 'YIELD_RH_MAGNUS',  1, 400),
 ('MedievalYields', 'YIELD_RH_HAPPINESS_BUILDING',   0, -95),
 
-('MedievalYields', 'YIELD_RH_SCIENCE_VICTORY_BASE', 	   1, 350), -- temp, 200
-('MedievalYields', 'YIELD_RH_MONARCHY',  		  1, 50),
+('MedievalYields', 'YIELD_RH_SCIENCE_VICTORY_BASE', 	   1, 800), -- temp, 200, 350
+('MedievalYields', 'YIELD_RH_MONARCHY',  		  1, 950), -- pvs 50
 ('MedievalYields', 'YIELD_RH_MERCHANT_REPUBLIC',  1, 50),
 
 ('MedievalYields', 'YIELD_RH_CITY_CENTRE',  1, 50), -- pvs 550, 100
@@ -846,11 +858,11 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, 90),
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 		 1, 25),
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, 25),
-('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 9), -- pvs 13, 17, 15
-('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 8), -- pvs 13, 12, 10
+('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 8), -- pvs 13, 17, 15, 9
+('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 5), -- pvs 13, 12, 10, 8
 ('MedievalPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT', 1, 5),
 ('MedievalPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, 80), -- pvs 10, 35, 40 (AI wasn't build enough ships) -- not any ships in this era
-('MedievalPseudoYields', 'PSEUDOYIELD_WONDER',   		1, 65),
+('MedievalPseudoYields', 'PSEUDOYIELD_WONDER',   		1, 100), -- pvs 65
 ('MedievalPseudoYields', 'PSEUDOYIELD_DISTRICT', 		1, 250), -- pvs 0, build more, 10, 75
 
 ('MedievalPseudoYields', 'PSEUDOYIELD_UNIT_TRADE',   1, 40), -- Magnus Trade Routes
@@ -858,7 +870,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL',  	 1, 20),
 
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_WRITER',   	1, 50),
-('MedievalPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 50),
+('MedievalPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 200), -- pvs 50
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',    1, 50), -- Player can get them easily
 ('MedievalPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',    1, 75), -- Player can get them easily
 
@@ -866,7 +878,6 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('MedievalPseudoYields', 'PSEUDOYIELD_IMPROVEMENT',   1, 400), -- Fuedalism, 160
 ('MedievalPseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 1, 15),
---('MedievalPseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST', 1, -4),
 
 ('MedievalPseudoYields', 'PSEUDOYIELD_INFLUENCE', 1, 100), -- pvs 35, 70
 ('MedievalPseudoYields', 'PSEUDOYIELD_GOVERNOR', 0, -25),
@@ -875,7 +886,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 1, -1),
 ('MedievalPseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, -55),
 ('MedievalPseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 20), -- pvs 3, 25
-('MedievalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR', 1, -12); -- def 100, pvs 30
+('MedievalPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR', 1, -10); -- def 100, pvs 30
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)
 SELECT 'MedievalPseudoYields', PseudoYieldType, 1, 5 -- pvs 0
@@ -883,7 +894,7 @@ FROM PseudoYields
 WHERE PseudoYieldType LIKE 'PSEUDOYIELD_GREATWORK_%'; 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('Medieval_Science_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 80),
+('Medieval_Science_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 150),
 ('Medieval_Science_PseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',   1, 90); -- pvs 60, 80 higher for mh
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
@@ -958,6 +969,10 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('RenaissanceScouts', 	'DEFAULT_NAVAL_SCOUTS',   				 1, 200),
 ('RenaissanceScouts', 	'NAVAL_SCOUTS_FOR_WORLD_EXPLORATION',    1, 300),
 
+--('RenaissanceDiplo', 'DIPLOACTION_THIRD_PARTY_WAR', 0, 0),
+--('RenaissanceDiplo', 'DIPLOACTION_JOINT_WAR', 		0, 0),
+('RenaissanceDiplo', 'DIPLOACTION_OPEN_BORDERS', 		1, 0),
+('RenaissanceDiplo', 'DIPLOACTION_PROPOSE_TRADE', 		1, 0),
 
 -- Core
 ('RenaissanceYields', 'YIELD_CULTURE',    1, 550), -- pvs 6, 20, 40
@@ -978,8 +993,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('RenaissanceYields', 'YIELD_RH_OLIGARCHY',  		0, -500), -- pvs -950 (picking autocracy temp until tier 2)
 ('RenaissanceYields', 'YIELD_RH_CLASSICAL_REPUBLIC',  0, -500),
 
-('RenaissanceYields', 'YIELD_RH_MONARCHY',  		  1, 120), -- pvs 50
-('RenaissanceYields', 'YIELD_RH_MERCHANT_REPUBLIC',   1, 120), -- pvs 50
+('RenaissanceYields', 'YIELD_RH_MONARCHY',  		  1, 850), -- pvs 50, 120
+('RenaissanceYields', 'YIELD_RH_MERCHANT_REPUBLIC',   1, 850), -- pvs 50, 120
 
 ('RenaissanceYields', 'YIELD_RH_CITY_CENTRE',  1, 450), -- pvs 950
 ('RenaissanceYields', 'YIELD_RH_FOOD_EXT',  	1, 350), -- pvs 600
@@ -993,7 +1008,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('RenaissancePseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, 500),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 5), -- pvs 21, 14, 10
-('RenaissancePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 5), -- 14, 10, 9
+('RenaissancePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 3), -- 14, 10, 9, 5
 ('RenaissancePseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 		1, 15),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, -7),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 5),
@@ -1009,10 +1024,10 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 ('RenaissancePseudoYields', 'PSEUDOYIELD_HAPPINESS', 1, 50), -- growth
 ('RenaissancePseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 150), -- pvs 15, build them all this era
-('RenaissancePseudoYields', 'PSEUDOYIELD_WONDER',   		1, 125), -- pvs 80
+('RenaissancePseudoYields', 'PSEUDOYIELD_WONDER',   		1, 160), -- pvs 80, 125
 
 ('RenaissancePseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL', 1, 30),
---('RenaissancePseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR', 1, 5), -- pvs 10, 0
+('RenaissancePseudoYields', 'PSEUDOYIELD_DIPLOMATIC_FAVOR', 1, 10), -- pvs 10, 0
 ('RenaissancePseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE', 1, 10),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 1, 800), -- pvs 110, 160
 ('RenaissancePseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 1, 3),
@@ -1044,6 +1059,8 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+('Renaissance_Science_PseudoYields', 'PSEUDOYIELD_WONDER',   1, 90), -- New, Press Advantage
+
 ('Renaissance_Science_PseudoYields', 'PSEUDOYIELD_GPP_SCIENTIST',   1, 75),
 ('Renaissance_Science_PseudoYields', 'PSEUDOYIELD_GPP_ENGINEER',   1, 45); -- pvs 50
 
