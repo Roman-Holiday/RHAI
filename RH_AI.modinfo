@@ -875,6 +875,7 @@
 			<File>core/UI/ToolTipHelper.lua</File>
 			<File>core/UI/CivilopediaPage_District.lua</File>
 			<File>core/UI/ReportScreenSupport.lua</File>
+			<File>core/UI/TechTree_support.lua</File>
 	  	</ImportFiles>
 
 		<ReplaceUIScript id="ResearchChooserHide">
