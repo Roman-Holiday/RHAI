@@ -31,8 +31,8 @@ INSERT OR REPLACE INTO Parameters (ParameterId, 					Name,											Description
 
 
 -- Add AI Additional Tactical Knowledge Game Mode
-INSERT OR REPLACE INTO Parameters (ParameterId, 		Name,			Description, Domain, 												DefaultValue, ConfigurationGroup, ConfigurationId, 	GroupId, 			SortIndex) VALUES		
-		('RH_AI_EXTRA_TACTICAL_KNOWLEDGE_GAMEMODE', 'RULESET_RH_AI_EXTRA_TACTICAL_KNOWLEDGE_NAME',		'RULESET_RH_AI_EXTRA_TACTICAL_KNOWLEDGE_DESCRIPTION', 	'bool',	 1, 	'Game', 	'RH_AI_CONFIG_TACTICAL_KNOWLEDGE', 	'AdvancedOptions',	 	114);
+--INSERT OR REPLACE INTO Parameters (ParameterId, 		Name,			Description, Domain, 												DefaultValue, ConfigurationGroup, ConfigurationId, 	GroupId, 			SortIndex) VALUES		
+--		('RH_AI_EXTRA_TACTICAL_KNOWLEDGE_GAMEMODE', 'RULESET_RH_AI_EXTRA_TACTICAL_KNOWLEDGE_NAME',		'RULESET_RH_AI_EXTRA_TACTICAL_KNOWLEDGE_DESCRIPTION', 	'bool',	 1, 	'Game', 	'RH_AI_CONFIG_TACTICAL_KNOWLEDGE', 	'AdvancedOptions',	 	114);
 
 
 /*
