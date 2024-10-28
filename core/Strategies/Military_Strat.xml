@@ -40,8 +40,8 @@
 		<Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Is Not Major" Disqualifier="true"/>
 		<!--Row StrategyType="STRATEGY_WAR_IF_STRONG" ConditionFunction="Finished Space Project" ThresholdValue="1" Disqualifier="true"/-->
 		
-		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Leads Military" ThresholdValue="50" />
-		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Has Tech Lead" ThresholdValue="40"/>
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Leads Military" ThresholdValue="25" />
+		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Has Tech Lead" ThresholdValue="30"/>
 		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Leads Score" ThresholdValue="20"/>
 		<Row StrategyType="STRATEGY_STRENGTH_ADV" ConditionFunction="Next Lower Score" ThresholdValue="250"/>
 		
@@ -312,8 +312,8 @@
 
 	
 		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="5"/> <!-- pvs 8, 10-->
-		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="16"/> <!-- pvs 9, 10, 20-->
-		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="11"/>  <!-- pvs 4, 10, 6, 14 (too high) -->
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="10"/> <!-- pvs 9, 10, 20-->
+		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="6"/>  <!-- pvs 4, 10, 6, 14 (too high) -->
 		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="20"/> 
 		<Row ListType="STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="30"/> <!-- pvs 12, 22, 35-->
 		
@@ -328,7 +328,7 @@
 		<Row ListType="STRENGTH_ADV_BUILDINGS" Item="BUILDING_TERRACOTTA_ARMY" Value="90" Favored="true"/>
 
 		<Row ListType="STRENGTH_ADV_BUILDINGS" Item="BUILDING_GOV_MILITARY" Value="200" Favored="true"/>
-		<!--Row ListType="STRENGTH_ADV_BUILDINGS" Item="BUILDING_GOV_WIDE" Value="150" Favored="true"/-->
+		<Row ListType="STRENGTH_ADV_BUILDINGS" Item="BUILDING_GOV_WIDE" Value="50" Favored="true"/>
 		<Row ListType="STRENGTH_ADV_BUILDINGS" Item="BUILDING_GOV_CONQUEST" Value="150" Favored="true"/>
 		
 		<Row ListType="STRENGTH_ADV_UNIT_BUILDS" Item="PROMOTION_CLASS_SIEGE" Value="11"/> <!-- pvs 10-->
@@ -344,8 +344,8 @@
 		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_DIPLOMATIC_GRIEVANCE" Value="-50"/> 
 		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="40"/> <!-- pvs 20-->
 		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_UNIT_COMBAT" Value="7"/> <!-- pvs 15 -->
-		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="16"/> <!-- pvs 15, 20-->
-		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="10"/> <!-- pvs 6, 14-->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="10"/> <!-- pvs 15, 20-->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="5"/> <!-- pvs 6, 14-->
 		
 		<!--Row ListType="VERY_HIGH_STRENGTH_ADV_DIPLOS" Item="DIPLOACTION_DEMAND_TRIBUTE" Favored="true" Value="35"/--> <!-- Todo in future (has a higher value than basic strength advantage)-->
 		
@@ -365,8 +365,8 @@
 		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_UNIT_EXPLORER" Value="-35"/>
 		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_UNIT_NAVAL_COMBAT" Value="25"/> <!-- pvs 50, 55 -->
 		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_UNIT_AIR_COMBAT" Value="15"/>
-		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="20"/> <!-- pvs 10, 11, 23 -->
-		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="15"/> <!-- pvs 6, 18 --> 
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_NUMBER" Value="12"/> <!-- pvs 10, 11, 23 -->
+		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_STANDING_ARMY_VALUE" Value="5"/> <!-- pvs 6, 18 --> 
 		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENDING_UNITS" Value="-95"/> <!-- pvs 32, 35, 40, 55, 85-->
 		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_CITY_DEFENCES" Value="-95"/> <!-- pvs -35, -45, -48, 85 -->
 		<Row ListType="VERY_HIGH_STRENGTH_ADV_LATE_PSEUDOS" Item="PSEUDOYIELD_CITY_BASE" Value="5000" Favored="true" />	

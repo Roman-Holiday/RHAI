@@ -3,21 +3,22 @@
 
 
 UPDATE PseudoYields SET DefaultValue =  1.9 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ADMIRAL'; -- 		def 0.5 (for all gpp) -- pvs 0.5, 1.6
-UPDATE PseudoYields SET DefaultValue =  1.5 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ARTIST'; -- 		0.5, 1
+UPDATE PseudoYields SET DefaultValue =  1.9 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ARTIST'; -- 		0.5, 1
 UPDATE PseudoYields SET DefaultValue =  2.2 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_ENGINEER'; -- 	0.5 -- pvs 0.7, 0.8 AI doesn't focus enough, 2, 2.1
-UPDATE PseudoYields SET DefaultValue =  18.5 	WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_GENERAL'; -- 		0.5 -- 0.45, 0.5, 0.55, 0.6, 0.7, 1.05, 2.4, 3.2, 10.5, 12.5, 14.5
-UPDATE PseudoYields SET DefaultValue =  1.6 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MERCHANT'; -- 		0.5 -- pvs 0.6, 0.7, 0.85, running to many projects, 0.8, 1.2, 1.3
-UPDATE PseudoYields SET DefaultValue =  1.4 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MUSICIAN'; -- 		0.5, 1
+UPDATE PseudoYields SET DefaultValue =  22.5 	WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_GENERAL'; -- 		0.5 -- 0.45, 0.5, 0.55, 0.6, 0.7, 1.05, 2.4, 3.2, 10.5, 12.5, 14.5, 18.5
+UPDATE PseudoYields SET DefaultValue =  2.6 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MERCHANT'; -- 		0.5 -- pvs 0.6, 0.7, 0.85, running to many projects, 0.8, 1.2, 1.3, 1.7, 2.0
+UPDATE PseudoYields SET DefaultValue =  1.5 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_MUSICIAN'; -- 		0.5, 1
 UPDATE PseudoYields SET DefaultValue =  2.5 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_PROPHET'; -- 		0.5, 0.6, 0.8, 0.85, 1, 4
 UPDATE PseudoYields SET DefaultValue =  2.1 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_SCIENTIST'; -- 	0.5, 0.8, 0.9, 2	
-UPDATE PseudoYields SET DefaultValue =  2.1 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_WRITER'; -- 		0.5, 0.7, 1.6, 2
+UPDATE PseudoYields SET DefaultValue =  2.6 WHERE PseudoYieldType = 'PSEUDOYIELD_GPP_WRITER'; -- 		0.5, 0.7, 1.6, 2, 2.1
 
 UPDATE PseudoYields SET DefaultValue =  8.0 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_NAVAL_COMBAT'; -- std 3.5, pvs 4.5, 7
 UPDATE PseudoYields SET DefaultValue =  1.4 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_COMBAT'; -- std 1.6
 UPDATE PseudoYields SET DefaultValue =  14 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_AIR_COMBAT'; -- std 12
 
+UPDATE PseudoYields SET DefaultValue = 2.0 WHERE PseudoYieldType = 'PSEUDOYIELD_WONDER'; -- std 0.95
 
-UPDATE PseudoYields SET DefaultValue = 19 WHERE PseudoYieldType = 'PSEUDOYIELD_INFLUENCE'; -- pvs 14
+UPDATE PseudoYields SET DefaultValue = 25 WHERE PseudoYieldType = 'PSEUDOYIELD_INFLUENCE'; -- pvs 14
 --UPDATE PseudoYields SET DefaultValue = 1.9 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_SETTLER';
 
 UPDATE AiFavoredItems SET Value = 120 WHERE ListType = 'GreatPersonObsessedGreatPeople'; -- pvs 75, 125, 105
@@ -25,7 +26,7 @@ UPDATE AiFavoredItems SET Value = 120 WHERE ListType = 'GreatPersonObsessedGreat
 
 -- Era
 
-UPDATE AiFavoredItems SET Value = 5 WHERE ListType = 'AncientPseudoYields' AND Item = 'PSEUDOYIELD_DISTRICT'; -- std -35
+UPDATE AiFavoredItems SET Value = 15 WHERE ListType = 'AncientPseudoYields' AND Item = 'PSEUDOYIELD_DISTRICT'; -- std -35
 
 UPDATE AiFavoredItems SET Value = 550 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MERCHANT'; -- std 30, pvs 300, 400
 UPDATE AiFavoredItems SET Value = 350 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GPP_GENERAL'; -- std 250
@@ -74,7 +75,10 @@ UPDATE AiFavoredItems SET Value = 100 WHERE ListType = 'AtomicPseudoYields' AND 
 
 UPDATE AiFavoredItems SET Value = 75 WHERE ListType = 'TokugawaPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MERCHANT'; -- Def 15 + Trade
 
-
+-- EleanorPseudoYields
+UPDATE AiFavoredItems SET Value = 850 WHERE ListType = 'EleanorPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- Def 200
+UPDATE AiFavoredItems SET Value = 900 WHERE ListType = 'EleanorPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ARTIST'; -- Def 200
+UPDATE AiFavoredItems SET Value = 950 WHERE ListType = 'EleanorPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MUSICIAN'; -- Def 200 
 
 -------------------------------------------------------------------------------------------------------------------
 
@@ -97,16 +101,20 @@ UPDATE AiFavoredItems SET Value = 750 WHERE ListType = 'Info_Science_PseudoYield
 UPDATE AiFavoredItems SET Value = 300 WHERE ListType = 'Info_Science_PseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- std 165
 
 
-
 --------------------------
 
-UPDATE AiFavoredItems SET Value = 845 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MUSICIAN'; -- 180, 245
-UPDATE AiFavoredItems SET Value = 640 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ARTIST'; -- 170, 240
-UPDATE AiFavoredItems SET Value = 470 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- 155, 205, 250
+UPDATE AiFavoredItems SET Value = 950 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MUSICIAN'; -- 180, 245
+UPDATE AiFavoredItems SET Value = 850 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ARTIST'; -- 170, 240
+UPDATE AiFavoredItems SET Value = 800 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- 155, 205, 250
 
 UPDATE AiFavoredItems SET Value = 120 WHERE ListType = 'ScienceVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ENGINEER'; -- 75
 UPDATE AiFavoredItems SET Value = 250 WHERE ListType = 'ScienceVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_SCIENTIST'; -- 150, 200
 
+-- Religion
+
+UPDATE AiFavoredItems SET Value = 990 WHERE ListType = 'AncientPseudoYields' AND Item = 'PSEUDOYIELD_GPP_PROPHET'; -- std 350
+
+UPDATE AiFavoredItems SET Value = 990 WHERE ListType = 'ReligiousVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_PROPHET'; -- std 750
 
 -- Individual / Agendas
 
@@ -159,7 +167,7 @@ UPDATE AiFavoredItems SET Value = 30 WHERE ListType = 'ClassicalPseudoYields' AN
 UPDATE AiFavoredItems SET Value = 120 WHERE ListType = 'MedievalPseudoYields' AND Item = 'PSEUDOYIELD_UNIT_NAVAL_COMBAT'; -- std +80
 UPDATE AiFavoredItems SET Value = 105 WHERE ListType = 'RenaissancePseudoYields' AND Item = 'PSEUDOYIELD_UNIT_NAVAL_COMBAT'; -- std +95
 
-UPDATE AiFavoredItems SET Value = 185 WHERE ListType = 'NavalUnitPreferences' AND Item = 'PSEUDOYIELD_UNIT_NAVAL_COMBAT'; -- std 140, 160
+UPDATE AiFavoredItems SET Value = 130 WHERE ListType = 'NavalUnitPreferences' AND Item = 'PSEUDOYIELD_UNIT_NAVAL_COMBAT'; -- std 140, 160, 185
 
 UPDATE AiFavoredItems SET Value = 9 WHERE ListType = 'NavalSettlementPreferences' AND Item = 'Specific Resource' AND StringVal ='RESOURCE_COAL'; -- std 5
 UPDATE AiFavoredItems SET Value = 8 WHERE ListType = 'NavalSettlementPreferences' AND Item = 'Specific Resource' AND StringVal ='RESOURCE_OIL'; -- std 5
@@ -194,6 +202,8 @@ INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividu
 		('GREAT_PERSON_INDIVIDUAL_LEVI_STRAUSS', 		 		 'RH_END_OF_TECH_MOD_MML', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'),  -- 2 Jeans -- +4 Ameneties		
 		
 		('GREAT_PERSON_INDIVIDUAL_HELENA_RUBINSTEIN', 		 	 'RH_END_OF_TECH_MOD_M', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'),  -- 2 Cosmetics -- +4 Ameneties			
+
+
 				
 -- Visibility
 		('GREAT_PERSON_INDIVIDUAL_MARY_KATHERINE_GODDARD', 		 'RH_END_OF_TECH_MOD_MML', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'), -- 1 Diplomatic Visibility
@@ -207,9 +217,19 @@ INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers  (GreatPersonIndividu
 		('GREAT_PERSON_INDIVIDUAL_LEONARDO_DA_VINCI', 		 	  'RH_END_OF_TECH_MOD_L', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'); -- 800
 
 
+
+
+-- Envoys
+
 INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType)
 SELECT 'GREAT_PERSON_INDIVIDUAL_MATTHEW_PERRY', 'RH_END_OF_TECH_MOD_MML', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
 WHERE EXISTS (SELECT * FROM GreatPersonIndividuals WHERE GreatPersonIndividualType = 'GREAT_PERSON_INDIVIDUAL_MATTHEW_PERRY'); -- Full envoys in city state, extra for online
+
+INSERT OR IGNORE INTO GreatPersonIndividualActionModifiers (GreatPersonIndividualType, ModifierId, AttachmentTargetType)
+SELECT 'GREAT_PERSON_INDIVIDUAL_ZHOU_DAGUAN', 'RH_END_OF_TECH_MOD_MML', 'GREAT_PERSON_ACTION_ATTACHMENT_TARGET_PLAYER'
+WHERE EXISTS (SELECT * FROM GreatPersonIndividuals WHERE GreatPersonIndividualType = 'GREAT_PERSON_INDIVIDUAL_ZHOU_DAGUAN'); -- 3 Envoys
+
+
 
 
 -- Early Engineers

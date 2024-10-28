@@ -390,8 +390,8 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('Mad_ExpansionistPsuedos', 'PSEUDOYIELD_STANDING_ARMY_VALUE', 			1, 8),
 ('Mad_ExpansionistPsuedos', 'PSEUDOYIELD_UNIT_SETTLER', 				1, 30); 
 	
-INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('Mad_ExpansionistOperations', 'OP_SETTLE', 1, 1);  -- todo ancient and classical only
+--INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
+--('Mad_ExpansionistOperations', 'OP_SETTLE', 1, 1);  -- todo ancient and classical only
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('Mad_ExpansionistSettlement', 'Foreign Continent', 0, 9);
@@ -405,10 +405,15 @@ INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal,
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
 
-('Mad_ExpansionistSettlementPrefs', 						'SETTLEMENT_MIN_VALUE_NEEDED', 										-10), 
+--('Mad_ExpansionistSettlementPrefs', 						'SETTLEMENT_MIN_VALUE_NEEDED', 										-10), 
+
+--('Mad_ExpansionistSettlementPrefs', 						'SETTLEMENT_DECAY_TURNS', 											-1), 
+('Mad_ExpansionistSettlementPrefs', 						'SETTLEMENT_ADDITIONAL_VALUE_PER_CITY', 					 		-1),
+('Mad_ExpansionistSettlementPrefs', 						'SETTLEMENT_CITY_MINIMUM_VALUE', 					 				50);
+
+
 --('Mad_ExpansionistSettlementPrefs', 						'SETTLEMENT_ADDITIONAL_VALUE_PER_CITY', 						    0), 
-('Mad_ExpansionistSettlementPrefs', 						'SETTLEMENT_DECAY_TURNS', 											-2), 
-('Mad_ExpansionistSettlementPrefs', 						'SETTLEMENT_DECAY_AMOUNT', 					 						2);
+
 --('Mad_ExpansionistSettlementPrefs', 						'SETTLEMENT_CITY_MINIMUM_VALUE', 									25);
 --('Mad_ExpansionistSettlementPrefs', 						'SETTLEMENT_CITY_VALUE_MULTIPLIER', 									1);
 

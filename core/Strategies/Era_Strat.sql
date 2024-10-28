@@ -610,7 +610,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('AncientYields', 'YIELD_RH_CLASSICAL_REPUBLIC',  1, 150),
 
 ('AncientYields', 'YIELD_RH_CULTURE_VICTORY_BASE',  0, -95),
-('AncientYields', 'YIELD_RV_BASE', 					1, 390), -- pvs 750, 380, 370, 330, 350
+('AncientYields', 'YIELD_RV_BASE', 					1, 650), -- pvs 750, 380, 370, 330, 350, 390
 
 ('AncientYields', 'YIELD_RH_CITY_CENTRE',  			0, -900),
 
@@ -695,13 +695,13 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalYields', 'YIELD_RH_ANCIENT',    0, -150),
 ('ClassicalYields', 'YIELD_RH_HAPPINESS_BUILDING',   0, -600), -- pvs -300, 600, 800, increasing for test
 ('ClassicalYields', 'YIELD_RH_MAGNUS',  1, 50),
-('ClassicalYields', 'YIELD_RV_BASE', 					1, 100), -- pvs 0
+('ClassicalYields', 'YIELD_RV_BASE', 					1, 750), -- pvs 0
 
 ('ClassicalYields', 'YIELD_RH_CLASSICAL_REPUBLIC',  1, 40), -- pvs 75
 
-('ClassicalYields', 'YIELD_RH_CULTURE_VICTORY_BASE',  0, -20),
+--('ClassicalYields', 'YIELD_RH_CULTURE_VICTORY_BASE',  0, -20),
 
-('ClassicalYields', 'YIELD_RH_CITY_CENTRE',  0, -800), -- pvs -200
+('ClassicalYields', 'YIELD_RH_CITY_CENTRE',  0, -950), -- pvs -200
 
 ('ClassicalTechs', 'TECH_POTTERY', 				1, 0), 
 ('ClassicalTechs', 'TECH_MINING', 				1, 0), 
@@ -797,7 +797,7 @@ SELECT 'ClassicalPseudoYields', PseudoYieldType, 0, -45
 FROM PseudoYields
 WHERE PseudoYieldType LIKE 'PSEUDOYIELD_GREATWORK_%'; 
 
-UPDATE AiFavoredItems SET Value = -75 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GREATWORK_RELIC';
+UPDATE AiFavoredItems SET Value = -85 WHERE ListType = 'ClassicalPseudoYields' AND Item = 'PSEUDOYIELD_GREATWORK_RELIC';
 
 
 
@@ -840,12 +840,12 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalYields', 'YIELD_RH_MAGNUS',  1, 400),
 ('MedievalYields', 'YIELD_RH_HAPPINESS_BUILDING',   0, -95),
 
-('MedievalYields', 'YIELD_RH_SCIENCE_VICTORY_BASE', 	   1, 800), -- temp, 200, 350
+('MedievalYields', 'YIELD_RH_SCIENCE_VICTORY_BASE', 	   1, 950), -- temp, 200, 350
 ('MedievalYields', 'YIELD_RH_MONARCHY',  		  1, 950), -- pvs 50
 ('MedievalYields', 'YIELD_RH_MERCHANT_REPUBLIC',  1, 50),
 
-('MedievalYields', 'YIELD_RH_CITY_CENTRE',  1, 50), -- pvs 550, 100
-('MedievalYields', 'YIELD_RH_FOOD_EXT',  1, 150),
+--('MedievalYields', 'YIELD_RH_CITY_CENTRE',  1, 50), -- pvs 550, 100
+('MedievalYields', 'YIELD_RH_FOOD_EXT',  1, 100),
 
 --('MedievalDistricts', 'DISTRICT_AQUEDUCT',  1, 50),
 ('MedievalDistricts', 'DISTRICT_ENTERTAINMENT_COMPLEX',  		0, 0), -- Test -- Zoo not unlocked until Industrial Era

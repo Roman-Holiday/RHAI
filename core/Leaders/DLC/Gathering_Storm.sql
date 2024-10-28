@@ -24,6 +24,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('EleanorDistricts', 'DISTRICT_THEATER', 1, 100),
 ('EleanorYields', 'YIELD_FOOD', 1, 100), -- pvs 45, 50
 ('EleanorYields', 'YIELD_CULTURE', 1, 600), -- pvs 50
+('EleanorYields', 'YIELD_RH_CULTURE_VICTORY_BASE', 1, 900), -- new
+
 ('EleanorYields', 'YIELD_SCIENCE', 0, -11),
 ('EleanorYields', 'YIELD_PRODUCTION', 1, -2),
 ('EleanorYields', 'YIELD_RH_LOYALTY', 1, 950),
@@ -52,9 +54,9 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('EleanorPseudoYields', 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE',    1, 35), -- Loyalty
 ('EleanorPseudoYields', 'PSEUDOYIELD_UNIT_RELIGIOUS',    1, 32), -- def 0.73 -- Rock bands loyalty promotion also
 --('EleanorPseudoYields', 'PSEUDOYIELD_GPP_ADMIRAL',    0, -5),
-('EleanorPseudoYields', 'PSEUDOYIELD_GPP_WRITER',    1, 200), -- 0.6 pvs 32, 40, 150, 160 (temp)
-('EleanorPseudoYields', 'PSEUDOYIELD_GPP_ARTIST',    1, 200), -- Loyalty -- def 0.6
-('EleanorPseudoYields', 'PSEUDOYIELD_GPP_MUSICIAN',  1, 200), -- def 0.5 (lower base value)
+('EleanorPseudoYields', 'PSEUDOYIELD_GPP_WRITER',    1, 350), -- 0.6 pvs 32, 40, 150, 160 (temp)
+('EleanorPseudoYields', 'PSEUDOYIELD_GPP_ARTIST',    1, 250), -- Loyalty -- def 0.6
+('EleanorPseudoYields', 'PSEUDOYIELD_GPP_MUSICIAN',  1, 250), -- def 0.5 (lower base value)
 ('EleanorPseudoYields', 'PSEUDOYIELD_GPP_GENERAL',  0, -40),
 --('EleanorPseudoYields', 'PSEUDOYIELD_GREATWORK_RELIC',  1, 300),
 --('EleanorPseudoYields', 'PSEUDOYIELD_GPP_RH_RELICMAN', 1, 10000),

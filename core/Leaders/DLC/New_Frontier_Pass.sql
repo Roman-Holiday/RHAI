@@ -730,7 +730,7 @@ INSERT OR REPLACE INTO AiLists (ListType, LeaderType, System) VALUES
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('LadyTrieuYields', 'YIELD_PRODUCTION', 1, -5),
+('LadyTrieuYields', 'YIELD_PRODUCTION', 1, -15),
 ('LadyTrieuYields', 'YIELD_CULTURE', 1, 8),
 ('LadyTrieuYields', 'YIELD_FAITH', 1, 5),
 ('LadyTrieuYields', 'YIELD_COMMUNISM', 1, 75),
@@ -738,9 +738,9 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('LadyTrieuTechs',   'TECH_BRONZE_WORKING', 1, 0), 
 ('LadyTrieuCivics', 'CIVIC_DEFENSIVE_TACTICS', 1, 0), 
 ('LadyTrieuDistricts', 'DISTRICT_THANH', 1, 30), 
-('LadyTrieuPseudoYields', 'PSEUDOYIELD_ENVIRONMENT', 1, 9500), -- pvs 80, 100, 175, 200, 950
+('LadyTrieuPseudoYields', 'PSEUDOYIELD_ENVIRONMENT', 1, 95000), -- pvs 80, 100, 175, 200, 950
 ('LadyTrieuPseudoYields', 'PSEUDOYIELD_IMPROVEMENT', 0, -99), -- pvs -70, -75, -95
-('LadyTrieuPseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 40),
+('LadyTrieuPseudoYields', 'PSEUDOYIELD_DISTRICT', 1, 100),
 ('LadyTrieuPseudoYields', 'PSEUDOYIELD_WONDER', 1, -25),
 ('LadyTrieuPseudoYields', 'PSEUDOYIELD_DIPLOMATIC_BONUS', 1, 2),
 ('LadyTrieuPseudoYields', 'PSEUDOYIELD_GPP_PROPHET', 1, 5),
@@ -753,13 +753,13 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('LadyTrieuImprovements', 'IMPROVEMENT_MINE', 		0, -100), 
-('LadyTrieuImprovements', 'IMPROVEMENT_LUMBER_MILL', 1, 100);
+('LadyTrieuImprovements', 'IMPROVEMENT_LUMBER_MILL', 1, 1000);
 
 
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipString) VALUES
 ('LadyTrieuSettlement', 'Coastal', 			0, -1, 		 NULL, 			'LOC_SETTLEMENT_RECOMMENDATION_COAST'), -- coastal def +11 from base
-('LadyTrieuSettlement', 'Specific Feature',  0, 3, 		'FEATURE_FOREST', 		'LOC_SETTLEMENT_RECOMMENDATION_FEATURES'),
+('LadyTrieuSettlement', 'Specific Feature',  0, 4, 		'FEATURE_FOREST', 		'LOC_SETTLEMENT_RECOMMENDATION_FEATURES'),
 ('LadyTrieuSettlement', 'Specific Feature',  0, 5, 		'FEATURE_JUNGLE', 		'LOC_SETTLEMENT_RECOMMENDATION_FEATURES');
 
 /*

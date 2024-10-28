@@ -88,10 +88,10 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('CultureVictoryPseudoYields', 'PSEUDOYIELD_UNIT_ARCHAEOLOGIST', 1, 200); -- base 4 -- RHAI 3.7 (results in similar value of 6.84 vs 6) -- increased to 85 from 80, 110
 
 UPDATE AiFavoredItems SET Value = 310 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_TOURISM'; -- def. 75 (lower 0.82 value), pvs 110, 120, test
-UPDATE AiFavoredItems SET Value = 180 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MUSICIAN'; -- base is lower, pvs 85, 100, 120
-UPDATE AiFavoredItems SET Value = 170 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ARTIST'; -- higher tourism , pvs 85, 100, 120, 125
-UPDATE AiFavoredItems SET Value = 155 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- less tourism, doubled at printing, 75
-UPDATE AiFavoredItems SET Value = 250 WHERE ListType = 'CultureVictoryYields'       AND Item = 'YIELD_CULTURE'; -- pvs 40, 45, 50
+UPDATE AiFavoredItems SET Value = 200 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_MUSICIAN'; -- base is lower, pvs 85, 100, 120
+UPDATE AiFavoredItems SET Value = 200 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_ARTIST'; -- higher tourism , pvs 85, 100, 120, 125
+UPDATE AiFavoredItems SET Value = 230 WHERE ListType = 'CultureVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_WRITER'; -- less tourism, doubled at printing, 75
+UPDATE AiFavoredItems SET Value = 450 WHERE ListType = 'CultureVictoryYields'       AND Item = 'YIELD_CULTURE'; -- pvs 40, 45, 50
 UPDATE AiFavoredItems SET Value = 900 WHERE ListType = 'CultureVictoryPseudoYields' AND Item LIKE 'PSEUDOYIELD_GREATWORK_%'; -- def. 20, pvs 50, 90
 
 UPDATE StrategyConditions SET ThresholdValue = 5 WHERE StrategyType="VICTORY_STRATEGY_CULTURAL_VICTORY" AND ConditionFunction = 'Has Great Works'; -- 8
@@ -167,7 +167,7 @@ REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value, StringVal, TooltipS
 ('CultureVictorySettlement', 'Inner Ring Yield',			 0, 1, 'YIELD_CULTURE', 'LOC_SETTLEMENT_RECOMMENDATION_INNER_YIELD'); -- 1
 
 INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('CultureVictoryDistricts', 'DISTRICT_THEATER', 1, 50),
+('CultureVictoryDistricts', 'DISTRICT_THEATER', 1, 950),
 ('CultureVictoryDistricts', 'DISTRICT_WATER_ENTERTAINMENT_COMPLEX', 1, 0),
 --('CultureVictoryDistricts', 'DISTRICT_ENCAMPMENT', 0, 0), -- test
 
@@ -220,18 +220,18 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 */
 
 
-('CultureVictoryWonders', 'BUILDING_WATER_MILL', 1, 0),
-('CultureVictoryWonders', 'BUILDING_GRANARY', 1, 90),
+--('CultureVictoryWonders', 'BUILDING_WATER_MILL', 1, 0),
+--('CultureVictoryWonders', 'BUILDING_GRANARY', 1, 90),
 ('CultureVictoryWonders', 'BUILDING_MONUMENT', 1, 90),
 --('CultureVictoryWonders', 'BUILDING_MILITARY_ACADEMY', 0, 0), -- Less Forts and Mountain Tunnels -- Needed to train corps and armies However
-('CultureVictoryWonders', 'BUILDING_WALLS', 1, 70),
-('CultureVictoryWonders', 'BUILDING_CASTLE', 1, 70), -- Defence and tourism
-('CultureVictoryWonders', 'BUILDING_STAR_FORT', 1, 70); -- Defence and tourism
+('CultureVictoryWonders', 'BUILDING_WALLS', 1, 100),
+('CultureVictoryWonders', 'BUILDING_CASTLE', 1, 100), -- Defence and tourism
+('CultureVictoryWonders', 'BUILDING_STAR_FORT', 1, 100); -- Defence and tourism
 --('CultureVictoryWonders', 'BUILDING_SYDNEY_OPERA_HOUSE', 1, 0);
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)
-SELECT 'CultureVictoryWonders', 'BUILDING_TEMPLE_ARTEMIS', 1, 0 -- situational but good anyway
+SELECT 'CultureVictoryWonders', 'BUILDING_TEMPLE_ARTEMIS', 1, 100 -- situational but good anyway
 FROM Types WHERE Type = 'BUILDING_TEMPLE_ARTEMIS';
 
 -- Portugal
@@ -290,7 +290,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 
 UPDATE AiFavoredItems SET Value = 150 WHERE ListType = 'ReligiousVictoryPseudoYields' AND Item = 'PSEUDOYIELD_UNIT_RELIGIOUS'; -- def. 50 -- Higher as def value is 0.73 instead of 1 -- pvs 85
 UPDATE AiFavoredItems SET Value = 250 WHERE ListType = 'ReligiousVictoryYields' AND Item = 'YIELD_FAITH'; -- def. 75 , pvs 50, 52, 55, 60, 75
-UPDATE AiFavoredItems SET Value = 650 WHERE ListType = 'ReligiousVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_PROPHET'; -- def. 25, 28, 35, 52, 75
+UPDATE AiFavoredItems SET Value = 750 WHERE ListType = 'ReligiousVictoryPseudoYields' AND Item = 'PSEUDOYIELD_GPP_PROPHET'; -- def. 25, 28, 35, 52, 75
 UPDATE AiFavoredItems SET Value = 250 WHERE ListType = 'ReligiousVictoryPseudoYields' AND Item = 'PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE'; -- pvs 175
 
 -- Def <Row ListType="ReligiousVictoryPseudoYields" Item="PSEUDOYIELD_RELIGIOUS_CONVERT_EMPIRE" Value="100"/>
@@ -305,7 +305,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ReligiousVictoryYields', 'YIELD_RH_SPREAD_RELIGION', 1, 35),
 ('ReligiousVictoryYields', 'YIELD_RH_NUCLEAR', 1, 35),
 
-('ReligiousVictoryYields', 'YIELD_RH_RV_BASE', 1, 950),
+('ReligiousVictoryYields', 'YIELD_RH_RV_BASE', 1, 1900),
 
 --('ReligiousVictoryYields', 'YIELD_RH_PATRONAGE_BAN', 	1, 750), -- pvs 300 (votes for double great prophet points lol)
 
@@ -359,7 +359,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ReligiousVictoryCivics', 'CIVIC_THEOLOGY', 1, 0),
 ('ReligiousVictoryCivics', 'CIVIC_REFORMED_CHURCH', 1, 0),
 
-('ReligiousVictoryDistricts', 'DISTRICT_HOLY_SITE', 1, 0),
+('ReligiousVictoryDistricts', 'DISTRICT_HOLY_SITE', 1, 950),
 
 ('ReligiousVictoryAlliances', 'ALLIANCE_RELIGIOUS', 1, 0),
 
@@ -367,6 +367,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 --('ReligiousVictoryCivics', 'CIVIC_TOTALITARIANISM', 0, 0), 
 --('ReligiousVictoryCivics', 'CIVIC_CLASS_STRUGGLE', 0, 0), 
 
+('ReligiousVictoryWonders', 'BUILDING_SHRINE', 1, 90),
 ('ReligiousVictoryWonders', 'BUILDING_TEMPLE', 1, 90),
 ('ReligiousVictoryWonders', 'BUILDING_ORACLE', 1, 0),
 ('ReligiousVictoryWonders', 'BUILDING_HAGIA_SOPHIA', 1, 0),
@@ -387,12 +388,13 @@ WHERE NaturalWonder = 1; -- NaturalWonder="true"
 
 
 INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)
-SELECT 'ReligiousVictoryWonders', 'BUILDING_GREAT_BATH', 1, 0 -- gathering storm dlc -- useful for religious civs only
+SELECT 'ReligiousVictoryWonders', 'BUILDING_GREAT_BATH', 1, 950 -- gathering storm dlc -- useful for religious civs only
 FROM Types WHERE Type = 'BUILDING_GREAT_BATH';
 
-INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)
-SELECT 'ReligiousVictoryWonders', 'BUILDING_MEENAKSHI_TEMPLE', 1, 0 -- not very good but might as well add it for fun -- Guru 30% discount
-FROM Types WHERE Type = 'BUILDING_MEENAKSHI_TEMPLE';
+
+--INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value)
+--SELECT 'ReligiousVictoryWonders', 'BUILDING_MEENAKSHI_TEMPLE', 1, 0 -- not very good but might as well add it for fun -- Guru 30% discount, builds too often
+--FROM Types WHERE Type = 'BUILDING_MEENAKSHI_TEMPLE';
 
 
 

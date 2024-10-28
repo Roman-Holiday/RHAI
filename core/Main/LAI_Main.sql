@@ -17,7 +17,7 @@ UPDATE PseudoYields SET DefaultValue = 1.7 WHERE PseudoYieldType = 'PSEUDOYIELD_
 UPDATE PseudoYields SET DefaultValue = 0.76 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_RELIGIOUS'; -- 1.0, pvs 0.73
 UPDATE PseudoYields SET DefaultValue = 11 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_TRADE'; -- 1.0, 6.5
 UPDATE PseudoYields SET DefaultValue = 78.0 WHERE PseudoYieldType = 'PSEUDOYIELD_UNIT_SPY'; -- 20.0 -- pvs 21, 31, 36
-UPDATE PseudoYields SET DefaultValue = 30 WHERE PseudoYieldType = 'PSEUDOYIELD_DISTRICT'; -- 8.0, pvs 7, 8, 9, 11.5, 12.5, 15, 20, 25, 15, 14, 10
+UPDATE PseudoYields SET DefaultValue = 40 WHERE PseudoYieldType = 'PSEUDOYIELD_DISTRICT'; -- 8.0, pvs 7, 8, 9, 11.5, 12.5, 15, 20, 25, 15, 14, 10
 UPDATE PseudoYields SET DefaultValue = 0.95 WHERE PseudoYieldType = 'PSEUDOYIELD_WONDER'; -- 2.0 -- pvs 0.49
 --UPDATE PseudoYields SET DefaultValue = 0.25 WHERE PseudoYieldType = 'PSEUDOYIELD_DIPLOMATIC_BONUS'; --  was +0.01 to balance other diplo modifiers (pvs +0.02)
 UPDATE PseudoYields SET DefaultValue = 0.7 WHERE PseudoYieldType = 'PSEUDOYIELD_NUCLEAR_WEAPON'; -- 25.0 - Pvs 39, 52, 50, 47, 46, 45, 33, 20 (test)

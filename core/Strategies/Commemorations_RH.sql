@@ -444,13 +444,13 @@ INSERT OR IGNORE INTO Modifiers
 INSERT OR IGNORE INTO ModifierArguments
 		(ModifierId,									Name,						Value) VALUES	
 			
-		('RH_INFRA_PURCHASE_TEMP',								'UnitType',					'UNIT_BUILDER'),
+		('RH_INFRA_PURCHASE_TEMP',								'UnitType',					'UNIT_SETTLER'),
 		('RH_INFRA_PURCHASE_TEMP',								'Amount',					1),
 		('RH_INFRA_PURCHASE_TEMP',								'AllowUniqueOverride',		0);				
 		
 		
 INSERT OR IGNORE INTO CommemorationModifiers  (CommemorationType, ModifierId)  VALUES	
-		('COMMEMORATION_INFRASTRUCTURE',      		  			'RH_AI_IMPROVEMENT1_GOLD_SIM'),
+		('COMMEMORATION_INFRASTRUCTURE',      		  			'RH_AI_SETTLE1_GOLD_SIM'),
 		('COMMEMORATION_INFRASTRUCTURE',      		  			'RH_INFRA_PURCHASE_TEMP');		
 		
 		

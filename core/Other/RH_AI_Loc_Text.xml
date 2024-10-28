@@ -58,7 +58,7 @@
 			<Text>RH - Extra Late Game Strategic Resources</Text>
 		</Replace>
 		<Replace Tag="RULESET_RH_AI_EXTRA_STRATEGICS_DESCRIPTION" Language="en_US">
-			<Text>The AI gains 10 Oil and Aluminium Per Turn at Combined Arms, 10 Uranium at Nuclear Fission Regardless of Improved Resources</Text>
+			<Text>The AI gains 10 Oil and Aluminium Per Turn at Combined Arms, 10 Uranium at Nuclear Fission Regardless of Improved Resources. Enables the use of Biplanes as the AI not does not need to be as conservative with late game resources</Text>
 		</Replace>
 
 
@@ -156,6 +156,7 @@
 		</Replace>
 		
 		
+		<!-- Not in use -->
 		<!--Update>
 			<Where Tag="LOC_DIPLO_DELEGATION_FROM_AI_LEADER_LUDWIG_ANY" Language="en_US"/>
 			<Set Text="Forget the swans today, Ursa. Their time has passed. You'll need this Delegation—more than you can imagine. But tread carefully, and be careful what you wish for. The shadows of your desires have a way of becoming all too real. "/> 
@@ -176,6 +177,150 @@
 			<Set Text="Sweden will do her part to push back the evils of the world. Art is one way to do this—getting rid of you is another. Ursa"/>
 			<Where Tag="LOC_DIPLO_DECLARE_WAR_FROM_AI_LEADER_KRISTINA_ANY" />
 		</Update-->		
+
+
+
+
+
+		<!--------------------------------------------------------------------------------------------------------------/>
+		<!-- German Translations. Thanks so much!!! Onyxum -->
+
+
+		<!-- Setting Name -->
+
+		<Replace Tag="LOC_STARTING_DIPLO_OFFSET" Language="de_DE">
+			<Text>Diplomatie Regelabweichung</Text>
+		</Replace>
+
+		<Replace Tag="LOC_STARTING_RH_WALL_ATTACK" Language="de_DE">
+			<Text>RH Wiederbelebung von Mesopotamien</Text>
+		</Replace>
+
+
+		<!--Replace Tag="" Language="en_US">
+			<Text>Roman Holiday's AI Settings</Text>
+		</Replace-->
+	
+		<Replace Tag="RULESET_RH_AI_STANDARD_OFFSET_NAME" Language="de_DE">
+			<Text>Höhere Regelabweichung</Text>
+		</Replace>
+	
+		<Replace Tag="RULESET_RH_AI_STANDARD_OFFSET_DESCRIPTION" Language="de_DE">
+			<Text>50% höherer Startdiplomatie-Regelabweichung (etwa 3x höher als die Grundspieleinstellung). Dies wird ein besonders schwieriges Spiel sein.</Text>
+		</Replace>
+		
+		<Replace Tag="RULESET_RH_AI_LOWER_OFFSET_NAME" Language="de_DE">
+			<Text>Standard Regelabweichung</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_LOWER_OFFSET_DESCRIPTION" Language="de_DE">
+			<Text>Standard Startdiplomatie-Regelabweichung (erhöht sich geringfügig pro Schwierigkeitsgrad über "Prinz", nimmt mit der Zeit ab und ist pro Anführer zufällig)..</Text>
+		</Replace>
+				
+		<Replace Tag="RULESET_RH_AI_LOWEST_OFFSET_NAME" Language="de_DE">
+			<Text>Niedrigste Regelabweichung</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_LOWEST_OFFSET_DESCRIPTION" Language="de_DE">
+			<Text>50% niedrigerer Start-Regelabweichung und die KI ist im Allgemeinen etwas friedlicher. Näher an der Grundspieleinstellung. Empfohlen für ein friedlicheres Spiel (Gandhi wird Ihr bester Freund sein).</Text>
+		</Replace>
+
+
+		<!-- ROM ENABLED -->
+
+		<Replace Tag="RULESET_RH_AI_REVIVAL_OF_MESOPOTAMIA_NAME" Language="de_DE">
+			<Text>RH - Wiederbelebung von Mesopotamien</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_REVIVAL_OF_MESOPOTAMIA_DESCRIPTION" Language="de_DE">
+			<Text>KI-Kräfte erleben plötzlich ein technologisches Erwachen und brechen aus den Barrieren der Mauern aus. Der Ruf, das zurückzufordern, was ihnen rechtmäßig zusteht, hallt durch das Land; Mesopotamien wird sich noch einmal erheben!</Text>
+		</Replace>
+
+
+		<!-- Extra Strategics -->
+
+		<Replace Tag="RULESET_RH_AI_EXTRA_STRATEGICS_NAME" Language="de_DE">
+			<Text>RH - Zusätzliche strategische Ressourcen für die späte Spielphase</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_EXTRA_STRATEGICS_DESCRIPTION" Language="de_DE">
+			<Text>Die KI erhält 10 Öl und Aluminium pro Runde nach Erforschung der Technologie "Kombinierte Waffen", 10 Uran nach Erforschung der Technologie "Kernspaltung", unabhängig von verbesserten Ressourcen</Text>
+		</Replace>
+
+
+		<!-- Reduced Starting Units -->
+
+		<Replace Tag="RULESET_RH_AI_REDUCED_STARTING_UNITS_NAME" Language="de_DE">
+			<Text>RH - Reduzierte Start-Krieger</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_REDUCED_STARTING_UNITS_DESCRIPTION" Language="de_DE">
+			<Text>Reduziert die Anzahl an Kriegern, mit der die KI startet um ~40% und bietet als Ausgleich den Erhalt von bis zu 3 Handwerkern (je nach Schwierigkeitsgrad), welche zwischen den Zeitaltern Klassik und Mittelalter aufgeteilt werden. Alle "Deity++"-Mod-Optionen für Start-Einheiten sind kompatibel.</Text>
+		</Replace>
+
+
+		<!-- Reduced Early Agg -->
+
+		<Replace Tag="RULESET_RH_AI_REDUCED_EARLY_AGGRESSIVENESS_NAME" Language="de_DE">
+			<Text>RH - Reduzierte Start-Aggression</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_REDUCED_EARLY_AGGRESSIVENESS_DESCRIPTION" Language="de_DE">
+			<Text>Die KI wird in den Zeitaltern Antike und Klassik weniger aggressiv sein, weshalb sie eher zögerlich bei der Abwägung der Entscheidung sein wird Städte anzugreifen</Text>
+		</Replace>
+
+
+		<!-- Reduced Early Agg -->
+
+		<Replace Tag="RULESET_RH_AI_EXTRA_TACTICAL_KNOWLEDGE_NAME" Language="de_DE">
+			<Text>RH - Zusätzliche taktische Kenntnisse</Text>
+		</Replace>
+		<Replace Tag="RULESET_RH_AI_EXTRA_TACTICAL_KNOWLEDGE_DESCRIPTION" Language="de_DE">
+			<Text>Gewährt den Militäreinheiten der KI +1 Sicht (gilt nicht für zivile, religiöse oder Aufklärungs-Einheiten) für einen zusätzlichen Vorteil im Kampf</Text>
+		</Replace>
+
+
+
+		<Replace Tag="LOC_YIELD_RH_AI" Language="de_DE">
+			<Text>RH's Spezielle KI Bewertung (nur Interne KI)</Text>
+		</Replace>
+
+		<Replace Tag="LOC_YIELD_PLACEMENT_RH_AI" Language="de_DE">
+			<Text>RHAI-Platzierung (keine Auswirkung auf das Spiel)</Text>
+		</Replace>
+
+		<Replace Tag="LOC_BUILDING_RH_FEED_STRAT_NAME" Language="de_DE">
+			<Text></Text>
+		</Replace>
+
+		<Replace Tag="LOC_UNIT_RH_SPECIALIST_MERCHANT_NAME" Language="de_DE">
+			<Text>Großer Korporations-Händler</Text>
+		</Replace>
+
+		<Replace Tag="LOC_UNIT_RH_SPECIALIST_MERCHANT_DESCRIPTION" Language="de_DE">
+			<Text>Ermöglicht der KI den effektiven Aufbau von Korporationen (erfordert gute Handelszentrum-Bezirke)</Text>
+		</Replace>
+		
+		<!-- Civics -->
+		
+		
+		<Replace Tag="LOC_TECHNOLOGY_RH_AI_LUDWIG_ADJ_NAME" Language="de_DE">
+			<Text>Ludwig RHAI (für RH Internal Strat)</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_TECHNOLOGY_RH_AI_THEODORA_ADJ_NAME" Language="de_DE">
+			<Text>Theodora RHAI (für RH Internal Strat)</Text>
+		</Replace>
+		
+		<Replace Tag="LOC_TECHNOLOGY_RH_AI_HUNGARY_ADJ_NAME" Language="de_DE">
+			<Text>UNGARN RHAI (für RH Internal Strat)</Text>
+		</Replace>
+
+
+		<Replace Tag="LOC_TECHNOLOGY_RH_AI_MAIN_NAME" Language="de_DE">
+			<Text>RHAI Bezirk (RHAI Internal) </Text>
+		</Replace>
+		
+		<Replace Tag="LOC_RH_AI_VERSION" Language="de_DE">
+			<Text>RHAI V4 Beta</Text>
+		</Replace>
+		
+		
+
 			
 		</LocalizedText>
 

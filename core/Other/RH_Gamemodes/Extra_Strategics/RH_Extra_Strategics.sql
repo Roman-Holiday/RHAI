@@ -116,3 +116,89 @@ REPLACE INTO RequirementArguments
 		(RequirementId,	Name, Value)
 VALUES
 		('REQUIRES_RH_COMBINED_ARMS','TechnologyType', 'TECH_COMBINED_ARMS');
+
+
+
+
+----------------------------------------------------------------------------------
+
+-- Biplane Test
+
+
+
+
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType, ModifierId) VALUES
+('BUILDING_HANGAR', 				'RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF'),
+
+('BUILDING_HANGAR', 				'RH_AI_GOLD_SIM_BIPLANE_FLIGHT');
+
+
+
+-- Gold Deduction at Flight
+
+-- Step 1: Insert the modifier to deduct gold when Flight is researched
+INSERT OR IGNORE INTO Modifiers
+    (ModifierId,                                ModifierType,        RunOnce, Permanent,                         OwnerRequirementSetId) VALUES    
+    ('RH_AI_GOLD_SIM_BIPLANE_FLIGHT',     'MODIFIER_PLAYER_MULTIPLY_TREASURY', 1, 1,      'RH_AI_HAS_FLIGHT_HIGH_DIFF');
+
+-- Step 2: Define the amount to deduct (-50 gold)
+INSERT OR IGNORE INTO ModifierArguments
+    (ModifierId,                                Name,                         Value) VALUES    
+    -- Deduct 50 gold
+    ('RH_AI_GOLD_SIM_BIPLANE_FLIGHT',    'Amount',                     -90); 
+
+
+
+
+
+-- Inserting the Modifier to grant a Biplane at Flight technology
+INSERT OR IGNORE INTO Modifiers
+    (ModifierId,                                ModifierType,                             OwnerRequirementSetId) VALUES    
+    ('RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF',            'MODIFIER_SINGLE_CITY_GRANT_UNIT_IN_NEAREST_CITY',        'RH_AI_HAS_FLIGHT_HIGH_DIFF');
+    
+-- Defining the unit and amount for the Biplane
+INSERT OR IGNORE INTO ModifierArguments
+    (ModifierId,                                Name,                         Value) VALUES    
+    -- Grant 1 Biplane
+    ('RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF',            'UnitType',                 'UNIT_BIPLANE'),
+    ('RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF',            'Amount',                   1),
+    ('RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF',            'AllowUniqueOverride',       0),
+    ('RH_FREE_AI_BIPLANE_FLIGHT_HIGH_DIFF',            'RunOnce',                   1); -- True
+
+-- Step 3: Define the requirements for TECH_FLIGHT
+INSERT OR IGNORE INTO RequirementSets
+    (RequirementSetId,                                RequirementSetType) VALUES    
+    -- Requirements for granting Biplanes after Flight is researched
+    ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'REQUIREMENTSET_TEST_ALL');
+    
+INSERT OR IGNORE INTO RequirementSetRequirements
+    (RequirementSetId,                                RequirementId) VALUES    
+    -- Ensuring the city is owned, player has the tech, is AI, and on high difficulty
+    ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'RH_REQUIRES_OWN_CITY'),
+    ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'RH_REQUIRES_HAS_TECH_FLIGHT'),
+    ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'RH_REQUIRES_NO_ADVANCED_FLIGHT'),	
+	
+    ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'REQUIRES_PLAYER_IS_AI'),
+    ('RH_AI_HAS_FLIGHT_HIGH_DIFF',              'REQUIRES_PLAYER_EMPEROR_RH');
+
+
+INSERT OR IGNORE INTO Requirements
+    (RequirementId,                                RequirementType) VALUES    
+    -- Require the player to have researched Flight
+    ('RH_REQUIRES_HAS_TECH_FLIGHT',            'REQUIREMENT_PLAYER_HAS_TECHNOLOGY');
+
+INSERT OR IGNORE INTO RequirementArguments
+    (RequirementId,                                Name,                        Value) VALUES    
+    ('RH_REQUIRES_HAS_TECH_FLIGHT',            'TechnologyType',           'TECH_FLIGHT');
+
+
+
+INSERT OR IGNORE INTO Requirements
+    (RequirementId,                                RequirementType, Inverse) VALUES    
+    -- Require the player to have researched Flight
+    ('RH_REQUIRES_NO_ADVANCED_FLIGHT',            'REQUIREMENT_PLAYER_HAS_TECHNOLOGY', 1);
+
+INSERT OR IGNORE INTO RequirementArguments
+    (RequirementId,                                Name,                        Value) VALUES    
+    ('RH_REQUIRES_NO_ADVANCED_FLIGHT',            'TechnologyType',           'TECH_ADVANCED_FLIGHT');
+

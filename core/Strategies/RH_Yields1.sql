@@ -521,7 +521,9 @@ INSERT OR IGNORE INTO TechnologyModifiers (TechnologyType, ModifierId)  VALUES
 			('TECH_HORSEBACK_RIDING', 		'RH_AT_WAR_MOD_SM'),
 			
 			('TECH_STIRRUPS', 				'RH_AT_WAR_MOD_M'), -- Knights
-			('TECH_MILITARY_ENGINEERING', 	'RH_AT_WAR_MOD'), -- Trebuchet
+			
+			('TECH_CONSTRUCTION', 			'RH_AT_WAR_MOD_L'), -- For Military Engineering			
+			('TECH_MILITARY_ENGINEERING', 	'RH_AT_WAR_MOD_L'), -- Niter!, Trebuchet
 			
 			('TECH_GUNPOWDER', 				'RH_AT_WAR_MOD_L'),			
 			('TECH_METAL_CASTING', 			'RH_AT_WAR_MOD_L'),			
@@ -808,6 +810,9 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
 (148, 'WC_RES_GLOBAL_ENERGY_TREATY', 1, 'RH_PRODUCTION_MOD_L');
 
+
+INSERT OR IGNORE INTO BeliefModifiers (BeliefType        ,ModifierId)   VALUES
+('BELIEF_WORK_ETHIC',				'RH_PRODUCTION_MOD_XL'); -- Test
 
 INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
 ('DISTRICT_CANAL',			 	 'RH_PRODUCTION_MOD_MXL'),
