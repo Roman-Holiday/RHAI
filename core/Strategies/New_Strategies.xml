@@ -894,7 +894,7 @@
 	<!--Row ListType="DEITY_SPECIALISE" Item="BUILD_CITY_DEFENSES" Favored="true" Value="10"/-->
 	
 	
-	<Row ListType="DEITY_SETTLEMENT_VALUE" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="100"/>	<!-- Extra on High Diff, pvs 50 -->
+	<Row ListType="DEITY_SETTLEMENT_VALUE" Item="SETTLEMENT_CITY_MINIMUM_VALUE" Value="150"/>	<!-- Extra on High Diff, pvs 50, 100 -->
 	
 	<Row ListType="DEITY_SCOUT_USES" Item="DEFAULT_LAND_SCOUTS" Value="100"/>
 	<Row ListType="DEITY_SCOUT_USES" Item="LAND_SCOUTS_PER_SECONDARY_REGION" Value="50"/>

@@ -147,37 +147,37 @@
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_GOLDEN_AGE_WAR"/>
-			<Set Worth="50" Cost="-50" /> <!-- pvs 20, -20 -->
+			<Set Worth="90" Cost="-90" /> <!-- pvs 20, -20 -->
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_IDEOLOGICAL_WAR"/>
-			<Set Worth="45" Cost="-45" /> 
+			<Set Worth="85" Cost="-85" /> 
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_WAR_OF_RETRIBUTION"/> <!-- Broken Promise -->
-			<Set Worth="40" Cost="-40" /> <!-- pvs 5, -5 -->
+			<Set Worth="80" Cost="-80" /> <!-- pvs 5, -5 -->
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_COLONIAL_WAR"/> <!-- 2 Era Behind -->
-			<Set Worth="40" Cost="-40" /> 
+			<Set Worth="80" Cost="-80" /> 
 		</Update>
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_RECONQUEST_WAR"/> 
-			<Set Worth="40" Cost="-40" /> 
+			<Set Worth="80" Cost="-80" /> 
 		</Update>		
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_FORMAL_WAR"/> <!-- Testing over Surprise War -->
-			<Set Worth="35" Cost="-35" /> 
+			<Set Worth="70" Cost="-70" /> 
 		</Update>	
 		
 		<Update>
 			<Where StateType="DIPLO_STATE_DENOUNCED" DiplomaticActionType="DIPLOACTION_DECLARE_HOLY_WAR"/> <!-- Testing over Surprise War -->
-			<Set Worth="45" Cost="-45" /> 
+			<Set Worth="80" Cost="-80" /> 
 		</Update>			
 		
 		

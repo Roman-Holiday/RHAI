@@ -437,8 +437,8 @@ UPDATE GlobalParameters SET Value = '12' WHERE Name = 'AI_TURNS_BETWEEN_TRADES';
 --UPDATE ModifierArguments SET Extra = '11' WHERE ModifierId = 'HIGH_DIFFICULTY_UNIT_XP_SCALING'; -- Def 10, test
 
 
-UPDATE ModifierArguments SET Value = 350 WHERE ModifierId = 'MINOR_CIV_PRODUCTION_MILITARY' AND Name = 'Amount'; -- Def 200
-UPDATE ModifierArguments SET Value = 500 WHERE ModifierId = 'MINOR_CIV_PRODUCTION_WALLS' AND Name = 'Amount'; -- Def 200
+UPDATE ModifierArguments SET Value = 950 WHERE ModifierId = 'MINOR_CIV_PRODUCTION_MILITARY' AND Name = 'Amount'; -- Def 200, pvs 350, 420
+UPDATE ModifierArguments SET Value = 850 WHERE ModifierId = 'MINOR_CIV_PRODUCTION_WALLS' AND Name = 'Amount'; -- Def 200, 500
 
 UPDATE Victories SET CriticalPercentage=75 WHERE VictoryType='VICTORY_RELIGIOUS'; -- def 80
 UPDATE Victories SET CriticalPercentage=65 WHERE VictoryType='VICTORY_CULTURE'; -- def 75

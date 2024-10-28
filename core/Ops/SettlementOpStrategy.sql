@@ -52,7 +52,7 @@ VALUES
 INSERT OR IGNORE INTO RequirementArguments
 		(RequirementId, Name, Value)
 VALUES
-		('RH_NO_CARTOGRAPHY_REQ', 'TechnologyType', 'TECH_CARTOGRAPHY');
+		('RH_NO_CARTOGRAPHY_REQ', 'TechnologyType', 'TECH_APPRENTICESHIP');
 
 
 
@@ -98,20 +98,20 @@ REQUIREMENT_PLOT_DISTRICT_IS_DEFENDED
 
 INSERT INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange)
 VALUES 
-    ('RESOURCE_ALUMINUM', 'YIELD_RH_END_OF_TECH', 	35),
+    ('RESOURCE_ALUMINUM', 'YIELD_RH_END_OF_TECH', 	95),
     ('RESOURCE_COAL', 'YIELD_RH_END_OF_TECH', 	  	10),
-    ('RESOURCE_HORSES', 'YIELD_RH_END_OF_TECH',     4),
+    ('RESOURCE_HORSES', 'YIELD_RH_END_OF_TECH',     10),
 
-    ('RESOURCE_IRON', 'YIELD_RH_END_OF_TECH', 		 6),
+    ('RESOURCE_IRON', 'YIELD_RH_END_OF_TECH', 		 10),
 
-    ('RESOURCE_NITER', 'YIELD_RH_END_OF_TECH',		 10),
-    ('RESOURCE_OIL', 'YIELD_RH_END_OF_TECH', 		 20),
-    ('RESOURCE_URANIUM', 'YIELD_RH_END_OF_TECH',     35);
+    ('RESOURCE_NITER', 'YIELD_RH_END_OF_TECH',		 20),
+    ('RESOURCE_OIL', 'YIELD_RH_END_OF_TECH', 		 40),
+    ('RESOURCE_URANIUM', 'YIELD_RH_END_OF_TECH',     95);
 
 
 
 INSERT INTO Resource_YieldChanges (ResourceType, YieldType, YieldChange)
-SELECT ResourceType, 'YIELD_RH_END_OF_TECH', 8
+SELECT ResourceType, 'YIELD_RH_END_OF_TECH', 9
 FROM Resources
 WHERE ResourceClassType = 'RESOURCECLASS_LUXURY';
 

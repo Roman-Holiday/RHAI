@@ -66,7 +66,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_ANCIENT_MOD_XXS',							'Amount'   , 4),
 
 		('RH_ANCIENT_MOD_MINUS',		'YieldType', 		'YIELD_RH_ANCIENT'), -- Shipbuilding
-		('RH_ANCIENT_MOD_MINUS',							'Amount'   , -500), -- pvs -150, -250
+		('RH_ANCIENT_MOD_MINUS',							'Amount'   , -950), -- pvs -150, -250
 
 		('RH_ANCIENT_MOD_MS',		'YieldType', 		'YIELD_RH_ANCIENT'),
 		('RH_ANCIENT_MOD_MS',							'Amount'   , 40), 
@@ -76,7 +76,7 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 
 
 INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
-('DISTRICT_HOLY_SITE',			 'RH_ANCIENT_MOD_MXL'),
+('DISTRICT_HOLY_SITE',			 'RH_ANCIENT_MOD_XL'),
 ('DISTRICT_LAVRA',				 'RH_ANCIENT_MOD_MXL'),
 ('DISTRICT_SEOWON',				 'RH_ANCIENT_MOD_MXL'),
 
@@ -890,7 +890,8 @@ INSERT OR IGNORE INTO CivicModifiers (CivicType, ModifierId)  VALUES
 			('CIVIC_HUMANISM', 							'RH_CULTURE_VICTORY_BASE_MOD_MXL'); -- Art Museum, Frescoes
 
 
-
+INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
+('DISTRICT_THEATER',						 'RH_CULTURE_VICTORY_BASE_MOD_ML'); -- New, test
 
 
 INSERT OR IGNORE INTO PolicyModifiers  (PolicyType, ModifierId)  VALUES	
@@ -934,7 +935,7 @@ INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
 ('BUILDING_AQUARIUM', 					'RH_CULTURE_VICTORY_BASE_MOD_S'),
 ('BUILDING_AQUATICS_CENTER', 			'RH_CULTURE_VICTORY_BASE_MOD'),
 
-('BUILDING_AMPHITHEATER', 				'RH_CULTURE_VICTORY_BASE_MOD_S'),
+('BUILDING_AMPHITHEATER', 				'RH_CULTURE_VICTORY_BASE_MOD'), -- pvs S
 
 ('BUILDING_MUSEUM_ART', 				'RH_CULTURE_VICTORY_BASE_MOD'),
 ('BUILDING_MUSEUM_ARTIFACT', 			'RH_CULTURE_VICTORY_BASE_MOD'),
@@ -1328,9 +1329,9 @@ WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_CONSULATE')
 
 -- +2 Influence points per turn. Spies operate at one level lower when targeting this city or cities with Encampments.
 
---INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
---SELECT 'BUILDING_CHANCERY', 'RH_CITY_CENTRE_MOD_XS'
---WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_CHANCERY'); 
+INSERT OR IGNORE INTO BuildingModifiers (BuildingType,			ModifierId)
+SELECT 'BUILDING_CHANCERY', 'RH_CITY_CENTRE_MOD_MS'
+WHERE EXISTS (SELECT * FROM Buildings WHERE BuildingType = 'BUILDING_CHANCERY'); 
 
 -- +3 Influence points per turn. When this civilization captures or kills an enemy Spy, receive 50 Science for every level of the enemy Spy.
 
@@ -1769,19 +1770,19 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_RV_BASE_MOD_XL',		'YieldType', 	'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_XL',						'Amount'   , 750), 
+		('RH_RV_BASE_MOD_XL',						'Amount'   , 850), 
 
 		('RH_RV_BASE_MOD_MXL',		'YieldType', 	'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_MXL',						'Amount'   , 300), 
+		('RH_RV_BASE_MOD_MXL',						'Amount'   , 700), 
 
 		('RH_RV_BASE_MOD_L',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_L',							'Amount'   , 235), 
+		('RH_RV_BASE_MOD_L',							'Amount'   , 440), 
 
 		('RH_RV_BASE_MOD_ML',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_ML',							'Amount'   , 80), 
+		('RH_RV_BASE_MOD_ML',							'Amount'   , 330), 
 
 		('RH_RV_BASE_MOD_S',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_S',							'Amount'   , 20),
+		('RH_RV_BASE_MOD_S',							'Amount'   , 25),
 
 		('RH_RV_BASE_MOD_XS',		'YieldType', 		'YIELD_RH_RV_BASE'),
 		('RH_RV_BASE_MOD_XS',							'Amount'   , 5),
@@ -1824,7 +1825,7 @@ INSERT OR IGNORE INTO CivicModifiers (CivicType, ModifierId)  VALUES
 
 INSERT OR IGNORE INTO DistrictModifiers (DistrictType, ModifierId) VALUES
 ('DISTRICT_HOLY_SITE',						 'RH_RV_BASE_MOD_ML'),
-('DISTRICT_LAVRA',							 'RH_RV_BASE_MOD_ML');
+('DISTRICT_LAVRA',							 'RH_RV_BASE_MOD_XL');
 
 
 INSERT INTO BuildingModifiers (BuildingType, ModifierId) VALUES
@@ -1885,8 +1886,10 @@ INSERT OR IGNORE INTO BeliefModifiers (BeliefType        ,ModifierId)   VALUES
 
 
 INSERT INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
-(554, 'WC_RES_MERCENARY_COMPANIES', 2, 'RH_RV_BASE_MOD_MXL'); -- Double cost (AI absolutely loves the other option)
+(554, 'WC_RES_MERCENARY_COMPANIES', 2, 'RH_RV_BASE_MOD_L'); -- Double cost (AI absolutely loves the other option)
 
+INSERT OR IGNORE INTO ResolutionEffects ('ResolutionEffectId', 'ResolutionType', 'WhichEffect', 'ModifierId') VALUES
+(633, 'WC_RES_WORLD_RELIGION', 1, 'RH_RV_BASE_MOD_L');
 
 
 /*

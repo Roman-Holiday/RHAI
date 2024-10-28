@@ -137,19 +137,20 @@ CREDIT CYPRYAN:
 
 
 UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_VALUE_MULTIPLIER'; 
-UPDATE AiFavoredItems SET Value = 150 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; 
+UPDATE AiFavoredItems SET Value = 200 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; 
 
 UPDATE AiFavoredItems SET Value = 6 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_TURNS'; 
 UPDATE AiFavoredItems SET Value = 18 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; 
 
 
 
-
 -- SETTLEMENT_MIN_VALUE_NEEDED Addon
 
-UPDATE AiFavoredItems SET Value = -11 WHERE ListType = 'ExpansionSettlementBoost' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- def 15
 UPDATE AiFavoredItems SET Value = -8 WHERE ListType = 'MedievalSettlements' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- def 10
 
+-- Expansion
+UPDATE AiFavoredItems SET Value = -11 WHERE ListType = 'ExpansionSettlementBoost' AND Item = 'SETTLEMENT_MIN_VALUE_NEEDED'; -- def 15
+UPDATE AiFavoredItems SET Value = 100 WHERE ListType = 'ExpansionistCitySettlement' AND Item = 'SETTLEMENT_CITY_MINIMUM_VALUE'; 
 
 
 --UPDATE AiFavoredItems SET Value = 4 WHERE ListType = 'DefaultCitySettlement' AND Item = 'SETTLEMENT_DECAY_AMOUNT'; -- Test, def 3

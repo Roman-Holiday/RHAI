@@ -583,9 +583,9 @@ INSERT OR IGNORE INTO AiListTypes (ListType) VALUES
 ('MajorFavorPseudos');
 INSERT OR IGNORE INTO AiLists (ListType, LeaderType, System) VALUES
 ('MajorFavorPseudos', 'MAJOR_CIV_DEFAULT_TRAIT', 'PseudoYields');
-INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
-('MajorFavorPseudos', 'PSEUDOYIELD_UNIT_COMBAT', 		1, -55),
-('MajorFavorPseudos', 'PSEUDOYIELD_GPP_PROPHET', 		0, -35);
+INSERT OR IGNORE INTO AiFavoredItems (ListType, Item, Value) VALUES
+('MajorFavorPseudos', 'PSEUDOYIELD_UNIT_COMBAT', 	-70), -- pvs -55, -62 favored
+('MajorFavorPseudos', 'PSEUDOYIELD_GPP_PROPHET', 	-30);
 
 
 --('MajorFavorPseudos', 'PSEUDOYIELD_GPP_RH_RELICMAN', 		0, -90);
