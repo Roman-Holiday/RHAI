@@ -501,3 +501,4 @@ FROM AiOperationTypes;
 --FROM AiOperationTypes;
 
 
+-- git prompt
