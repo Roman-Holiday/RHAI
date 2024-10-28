@@ -81,3 +81,6 @@ UPDATE AiFavoredItems SET Value = 0 WHERE ListType = 'ClassicalSettlement' AND I
 
 
 UPDATE AiOperationTeams SET InitialStrengthAdvantage = -10, OngoingStrengthAdvantage = -10 WHERE TeamName = 'Settle City Team' AND OperationName = 'Settle New City'; 
+
+
+-- git prompt
