@@ -1776,10 +1776,10 @@ INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES
 		('RH_RV_BASE_MOD_MXL',						'Amount'   , 700), 
 
 		('RH_RV_BASE_MOD_L',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_L',							'Amount'   , 440), 
+		('RH_RV_BASE_MOD_L',							'Amount'   , 550), 
 
 		('RH_RV_BASE_MOD_ML',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_ML',							'Amount'   , 330), 
+		('RH_RV_BASE_MOD_ML',							'Amount'   , 550), 
 
 		('RH_RV_BASE_MOD_S',		'YieldType', 		'YIELD_RH_RV_BASE'),
 		('RH_RV_BASE_MOD_S',							'Amount'   , 25),
