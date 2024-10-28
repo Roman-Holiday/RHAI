@@ -735,8 +735,8 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_EXPLORER', 1, 40),
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_SETTLER', 1, 40), -- pvs 12
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 30), -- For expansion -- pvs 14
-('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 18), -- pvs 22, 19, 21, 20
-('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 7), -- pvs 19, 17, 15, 13, 11
+('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 10), -- pvs 22, 19, 21, 20, 18
+('ClassicalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 5), -- pvs 19, 17, 15, 13, 11, 7
 ('ClassicalPseudoYields', 'PSEUDOYIELD_CLEAR_BANDIT_CAMPS',   1, 300), -- pvs 40, 110
 ('ClassicalPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, -2), -- pvs 3
 ('ClassicalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, -20), -- pvs 0
@@ -858,9 +858,9 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, 90),
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 		 1, 25),
 ('MedievalPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, 25),
-('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 8), -- pvs 13, 17, 15, 9
-('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 5), -- pvs 13, 12, 10, 8
-('MedievalPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT', 1, 5),
+('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 3), -- pvs 13, 17, 15, 9, 8
+--('MedievalPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 2), -- pvs 13, 12, 10, 8
+--('MedievalPseudoYields', 'PSEUDOYIELD_UNIT_COMBAT', 1, 5),
 ('MedievalPseudoYields', 'PSEUDOYIELD_UNIT_NAVAL_COMBAT', 1, 80), -- pvs 10, 35, 40 (AI wasn't build enough ships) -- not any ships in this era
 ('MedievalPseudoYields', 'PSEUDOYIELD_WONDER',   		1, 100), -- pvs 65
 ('MedievalPseudoYields', 'PSEUDOYIELD_DISTRICT', 		1, 250), -- pvs 0, build more, 10, 75
@@ -1007,11 +1007,11 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('RenaissanceDistricts', 'DISTRICT_THEATER',  		1, 0),
 
 ('RenaissancePseudoYields', 'PSEUDOYIELD_CITY_BASE', 1, 500),
-('RenaissancePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 5), -- pvs 21, 14, 10
-('RenaissancePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 3), -- 14, 10, 9, 5
+--('RenaissancePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 5), -- pvs 21, 14, 10
+--('RenaissancePseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 3), -- 14, 10, 9, 5
 ('RenaissancePseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 		1, 15),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, -7),
-('RenaissancePseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 5),
+--('RenaissancePseudoYields', 'PSEUDOYIELD_UNIT_COMBAT',   1, 5),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_GPP_PROPHET',   1, -15), -- Def -100
 ('RenaissancePseudoYields', 'PSEUDOYIELD_GPP_ARTIST', 1, 15),
 ('RenaissancePseudoYields', 'PSEUDOYIELD_GPP_MERCHANT', 1, 25),

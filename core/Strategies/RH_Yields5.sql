@@ -1770,19 +1770,19 @@ INSERT OR IGNORE INTO Modifiers  (ModifierId, ModifierType, SubjectRequirementSe
 
 INSERT OR IGNORE INTO ModifierArguments  (ModifierId, Name, Value) VALUES	
 		('RH_RV_BASE_MOD_XL',		'YieldType', 	'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_XL',						'Amount'   , 750), 
+		('RH_RV_BASE_MOD_XL',						'Amount'   , 850), 
 
 		('RH_RV_BASE_MOD_MXL',		'YieldType', 	'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_MXL',						'Amount'   , 400), 
+		('RH_RV_BASE_MOD_MXL',						'Amount'   , 700), 
 
 		('RH_RV_BASE_MOD_L',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_L',							'Amount'   , 275), 
+		('RH_RV_BASE_MOD_L',							'Amount'   , 440), 
 
 		('RH_RV_BASE_MOD_ML',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_ML',							'Amount'   , 140), 
+		('RH_RV_BASE_MOD_ML',							'Amount'   , 330), 
 
 		('RH_RV_BASE_MOD_S',		'YieldType', 		'YIELD_RH_RV_BASE'),
-		('RH_RV_BASE_MOD_S',							'Amount'   , 20),
+		('RH_RV_BASE_MOD_S',							'Amount'   , 25),
 
 		('RH_RV_BASE_MOD_XS',		'YieldType', 		'YIELD_RH_RV_BASE'),
 		('RH_RV_BASE_MOD_XS',							'Amount'   , 5),

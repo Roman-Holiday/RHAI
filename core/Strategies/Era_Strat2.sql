@@ -57,7 +57,7 @@ INSERT OR REPLACE INTO AiFavoredItems (ListType, Item, Favored, Value) VALUES
 ('IndustrialPseudoYields', 'PSEUDOYIELD_CITY_DEFENSES', 1, -35), -- pvs -20
 ('IndustrialPseudoYields', 'PSEUDOYIELD_CITY_DEFENDING_UNITS', 1, -30),
 ('IndustrialPseudoYields', 'PSEUDOYIELD_CITY_ORIGINAL_CAPITAL', 1, 15),
-('IndustrialPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 12), -- pvs 20, 17, 15, 14
+('IndustrialPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_NUMBER',   1, 5), -- pvs 20, 17, 15, 14
 
 --('IndustrialPseudoYields', 'PSEUDOYIELD_STANDING_ARMY_VALUE',   1, 7), -- pvs 15, 13, 11, 7
 
